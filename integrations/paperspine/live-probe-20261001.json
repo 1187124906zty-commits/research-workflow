@@ -1,0 +1,18 @@
+{
+  "fixture": "synthetic protocol test only",
+  "isolated_profile": true,
+  "user_tasks_modified": false,
+  "web_launch": true,
+  "open_task": true,
+  "get_task": true,
+  "bind_evidence_roundtrip": true,
+  "scientific_validation": false,
+  "web_configuration_tested": false,
+  "independent_review_tested": false,
+  "cleanup": true,
+  "notes": [
+    "Evidence links are reference metadata, not source reading or scientific support verification."
+  ],
+  "product_version": "0.4.0-alpha.3",
+  "locator_preserved_in_projection": false
+}

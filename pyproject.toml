@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "researchflow-governance"
+version = "0.1.0"
+description = "Small, evidence-bound coordination runtime for multi-agent research"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+researchflow = "researchflow.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

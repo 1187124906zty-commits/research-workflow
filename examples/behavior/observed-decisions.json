@@ -1,0 +1,579 @@
+{
+  "artifact_type": "independent_forward_research_decisions",
+  "language": "zh-CN",
+  "date": "2026-10-01",
+  "scope": {
+    "source": "examples/behavior/scenarios.json",
+    "source_authenticity": "明确 synthetic fixture；不属于真实实验、已发表文献或实际求解器运行",
+    "performed": [
+      "读取指定技能及与场景相关的 references",
+      "只读四个 user_request 与原始记录",
+      "依据原始数值进行差值、均值、样本标准差和单位换算",
+      "独立形成研究判断、后续任务契约与当前可写段落"
+    ],
+    "not_performed": [
+      "未读取仓库 validation 报告或测试 rubric",
+      "未读取其他 agent 结论",
+      "未访问网络",
+      "未启动外部求解器或科研软件",
+      "未修改 skills 或真实科研项目",
+      "未调度下面的拟议任务"
+    ],
+    "actual_written_outputs": [
+      "local-runs/forward-test/decisions.json",
+      "local-runs/forward-test/report.md"
+    ],
+    "interpretation_limit": "这些判断评价 fixture 内证据能支撑哪些表述；不构成真实模型验证、文献新颖性评估或期刊接收判断。"
+  },
+  "skill_sources_read": [
+    "skills/research-workflow-governor/SKILL.md",
+    "skills/research-workflow-governor/references/workflow.md",
+    "skills/research-workflow-governor/references/governance.md",
+    "skills/research-workflow-governor/references/journal-and-claims.md",
+    "skills/simulation-project-orchestrator/SKILL.md",
+    "skills/simulation-project-orchestrator/references/research-efficiency.md",
+    "skills/simulation-project-orchestrator/references/gates.md",
+    "skills/simulation-project-orchestrator/references/mechanism-result-analysis.md",
+    "skills/simulation-project-orchestrator/references/pre-solver-preflight.md",
+    "skills/simulation-project-orchestrator/references/literature-validation.md"
+  ],
+  "cases": [
+    {
+      "id": "case-01",
+      "stage": "paper_formation",
+      "question": "在当前模型内，两个场景的归一化通量排名是否受离散误差影响？",
+      "scientific_decision": "在给定 synthetic 记录和其报告的验证检查内，A 的通量高于 B，离散加密未改变排名；当前排名问题已得到足够明确的回答，转向证据约束的写作与贡献界定。",
+      "quantitative_evidence": {
+        "grid_levels": [
+          20,
+          40,
+          80
+        ],
+        "a_flux": [
+          1,
+          1,
+          1
+        ],
+        "b_flux": [
+          0.624,
+          0.6232,
+          0.623
+        ],
+        "finest_difference_a_minus_b": 0.377,
+        "finest_b_reduction_relative_to_a_percent": 37.7,
+        "finest_pair_b_change_absolute": 0.0002,
+        "finest_pair_b_change_relative_to_finest_percent": 0.03210272873193868,
+        "coarse_to_fine_b_change_absolute": 0.001,
+        "finest_reported_relative_error": 0.000125,
+        "reported_conservation_relative_imbalance": 3e-13,
+        "evidence_locators": [
+          "examples/behavior/scenarios.json#/cases/0/artifacts/runs",
+          "examples/behavior/scenarios.json#/cases/0/artifacts/verification",
+          "examples/behavior/scenarios.json#/cases/0/artifacts/prior_returns"
+        ]
+      },
+      "supported_claims": [
+        {
+          "id": "c01-ranking",
+          "claim": "三个记录网格上均有 A>B；最细网格的归一化通量比 B/A=0.623。",
+          "level": "模型内、报告的数值验证证据",
+          "locator": "examples/behavior/scenarios.json#/cases/0/artifacts/runs"
+        },
+        {
+          "id": "c01-adequacy",
+          "claim": "对排名这一 QoI，现有加密变化及报告的误差尺度远小于 0.377 的场景差；没有显示可能反转排名的离散影响。",
+          "level": "当前排名决策的数值充分性判断",
+          "locator": "examples/behavior/scenarios.json#/cases/0/artifacts/runs"
+        }
+      ],
+      "unsupported_claims": [
+        "B 的真实材料通量比 A 低 37.7%。",
+        "模型得到实验验证，或适用于未测参数、边界条件和材料。",
+        "B/A=0.623 的最后所有小数位已被严格证明准确。",
+        "通量下降由某个唯一微观机制造成。",
+        "这是新算法或已具备某期刊投稿条件。"
+      ],
+      "evidence_limits": [
+        "误差估计器的定义、适用 QoI 和构造方式未给出；这里只按 fixture 报告的尺度解释，未重做验证。",
+        "PDE、参数表、归一化分母和实际边界条件细节没有随记录提供；可写比较段落，但完整可复现方法尚须从项目原始记录补齐。",
+        "没有材料实验；不得把数值验证称为物理验证。",
+        "名为 grid 的级别不足以独立证明空间尺度 h 的变化规则，故不正式宣称收敛阶。"
+      ],
+      "next_action": {
+        "selected": "停止针对排名的例行加密，把现有比较写入方法与结果，建立待补方法信息清单和贡献/读者说明。",
+        "expected_information_gain": "两次既往加密合计 10 h 未改变排名判断；继续同向加密很难改变该比较。写作能揭示方法可复现信息和贡献边界缺口，从而决定后续是期刊定位、机制诊断还是新增物理参照。",
+        "alternative_not_selected": "再升一级网格以增加小数位。",
+        "reopen_condition": "若改写为局部峰值、机制、极小差异、不同参数或实验验证问题，重新评价相应 QoI 的误差；当前充分性不能直接移用。"
+      },
+      "downstream_task": {
+        "dispatch_status": "proposed_not_dispatched",
+        "execution_in_this_forward_test": false,
+        "coordinator_owns_claim_decision": true,
+        "task_id": "forward-c01-evidence-bound-writing",
+        "owner_role": "方法与结果写作/证据整理",
+        "research_question": "能否将 A 与 B 的模型内通量差异写成可追溯、边界明确的方法与结果，并指出真正影响成稿的缺失信息？",
+        "why_this_changes_project": "将稳定排名转为可审阅的论证，并暴露复现性与读者价值缺口，避免把时间继续花在已经不影响结论的网格细化上。",
+        "relevant_claims": [
+          "c01-ranking",
+          "c01-adequacy"
+        ],
+        "exact_inputs": [
+          "examples/behavior/scenarios.json#/cases/0/artifacts/runs",
+          "examples/behavior/scenarios.json#/cases/0/artifacts/verification",
+          "examples/behavior/scenarios.json#/cases/0/artifacts/data_role",
+          "examples/behavior/scenarios.json#/cases/0/artifacts/limitations",
+          "本文件 case-01 的判断与数字"
+        ],
+        "required_outputs": [
+          {
+            "path": "local-runs/forward-test/proposed-case-01-methods-results.md",
+            "status": "未来任务的拥有路径；本次未创建",
+            "contents": "方法/结果草稿、数值表、claim-to-evidence 列表、PDE/参数/BC/归一化定义等缺失信息及其影响"
+          }
+        ],
+        "allowed_scope": "只组织给定证据；实际原始方法记录若不可得则标 UNKNOWN；目标期刊待定，写成通用科研段落。",
+        "forbidden_changes": [
+          "不更换物理参数或边界条件",
+          "不臆造方程、误差估计器或归一化定义",
+          "不赋予 synthetic 数据实验身份",
+          "不新增 solver run"
+        ],
+        "budget": {
+          "max_wall_time_minutes": 60,
+          "max_solver_runs": 0,
+          "default_return_after": "一轮完整方法/结果草稿和缺口清单"
+        },
+        "return_condition": "段落与每个数字均能定位到原记录后立即返回；遇到缺失方法信息就标出，不以猜测完成方法。",
+        "acceptance_rationale": "可接受的是准确保留模型内稳定排名、误差尺度及验证级别的草稿；是否满足目标期刊和是否值得追加机制研究仍由协调者决定。"
+      },
+      "task_disposition": {
+        "accepted_evidence": "现有三个网格的比较和报告的检查，足以关闭当前排名疑问。",
+        "hypothesis_disposition": "A>B 的模型内排名获支持；真实材料优势和机制未获支持。",
+        "pause": [
+          "排名目的下的进一步例行加密",
+          "真实材料验证/唯一机制的宣称"
+        ],
+        "continue": [
+          "证据约束的方法与结果写作",
+          "补齐方法复现信息",
+          "贡献与期刊读者定位"
+        ]
+      },
+      "manuscript": {
+        "methods": "本 synthetic 比较以两个场景的记录归一化通量为评价量，在 grid=20、40 和 80 三个离散级别上考察场景排名及通量变化。记录报告已检查方程、单位、边界条件和物理界限，解析基准与计算相符，全局守恒相对不平衡为 3×10⁻¹³。数值充分性按场景间通量差与加密变化的尺度关系判断，而不以增加小数位作为终点。现有资料属于数值验证记录；控制方程、具体参数和归一化定义仍需从原方法记录补充，方能形成完整可复现方法。",
+        "results": "在三个离散级别上，场景 A 的记录归一化通量均为 1.0000，场景 B 分别为 0.6240、0.6232 和 0.6230，排名始终为 A>B。最细级别中 B 相对 A 低 37.7%，而 grid=40 到 80 的 B 通量变化仅为 0.0002，约为最细级别 B 通量的 0.0321%；该级别报告的相对误差估计为 0.0125%。这些数值变化远小于场景差异，支持给定模型内的通量排名对现有加密稳定。",
+        "discussion": "现有比较已回答给定参数和边界条件下的模型内排名问题，继续相同目的的加密预期不会明显改变论证。该结果仍不能解释通量差的唯一机制，也不能建立真实材料的实验一致性；后续研究应根据论文的读者问题决定是否需要机制诊断或独立物理参照。"
+      }
+    },
+    {
+      "id": "case-02",
+      "stage": "paper_formation",
+      "question": "模型是否支持方案 B 比 A 的通量更高？",
+      "scientific_decision": "不能支持 B>A。当前记录在不同网格上发生符号反转，差异也小于报告的 QoI 数值不确定性；应将结果写为未分辨排名，而不是宣称两者相同或优选 B。",
+      "quantitative_evidence": {
+        "grid_20_delta_b_minus_a": 0.007,
+        "grid_20_relative_contrast_to_a_percent": 0.7,
+        "grid_40_delta_b_minus_a": -0.003,
+        "grid_40_relative_contrast_to_a_percent": -0.2985074626865564,
+        "reported_qoi_relative_numerical_uncertainty_percent": 3,
+        "total_attempt_limit": 2,
+        "completed_attempts": 1,
+        "remaining_attempts": 1,
+        "evidence_locators": [
+          "examples/behavior/scenarios.json#/cases/1/artifacts/runs",
+          "examples/behavior/scenarios.json#/cases/1/artifacts/estimated_qoi_relative_numerical_uncertainty",
+          "examples/behavior/scenarios.json#/cases/1/artifacts/budget"
+        ]
+      },
+      "supported_claims": [
+        {
+          "id": "c02-unresolved",
+          "claim": "grid=20 时 B-A=+0.007，grid=40 时 B-A=-0.003；当前排名未被数值证据分辨。",
+          "locator": "examples/behavior/scenarios.json#/cases/1/artifacts/runs"
+        },
+        {
+          "id": "c02-control-status",
+          "claim": "记录声明相同 PDE 和条件，物理界限与守恒已检查；这没有消除 QoI 精度问题。",
+          "locator": "examples/behavior/scenarios.json#/cases/1/artifacts/controls"
+        }
+      ],
+      "unsupported_claims": [
+        "B 的通量更高",
+        "A 的通量更高的稳定排名",
+        "两个方案等效或通量严格相同",
+        "排名的置信区间或显著性已确定",
+        "真实材料的物理优劣已得到验证"
+      ],
+      "evidence_limits": [
+        "3% 不确定性的估计方法、覆盖含义及 A/B 误差相关性未给出，不能直接构造差值置信区间或把两个 3% 当作独立误差。",
+        "通量是否越高越好取决于使用目标；目前只判断更高通量排名，不代替整体方案优劣决策。",
+        "没有物理测量。",
+        "已有一轮尝试，剩余最多一轮；预算结束若仍未分辨，结论仍是未分辨，不能据此给出 PASS。"
+      ],
+      "next_action": {
+        "selected": "用剩余一次尝试做固定物理的成对数值诊断，直接估计差值 Δ=J_B−J_A 的误差；先核对现有记录的归一化和误差定义，必要时仅增加一个共同精细级别的 A/B 对。",
+        "expected_information_gain": "零残差或单一方案的加密不能直接判断一个不到 1% 且已反转的差异。成对差值诊断能检验误差是否相关抵消以及符号是否可分辨，是区分真实模型差异与离散伪差的最低成本数值动作。",
+        "alternative_not_selected": "直接选 B；从 grid=20 的正差值写改善结果；为成稿无限追加网格。",
+        "stop_or_reframe": "一次有界诊断后若差值仍跨零或缺乏可信误差界，返回未分辨结果；将论文主张改为当前分辨率下的差异界限，或由协调者另立有科学价值的新问题。"
+      },
+      "downstream_task": {
+        "dispatch_status": "proposed_not_dispatched",
+        "execution_in_this_forward_test": false,
+        "coordinator_owns_claim_decision": true,
+        "task_id": "forward-c02-paired-qoi-diagnostic",
+        "owner_role": "数值证据执行与差值分析",
+        "research_question": "在固定 PDE、条件和通量定义下，Δ=J_B−J_A 的符号能否用一次剩余成对诊断分辨？",
+        "why_this_changes_project": "决定能否写方向性的高通量排名，或必须报告不可分辨差异。",
+        "relevant_claims": [
+          "c02-unresolved"
+        ],
+        "exact_inputs": [
+          "examples/behavior/scenarios.json#/cases/1/artifacts/runs",
+          "examples/behavior/scenarios.json#/cases/1/artifacts/controls",
+          "examples/behavior/scenarios.json#/cases/1/artifacts/estimated_qoi_relative_numerical_uncertainty",
+          "examples/behavior/scenarios.json#/cases/1/artifacts/budget"
+        ],
+        "required_outputs": [
+          {
+            "path": "local-runs/forward-test/proposed-case-02-difference-diagnostic.json",
+            "status": "未来任务的拥有路径；本次未创建",
+            "contents": "冻结输入、Δ 表、误差估计方法与相关性假设、必要时的一对新输出、界限/守恒检查、能或不能分辨符号的结论"
+          }
+        ],
+        "allowed_scope": "先审查已有数据归一化与误差来源；若可获取原冻结模型，只允许一个共同精细级别的 A/B 成对尝试，不改变物理模型。",
+        "forbidden_changes": [
+          "不放宽误差标准来获得排名",
+          "不假定误差独立或相关抵消",
+          "不以稳定两次的符号代替可信差值误差估计",
+          "不把未分辨解释为等效",
+          "不借用新模型或拟合来救 B>A 主张"
+        ],
+        "budget": {
+          "max_wall_time_minutes": 120,
+          "remaining_diagnostic_attempts": 1,
+          "max_new_paired_grid_levels": 1,
+          "max_individual_solver_runs": 2
+        },
+        "adequacy_rationale": "方向性排名只有在可信差值误差范围排除 0、符号与已有合理级别一致且相关物理检查成立时才可升级；现有信息未提供支持任意固定百分比阈值的理由。",
+        "return_condition": "可信差值界足以分辨符号时立即返回；否则完成一次剩余诊断或到 120 min 就返回未分辨证据及原因，不追加尝试。",
+        "acceptance_rationale": "可接受正、负或无法分辨的返回；接受的是记录和误差判断，不预先承诺 B 更高。若原模型/误差方法不可得，明确缺口并直接返回。"
+      },
+      "task_disposition": {
+        "accepted_evidence": "两个网格的原始差值和 3% 数值不确定性警示。",
+        "hypothesis_disposition": "B>A 暂不成立；A>B 也没有稳定支持；两者等效没有被检验。",
+        "pause": [
+          "方向性优选结论",
+          "以微小差异为依据的后续方案推广"
+        ],
+        "continue": [
+          "如实写未分辨结果",
+          "一次剩余成对差值诊断",
+          "不依赖排名的背景与方法整理"
+        ]
+      },
+      "manuscript": {
+        "results": "本 synthetic 比较中，grid=20 时方案 A 和 B 的通量分别为 1.000 和 1.007，B 相对 A 高 0.7%；在 grid=40 时，A 和 B 分别为 1.005 和 1.002，B 相对 A 低约 0.30%。差值随离散级别发生符号反转，其尺度小于记录报告的 3% QoI 数值不确定性。因此，现有证据未能分辨 A 与 B 的通量排名，不能据此判定 B 更优；该结果也不构成两个方案等效的证明。由于没有物理测量，此处结论限于当前模型的数值比较。",
+        "discussion": "下一次数值工作应针对成对通量差的误差与符号，而不是单纯降低求解残差。如果在剩余一次诊断内仍无法分辨差值，结果部分应保留这一精度边界，并重新评估微小通量差是否足以承担论文的主要论点。"
+      }
+    },
+    {
+      "id": "case-03",
+      "stage": "paper_formation",
+      "question": "实验条件下的预测能否比较实测通量？",
+      "scientific_decision": "当前输入未编码源记录的长度，比较受到确定的单位转换错误污染。暂停由错误几何结果支撑的验证和物理解释，保留其他独立工作；最小修复是从源单位转换出 0.1 m，并重建受该长度影响的候选与结果。",
+      "quantitative_evidence": {
+        "source_length_mm": 100,
+        "derived_source_length_m": 0.1,
+        "erroneous_solver_length_m": 100,
+        "erroneous_to_source_length_ratio": 1000,
+        "diffusivity_m2_per_s": 1e-09,
+        "boundary_normalized_concentration": [
+          1,
+          0
+        ],
+        "original_predicted_flux_m_per_s": 1e-11,
+        "synthetic_observed_flux_m_per_s": 1.01e-08,
+        "conditional_steady_1d_fick_reference_flux_m_per_s": 1e-08,
+        "original_signed_relative_difference_to_observation_percent": -99.9009900990099,
+        "conditional_corrected_signed_relative_difference_to_observation_percent": -0.9900990099009827,
+        "analytical_reference_status": "DERIVED conditional check；假设已声明模型为均匀一维稳态 Fick 扩散且 QoI 为归一化浓度通量 DΔc/L；不是实际重跑输出",
+        "evidence_locators": [
+          "examples/behavior/scenarios.json#/cases/2/artifacts/source_record",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/solver_input",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/predicted_flux_m_per_s",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/observed_flux_m_per_s",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/source_status"
+        ]
+      },
+      "supported_claims": [
+        {
+          "id": "c03-unit-defect",
+          "claim": "源记录 100 mm 等于 0.1 m，当前 length_m=100 与源记录不一致，差 1000 倍。",
+          "locator": "examples/behavior/scenarios.json#/cases/2/artifacts/source_record"
+        },
+        {
+          "id": "c03-conditional-scale",
+          "claim": "在明示的一维稳态归一化 Fick 检查中，J=DΔc/L：100 m 给出 1e-11 m/s，0.1 m 给出 1e-8 m/s。该错误足以解释当前量级差。",
+          "level": "带假设的代数诊断，不是求解器运行或验证",
+          "locator": "examples/behavior/scenarios.json#/cases/2/artifacts/solver_input"
+        }
+      ],
+      "unsupported_claims": [
+        "该量级偏差证明材料扩散系数或模型物理错误。",
+        "把 D 调大 1000 倍即可完成物理校准。",
+        "长度修正后已实际运行，预测通量已经等于 1e-8 m/s。",
+        "约 0.99% 的条件性偏差已满足物理验证。",
+        "fixture 中的 observed_flux 是来自真实实验论文的测量。"
+      ],
+      "evidence_limits": [
+        "实际控制方程和观测算子未提供；DΔc/L 检查不能悄然补充为源文献模型。",
+        "不存在独立真实实验源、测量不确定性或预声明验证统计阈值。",
+        "原计算结果与错误输入绑定，仅可作为缺陷历史，不能支持修订输入。",
+        "源单位错误属于源到输入的实现映射缺陷；不应通过改变材料系数来掩盖。"
+      ],
+      "next_action": {
+        "selected": "创建单位修正的候选修订：length_m=0.1，保持 D 和边界值不变；检查生成几何及观测量是否沿用错误长度，再执行一个有界修正重跑（本次测试只提出契约并给出代数参照）。",
+        "expected_information_gain": "当前确定的 1000 倍长度错误直接改变预测尺度；先修它可以解除条件匹配缺陷，并把是否仍存在物理模型偏差与输入错误分开。",
+        "alternative_not_selected": "先拟合 D、增加复杂物理、加密错误几何、暂停整篇论文。",
+        "dependencies_invalidated": [
+          "由 length_m=100 生成的几何/网格尺度",
+          "该候选的预测通量",
+          "依赖其结果的比较图、验证统计和物理解释"
+        ],
+        "unaffected_dependencies": [
+          "不依赖当前求解器长度的已核对文献",
+          "期刊作者要求",
+          "一般背景论证"
+        ]
+      },
+      "downstream_task": {
+        "dispatch_status": "proposed_not_dispatched",
+        "execution_in_this_forward_test": false,
+        "coordinator_owns_claim_decision": true,
+        "task_id": "forward-c03-unit-mapping-repair",
+        "owner_role": "输入映射修复与执行",
+        "research_question": "源记录 100 mm 正确编码为 0.1 m 后，保持其余输入不变的候选是否得到一致的尺度和可比较的通量？",
+        "why_this_changes_project": "清除明确的条件匹配错误；只有此后剩余偏差才可能进入数值误差或物理模型调查。",
+        "relevant_claims": [
+          "c03-unit-defect",
+          "c03-conditional-scale"
+        ],
+        "exact_inputs": [
+          "examples/behavior/scenarios.json#/cases/2/artifacts/source_record",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/solver_input",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/observed_flux_m_per_s",
+          "examples/behavior/scenarios.json#/cases/2/artifacts/source_status"
+        ],
+        "required_outputs": [
+          {
+            "path": "local-runs/forward-test/proposed-case-03-unit-repair.json",
+            "status": "未来任务的拥有路径；本次未创建",
+            "contents": "源值/单位/转换表、旧新候选差异、所有长度依赖项、若可执行则真实修正重跑日志及通量、保留的失败记录与验证限制"
+          }
+        ],
+        "input_revision": {
+          "old": "fixture-case03-input-v1-length100m",
+          "proposed": "fixture-case03-input-v2-source100mm-to0.1m"
+        },
+        "allowed_scope": "仅修正源到输入的长度单位映射及相应依赖的几何表示；先重建实际方程/QoI 映射，若确认适用再用 DΔc/L 做尺度检查。",
+        "forbidden_changes": [
+          "不改变 D=1e-9 m2/s",
+          "不改变归一化浓度边界 [1,0]",
+          "不拟合 synthetic observation",
+          "不删除原失败候选",
+          "不把代数参照冒充重跑输出",
+          "不宣称真实物理验证"
+        ],
+        "budget": {
+          "max_wall_time_minutes": 90,
+          "max_corrected_solver_runs": 1,
+          "max_input_repair_rounds": 1
+        },
+        "adequacy_rationale": "100 mm→0.1 m 是确定的源一致性要求；模型输出的数值误差与真实验证阈值则须另外依据 QoI、观测误差和用途设定，不能由本次看到的 0.99% 偏差倒推。",
+        "return_condition": "单位映射及其依赖项修复、一个修正重跑完成后返回；若实际模型/必要观测算子不可得或重跑失败，在一轮预算内返回具体缺口，不开展物理拟合。",
+        "acceptance_rationale": "接受可定位的输入修正与实际结果或清楚的未执行状态。错误几何记录仍保持失败；源一致性修复不自动提升为物理验证。"
+      },
+      "task_disposition": {
+        "accepted_evidence": "源长度及求解器长度的直接冲突；条件性 Fick 尺度检查解释当前量级。",
+        "hypothesis_disposition": "当前条件匹配失败；尚不能判断模型的物理一致性。",
+        "pause": [
+          "physical validation claim",
+          "基于旧输入的实验比较图与结论",
+          "用旧偏差推断材料机制或拟合 D",
+          "依赖旧预测的昂贵方案研究"
+        ],
+        "continue": [
+          "extract current journal author requirements（独立任务；本测试未访问网络）",
+          "draft background from previously checked references（不依赖旧通量）",
+          "源到输入单位表及修复",
+          "报告确定的输入缺陷及其影响"
+        ]
+      },
+      "manuscript": {
+        "diagnostic_results": "本 synthetic 流程检查发现源记录与模型输入存在长度单位不一致：源值为 100 mm，即 0.1 m，而求解器输入将 length_m 设为 100。该错误使建模长度增加 1000 倍。在均匀一维稳态 Fick 扩散且归一化浓度差为 1 的条件性尺度检查中，J=DΔc/L，错误长度对应 1×10⁻¹¹ m/s，修正长度对应 1×10⁻⁸ m/s。后一代数参照与 fixture 的 1.01×10⁻⁸ m/s 相差约 −0.99%，但它不是已执行的修正模拟；原结果与源条件不匹配，不能用于物理验证或材料机制判断。",
+        "discussion": "优先修复长度映射，而非调整扩散系数，可以将输入实现错误与剩余模型偏差分开。修复后应保留旧候选的失败记录，并重新生成所有依赖长度的计算和比较；即使剩余偏差很小，synthetic 观测也不足以建立真实系统的验证结论。"
+      }
+    },
+    {
+      "id": "case-04",
+      "stage": "paper_formation",
+      "question": "处理 B 是否在所有条件下都提高响应？",
+      "scientific_decision": "原主张被新增 Y 条件记录否定。贡献应从普遍提高转为两个已测条件下响应方向相反的适用边界；当前不能在真实条件依赖与遗漏因子之间作机制归因。",
+      "quantitative_evidence": {
+        "descriptive_summaries": [
+          {
+            "condition": "X",
+            "n_a": 3,
+            "n_b": 3,
+            "mean_a": 10,
+            "mean_b": 12,
+            "sample_sd_a": 0.1,
+            "sample_sd_b": 0.1,
+            "delta_b_minus_a": 2,
+            "relative_delta_to_a_percent": 20
+          },
+          {
+            "condition": "Y",
+            "n_a": 3,
+            "n_b": 3,
+            "mean_a": 10,
+            "mean_b": 8,
+            "sample_sd_a": 0.1,
+            "sample_sd_b": 0.1,
+            "delta_b_minus_a": -2,
+            "relative_delta_to_a_percent": -20
+          }
+        ],
+        "descriptive_difference_in_condition_contrasts_y_minus_x": -4,
+        "units": "源记录未声明响应单位；保留原响应尺度",
+        "statistics_status": "原始值的描述性均值与样本 SD，未计算显著性或因果效应",
+        "evidence_locators": [
+          "examples/behavior/scenarios.json#/cases/3/artifacts/measurements",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/provenance",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/mechanism_status",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/prior_solver_attempts",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/original_claim"
+        ]
+      },
+      "supported_claims": [
+        {
+          "id": "c04-sign-reversal",
+          "claim": "synthetic 样本均值中，X 的 B−A=+2，Y 的 B−A=−2；两条件的观察方向相反。",
+          "locator": "examples/behavior/scenarios.json#/cases/3/artifacts/measurements"
+        },
+        {
+          "id": "c04-original-rejected",
+          "claim": "B 在每个已测条件均提高响应的原命题被 Y 的原始记录反驳，不能在摘要或结论继续使用。",
+          "locator": "examples/behavior/scenarios.json#/cases/3/artifacts/original_claim"
+        },
+        {
+          "id": "c04-mechanism-unresolved",
+          "claim": "当前记录没有能区分条件依赖与遗漏因子的诊断。",
+          "locator": "examples/behavior/scenarios.json#/cases/3/artifacts/mechanism_status"
+        }
+      ],
+      "unsupported_claims": [
+        "B 普遍改善响应。",
+        "Y 的降低已被确定为某一物理机制。",
+        "某遗漏因子已被识别。",
+        "三个重复值足以证明跨批次、跨人群或所有条件的泛化。",
+        "这些数值提供了随机处理分配或因果识别证据。",
+        "样本 SD=0.1 等于完整测量不确定性。"
+      ],
+      "evidence_limits": [
+        "X/Y 的物理含义、控制变量、批次/顺序/其他条件记录缺失；不可编造。",
+        "只有每组三个声明独立的 synthetic 重复值；重复结构按声明保留，不臆造 A/B 配对关系。",
+        "响应单位和仪器系统误差未知，未进行显著性、区间或因果推断。",
+        "当前比较改变论文贡献，但实际发表价值仍须结合领域问题、真实证据与期刊评估。"
+      ],
+      "next_action": {
+        "selected": "立即撤回普遍改善表述并写入条件性反转；下一证据任务是审查 X/Y 的条件和潜在遗漏因子定义，制定一项控制混杂的最小交叉对照诊断。",
+        "expected_information_gain": "两轮更紧容差只复查 X 的不变预测，没有解释 Y 的反向响应。把条件变量与可能混杂因素分开，才能区分真实条件效应与遗漏输入，而不是给现有机制叙述更多小数位。",
+        "competing_explanations": [
+          {
+            "id": "H1",
+            "hypothesis": "处理响应本身依赖 X/Y 所代表的条件。",
+            "predicted_discriminator": "固定可疑遗漏因素 Z 后，B−A 在 X 与 Y 间仍反转。",
+            "falsifier": "固定 Z 后条件间反转消失。",
+            "status": "待定义条件变量后可检验的假设"
+          },
+          {
+            "id": "H2",
+            "hypothesis": "X/Y 同时改变一个遗漏因素 Z，反转由 Z 或其与处理的交互造成。",
+            "predicted_discriminator": "在同一 X/Y 条件内改变 Z 即改变 B−A 的方向，或固定 Z 后 X/Y 反转消失。",
+            "falsifier": "在可识别且确实受控的 Z 值下仍观察稳定的 X/Y 反转，且对 Z 的变化不敏感。",
+            "status": "Z 未知；只是备选结构，不是已发现因素"
+          }
+        ],
+        "alternative_not_selected": "再降低 X 的求解容差或只重跑 X 以填满论文。",
+        "reopen_condition": "若元数据找到具体遗漏因素或可检验的条件变量，以新任务修订 Physics Contract/实验控制；不沿用旧普遍改善主张。"
+      },
+      "downstream_task": {
+        "dispatch_status": "proposed_not_dispatched",
+        "execution_in_this_forward_test": false,
+        "coordinator_owns_claim_decision": true,
+        "task_id": "forward-c04-condition-factor-discrimination",
+        "owner_role": "条件记录与机制诊断设计",
+        "research_question": "需要哪一个最小受控对照，才能把 X/Y 的条件依赖与一个具体遗漏因素 Z 分开？",
+        "why_this_changes_project": "决定论文能停留在观察到的适用边界，还是有证据支持条件依赖机制；直接影响贡献而非求解器精度。",
+        "relevant_claims": [
+          "c04-sign-reversal",
+          "c04-original-rejected",
+          "c04-mechanism-unresolved"
+        ],
+        "exact_inputs": [
+          "examples/behavior/scenarios.json#/cases/3/artifacts/measurements",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/provenance",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/mechanism_status",
+          "examples/behavior/scenarios.json#/cases/3/artifacts/prior_solver_attempts",
+          "本记录明确的 X/Y 定义与控制元数据缺口"
+        ],
+        "required_outputs": [
+          {
+            "path": "local-runs/forward-test/proposed-case-04-discrimination-plan.md",
+            "status": "未来任务的拥有路径；本次未创建",
+            "contents": "原始重复值与条件均值表、X/Y 物理定义/单位/记录缺口、一个来源可查的 Z（若能查到）、H1/H2 的相反预测、最小交叉对照设计及其固定项/输出/停止条件"
+          }
+        ],
+        "allowed_scope": "先核对原始条件/批次/顺序/观测算子记录；只有定义了 X/Y 与至少一个可控的 Z 才设计 X/Y×Z 对照，并在各格比较 A/B。不在此任务内执行新实验或新 solver campaign。",
+        "forbidden_changes": [
+          "不删除 Y 或降低其证据地位来保护原贡献",
+          "不把条件相关观察称为因果识别",
+          "不凭 fixture 发明具体物理因素",
+          "不重复 X 的容差收紧",
+          "不把被查看的响应记录改称未见验证数据"
+        ],
+        "budget": {
+          "max_wall_time_minutes": 120,
+          "max_new_solver_runs": 0,
+          "max_new_experiments": 0,
+          "max_candidate_omitted_factors_for_first_design": 1
+        },
+        "return_condition": "一份可证伪、来源明确的最小对照计划完成即返回；若只有当前 fixture、缺 X/Y 定义和 Z 记录，则返回 MISSING_CONDITION_METADATA 与具体补证项，保持机制结论未分辨，不编造可运行模型。",
+        "acceptance_rationale": "接受解释反转所需的诊断计划或诚实的元数据缺口；不以计划完成接受任一机制。协调者随后决定是否授权一个控制对照，而不是无限扩大研究。"
+      },
+      "task_disposition": {
+        "accepted_evidence": "X/Y 的原始三重复记录与方向相反的样本差值。",
+        "hypothesis_disposition": "原普遍改善命题被否定；条件性反转描述受支持；H1/H2 尚未区分。",
+        "pause": [
+          "普遍改善的摘要、结论和依赖它的建议",
+          "重复 X 的容差收紧",
+          "唯一机制/总体因果或跨条件泛化主张"
+        ],
+        "continue": [
+          "条件性结果与讨论",
+          "修订贡献为适用边界",
+          "原始条件记录审查与一项最小对照设计"
+        ]
+      },
+      "manuscript": {
+        "methods": "本 synthetic 描述性分析保留每个条件下 A、B 各三个声明独立的重复值，以组均值表示中心趋势，并按 n−1 分母计算样本标准差。处理对比定义为同一条件下的均值差 Δ=mean(B)−mean(A)，相对对比以该条件的 A 均值为分母。记录未声明响应单位、随机处理分配或 A/B 配对关系，故不进一步实施因果或配对推断。",
+        "results": "在条件 X，A 与 B 的响应均值分别为 10.0 和 12.0，均值差 B−A 为 +2.0，即相对 A 提高 20%；在条件 Y，A 与 B 的均值分别为 10.0 和 8.0，差值为 −2.0，即降低 20%。各组均有三个 synthetic 重复值，样本标准差均为 0.1。两个条件的观察差值方向相反，因此记录不支持 B 在所有已测条件均提高响应的原主张。",
+        "discussion": "新出现的 Y 条件结果将论文的核心问题从统一改善转为处理效果的适用边界。两个条件间的方向反转已在样本记录中出现，但目前缺少能把条件依赖与遗漏因素区分开的诊断，不能将反转直接归因于某个机制。下一步应核对 X/Y 对应的实际控制变量及其他共同变化因素，并预先写出固定这些因素后两种解释的相反预测；继续收紧只涉及 X 的求解容差不会解决这一机制歧义。"
+      }
+    }
+  ],
+  "publication_copy": {
+    "path_normalization": "Repository-relative paths; research judgments are unchanged."
+  }
+}

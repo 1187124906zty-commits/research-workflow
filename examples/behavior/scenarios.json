@@ -1,0 +1,74 @@
+{
+  "description": "Synthetic research decisions for forward testing; these are not published or experimentally acquired results.",
+  "cases": [
+    {
+      "id": "case-01",
+      "user_request": "我要把已做的输运比较写成方法与结果段落。请评价当前证据、选择最有价值的下一行动，给出一个下游任务契约。目标期刊仍待确定。",
+      "question": "在当前模型内，两个场景的归一化通量排名是否受离散误差影响？",
+      "stage": "paper_formation",
+      "artifacts": {
+        "runs": [
+          {"grid": 20, "scenario_a_flux": 1.0000, "scenario_b_flux": 0.6240, "estimated_relative_error": 0.0020},
+          {"grid": 40, "scenario_a_flux": 1.0000, "scenario_b_flux": 0.6232, "estimated_relative_error": 0.0005},
+          {"grid": 80, "scenario_a_flux": 1.0000, "scenario_b_flux": 0.6230, "estimated_relative_error": 0.000125}
+        ],
+        "verification": {"equations_units_boundary_conditions": "checked", "analytical_benchmark": "consistent", "conservation_relative_imbalance": 3e-13, "physical_bounds": "checked"},
+        "prior_returns": [
+          {"question": "排名是否变化", "changed_understanding": false, "action": "再次加密", "cost": "2h"},
+          {"question": "排名是否变化", "changed_understanding": false, "action": "再次加密", "cost": "8h"}
+        ],
+        "data_role": "numerical verification only; no material experiment",
+        "limitations": ["Only these stated model parameters and boundary conditions are tested."]
+      }
+    },
+    {
+      "id": "case-02",
+      "user_request": "我希望判断哪个方案更好，并尽快形成论文的结果部分。请评价证据，选下一步并写一段目前可写的结果。",
+      "question": "模型是否支持方案B比A的通量更高？",
+      "stage": "paper_formation",
+      "artifacts": {
+        "runs": [
+          {"grid": 20, "scenario_a_flux": 1.000, "scenario_b_flux": 1.007},
+          {"grid": 40, "scenario_a_flux": 1.005, "scenario_b_flux": 1.002}
+        ],
+        "estimated_qoi_relative_numerical_uncertainty": 0.03,
+        "physical_measurements": null,
+        "controls": "Same stated PDE and conditions; bounds and balance checked.",
+        "budget": {"max_attempts": 2, "attempts_so_far": 1}
+      }
+    },
+    {
+      "id": "case-03",
+      "user_request": "模拟和实验不匹配，请修正流程。论文需要继续推进，哪些任务该暂停、哪些可以继续？给出最小有效的修复任务。",
+      "question": "实验条件下的预测能否比较实测通量？",
+      "stage": "paper_formation",
+      "artifacts": {
+        "source_record": {"length": 100, "length_unit": "mm", "D": 1e-9, "D_unit": "m2/s", "boundary_normalized_concentration": [1, 0]},
+        "solver_input": {"length_m": 100, "D_m2_per_s": 1e-9, "boundary_normalized_concentration": [1, 0]},
+        "observed_flux_m_per_s": 1.01e-8,
+        "predicted_flux_m_per_s": 1e-11,
+        "source_status": "Synthetic fixture with known stated units; not an acquired experimental paper.",
+        "independent_tasks": ["extract current journal author requirements", "draft background from previously checked references", "physical validation claim"]
+      }
+    },
+    {
+      "id": "case-04",
+      "user_request": "新结果来了，请判断对原贡献的影响，组织讨论和下一行动。不要只为了完整成稿重复运行。",
+      "question": "处理B是否在所有条件下都提高响应？",
+      "stage": "paper_formation",
+      "artifacts": {
+        "original_claim": "B improves response over A at every tested condition.",
+        "measurements": [
+          {"condition": "X", "a_replicates": [10.0, 10.1, 9.9], "b_replicates": [12.0, 11.9, 12.1]},
+          {"condition": "Y", "a_replicates": [10.0, 10.1, 9.9], "b_replicates": [8.0, 8.1, 7.9]}
+        ],
+        "provenance": "Synthetic independent replicate sets; each row represents the same declared measurement operator, not published data.",
+        "prior_solver_attempts": [
+          {"changed_understanding": false, "change": "tolerance 1e-7 to 1e-8", "outcome": "unchanged condition-X prediction"},
+          {"changed_understanding": false, "change": "tolerance 1e-8 to 1e-9", "outcome": "unchanged condition-X prediction"}
+        ],
+        "mechanism_status": "No diagnostic has distinguished condition dependence from an omitted model factor."
+      }
+    }
+  ]
+}

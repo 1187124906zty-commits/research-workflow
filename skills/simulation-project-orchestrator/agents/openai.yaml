@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simulation Project Orchestrator"
+  short_description: "Bound simulation effort to research questions and evidence"
+  default_prompt: "Use $simulation-project-orchestrator to answer my research question with bounded simulation work, evidence, and a justified next decision."

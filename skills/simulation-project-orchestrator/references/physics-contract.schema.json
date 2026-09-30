@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/physics-contract.schema.json",
+  "title": "Physics Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "revision",
+    "specification_revision",
+    "status",
+    "domains",
+    "variables",
+    "governing_terms",
+    "constitutive_relations",
+    "initial_conditions",
+    "boundary_conditions",
+    "interface_conditions",
+    "coefficients",
+    "time_scheme",
+    "assumptions",
+    "units",
+    "closure_requirements",
+    "invariants_and_balances",
+    "analytical_limits",
+    "validity_domain"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "revision": { "type": "integer", "minimum": 1 },
+    "specification_revision": { "type": "integer", "minimum": 1 },
+    "status": { "type": "string", "enum": ["DRAFT", "FROZEN", "SUPERSEDED"] },
+    "domains": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+    "variables": { "type": "array", "items": { "$ref": "#/$defs/variable" } },
+    "governing_terms": { "type": "array", "items": { "$ref": "#/$defs/governingTerm" } },
+    "constitutive_relations": { "type": "array", "items": { "$ref": "#/$defs/equationRecord" } },
+    "initial_conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+    "boundary_conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+    "interface_conditions": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+    "coefficients": { "type": "array", "items": { "$ref": "#/$defs/parameter" } },
+    "time_scheme": { "$ref": "#/$defs/entity" },
+    "assumptions": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+    "units": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+    "closure_requirements": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+    "invariants_and_balances": { "type": "array", "items": { "$ref": "#/$defs/equationRecord" } },
+    "analytical_limits": { "type": "array", "items": { "$ref": "#/$defs/equationRecord" } },
+    "validity_domain": { "type": "array", "items": { "$ref": "#/$defs/entity" } }
+  },
+  "$defs": {
+    "sourceStatus": {
+      "type": "string",
+      "enum": ["USER_CONFIRMED", "SOURCE_BACKED", "SOFTWARE_DEFAULT", "CALIBRATED", "AGENT_PROPOSED", "DERIVED", "UNKNOWN"]
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    },
+    "variable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "symbol", "domain_id", "role", "unit", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "symbol": { "type": "string" },
+        "domain_id": { "type": "string" },
+        "role": { "type": "string", "enum": ["state", "test", "trial", "derived", "control", "random"] },
+        "unit": { "type": ["string", "null"] },
+        "tensor_rank": { "type": "integer", "minimum": 0 },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    },
+    "governingTerm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "equation_id", "domain_id", "variable_ids", "operator", "sign", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "equation_id": { "type": "string" },
+        "domain_id": { "type": "string" },
+        "variable_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "operator": { "type": "string" },
+        "coefficient_ids": { "type": "array", "items": { "type": "string" } },
+        "sign": { "type": "number", "enum": [-1, 1] },
+        "activation_condition": { "type": ["string", "null"] },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    },
+    "equationRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "expression", "scope", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "expression": { "type": "string" },
+        "scope": { "type": "string" },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "target", "expression", "unit", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string", "enum": ["initial", "dirichlet", "neumann", "robin", "periodic", "interface", "constraint", "other"] },
+        "target": { "type": "string" },
+        "expression": { "type": "string" },
+        "unit": { "type": ["string", "null"] },
+        "orientation_convention": { "type": ["string", "null"] },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "symbol", "value", "unit", "status"],
+      "properties": {
+        "id": { "type": "string" },
+        "symbol": { "type": "string" },
+        "value": {},
+        "unit": { "type": ["string", "null"] },
+        "uncertainty": {},
+        "valid_range": {},
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

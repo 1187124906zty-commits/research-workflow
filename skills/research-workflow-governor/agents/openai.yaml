@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Workflow Governor"
+  short_description: "Coordinate research agents with bounded evidence tasks"
+  default_prompt: "Use $research-workflow-governor to advance this research question through evidence, interpretation and a journal-facing manuscript."
+policy:
+  allow_implicit_invocation: true

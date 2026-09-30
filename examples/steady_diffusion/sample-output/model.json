@@ -1,0 +1,23 @@
+{
+  "equation": "d/dx(D(x) dc/dx)=0",
+  "coefficient": "D(x)=D0 exp(alpha x/L)",
+  "length_m": 1,
+  "D0_m2_per_s": 1e-09,
+  "alpha": [
+    0,
+    -1
+  ],
+  "grid_intervals": [
+    8,
+    16,
+    32
+  ],
+  "boundary_conditions": {
+    "c_at_0": 1,
+    "c_at_L": 0
+  },
+  "concentration_unit": "dimensionless",
+  "flux_unit": "m/s",
+  "data_role": "analytical verification; no experiments",
+  "acceptance_rationale": "Use analytic error and stable ranking; errors must be smaller than one twentieth of the comparison effect. This criterion is for this comparison only."
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/agent-opinion.schema.json",
+  "title": "Simulation Agent Evidence-bound Opinion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["opinion_id", "task_id", "agent_id", "role_id", "candidate_digest", "phase", "revision", "event_sequence", "recorded_at", "producer_rationale_seen", "supersedes_opinion_id", "disposition", "claims", "claim_evidence", "evidence_refs", "checks_performed", "counterexamples", "untested_obligations", "uncertainties", "nonnegotiable_conditions", "falsification_conditions", "dissent_ids", "clears_dissent_ids", "stop_line", "invalidates_on_change"],
+  "properties": {
+    "opinion_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string" },
+    "agent_id": { "type": "string" },
+    "role_id": { "type": "string" },
+    "candidate_digest": { "type": "string", "minLength": 16 },
+    "phase": { "type": "string" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "event_sequence": { "type": "integer", "minimum": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "producer_rationale_seen": { "type": "boolean" },
+    "supersedes_opinion_id": { "type": ["string", "null"] },
+    "disposition": { "enum": ["PASS", "WARN", "FAIL", "BLOCKED"] },
+    "claims": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "claim_evidence": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/evidenceRef" }
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceRef" }
+    },
+    "checks_performed": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "counterexamples": { "type": "array", "items": { "type": "string" } },
+    "untested_obligations": { "type": "array", "items": { "type": "string" } },
+    "uncertainties": { "type": "array", "items": { "type": "string" } },
+    "nonnegotiable_conditions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "falsification_conditions": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "dissent_ids": { "type": "array", "items": { "type": "string" } },
+    "clears_dissent_ids": { "type": "array", "items": { "type": "string" } },
+    "stop_line": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["active"],
+      "properties": {
+        "active": { "type": "boolean" },
+        "reason_code": { "type": ["string", "null"] },
+        "rationale": { "type": ["string", "null"] }
+      }
+    },
+    "repair_proposal": { "type": ["string", "null"] },
+    "invalidates_on_change": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  },
+  "$defs": {
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "locator", "supports_claim"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "locator": { "type": "string", "minLength": 1 },
+        "supports_claim": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

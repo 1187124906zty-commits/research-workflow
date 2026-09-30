@@ -1,0 +1,15 @@
+{
+  "question": "Within a 1D steady transport model, does decreasing diffusivity along x reduce flux relative to a uniform coefficient?",
+  "effect_fraction": 0.4179996121487749,
+  "final_fluxes_m_per_s": [
+    1e-09,
+    5.820003878512251e-10
+  ],
+  "max_relative_flux_error": 0.0006511688350691326,
+  "finest_relative_flux_error": 4.069060087636913e-05,
+  "all_bounds_ok": true,
+  "max_relative_flux_spread": 2.931372639955584e-14,
+  "scientific_level": "numerically verified for this model/QoI",
+  "physical_validation": "not performed",
+  "next_action": "Write the bounded comparison; no further refinement needed for the ranking question."
+}

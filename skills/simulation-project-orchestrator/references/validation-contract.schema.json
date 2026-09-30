@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/validation-contract.schema.json",
+  "title": "Literature-derived Validation Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "project_id",
+    "context_of_use",
+    "sources",
+    "real_world_referent",
+    "material_or_population",
+    "preparation",
+    "conditions",
+    "instruments",
+    "qois",
+    "datasets",
+    "replication",
+    "uncertainty",
+    "validation_statistics",
+    "numerical_requirements",
+    "missing_information",
+    "source_conflicts",
+    "prohibited_uses",
+    "applicability_domain"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "contract_id": { "type": "string", "minLength": 1 },
+    "project_id": { "type": "string", "minLength": 1 },
+    "context_of_use": { "type": "string", "minLength": 10 },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+    "real_world_referent": { "$ref": "#/$defs/evidenceValue" },
+    "material_or_population": { "$ref": "#/$defs/evidenceValue" },
+    "preparation": { "type": "array", "items": { "$ref": "#/$defs/evidenceValue" } },
+    "conditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/condition" } },
+    "instruments": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidenceValue" } },
+    "qois": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/qoi" } },
+    "datasets": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/dataset" } },
+    "replication": { "$ref": "#/$defs/replication" },
+    "uncertainty": { "type": "array", "items": { "$ref": "#/$defs/uncertainty" } },
+    "validation_statistics": { "type": "array", "items": { "$ref": "#/$defs/statistic" } },
+    "numerical_requirements": { "type": "array", "items": { "type": "string" } },
+    "missing_information": { "type": "array", "items": { "type": "string" } },
+    "source_conflicts": { "type": "array", "items": { "type": "string" } },
+    "prohibited_uses": { "type": "array", "items": { "type": "string" } },
+    "applicability_domain": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "evidenceValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "unit", "source_id", "locator", "extraction_method", "confidence", "status"],
+      "properties": {
+        "value": {},
+        "unit": { "type": ["string", "null"] },
+        "source_id": { "type": "string", "minLength": 1 },
+        "locator": { "type": "string", "minLength": 1 },
+        "extraction_method": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "status": { "enum": ["REPORTED", "DERIVED", "DIGITIZED", "INFERRED", "UNKNOWN"] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "title", "authors", "year", "publication_status", "role"],
+      "properties": {
+        "source_id": { "type": "string" },
+        "title": { "type": "string" },
+        "authors": { "type": "array", "items": { "type": "string" } },
+        "year": { "type": "integer" },
+        "doi": { "type": ["string", "null"] },
+        "publication_status": { "type": "string" },
+        "fulltext_path": { "type": ["string", "null"] },
+        "sha256": { "type": ["string", "null"] },
+        "url": { "type": ["string", "null"] },
+        "license": { "type": ["string", "null"] },
+        "role": { "enum": ["experiment_definition", "validation_results", "dataset", "supporting"] }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "geometry", "loading", "boundary_conditions", "environment"],
+      "properties": {
+        "condition_id": { "type": "string" },
+        "geometry": { "$ref": "#/$defs/evidenceMap" },
+        "loading": { "$ref": "#/$defs/evidenceMap" },
+        "boundary_conditions": { "$ref": "#/$defs/evidenceMap" },
+        "environment": { "$ref": "#/$defs/evidenceMap" }
+      }
+    },
+    "evidenceMap": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/evidenceValue" }
+    },
+    "qoi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["qoi_id", "name", "definition", "unit", "location_or_region", "measurement_operator", "sampling", "source_id", "locator"],
+      "properties": {
+        "qoi_id": { "type": "string" },
+        "name": { "type": "string" },
+        "definition": { "type": "string" },
+        "unit": { "type": "string" },
+        "location_or_region": { "type": "string" },
+        "measurement_operator": { "type": "string" },
+        "sampling": { "$ref": "#/$defs/evidenceValue" },
+        "source_id": { "type": "string" },
+        "locator": { "type": "string" }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataset_id", "role", "qoi_ids", "local_paths", "raw_or_digitized", "conditions", "source_id", "locator", "limitations"],
+      "properties": {
+        "dataset_id": { "type": "string" },
+        "role": { "enum": ["calibration", "validation", "post_validation_diagnostic", "excluded"] },
+        "qoi_ids": { "type": "array", "items": { "type": "string" } },
+        "repository_url": { "type": ["string", "null"] },
+        "local_paths": { "type": "array", "items": { "type": "string" } },
+        "raw_or_digitized": { "enum": ["raw", "processed", "digitized", "mixed", "unknown"] },
+        "independent_of_calibration": { "type": ["boolean", "null"] },
+        "blind_at_generation": { "type": ["boolean", "null"] },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "source_id": { "type": "string" },
+        "locator": { "type": "string" },
+        "processing_reconstruction_passed": { "type": ["boolean", "null"] },
+        "processing_audit_path": { "type": ["string", "null"] },
+        "license_path": { "type": ["string", "null"] },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "replication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["specimens_per_condition", "repeated_runs_per_specimen", "randomization", "blocking", "batch_identity", "reported_dispersion"],
+      "properties": {
+        "specimens_per_condition": { "type": ["integer", "null"], "minimum": 1 },
+        "repeated_runs_per_specimen": { "type": ["integer", "null"], "minimum": 1 },
+        "randomization": { "$ref": "#/$defs/evidenceValue" },
+        "blocking": { "$ref": "#/$defs/evidenceValue" },
+        "batch_identity": { "$ref": "#/$defs/evidenceValue" },
+        "reported_dispersion": { "type": "array", "items": { "$ref": "#/$defs/evidenceValue" } }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quantity", "kind", "values", "includes_systematic_effects", "includes_spatial_correlation", "limitations"],
+      "properties": {
+        "quantity": { "type": "string" },
+        "kind": { "type": "string" },
+        "values": { "$ref": "#/$defs/evidenceMap" },
+        "includes_systematic_effects": { "type": "boolean" },
+        "includes_spatial_correlation": { "type": "boolean" },
+        "coverage_or_confidence": { "type": ["string", "null"] },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "statistic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statistic_id", "formula", "applies_to", "limitations"],
+      "properties": {
+        "statistic_id": { "type": "string" },
+        "formula": { "type": "string" },
+        "applies_to": { "type": "array", "items": { "type": "string" } },
+        "acceptance_threshold": { "type": ["number", "string", "null"] },
+        "threshold_source": { "type": ["string", "null"] },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

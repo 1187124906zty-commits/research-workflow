@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/gate-result.schema.json",
+  "title": "Simulation Evidence Gate Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gate_id",
+    "evaluated_artifacts",
+    "method",
+    "metrics",
+    "outcome",
+    "evidence_paths",
+    "invalidates_on_change",
+    "evaluated_at"
+  ],
+  "properties": {
+    "gate_id": {
+      "type": "string",
+      "enum": [
+        "SPEC_COMPLETENESS",
+        "DIMENSIONAL_CONSISTENCY",
+        "PHYSICS_CLOSURE",
+        "MECHANISM_ANALYSIS_READINESS",
+        "FORMULATION_SOUNDNESS",
+        "CODE_EQUATION_FIDELITY",
+        "EXECUTION",
+        "NUMERICAL_ACCURACY",
+        "PHYSICAL_BOUNDS_AND_INVARIANTS",
+        "MESH_TIME_CONVERGENCE",
+        "CONSERVATION_AND_INTERFACES",
+        "PHYSICAL_VALIDATION",
+        "UNCERTAINTY_AND_SENSITIVITY",
+        "MECHANISM_INTERPRETATION",
+        "COU_ACCEPTANCE",
+        "OUTPUT_QUALITY",
+        "GOV_TASK_COVERAGE",
+        "GOV_ROUTING_INTEGRITY",
+        "GOV_HANDOFF_INTEGRITY",
+        "GOV_REVIEW_INDEPENDENCE",
+        "GOV_EVIDENCE_TRACEABILITY",
+        "GOV_DISSENT_RESOLUTION"
+      ]
+    },
+    "evaluated_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_id", "revision"],
+        "properties": {
+          "artifact_id": { "type": "string" },
+          "revision": { "type": ["string", "integer"] },
+          "digest": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "method": { "type": "string", "minLength": 1 },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "observed", "comparison", "threshold", "unit"],
+        "properties": {
+          "name": { "type": "string" },
+          "observed": {},
+          "comparison": { "type": "string", "enum": ["<", "<=", ">", ">=", "==", "in", "qualitative"] },
+          "threshold": {},
+          "unit": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "outcome": { "type": "string", "enum": ["PASS", "FAIL", "WARN", "NOT_APPLICABLE", "BLOCKED"] },
+    "rationale": { "type": ["string", "null"] },
+    "evidence_paths": { "type": "array", "items": { "type": "string" } },
+    "failed_obligations": { "type": "array", "items": { "type": "string" } },
+    "invalidates_on_change": { "type": "array", "items": { "type": "string" } },
+    "evaluated_by": { "type": ["string", "null"] },
+    "evaluated_at": { "type": "string", "format": "date-time" }
+  }
+}

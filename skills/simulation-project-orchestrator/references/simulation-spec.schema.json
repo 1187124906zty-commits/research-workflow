@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/simulation-spec.schema.json",
+  "title": "Simulation Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "raw_request",
+    "context_of_use",
+    "quantities_of_interest",
+    "physics",
+    "geometry",
+    "materials",
+    "initial_conditions",
+    "boundary_conditions",
+    "interface_conditions",
+    "validation_referent",
+    "deliverables",
+    "assumption_ledger",
+    "unresolved_decisions"
+  ],
+  "properties": {
+    "project": { "$ref": "#/$defs/project" },
+    "raw_request": { "type": "string", "minLength": 1 },
+    "canonical_request": { "type": "string" },
+    "context_of_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "consequence_level", "operating_domain"],
+      "properties": {
+        "decision": { "$ref": "#/$defs/valueRecord" },
+        "consequence_level": {
+          "type": "string",
+          "enum": ["exploratory", "engineering", "safety_relevant", "unknown"]
+        },
+        "operating_domain": { "$ref": "#/$defs/valueRecord" },
+        "stakeholder": { "$ref": "#/$defs/valueRecord" }
+      }
+    },
+    "quantities_of_interest": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/qoi" }
+    },
+    "physics": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "geometry": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "materials": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "initial_conditions": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "boundary_conditions": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "interface_conditions": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "validation_referent": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "software_preferences": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "compute_budget": { "$ref": "#/$defs/valueRecord" },
+    "deliverables": { "type": "array", "items": { "$ref": "#/$defs/valueRecord" } },
+    "assumption_ledger": { "type": "array", "items": { "$ref": "#/$defs/decision" } },
+    "unresolved_decisions": { "type": "array", "items": { "$ref": "#/$defs/decision" } }
+  },
+  "$defs": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "revision", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "revision": { "type": "integer", "minimum": 1 },
+        "status": { "type": "string", "enum": ["DRAFT", "FROZEN", "SUPERSEDED"] },
+        "parent_revision": { "type": ["integer", "null"], "minimum": 1 },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "sourceStatus": {
+      "type": "string",
+      "enum": [
+        "USER_CONFIRMED",
+        "SOURCE_BACKED",
+        "SOFTWARE_DEFAULT",
+        "CALIBRATED",
+        "AGENT_PROPOSED",
+        "DERIVED",
+        "UNKNOWN"
+      ]
+    },
+    "valueRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "status"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "value": {},
+        "unit": { "type": ["string", "null"] },
+        "status": { "$ref": "#/$defs/sourceStatus" },
+        "source_id": { "type": ["string", "null"] },
+        "confidence_scope": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "qoi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "definition", "location_or_region", "unit", "acceptance_rule"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "definition": { "type": "string", "minLength": 1 },
+        "location_or_region": { "type": "string", "minLength": 1 },
+        "unit": { "type": ["string", "null"] },
+        "acceptance_rule": { "$ref": "#/$defs/valueRecord" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "question", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "question": { "type": "string", "minLength": 1 },
+        "decision": {},
+        "status": { "type": "string", "enum": ["OPEN", "RESOLVED", "DEFERRED"] },
+        "rationale": { "type": ["string", "null"] },
+        "decided_by": { "type": ["string", "null"] },
+        "invalidates": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/simulation-project-orchestrator/collaboration-bundle.schema.json",
+  "title": "Simulation Multi-Agent Collaboration Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "routing_policy_version",
+    "ledger_provenance",
+    "independence_assurance",
+    "required_scientific_task_ids",
+    "assignments",
+    "opinions",
+    "dissents"
+  ],
+  "properties": {
+    "routing_policy_version": { "type": "string", "minLength": 1 },
+    "ledger_provenance": {
+      "enum": ["RUNTIME_ATTESTED", "RECONSTRUCTED_FROM_TRANSCRIPT"]
+    },
+    "independence_assurance": {
+      "enum": ["RUNTIME_ATTESTED", "DECLARED_INDEPENDENCE"]
+    },
+    "required_scientific_task_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "assignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "agent-assignment.schema.json" }
+    },
+    "opinions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "agent-opinion.schema.json" }
+    },
+    "dissents": {
+      "type": "array",
+      "items": { "$ref": "dissent-record.schema.json" }
+    }
+  }
+}
