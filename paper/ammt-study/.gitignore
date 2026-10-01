@@ -9,6 +9,7 @@
 literature/*
 !literature/bibliography.bib
 !literature/bibliography-r2.bib
+!literature/bibliography-r3.bib
 !literature/citation-records.json
 !literature/exemplar-notes.md
 !literature/journal-dossier.md
@@ -40,3 +41,14 @@ revision-r2/literature/candidate-dois.json
 revision-r2/literature/abstracts.md
 revision-r2/**/property-collision-overlay.pdf
 revision-r2/**/*.diff
+revision-r3/manuscript-input.tex
+revision-r3/review/manuscript-reviewed.tex
+revision-r3/**/pdfs/
+revision-r3/**/text/
+revision-r3/**/texts/
+revision-r3/**/renders/
+revision-r3/**/raw/
+revision-r3/**/metadata/
+revision-r3/editorial/source-extracts/
+revision-r3/editorial/candidate-proof.*
+.latex-build-*/

@@ -1,0 +1,324 @@
+{
+  "scope": "Read-only current reports/README/retained result and surface arrays. No solver imported or PDE run. No historical hashes changed.",
+  "source_root": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02",
+  "historical_inputs": [
+    "C:\\Users\\Administrator\\Documents\\ChatGPT\\skill开发\\research-workflow\\paper\\ammt-study\\evidence\\verified-data.json",
+    "C:\\Users\\Administrator\\Documents\\ChatGPT\\skill开发\\research-workflow\\paper\\ammt-study\\revision-r2\\methods-results\\computed-audit.json"
+  ],
+  "comparison_checks": {
+    "dashboard_comparison_common_values_vs_verified": [],
+    "primary_csv_common_values_vs_verified": [],
+    "dashboard_research_case_metrics_vs_verified": [],
+    "factorial_metrics_vs_verified": {
+      "LL": [],
+      "HL": [],
+      "LH": [],
+      "HH": []
+    },
+    "factorial_effects_vs_verified": [],
+    "matched_temperature_properties_vs_verified": [],
+    "existing_claim_status_vs_verified": [],
+    "run_fipy-application-A-frozen-r13": [],
+    "run_fipy-application-B-cal-05-r13": [],
+    "run_fipy-application-C-frozen-r13": [],
+    "run_fipy-application-B-highT-frozen-r14": [],
+    "run_fipy-application-B-khold-cplinear-r15": [],
+    "run_fipy-application-B-klinear-cphold-r15": [],
+    "primary_vs_computed_audit": []
+  },
+  "eta": 0.2890548519203547,
+  "production_unique_runs": 6,
+  "model": "div(u H - k(T) grad T)=0; u=(-v,0,0), xi=x-vt",
+  "source": "q=2*eta*P/(pi*w^2)*exp(-2*(xi^2+y^2)/w^2)",
+  "current_geometry": [
+    {
+      "case": "A",
+      "observable": "L",
+      "simulated_um": 309.8856792638423,
+      "experimental_um": 300.0,
+      "expanded_uncertainty_um": 11.91,
+      "deviation_percent": 3.295226421280764,
+      "signed_difference_over_expanded_U": 0.8300318441513259,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "A",
+      "observable": "W",
+      "simulated_um": 153.36005335598344,
+      "experimental_um": 147.9,
+      "expanded_uncertainty_um": 6.42,
+      "deviation_percent": 3.691719645695357,
+      "signed_difference_over_expanded_U": 0.8504756006204724,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "A",
+      "observable": "D",
+      "simulated_um": 40.46931231766381,
+      "experimental_um": 42.5,
+      "expanded_uncertainty_um": 4.49,
+      "deviation_percent": -4.778088664320455,
+      "signed_difference_over_expanded_U": -0.4522689715670809,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "B",
+      "observable": "L",
+      "simulated_um": 359.1575457177625,
+      "experimental_um": 359.0,
+      "expanded_uncertainty_um": 21.26,
+      "deviation_percent": 0.043884601048050864,
+      "signed_difference_over_expanded_U": 0.007410428869355719,
+      "role": "calibration"
+    },
+    {
+      "case": "B",
+      "observable": "W",
+      "simulated_um": 143.0406226383922,
+      "experimental_um": 123.5,
+      "expanded_uncertainty_um": 6.3,
+      "deviation_percent": 15.822366508819588,
+      "signed_difference_over_expanded_U": 3.101686133078126,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "B",
+      "observable": "D",
+      "simulated_um": 31.12034988767346,
+      "experimental_um": 36.0,
+      "expanded_uncertainty_um": 3.97,
+      "deviation_percent": -13.554583645351503,
+      "signed_difference_over_expanded_U": -1.2291310106615971,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "C",
+      "observable": "L",
+      "simulated_um": 320.6313629678825,
+      "experimental_um": 370.0,
+      "expanded_uncertainty_um": 32.57,
+      "deviation_percent": -13.342874873545265,
+      "signed_difference_over_expanded_U": -1.5157702496812244,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "C",
+      "observable": "W",
+      "simulated_um": 129.04618690578758,
+      "experimental_um": 106.0,
+      "expanded_uncertainty_um": 4.48,
+      "deviation_percent": 21.741685760176964,
+      "signed_difference_over_expanded_U": 5.144238148613298,
+      "role": "nonblind class-level comparison"
+    },
+    {
+      "case": "C",
+      "observable": "D",
+      "simulated_um": 22.044541383670747,
+      "experimental_um": 29.6,
+      "expanded_uncertainty_um": 3.26,
+      "deviation_percent": -25.52519802813937,
+      "signed_difference_over_expanded_U": -2.3176253424322866,
+      "role": "nonblind class-level comparison"
+    }
+  ],
+  "current_time_metrics": [
+    {
+      "case": "A",
+      "power_W": 137.9,
+      "speed_m_s": 0.4,
+      "absorbed_line_energy_J_m": 99.65166019954228,
+      "residence_w_over_v_us": 212.50000000000003,
+      "rear_Ts_Tl_span_um": 48.29519038375836,
+      "rear_phase_passage_us": 120.7379759593959,
+      "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.4969438946051072,
+      "model_width_depth_ratio": 3.7895393959794506,
+      "experimental_mean_width_depth_ratio": 3.48,
+      "full_model_liquid_volume_nL": 0.5999520000000003,
+      "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+    },
+    {
+      "case": "B",
+      "power_W": 179.2,
+      "speed_m_s": 0.8,
+      "absorbed_line_energy_J_m": 64.74828683015944,
+      "residence_w_over_v_us": 106.25000000000001,
+      "rear_Ts_Tl_span_um": 80.26402604458121,
+      "rear_phase_passage_us": 100.3300325557265,
+      "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.5980263184572783,
+      "model_width_depth_ratio": 4.596369358143031,
+      "experimental_mean_width_depth_ratio": 3.4305555555555554,
+      "full_model_liquid_volume_nL": 0.4427280000000002,
+      "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+    },
+    {
+      "case": "C",
+      "power_W": 179.2,
+      "speed_m_s": 1.2,
+      "absorbed_line_energy_J_m": 43.16552455343963,
+      "residence_w_over_v_us": 70.83333333333334,
+      "rear_Ts_Tl_span_um": 80.79140265237265,
+      "rear_phase_passage_us": 67.32616887697722,
+      "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.8911839333920206,
+      "model_width_depth_ratio": 5.853883946135397,
+      "experimental_mean_width_depth_ratio": 3.5810810810810807,
+      "full_model_liquid_volume_nL": 0.23299200000000014,
+      "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+    }
+  ],
+  "current_factorial": {
+    "LL": {
+      "L_um": 359.1575457177625,
+      "W_um": 143.0406226383922,
+      "D_um": 31.12034988767346,
+      "surface_peak_C": 2697.0732343382333,
+      "Ts_rear_um": -306.76153661527536,
+      "Tl_rear_um": -226.49751057069412,
+      "rear_phase_span_um": 80.26402604458121,
+      "rear_phase_passage_us": 100.3300325557265,
+      "hot_rear_net_outward_diffusive_W": 14.723959252476138,
+      "mushy_x_face_Pe_median": 4.436821677351234
+    },
+    "HL": {
+      "L_um": 402.3712581813177,
+      "W_um": 143.15007404634164,
+      "D_um": 30.092012429039947,
+      "surface_peak_C": 3506.5728926812694,
+      "Ts_rear_um": -349.24882533819004,
+      "Tl_rear_um": -269.9979421444573,
+      "rear_phase_span_um": 79.25088319373278,
+      "rear_phase_passage_us": 99.06360399216597,
+      "hot_rear_net_outward_diffusive_W": 14.91330340892631,
+      "mushy_x_face_Pe_median": 5.77334501159608
+    },
+    "LH": {
+      "L_um": 352.9886879571668,
+      "W_um": 143.71622129720419,
+      "D_um": 31.61342715629935,
+      "surface_peak_C": 2756.354569813648,
+      "Ts_rear_um": -300.5381586446211,
+      "Tl_rear_um": -219.96722969352402,
+      "rear_phase_span_um": 80.57092895109706,
+      "rear_phase_passage_us": 100.71366118887133,
+      "hot_rear_net_outward_diffusive_W": 14.707560895985523,
+      "mushy_x_face_Pe_median": 4.390000426125581
+    },
+    "HH": {
+      "L_um": 393.44045830101044,
+      "W_um": 143.7869176712329,
+      "D_um": 30.797065270818912,
+      "surface_peak_C": 3720.946596884735,
+      "Ts_rear_um": -340.26709117461235,
+      "Tl_rear_um": -259.09722884143156,
+      "rear_phase_span_um": 81.1698623331808,
+      "rear_phase_passage_us": 101.462327916476,
+      "hot_rear_net_outward_diffusive_W": 14.936414174832883,
+      "mushy_x_face_Pe_median": 5.7195513227512595
+    }
+  },
+  "current_effects": {
+    "L_um": {
+      "k_effect_at_cp_linear": 43.213712463555225,
+      "cp_effect_at_k_linear": -6.168857760595699,
+      "k_effect_at_cp_hold": 40.451770343843634,
+      "cp_effect_at_k_hold": -8.93079988030729,
+      "k_main_average": 41.83274140369943,
+      "cp_main_average": -7.549828820451495,
+      "interaction_HH_HL_LH_LL": -2.761942119711591,
+      "joint_HH_minus_LL": 34.282912583247935
+    },
+    "W_um": {
+      "k_effect_at_cp_linear": 0.10945140794945019,
+      "cp_effect_at_k_linear": 0.6755986588119924,
+      "k_effect_at_cp_hold": 0.07069637402872786,
+      "cp_effect_at_k_hold": 0.6368436248912701,
+      "k_main_average": 0.09007389098908902,
+      "cp_main_average": 0.6562211418516313,
+      "interaction_HH_HL_LH_LL": -0.038755033920722326,
+      "joint_HH_minus_LL": 0.7462950328407203
+    },
+    "D_um": {
+      "k_effect_at_cp_linear": -1.0283374586335121,
+      "cp_effect_at_k_linear": 0.4930772686258891,
+      "k_effect_at_cp_hold": -0.8163618854804362,
+      "cp_effect_at_k_hold": 0.705052841778965,
+      "k_main_average": -0.9223496720569742,
+      "cp_main_average": 0.599065055202427,
+      "interaction_HH_HL_LH_LL": 0.2119755731530759,
+      "joint_HH_minus_LL": -0.3232846168545471
+    },
+    "rear_phase_span_um": {
+      "k_effect_at_cp_linear": -1.013142850848439,
+      "cp_effect_at_k_linear": 0.3069029065158446,
+      "k_effect_at_cp_hold": 0.598933382083743,
+      "cp_effect_at_k_hold": 1.9189791394480267,
+      "k_main_average": -0.207104734382348,
+      "cp_main_average": 1.1129410229819356,
+      "interaction_HH_HL_LH_LL": 1.612076232932182,
+      "joint_HH_minus_LL": 0.9058362885995876
+    }
+  },
+  "current_claim_status": {
+    "execution": "COMPLETED_NUMERICALLY_ACCEPTED_A_B_C",
+    "calibration": "B_LENGTH_PROXY_ONLY",
+    "experiment_comparison": "COMPLETED_NONBLIND_CONDITION_COMPARISON",
+    "numerical_geometry_sensitivity": "PASS",
+    "maximum_condition_equation_L1": 1.2841515517804504e-07,
+    "maximum_condition_full_correction_C": 2.6300048602934112e-05,
+    "maximum_condition_abs_power_balance_relative": 6.034533007221461e-11,
+    "physical_validation": "NOT_ESTABLISHED_BY_CALIBRATION_OR_PROCESS_COMPLETION",
+    "physical_scope": "Literature-conditioned conduction/phase-change research and model-discrepancy diagnosis",
+    "internal_temperature": "MODEL_STATE_WITHOUT_INDEPENDENT_TEMPERATURE_VALIDATION",
+    "constitutive_factorial": "COMPLETED_NUMERICALLY_ACCEPTED_INDEPENDENTLY_REVIEWED_MODEL_INTERNAL_ONLY",
+    "condition_comparison": {
+      "A": "THREE_QOI_DIFFERENCES_WITHIN_REPORTED_EXPANDED_U_SCALE",
+      "B": "L_CALIBRATED; W_D_OUTSIDE_REPORTED_EXPANDED_U",
+      "C": "THREE_QOI_DIFFERENCES_OUTSIDE_REPORTED_EXPANDED_U"
+    }
+  },
+  "claim_status_added_keys": [
+    "condition_comparison",
+    "constitutive_factorial"
+  ],
+  "new_postprocessing": {
+    "source": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\showcase-animation.json",
+    "mode": "POSTPROCESSING_QUASI_STEADY_MATERIAL_PASSAGE",
+    "new_PDE_solve": false,
+    "physical_validation_promoted": false,
+    "mapping": "xi=X-v*t; Tlab(X,Y,0,t)=Tss_surface(xi,abs(Y))",
+    "frame_count": 73,
+    "time_range_ms": [
+      -0.24,
+      0.64
+    ],
+    "history_rows": 1001,
+    "max_xi_mapping_error_m": 0.0,
+    "max_history_vs_saved_centerline_error_C": 4.547473508864641e-13,
+    "max_phase_formula_error": 0.0,
+    "fixed_material_history_peak_C": 2697.937948411942,
+    "saved_y0_centerline_peak_C": 2697.939199600421,
+    "retained_positive_y_surface_peak_C": 2697.0732343382333,
+    "difference_centerline_vs_reported_peak_C": 0.8659652621877285,
+    "sampled_rear_crossing_times_ms": {
+      "1290": [
+        -0.06549501137810894,
+        0.3834519207690941
+      ],
+      "1350": [
+        -0.06203761860724471,
+        0.2831218882133679
+      ]
+    },
+    "sampled_rear_interval_us": 100.3300325557262,
+    "difference_vs_primary_rear_interval_us": -2.984279490192421e-13,
+    "interpretation": "Same retained solution, distinct symmetry-centerline versus positive-y surface peak operators; dense history interpolation adds negligible crossing interpolation difference. New dependent visual evidence, not new transient solve or thermal validation."
+  },
+  "history_limit": "Local simulation-agent-mvp master has no commits and case is untracked. No git historical diff available. Comparison establishes current content agreement to frozen verified records, not exact chronology of every dashboard prose change.",
+  "remaining_boundaries": [
+    "No matched independent thermal validation.",
+    "Selected-state hot region and gradients vary; flux increase refutes only naive lower-k/lower-integrated-flux shortcut, not all bulk-transport explanations.",
+    "No branch-specific 3D error bound or precision upgrade.",
+    "A/C retrospective nonblind and separate imaging/metallographic data classes remain."
+  ],
+  "disposition": "Returned for coordinator interpretation and binding. No self-issued PASS or scientific promotion."
+}

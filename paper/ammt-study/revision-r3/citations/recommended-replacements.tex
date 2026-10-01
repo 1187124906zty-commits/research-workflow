@@ -1,0 +1,58 @@
+% R3 citation recommendations. Snippets only; do not input this file wholesale.
+% Anchors and lines refer to frozen revision-r3/manuscript-input.tex.
+% All promoted citation keys already exist in literature/bibliography-r2.bib.
+
+% [R1] Methods, line62, beam-definition paragraph. Replace final two sentences.
+The measured AMMT beam diameter is $D_{4\sigma}=170$~\um~\cite{lane2020}. For the normalized circular Gaussian used here, $D_{4\sigma}=2w$, giving $w=85$~\um. This reconstruction retains the measured second-moment diameter but does not reproduce the measured two-dimensional beam map.
+
+% [R2] Methods, lines83--98. Insert the following lead before Eq(enthalpy).
+The thermal balance uses conservative enthalpy storage, following the moving-source enthalpy formulation of Van Elsen et al.~\cite{vanelsen2007}. With constant density and a liquid-fraction closure, its laboratory-frame form is
+% Retain existing Eq(enthalpy); the exact sensible integral and implementation are this study.
+
+% [R3] Replace line90 lead to the phase-law equation, with direct parameter functions.
+The density $\rho=8440$~\si{\kilogram\per\cubic\metre} and melting interval $T_s=1290$~$^\circ$C to $T_l=1350$~$^\circ$C are typical IN625 supplier values~\cite{specialmetals625}. The adopted latent heat $\mathcal L=280000$~\si{\joule\per\kilogram} follows the earlier AMMT modeling setup~\cite{kollmannsberger2019}, and the cold reference is $T_0=25$~$^\circ$C. A linear temperature--phase-fraction relation is used in continuum AM heat-transfer models~\cite{dynamic2024}; here it is applied over the adopted equilibrium melting interval:
+% Retain existing piecewise f equation. Do not present its full curve as measured equilibrium data.
+
+% [R4] Replace the last part of line98. Preserve actual knots/interpolation prose.
+The supplier labels its typical specific heats as calculated, while its conductivity values were measured for material annealed at 2100~$^\circ$F for 1~h~\cite{specialmetals625}. These data do not supply liquid-state functions for the benchmark coupon. The sensible enthalpy integral is evaluated piecewise analytically; adding the phase term gives a monotone temperature--enthalpy relation and permits analytic inversion. Differentiating the adopted relation gives $c_{p,\mathrm{eff}}=c_p+\mathcal L f'(T)$; within the linear phase interval, the latent contribution is $\mathcal L/(T_l-T_s)=4666.67$~\si{\joule\per\kilogram\per\kelvin}.
+
+% [R5] Replace line109 lead. The conservative-frame equation remains unchanged.
+Moving-source conduction can be written in coordinates fixed to the heat source~\cite{vanelsen2007}. For the locally quasi-steady field adopted here, $\xi=x-vt$ gives $\partial H/\partial t=-v\partial H/\partial\xi$. Setting $\bm u=(-v,0,0)$ then yields the conservative form
+% Retain Eq(frame), then existing coordinate-transport/no-liquid-flow explanation.
+
+% [R6] Replace line116 lead only, before Eq(source).
+The source uses a power-normalized circular Gaussian on the top surface, consistent with the radial Gaussian and $D_{4\sigma}$ convention in continuum AM source formulations~\cite{dynamic2024}:
+% Retain Eq(source), its analytic normalization and implementation-specific face integration.
+
+% [R7] Methods passage, after Eq(passage), replace159 with optional gradient identity.
+These quantities follow from the same steady field: at a fixed laboratory location, $\mathrm dT/\mathrm dt=-v\,\partial T/\partial\xi$. Thus $\tau_m=\ell_m/v$, and the interval-mean axial gradient $\overline G_\xi=(T_l-T_s)/\ell_m$ gives the cooling-rate magnitude $\overline{\dot T}=v\overline G_\xi$. The constant-speed spatial-to-time conversion is also used in the AMMT thermographic analysis~\cite{lane2020}; its below-solidus interval and imaging operator differ from the present 1350--1290~$^\circ$C interval. Passage time and cooling rate are derived diagnostics of one field, rather than independent thermal validation.
+% If gradient is not useful to final argument, keep just chain-rule and timing sentences.
+% Gbar_xi is not |gradT| or a normal interfacial gradient. v is not generally normal solidification velocity.
+
+% [R8] Discussion storage321--324: replace first two sentences of322.
+In conservative enthalpy treatments, total effective heat capacity contains both sensible and latent contributions~\cite{vanelsen2007}. For the present linear phase law, the fixed latent addition is 4666.67~\si{\joule\per\kilogram\per\kelvin} between solidus and liquidus.
+% Retain own percentage/results, then add this short qualified precedent only if reader needs it.
+The importance of retaining latent storage is also visible in Ti6Al4V thermography: Hooper reported slower cooling as solidification began and latent heat was released after the final scan pulse~\cite{hooper2018}. Those transient measurements provide a qualitative precedent; the present sensitivity magnitudes follow from the adopted IN625 closure and field.
+% Existing Van Elsen sentence at end324 can be narrowed as follows.
+The strength of a latent-heat effect depends on the transport conditions: Van Elsen et al. found a small effect for their Ti6Al4V setting but a larger rear-pool response at high P\'eclet number and low conductivity~\cite{vanelsen2007}. This conditional result does not determine the sign or magnitude of the present continuation contrast.
+
+% [R9] Discussion spatial/material mapping, after333 or its final sentence.
+The straight-track, quasi-steady condition is consequential. In the transient IN718 electron-beam calculations of Plotkowski et al., overlapping line melts produced interface velocities that scaled with hatch progression rather than beam speed~\cite{Plotkowski2017Rapid}. The present $\ell_m/v$ relation therefore applies to the specified translating field and should not be extended to scan transients as a general solidification-velocity relation.
+% Optional if final manuscript already states this boundary adequately; no new reference key needed.
+
+% [R10] Discussion high-temperature credibility, lines349--351. Add source-specific context.
+The uncertainty concerns distinct physical quantities. Mills et al. developed composition-based sensible-heat and transport estimates for Ni-based superalloys, including IN625 conductivity, while emphasizing the shortage of reliable liquid-state measurements and the limits of replacing measurements with estimates~\cite{mills2006}. Their alternative liquid-conductivity procedures and phase-dependent storage estimates supply candidate physical closures, rather than selecting either continuation tested here.
+% Retain Hosaeus (pottlacher2001) as bounded indexed-abstract evidence for rapid-heating route.
+
+% [R11] No external citation should be attached solely to:
+% - four-corner delta_k/delta_cp/I/joint algebra;
+% - present1320degC percentages, numerical peaks,98.3% rear displacement;
+% - selected14.724→14.913W counterexample;
+% - current mesh sensitivity/verification results;
+% - claimed exact field histories or precision for submicrometre differences.
+% Those statements require retained study artifacts and numerical bounds, not literature padding.
+
+% [R12] Appendix Gaussian verification, lines409--417. Replace the integral lead only.
+Classical moving-source conduction supplies the context for analytical verification~\cite{vanelsen2007}. For the constant-property, semi-infinite verification problem defined here, convolution of the Neumann heat kernel with the moving Gaussian surface input gives
+% Retain current integral. It is derived/defined in this study and checked against the archived
+% verification functions; it is not an exact equation copied from Van Elsen.

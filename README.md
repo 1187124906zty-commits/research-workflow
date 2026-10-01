@@ -98,11 +98,11 @@ JSON 文件需按真实任务填写；完整字段、计划与上下文命令见
 
 案例基于公开 AMMT 实验条件与既有三维传导、相变计算，讨论扫描工况和高温物性对熔池形貌及热历程的影响。本次协作用这些产物准备英文稿件、核对论断范围并开展评阅，保留数据来源、模型假设与比较条件。
 
-**数值计算原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 执行。** ResearchFlow 与 [MAF 重构版](https://github.com/1187124906zty-commits/research-assistant-maf) 用于本次稿件准备与评阅。B 工况长度参与有效热源因子标定，A/C 为固定参数非盲比较；R2 初稿实际引用 39 项相关来源，包含五幅科学图，尚未经期刊同行评审。
+**数值计算原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 执行。** ResearchFlow 与 [MAF 重构版](https://github.com/1187124906zty-commits/research-assistant-maf) 用于本次稿件准备与评阅。B 工况长度参与有效热源因子标定，A/C 为固定参数非盲比较；R3 初稿实际引用 26 项相关来源，包含五幅科学图，尚未经期刊同行评审。
 
 [阅读稿件 PDF →](paper/ammt-study/manuscript.pdf) · [编辑 LaTeX 源文件 →](paper/ammt-study/manuscript.tex) · [查看来源与交付范围 →](paper/ammt-study/README.md)
 
-案例包同时提供[完整 LaTeX 源码压缩包](paper/ammt-study/submission-source.zip)、核实数据表、[近期研究线与引用职责](paper/ammt-study/revision-r2/literature/citation-map.md)、[期刊原文学习](paper/ammt-study/revision-r2/journal/journal-learning.md)、[章节交叉审阅](paper/ammt-study/revision-r2/exchange/cross-section-review.md)和[当前全文评阅](paper/ammt-study/revision-r2/review/whole-review.md)。MAF 的[原有限协作](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-manuscript)与[R2 分章运行](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-deep-revision)分别保留实际完成范围；R2 原生讨论返回超时由协调者接收真实候选，后续评阅另行执行。
+R3 增加了[科学编辑与逐句来源审查](paper/ammt-study/revision-r3/README.md)，通用责任与交接见[论文审查模式](docs/manuscript-audit.md)。案例包同时提供[完整 LaTeX 源码压缩包](paper/ammt-study/submission-source.zip)、核实数据表、[近期研究线与引用职责](paper/ammt-study/revision-r2/literature/citation-map.md)、[期刊原文学习](paper/ammt-study/revision-r2/journal/journal-learning.md)、[章节交叉审阅](paper/ammt-study/revision-r2/exchange/cross-section-review.md)和[当前全文评阅](paper/ammt-study/revision-r3/review/independent-review.md)。MAF 的[原有限协作](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-manuscript)与[R2 分章运行](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-deep-revision)分别保留实际完成范围；R2 原生讨论返回超时由协调者接收真实候选，后续评阅另行执行。
 
 <details>
 <summary><strong>再看一个可复跑的例子：扩散计算 → 证据登记 → 技术稿</strong></summary>

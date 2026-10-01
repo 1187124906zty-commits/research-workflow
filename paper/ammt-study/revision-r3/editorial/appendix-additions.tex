@@ -1,0 +1,38 @@
+% Proposed scientific appendix additions. Keep the existing property table,
+% constant-property verification integral and calibration/sensitivity table.
+\subsection{Spatial discretization and observation recovery}
+The domain is $\xi\in[-1,0.35]$~mm, $y\in[0,0.36]$~mm and $z\in[-0.30,0]$~mm. A graded orthogonal mesh contains 902664 cells. Near-source cell widths are $4\times3\times1$~\um\ within $\xi\in[-0.48,0.16]$~mm, $y\in[0,0.12]$~mm and $z\in[-0.06,0]$~mm. Outer widths increase by a factor of 1.22 up to 25~\um. The half-domain mesh has $199\times56\times81$ cells. The solved problem is steady; retained warm fields provide nonlinear initial guesses rather than a transient thermal initial condition.
+
+The Gaussian source is integrated rectangle-wise using error functions to supply each top-face power, which is deposited in the adjacent top control volume. Its full-plane integral is $\eta P$ and the transverse half-domain receives $\eta P/2$.
+
+Surface recovery satisfies
+\begin{equation}
+ K(T_{\rm surf})-K(T_{\rm cell})=q\,\Delta z/2,\qquad K'(T)=k(T),
+\end{equation}
+and the symmetry-plane value uses the even quadratic extension $T(0)=T(y_1)+[T(y_1)-T(y_2)]y_1^2/(y_2^2-y_1^2)$ from the first two positive-$y$ cell centers. The recovered surface temperatures and symmetry extension are applied before the threshold crossings are extracted.
+
+The observation pitch is 0.5~\um; it samples the interpolated geometry rather than changing the heat-field resolution.
+
+\subsection{Scaled enthalpy diffusion and diagnostic definitions}
+The scaled unknown is $U=H/C_0$, with $C_0=\rho(402~\si{\joule\per\kilogram\per\kelvin})=3.39288\times10^6$~\si{\joule\per\cubic\metre\per\kelvin}. On an internal face,
+\begin{equation}
+ D_f=\frac{k_f}{C_0}\frac{\Delta T}{\Delta U},
+ \label{eq:face}
+\end{equation}
+where $k_f$ is the harmonic face conductivity and $D_f$ has units of m$^2$\,s$^{-1}$. For $|\Delta U|\leq10^{-8}$~K, the derivative limit is $\Delta T/\Delta U=C_0/[\rho(c_p+\mathcal L f')]$ at the first adjacent cell. This recovers conductive flux while conserving enthalpy; $U$ is a scaled enthalpy, not temperature.
+
+The retained face transport diagnostic is
+\begin{equation}
+ |\mathrm{Pe}_f|=\frac{|\bm u\cdot\bm n_f|d_f}{D_f},
+ \label{eq:pe}
+\end{equation}
+where $d_f$ is the adjacent cell-center separation. Unweighted medians are taken over internal axial faces adjacent to at least one cell with $T_s\leq T<T_l$. The diagnostic compares coordinate transport with diffusion in the discretized field; its selected face population can change between solved branches.
+
+The discrete rear hot-region budget selects cells with $T\geq T_s$ and $\xi<0$. Net outward diffusive power is the sum of signed conductive face powers on the boundary of this selected cell set; internal face contributions cancel. The region is selected separately in each field, so its boundary and sampled faces change with the continuation. This accounting diagnostic is interpreted alongside the matched-coordinate centerline thresholds rather than as a fixed-region causal contrast.
+
+\subsection{Scalar calibration and solution acceptance}
+A safeguarded secant solves $L_B(\eta)-359~\um=0$ in the initial bracket $[0.2,0.4]$, with proposals restricted to the inner 90\% of the current bracket and an accepted absolute length residual below 0.5~\um. It yields $\eta=0.2890548519203547$, with a residual of +0.158~\um. The existing calibration record gives trial values and the local sensitivity conversion. A and C retain the final value, the same beam and phase law, and the same continuation rules.
+
+Nonlinear acceptance requires the sum of absolute assembled cell residuals, normalized by absorbed half-power, to be below $2\times10^{-5}$, the signed global balance magnitude below the same scale, and a further frozen-coefficient solve to change temperature by less than 0.002~$^\circ$C. Local residual and global balance are retained separately because opposing local errors can cancel in a global sum.
+
+The six production solutions have finite temperatures, bounded phase fractions, nontruncated extracted geometry and the prescribed integrated source power. Normalized absolute residuals are $6.90\times10^{-8}$--$1.31\times10^{-7}$, signed global balance magnitudes are below $6.1\times10^{-11}$, and full-solve temperature corrections are below $2.7\times10^{-5}$~$^\circ$C.

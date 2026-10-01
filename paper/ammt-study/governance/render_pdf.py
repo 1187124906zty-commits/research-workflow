@@ -1,12 +1,17 @@
 """Render the actual LaTeX PDF for page-level visual inspection (PyMuPDF/Pillow)."""
 from pathlib import Path
+import argparse
 import json
 import fitz
 from PIL import Image, ImageOps, ImageDraw
 ROOT = Path(__file__).resolve().parents[1]
-QA = ROOT / 'qa'
-QA.mkdir(exist_ok=True)
-doc = fitz.open(ROOT / 'manuscript.pdf')
+parser = argparse.ArgumentParser()
+parser.add_argument('--pdf', type=Path, default=ROOT/'manuscript.pdf')
+parser.add_argument('--output', type=Path, default=ROOT/'qa')
+args = parser.parse_args()
+QA = args.output.resolve()
+QA.mkdir(parents=True,exist_ok=True)
+doc = fitz.open(args.pdf)
 # Remove only stale numbered renders from this owned QA directory.
 for path in QA.glob('page-*.png'):
     if path.stem[5:].isdigit() and int(path.stem[5:]) > len(doc):
@@ -30,7 +35,7 @@ for offset in range(0, len(pages), 9):
         sheet.paste(im, (x + (400-im.width)//2, y+23))
         draw.text((x+10,y+6), f'Page {offset+i+1}', fill='black')
     sheet.save(QA / f'contact-sheet-{offset//9+1}.png')
-metrics = {'pages': len(doc), 'bytes': (ROOT/'manuscript.pdf').stat().st_size,
+metrics = {'pages': len(doc), 'bytes': args.pdf.stat().st_size,
            'pages_with_images': [i+1 for i,p in enumerate(doc) if p.get_images()],
            'characters_per_page': [len(p.get_text()) for p in doc]}
 (QA/'pdf-inspection.json').write_text(json.dumps(metrics,indent=2),encoding='utf-8')
