@@ -16,7 +16,7 @@ PaperSpine 应在选题阶段参与：学习候选期刊的读者、主题、贡
 
 ## 文件交接，不依赖 Web 可用性
 
-从本仓库根目录运行，使用工作的 Python 3.10+：
+从本仓库根目录运行，使用工作的 Python 3.11+（与本项目发行包要求一致）：
 
 ```powershell
 python integrations/paperspine/adapter.py export `

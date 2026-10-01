@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-01",
+  "scope": "五篇指定论文的针对性原文核对；服务于无实证结果的中文 ResearchFlow 方法/系统设计论文，非系统综述或新颖性证明。",
+  "retrieval_method": "普通 HTTP 获取 arXiv 官方摘要页及指定版本 HTML 正文；另核对官方项目 README 和 ACM 向 Crossref 提交的元数据。未调用任何模型 API。",
+  "citation_policy": "正文可用 [1]–[5]。除 [5] 的 ACM 发表版外，推荐引用实际核对的 arXiv 版本；预印本初始年份与会议年份分开记录。源论文实验结果只属于各自任务与设置，不能转写为 ResearchFlow 的验证结果。",
+  "papers": [
+    {
+      "id": 1,
+      "citation_key": "Yao2022ReAct",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": [
+        "Shunyu Yao",
+        "Jeffrey Zhao",
+        "Dian Yu",
+        "Nan Du",
+        "Izhak Shafran",
+        "Karthik Narasimhan",
+        "Yuan Cao"
+      ],
+      "preprint_year": 2022,
+      "version": "2210.03629v3",
+      "version_date": "2023-03-10",
+      "recommended_reference": "[1] Yao S, Zhao J, Yu D, et al. ReAct: Synergizing Reasoning and Acting in Language Models. arXiv:2210.03629, 2022. https://doi.org/10.48550/arXiv.2210.03629.",
+      "venue_status": "arXiv 摘要页 comments 明确称 v3 为 ICLR camera-ready；版本日期为 2023-03-10。本次 OpenReview 直访遇浏览器校验，未独立核对正式会议条目，故推荐保留预印本引用。",
+      "urls": {
+        "metadata": "https://arxiv.org/abs/2210.03629",
+        "fulltext": "https://arxiv.org/html/2210.03629v3",
+        "doi": "https://doi.org/10.48550/arXiv.2210.03629",
+        "project": "https://react-lm.github.io/"
+      },
+      "checked_body_sections": [
+        "§2 ReAct: Synergizing Reasoning + Acting",
+        "§3.2 Methods（Combining Internal and External Knowledge）"
+      ],
+      "source_facts": [
+        "ReAct 将语言思考与任务动作交织，外部环境的 observation 回到下一步上下文；思考可分解目标、跟踪进度、调整计划、处理异常。",
+        "任务形式并不都采用每步密集思考：知识推理任务交替 thought/action，而交互决策任务允许稀疏思考。",
+        "§3.2 已使用步数限制和向 CoT-SC 回退的启发式。因此不能把 ReAct 概括为毫无停止条件的循环。"
+      ],
+      "supports": [
+        "为调研—工具调用—观察反馈—计划修订的执行循环提供已有方法背景。",
+        "支持把外部来源返回的信息与模型生成判断区别开；这不等于证明科学论断正确。"
+      ],
+      "researchflow_relation": "ResearchFlow 可使用类似反馈执行循环，但这里提出的研究问题—证据—论文论证联动、任务契约、反证导致状态失效与复核属于不同的治理层。该区别是本稿设计定位，未由 ReAct 的实验验证。",
+      "does_not_support": [
+        "渐进加载 skill 文件是已被 ReAct 验证的机制。",
+        "ReAct 能保证科学证据质量、长期研究方向不漂移或多 agent 一致性。",
+        "ReAct 的问答、事实核验、游戏或网页任务指标可证明 ResearchFlow 提升研究质量。"
+      ],
+      "short_anchor": {
+        "section": "§2",
+        "quote": "thought-action-observation steps"
+      }
+    },
+    {
+      "id": 2,
+      "citation_key": "Wu2023AutoGen",
+      "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "authors": [
+        "Qingyun Wu",
+        "Gagan Bansal",
+        "Jieyu Zhang",
+        "Yiran Wu",
+        "Beibin Li",
+        "Erkang Zhu",
+        "Li Jiang",
+        "Xiaoyun Zhang",
+        "Shaokun Zhang",
+        "Jiale Liu",
+        "Ahmed Hassan Awadallah",
+        "Ryen W White",
+        "Doug Burger",
+        "Chi Wang"
+      ],
+      "preprint_year": 2023,
+      "version": "2308.08155v2",
+      "version_date": "2023-10-03",
+      "recommended_reference": "[2] Wu Q, Bansal G, Zhang J, et al. AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation. arXiv:2308.08155, 2023. https://doi.org/10.48550/arXiv.2308.08155.",
+      "venue_status": "正式引用采用 arXiv 2023。官方 v0.2.35 README 记载论文在 ICLR 2024 LLM Agents Workshop 获奖，不能把 workshop 写成 ICLR 主会。本次不进一步断定其它会议发表状态。",
+      "urls": {
+        "metadata": "https://arxiv.org/abs/2308.08155",
+        "fulltext": "https://arxiv.org/html/2308.08155v2",
+        "doi": "https://doi.org/10.48550/arXiv.2308.08155",
+        "official_readme": "https://raw.githubusercontent.com/microsoft/autogen/v0.2.35/README.md"
+      },
+      "checked_body_sections": [
+        "§2.1 Conversable Agents",
+        "§2.2 Conversation Programming"
+      ],
+      "source_facts": [
+        "Conversable agents 具有角色，维护收发消息形成的内部上下文，可组合 LLM、人工输入、代码/函数工具执行能力。",
+        "Conversation programming 同时编排 computation 与 control flow；可以用自然语言、Python 和二者转换管理控制。",
+        "auto-reply 在满足终止条件时结束；Python 可设置 termination condition、human input mode、tool execution logic、max number of auto replies。",
+        "支持静态预定流程、通过自定义 reply/function calls 触发动态会话及 GroupChatManager 动态选择下一发言者。"
+      ],
+      "supports": [
+        "支持把 agent 的角色、能力和交互控制作为可编程对象。",
+        "支持通用框架既能自动运行，也能保留人工参与与程序控制边界。"
+      ],
+      "researchflow_relation": "AutoGen 提供会话与 agent 协作基础设施。ResearchFlow 的设计重点可限定为：在该类基础设施上，让研究问题、证据与论文论证的共享状态决定任务派发、证据提升与反证复核。不能以本次查阅推断 AutoGen 不能实现相同治理规则。",
+      "does_not_support": [
+        "AutoGen 只有无约束聊天、不维护上下文或不支持程序停止。",
+        "所有多 agent 会话都会丢失原始研究目标。",
+        "加入任务契约或共享治理状态必然提高效率、准确率或论文接收率。"
+      ],
+      "short_anchor": {
+        "section": "§2.2",
+        "quote": "Python code can be used to specify the termination condition, human input mode, and tool execution logic"
+      }
+    },
+    {
+      "id": 3,
+      "citation_key": "Hong2023MetaGPT",
+      "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "authors": [
+        "Sirui Hong",
+        "Mingchen Zhuge",
+        "Jiaqi Chen",
+        "Xiawu Zheng",
+        "Yuheng Cheng",
+        "Ceyao Zhang",
+        "Jinlin Wang",
+        "Zili Wang",
+        "Steven Ka Shing Yau",
+        "Zijuan Lin",
+        "Liyang Zhou",
+        "Chenyu Ran",
+        "Lingfeng Xiao",
+        "Chenglin Wu",
+        "Jürgen Schmidhuber"
+      ],
+      "preprint_year": 2023,
+      "version": "2308.00352v7",
+      "version_date": "2024-11-01",
+      "recommended_reference": "[3] Hong S, Zhuge M, Chen J, et al. MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework. arXiv:2308.00352, 2023. https://doi.org/10.48550/arXiv.2308.00352.",
+      "venue_status": "官方项目 README Citation 明确列 The Twelfth International Conference on Learning Representations, 2024，URL 为 https://openreview.net/forum?id=VtmBAGCN7o。OpenReview 本次遇校验。README 使用 Jonathan Chen、并交换 Jinlin Wang/Ceyao Zhang 次序，与 arXiv 现行作者元数据不同，故本包以实际核对的 arXiv 版本与作者序列为准；不要混拼版本。",
+      "urls": {
+        "metadata": "https://arxiv.org/abs/2308.00352",
+        "fulltext": "https://arxiv.org/html/2308.00352v7",
+        "doi": "https://doi.org/10.48550/arXiv.2308.00352",
+        "official_readme": "https://raw.githubusercontent.com/FoundationAgents/MetaGPT/main/README.md",
+        "conference_record": "https://openreview.net/forum?id=VtmBAGCN7o"
+      },
+      "checked_body_sections": [
+        "§3.1 Agents in Standard Operating Procedures",
+        "§3.2 Communication Protocol",
+        "§3.3 Iterative programming with executable feedback"
+      ],
+      "source_facts": [
+        "角色 profile 包括 name/profile/goal/constraints，初始化角色特定 context 与 skills；软件开发示例含 Product Manager、Architect、Project Manager、Engineer、QA Engineer。",
+        "SOP 工作流把需求分析、PRD、系统设计、任务分配、编码、测试通过结构化文档连接。",
+        "结构化通信给每个角色规定 schema/format；共享 message pool 与 publish-subscribe 使角色按兴趣获取相关信息，依赖满足后才触发动作。",
+        "可执行反馈把运行错误与测试结果回送 Engineer；代码迭代到测试通过或最多 3 次重试，已有显式局部边界。"
+      ],
+      "supports": [
+        "支持角色专门化、过程规范、结构化产物和依赖驱动的协作设计。",
+        "支持限制无关信息传播和用可执行测试反馈闭合工程任务。"
+      ],
+      "researchflow_relation": "MetaGPT 的已读方案以软件交付的 SOP 和产物为组织骨架。ResearchFlow 可提出研究问题、证据与论文论证共同更新的治理协议，并把局部任务重试结束与主研究问题重审关联；这是从软件协作转向研究判断的设计区别，不能宣称已有工作完全缺少角色契约或有界重试。",
+      "does_not_support": [
+        "角色专门化、结构化交接或任务相关信息过滤是 ResearchFlow 首创。",
+        "MetaGPT 无记忆、无 skills、无执行反馈或只靠对话。",
+        "软件工程 benchmark 中的改进可推导为科学真实性、论文贡献或 ResearchFlow 性能提升。"
+      ],
+      "short_anchor": {
+        "section": "§3.3",
+        "quote": "This iterative testing process continues until the test is passed or a maximum of 3 retries is reached."
+      }
+    },
+    {
+      "id": 4,
+      "citation_key": "Lu2024AIScientist",
+      "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+      "authors": [
+        "Chris Lu",
+        "Cong Lu",
+        "Robert Tjarko Lange",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "David Ha"
+      ],
+      "preprint_year": 2024,
+      "version": "2408.06292v3",
+      "version_date": "2024-09-01",
+      "recommended_reference": "[4] Lu C, Lu C, Lange R T, et al. The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery. arXiv:2408.06292, 2024. https://doi.org/10.48550/arXiv.2408.06292.",
+      "venue_status": "arXiv 官方元数据与官方 README 的建议引用均为 arXiv preprint, 2024；本次未核对任何正式会议/期刊发表条目。",
+      "urls": {
+        "metadata": "https://arxiv.org/abs/2408.06292",
+        "fulltext": "https://arxiv.org/html/2408.06292v3",
+        "doi": "https://doi.org/10.48550/arXiv.2408.06292",
+        "official_readme": "https://raw.githubusercontent.com/SakanaAI/AI-Scientist/main/README.md"
+      },
+      "checked_body_sections": [
+        "§3 The AI Scientist",
+        "§4 Automated Paper Reviewing",
+        "§8 Limitations & Ethical Considerations",
+        "§9 Discussion"
+      ],
+      "source_facts": [
+        "以带基线实验、绘图和 LaTeX 文件的模板为起点，连接 idea generation、experimental iteration、paper write-up，再由 LLM reviewer 评价。",
+        "每个 idea 包括描述、执行计划与自评；ideas archive 可纳入既有 ideas/review scores，通过 Semantic Scholar API 查近似既有研究。",
+        "实验失败/超时回送 Aider，最多四次修复重试；每次实验写 experimental journal，依据结果重规划下一实验，此过程最多五次；执行历史可见。",
+        "写作使用实际 notes/figures，提示只引用实际观察的结果及真实引用；另有文献检索、逐节反思与编译反馈。",
+        "§8 明确讨论错误实现、不公平比较、数值解释错误及幻觉结果；要求在相信结果前人工检查实现，并称当前生成论文宜作为后续研究线索。",
+        "§8 保存执行时全部文件副本以支持可复现；§9 提议未来用代码—实验直接绑定或独立复现加强验证。",
+        "§4 自动审稿分数/accept-reject 是模型评价；超过自设评分阈值不等于论文被真实会议录用。"
+      ],
+      "supports": [
+        "支持科研工作已可被拆为想法、代码实验、图表、论文与审阅的连接流水线。",
+        "以作者自述局限支持：自动完成和自动评分不能替代实现正确性、实验公平性及证据核验。"
+      ],
+      "researchflow_relation": "ResearchFlow 应正面承认其日志、限次迭代、实证写作约束与文件保存。本文可把关注点放在跨阶段持续治理：何种结果回答何种研究问题、可支撑何种论文论证、反证何时使既有论证/任务失效并转回协调者。这是提出的机制，不是已有实验确认的优势。",
+      "does_not_support": [
+        "The AI Scientist 不存实验记录、不限制重试或不要求真实实验结果。",
+        "ResearchFlow 提高研究质量/新颖性/资源效率或免除人工科学判断。",
+        "低于15美元的论文成本是通用全成本，或可套用于本系统。",
+        "模型评审过线证明真实会议/期刊录用；生成论文内容可直接视作可信科学发现。"
+      ],
+      "short_anchor": {
+        "section": "§8 Common Failure Modes",
+        "quote": "one should manually check the implementation before trusting the reported results"
+      }
+    },
+    {
+      "id": 5,
+      "citation_key": "Park2023GenerativeAgents",
+      "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "authors": [
+        "Joon Sung Park",
+        "Joseph C. O'Brien",
+        "Carrie J. Cai",
+        "Meredith Ringel Morris",
+        "Percy Liang",
+        "Michael S. Bernstein"
+      ],
+      "preprint_year": 2023,
+      "publication_year": 2023,
+      "version": "2304.03442v2",
+      "version_date": "2023-08-06",
+      "recommended_reference": "[5] Park J S, O'Brien J, Cai C J, et al. Generative Agents: Interactive Simulacra of Human Behavior. Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology, 2023: 1–22. https://doi.org/10.1145/3586183.3606763.",
+      "venue_status": "ACM 向 Crossref 提交的元数据确认 UIST '23, 2023-10-29, page 1–22 与 DOI。Crossref 名字为 Joseph O'Brien、Carrie Jun Cai；arXiv 使用 Joseph C. O'Brien、Carrie J. Cai。本包保留 arXiv 显示作者名，正式简写与已核对出版版相容。",
+      "urls": {
+        "metadata": "https://arxiv.org/abs/2304.03442",
+        "fulltext": "https://arxiv.org/html/2304.03442v2",
+        "doi": "https://doi.org/10.1145/3586183.3606763",
+        "publisher_metadata": "https://api.crossref.org/works/10.1145/3586183.3606763"
+      },
+      "checked_body_sections": [
+        "§4.1 Memory and Retrieval",
+        "§4.2 Reflection",
+        "§4.3 Planning and Reacting",
+        "§8.2 Future Work and Limitations"
+      ],
+      "source_facts": [
+        "Memory stream 存观察、时间戳以及访问时间；按 recency、importance、relevance 检索子集进入上下文，而非将全部经历直接塞入提示。",
+        "Reflection 从检索记忆生成较高层 insight，并保存指向被引用 memory objects 的 pointers；计划也存入 memory stream。",
+        "计划从粗到细递归分解，遇观察后可以反应并重生后续计划；讨论部分承认幻觉、memory hacking、稳健性与长期评估限制。"
+      ],
+      "supports": [
+        "支持持久记忆、选择性检索、计划更新与推断到原观察的引用指针作为 agent 设计背景。",
+        "说明记录经验与按需调用经验已有相关架构，不能独占为本系统创新。"
+      ],
+      "researchflow_relation": "这里的记忆/反思服务于社会行为可信度；ResearchFlow 可以把类似可追溯关系转成科学证据—论证绑定，并提出反证导致绑定失效。后者是设计迁移，社会模拟结果不验证科学证据可信性或崩溃恢复语义。",
+      "does_not_support": [
+        "Memory/reflection 已证明科研事实正确、实验可信或研究论证有效。",
+        "选择性检索等同于 skill 的渐进加载机制。",
+        "25 agent 社会模拟的可信度结果可视作 ResearchFlow 多 agent 协作性能。"
+      ],
+      "short_anchor": {
+        "section": "§4.2",
+        "quote": "including pointers to the memory objects that were cited"
+      }
+    }
+  ],
+  "cross_source_assessment": {
+    "supported_background": [
+      "推理与外部行动交织：[1]。",
+      "可编程多 agent 角色、能力、交互与终止控制：[2]。",
+      "SOP、结构化产物、共享通信池、角色相关信息过滤、有界可执行反馈：[3]。",
+      "想法—实验—论文—自动审阅连接及其科学可靠性局限：[4]。",
+      "持久记忆、选择性检索、带来源指针的反思和动态计划：[5]。"
+    ],
+    "researchflow_design_claims_not_empirical": [
+      "将研究问题、证据与论文论证设为共同治理对象。",
+      "以契约绑定 specialist 的问题、论断范围、输入、输出、验收理由、预算与返回条件。",
+      "局部优化达到边界时由协调者重审研究理解，而不是无限重试或自动放弃。",
+      "新反证使受影响论证与依赖失效，保留状态及处置以便恢复。",
+      "按需渐进加载 skills 与上述研究治理协议结合。"
+    ],
+    "required_wording": "可写“本文提出/设计/实现……机制，旨在……”。当前正文无实证结果，只能描述可检查的实现属性与验证计划；不能写“显著提升/证明有效/消除漂移/保证真实性”。",
+    "novelty_limit": "五篇定点查阅不足以证明首创。区别需写成设计关注点与所核对机制的比较，避免‘首次/唯一/所有既有系统’。",
+    "loading_evidence_limit": "这五篇文献不直接证明文件型 skills 的 metadata→正文→资源渐进加载设计；该机制须引用平台/skill 文档或本文实现，并作为工程组织选择而非已有科研成效。"
+  },
+  "access_notes": [
+    "五篇 arXiv 摘要页与指定版本 HTML 均成功读取；AutoGen、AI Scientist、Generative Agents HTML 工具输出长文有尾部截断，但上述正文段落均在已获取内容范围内。",
+    "OpenReview forum 直访返回浏览器校验；公开 notes API 返回 403；未绕过验证。已取得开放 arXiv 正文，因此无需认证出版商会话下载。",
+    "微软研究 publication 路径返回一般首页，不作为 AutoGen 论文元数据来源。",
+    "本包没有进行全领域的新颖性检索、复现实验或评估 ResearchFlow 性能。"
+  ],
+  "standards": [
+    {
+      "id": 10,
+      "title": "PROV-DM: The PROV Data Model",
+      "editors": [
+        "Luc Moreau",
+        "Paolo Missier"
+      ],
+      "type": "W3C Recommendation",
+      "date": "2013-04-30",
+      "url": "https://www.w3.org/TR/2013/REC-prov-dm-20130430/",
+      "checked_body_sections": [
+        "2.1",
+        "5.2.2 Revision",
+        "5.3.4 Delegation",
+        "5.1.8 Invalidation"
+      ],
+      "supports": [
+        "Entity/activity/agent provenance relations",
+        "Revision as derivation",
+        "Delegation and retained responsibility"
+      ],
+      "does_not_support": [
+        "Invalidation automatically means scientific refutation",
+        "ResearchFlow implements PROV serialization or interoperability"
+      ]
+    }
+  ]
+}

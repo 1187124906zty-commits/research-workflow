@@ -25,7 +25,7 @@
 
 原 dialogue 工具对已有 8 消息/2线程闭环实际审核通过，重复 ID 拒绝，未答请求以退出码 2 定位；本次没有改变脚本实现。外部 `simulation-agent-mvp` 未改代码或运行，它自己的全 PASS 限制仍然存在。
 
-本机系统 Python 3.14 的 pip/部分测试存在 DLL/退出异常；最终结果采用工作的 bundled 3.12 环境。系统解释器可以导入安装包并实际调用 context，但不据此声称其整套测试环境已健康。GitHub Actions 已配置 Windows/Linux、Python 3.11/3.13；远端尚未运行时不宣称 CI 已通过。
+本机系统 Python 3.14 的 pip/部分测试存在 DLL/退出异常；最终结果采用工作的 bundled 3.12 环境。系统解释器可以导入安装包并实际调用 context，但不据此声称其整套测试环境已健康。v0.1.0 发布提交的 GitHub Actions 已完成 Windows/Linux、Python 3.11/3.13 矩阵并全部通过，实际记录见 [CI run 36807721679](https://github.com/1187124906zty-commits/research-workflow/actions/runs/36807721679)。这不表示全部求解器或 Codex 客户端均已核验。
 
 ## 独立科研决策 forward test
 
@@ -56,4 +56,4 @@
 
 ## 最后发布范围
 
-仓库只含本工具代码、skills、角色/安装模板、文档、合成案例及实际测试观察。旧研究目录、blinded holdout、私人论文、浏览器会话和凭据不在其中。发布采用独立 Git仓库，最后一步验证 GitHub登录并推送已审阅的提交。账号认证缺失时，保持本地完整交付并报告上传未完成，不能生成一个虚构仓库链接。
+仓库只含本工具代码、skills、角色/安装模板、文档、合成案例及实际测试观察。旧研究目录、blinded holdout、私人论文、浏览器会话和凭据不在其中。项目已通过独立 Git 仓库发布，版本与源码包见 [v0.1.0 release](https://github.com/1187124906zty-commits/research-workflow/releases/tag/v0.1.0)。发布状态与后续文档更新分别核对，不将旧版本检查当作新改动的验证结果。
