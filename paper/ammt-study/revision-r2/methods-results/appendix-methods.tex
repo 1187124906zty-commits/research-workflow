@@ -1,0 +1,31 @@
+\subsection{Executed material and nonlinear controls}
+
+\begin{table}[htbp]
+\centering
+\caption{Property knots loaded by the executed material routine from the general IN625 bulletin~\cite{specialmetals625}. The two temperature columns describe different tables. Conductivity and sensible specific heat are interpolated independently.}
+\label{tab:properties}
+\begin{tabular}{rrrr}
+\toprule
+$T_k$ ($^\circ$C) & $k$ (W\,m$^{-1}$\,K$^{-1}$) & $T_c$ ($^\circ$C) & $c_p$ (J\,kg$^{-1}$\,K$^{-1}$)\\
+\midrule
+$-157$ & 7.2 & $-18$ & 402\\
+$-129$ & 7.5 & 21 & 410\\
+$-73$ & 8.4 & 93 & 427\\
+$-18$ & 9.2 & 204 & 456\\
+21 & 9.8 & 316 & 481\\
+38 & 10.1 & 427 & 511\\
+93 & 10.8 & 538 & 536\\
+204 & 12.5 & 649 & 565\\
+316 & 14.1 & 760 & 590\\
+427 & 15.7 & 871 & 620\\
+538 & 17.5 & 982 & 645\\
+649 & 19.0 & 1093 & 670\\
+760 & 20.8 & & \\
+871 & 22.8 & & \\
+982 & 25.2 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+The Anderson controls are history depth $M=8$, initial scale $\alpha=0.2$, regularization $w_0=0.01$, fixed-point residual tolerance $2\times10^{-4}$~K in $U$, and an Armijo line search. The GMRES cap is 800 inner iterations with restart 80 and a $2\times10^{-9}$ tolerance. The preconditioner is Ruge--Stuben classical multigrid with strength threshold 0.25, symmetric Gauss--Seidel smoothing, V cycles, at most 20 levels and a coarse size of 100. The executed environment uses one BLAS thread. These controls are taken from the production manifests; alternative methods present in the solver source were not used for the six retained production solutions.

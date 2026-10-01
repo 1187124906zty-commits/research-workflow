@@ -1,0 +1,7 @@
+# R2 native MAF section-writing record
+
+The actual `agent-framework-core==1.19.0` graph dispatched two writer requests through the authenticated Codex provider on 2026-10-01, using 50 frozen local inputs. No PDE or new experiment was run. The Introduction writer returned a structured report and three r001 files. The Discussion writer wrote three substantive r001 files, but its response exceeded the configured 1500-second deadline. The provider requested interruption, and the engine recorded `attention`, zero committed cycles, with that call `failed`. Native role reviews and requester dispositions had not executed in this batch; file presence is not a completed model return.
+
+The coordinator read both actual chapters and their claim interfaces and copied the candidates into `sections/` without overwriting the native files. A separate mechanism specialist read those chapters and the actual Methods/Results, and supplied located cross-section repairs and bounded original-source additions. The coordinator accepts the files as integration inputs with the interrupted-return limitation retained. Independent review of the complete canonical source/PDF remains a separate required task. This record does not promote physical claims or claim a fully autonomous native-MAF manuscript pipeline.
+
+Detailed execution state stays local in the original workspace. Same-workspace recovery is investigated separately; unknown model calls are not replayed. Clean final provenance will distinguish any subsequently completed recovery from this initial interruption.

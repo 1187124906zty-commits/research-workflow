@@ -1,0 +1,15 @@
+{
+  "latex_pdf_pages": 22,
+  "pdf_bytes": 419764,
+  "verified_cited_sources": 39,
+  "bibliography_candidates": 49,
+  "scientific_figures": 5,
+  "checked_document_links": 116,
+  "unresolved_delivery_defects": [],
+  "limits": [
+    "Current AM-specific author-guide terms unverified",
+    "Authorship/human final verification pending",
+    "Full PDE replay requires original case fields and environment",
+    "Scientific novelty/acceptance not certified"
+  ]
+}

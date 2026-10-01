@@ -1,0 +1,128 @@
+\section{Materials and methods}
+\subsection{Study design, experimental referent and data roles}
+The study tests how one-target geometric agreement relates to fusion shape, constitutive sensitivity and derived material history. First, B length calibrates one effective source factor. Width and depth, which are excluded from that objective, then assess geometric discrepancy; A and C assess the fixed-parameter condition response. Next, a four-corner contrast at B separates conductivity and sensible-storage continuation while retaining power, speed, beam, density, phase thresholds, latent heat, mesh and observation operators. Decomposing the rear solidus and liquidus positions distinguishes translation of the thermal tail from widening of the phase interval. Finally, mapping the rear spatial interval through scan speed distinguishes geometric extent from material passage time.
+
+The referent is constant-speed laser scanning on bare IN625 plate under three public AMMT conditions (Table~\ref{tab:conditions}). These are single tracks without a powder layer. The three conditions cover increasing speed; A also has a different power, whereas B and C isolate a speed change at fixed nominal power. The reported beam diameter is $D_{4\sigma}=170$~\um. The circular Gaussian reconstruction below uses a radius parameter $w=85$~\um; it does not reproduce the measured two-dimensional beam map.
+
+\begin{table}[htbp]
+\centering
+\caption{Operating conditions and fixed-source energy scales. The effective factor $\eta=0.2890548519$ is fitted to B length only. $E_\ell=\eta P/v$ and $w/v$ are model input scales.}
+\label{tab:conditions}
+\begin{tabular}{lrrrr}
+\toprule
+Condition & $P$ (W) & $v$ (m/s) & $E_\ell$ (J/m) & $w/v$ (\us)\\
+\midrule
+A & 137.9 & 0.4 & 99.65 & 212.50\\
+B & 179.2 & 0.8 & 64.75 & 106.25\\
+C & 179.2 & 1.2 & 43.17 & 70.83\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The length reference is the AMMT condition mean reported by Lane et al.~\cite{lane2020}. Current width and depth means are taken from NIST challenge Table~2 for the 100~\us-track microscopy classes~\cite{nist2018}. The latter differ in aggregation and display precision from the subsequently published cross-section means in Lane et al., which combine 100 and 20~\us{} tracks. Length and cross-section references are therefore condition-level quantities from separate observation populations, rather than a joint three-dimensional measurement of one track.
+
+The B length is the sole scalar calibration target. B width and depth are diagnostics after calibration, and A/C are retrospective, nonblind comparisons with $\eta$ frozen. All public targets were available during development. Expanded uncertainties $U$ with coverage factor $k=2$ are taken separately from Lane's uncertainty budgets. For width and depth these are descriptive measurement scales from the published combined-class analysis, not uncertainty values jointly estimated with the current decimal NIST means. The ratio $\delta/U$, where $\delta$ is the signed model--reference difference, is used only to report discrepancy scale. It is not a significance test or a combined numerical, input, calibration and measurement uncertainty statistic.
+
+\subsection{Conservative enthalpy model in the laser frame}
+The laboratory-frame conduction balance is
+\begin{equation}
+ \frac{\partial H}{\partial t}=\nabla\cdot[k(T)\nabla T],\qquad
+ H(T)=\rho\left[\int_{T_0}^{T}c_p(s)\,\mathrm ds+\mathcal L f(T)\right].
+ \label{eq:enthalpy}
+\end{equation}
+The adopted constants are $\rho=8440$~\si{\kilogram\per\cubic\metre}, $\mathcal L=280000$~\si{\joule\per\kilogram}, $T_0=25$~$^\circ$C, $T_s=1290$~$^\circ$C and $T_l=1350$~$^\circ$C. The equilibrium phase fraction is
+\begin{equation}
+ f(T)=\begin{cases}
+ 0,&T<T_s,\\
+ (T-T_s)/(T_l-T_s),&T_s\leq T<T_l,\\
+ 1,&T\geq T_l.
+ \end{cases}
+\end{equation}
+Specific heat and conductivity are linearly interpolated between the actual input knots in Table~\ref{tab:properties} in the reproducibility appendix. The conductivity table contains 15 points and ends at 982~$^\circ$C; the 12-point specific-heat table ends at 1093~$^\circ$C. These are the endpoints loaded by the executed material routine. The supplier labels its typical specific heats as calculated and conductivity as measured~\cite{specialmetals625}; these are general alloy data, not measurements on the benchmark coupon. Density and the melting interval use that bulletin, while the adopted latent heat follows the benchmark modeling setup~\cite{kollmannsberger2019}. The sensible enthalpy integral is evaluated piecewise analytically; adding the phase contribution preserves a monotone temperature--enthalpy relation and permits analytic inversion. The latent contribution to effective specific heat inside the phase interval is 4666.67~\si{\joule\per\kilogram\per\kelvin}.
+
+For a locally quasi-steady translating field, define $\xi=x-vt$ and $\bm u=(-v,0,0)$. Equation~\eqref{eq:enthalpy} becomes
+\begin{equation}
+ \nabla\cdot(\bm uH-k\nabla T)=0.
+ \label{eq:frame}
+\end{equation}
+The term $\bm uH$ represents stationary material passing through the laser coordinate frame. No liquid momentum equation or melt convection is included. The assumptions also exclude evaporation and free-surface deformation. Consequently, coordinate transport is not evidence of liquid flow.
+
+The Gaussian surface input at $z=0$ is
+\begin{equation}
+ q(\xi,y)=\frac{2\eta P}{\pi w^2}
+ \exp\!\left[-\frac{2(\xi^2+y^2)}{w^2}\right].
+ \label{eq:source}
+\end{equation}
+With outward normal $\bm n$, the top condition is $-k\nabla T\cdot\bm n=-q$; the Gaussian supplies inward heat. Rectangle-wise error-function integration supplies each top-face power. Its full-plane integral is $\eta P$ and the transverse half-domain receives $\eta P/2$. The finite-volume implementation deposits the integrated boundary input into top control volumes. At positive $\xi$, incoming material has $H=0$; at negative $\xi$, diffusive gradient vanishes and enthalpy leaves advectively. The $y=0$ plane is symmetric. Outer transverse and bottom boundaries are adiabatic. Radiation and ambient convection are omitted from the solved balance.
+
+\subsection{Finite-volume implementation and nonlinear solution}
+The domain is $\xi\in[-1,0.35]$~mm, $y\in[0,0.36]$~mm and $z\in[-0.30,0]$~mm. A graded orthogonal mesh contains 902664 cells. Near-source cell widths are $4\times3\times1$~\um\ within $\xi\in[-0.48,0.16]$~mm, $y\in[0,0.12]$~mm and $z\in[-0.06,0]$~mm. Outer widths increase by a factor of 1.22 up to 25~\um. The half-domain mesh has $199\times56\times81$ cells. The solved problem is steady; retained warm fields provide nonlinear initial guesses rather than a transient thermal initial condition.
+
+FiPy 4.0.3~\cite{fipy2009} assembles diffusion and exponential coordinate-convection terms. The scaled unknown is $U=H/C_0$, with $C_0=\rho(402~\si{\joule\per\kilogram\per\kelvin})=3.39288\times10^6$~\si{\joule\per\cubic\metre\per\kelvin}. On an internal face,
+\begin{equation}
+ D_f=\frac{k_f}{C_0}\frac{\Delta T}{\Delta U},
+ \label{eq:face}
+\end{equation}
+where $k_f$ is the harmonic face conductivity and $D_f$ has units of m$^2$\,s$^{-1}$. For $|\Delta U|\leq10^{-8}$~K, the implementation uses the positive derivative limit $\Delta T/\Delta U=C_0/[\rho(c_p+\mathcal L f')]$ at the first adjacent cell. This yields the corresponding conductive flux while conserving enthalpy; $U$ is a scaled enthalpy, not temperature. SciPy Anderson acceleration~\cite{scipy2020} solves the nonlinear fixed-point residual; the inner linear systems use GMRES with tolerance $2\times10^{-9}$ and restart 80, preconditioned by PyAMG Ruge--Stuben classical multigrid. Detailed acceleration and linear iteration controls are provided in the reproducibility appendix. Final acceptance uses the assembled nonlinear balance and the full-solve correction described below. The executed environment records Python 3.13.5, NumPy 2.5.3, SciPy 1.18.1 and PyAMG 5.3.0, with one BLAS thread.
+
+The diffusion and exponential-convection objects are recreated after each coefficient update. This step removes dependence on cached initial stencil weights found during implementation checks. Nonlinear convergence requires an assembled absolute cell-residual sum normalized by absorbed half-power below $2\times10^{-5}$, signed global balance magnitude below the same scale, and a further frozen-coefficient solve changing temperature by less than 0.002~$^\circ$C. Local residual and global balance are retained separately because opposing local errors can cancel in a global sum.
+
+\subsection{Geometry and passage-history operators}
+Model length $L$ is the distance between two solidus crossings of the recovered surface symmetry-centerline temperature. Crossings are interpolated, must enclose the source, and must form one interval without domain truncation. Surface recovery satisfies
+\begin{equation}
+ K(T_{\rm surf})-K(T_{\rm cell})=q\,\Delta z/2,\qquad K'(T)=k(T),
+\end{equation}
+and the symmetry-plane value uses the even quadratic extension $T(0)=T(y_1)+[T(y_1)-T(y_2)]y_1^2/(y_2^2-y_1^2)$ from the first two positive-$y$ cell centers. The recovered surface temperatures and symmetry extension are applied before the threshold crossings are extracted.
+
+Fusion-zone width and depth are extracted from the source-connected component of
+\begin{equation}
+ T_{\max}(y,z)=\max_\xi T(\xi,y,z)\geq T_s.
+ \label{eq:fusion}
+\end{equation}
+Each $\xi$ slice is first reconstructed at the surface and symmetry plane, then bilinearly interpolated onto observation coordinates, and only then maximized over passage. Taking a nodal maximum before interpolation creates a different envelope. Width is twice the positive-$y$ extent and depth is the negative of the lowest $z$. The 0.5~\um\ observation pitch samples interpolated geometry; it does not represent the resolution of the heat-field mesh. The geometric figure labels $L_s$, $W_f$ and $D_f$ correspond to the text's $L$, $W$ and $D$, respectively: $L_s$ is the surface length proxy, while $W_f$ and $D_f$ are fusion-envelope extents.
+
+Lane's imaging length uses a radiance-profile second-derivative minimum for the rear solidification location and a calibrated front threshold~\cite{lane2020}. The present two-solidus-crossing proxy does not replay radiance, emittance, pixel integration, viewing geometry or motion blur. Its fitted $\eta$ is therefore an effective source/model/operator parameter. Width and depth refer instead to a maximum-temperature fusion envelope, compared with metallography.
+
+Let $\xi_s^-$ and $\xi_l^-$ denote the rear centerline solidus and liquidus crossings. Define the rear spatial phase span, passage time and interval-mean cooling rate as
+\begin{equation}
+ \ell_m=\xi_l^- -\xi_s^-,\qquad
+ \tau_m=\frac{\ell_m}{v},\qquad
+ \overline{\dot T}=\frac{T_l-T_s}{\tau_m}.
+ \label{eq:passage}
+\end{equation}
+These are derived from one steady temperature solution. The passage time is a coordinate transformation, not a second independently predicted observable. The cooling interval is 1350--1290~$^\circ$C and differs from the below-solidus example interval used by Lane.
+
+\subsection{Calibration and high-temperature continuation contrast}
+The baseline continues the final tabulated slope of each property above its endpoint. A safeguarded secant solves $L_B(\eta)-359~\um=0$ in the initial bracket $[0.2,0.4]$, with proposals restricted to the inner 90\% of the current bracket and an accepted absolute length residual below 0.5~\um. It yields $\eta=0.2890548519203547$, with a residual of +0.158~\um. The retained endpoints give lengths of 234.57/511.68~\um. Subsequent retained trial pairs are $(0.2898051,359.96)$ and $(0.2853148,354.22)$, followed by the final pair. They establish a sampled local bracket, not global identifiability. The local secant sensitivity is approximately 1276.79~\um\ per unit $\eta$; dividing B's 21.26~\um\ expanded uncertainty by this slope gives a scale $\Delta\eta=0.01665$. This sensitivity conversion is not a posterior interval and is not propagated into the geometry comparisons. A and C retain the final value, the same beam and phase law, and the same continuation rules.
+
+At fixed B, two binary factors replace linear continuation (L) by holding the last tabulated value (H), independently for $k$ and $c_p$. H holds $k=25.2$~\si{\watt\per\metre\per\kelvin} above 982~$^\circ$C and $c_p=670$~\si{\joule\per\kilogram\per\kelvin} above 1093~$^\circ$C. The final table secants used for L are $(25.2-22.8)/(982-871)=0.0216216$~W\,m$^{-1}$\,K$^{-2}$ and $(670-645)/(1093-982)=0.225225$~J\,kg$^{-1}$\,K$^{-2}$. The changes apply above each table endpoint, including the solid range between the endpoint and $T_s$. Each conductivity branch changes $k$, its primitive $K$ and the surface inverse together; each storage branch changes $c_p$, $H$ and $T(H)$ together. The first letter labels conductivity. The LL solution is the B baseline; HH is a retained joint-closure comparison; HL and LH supply the two mixed corners. No corner is recalibrated. Across A/B/C and these four corners, sharing B=LL gives six unique production runs.
+
+For any output $Q$, define the baseline-anchored finite effects
+\begin{align}
+ \delta_k&=Q_{\HL}-Q_{\LL}, &
+ \delta_{c_p}&=Q_{\LH}-Q_{\LL},\\
+ I_{k,c_p}&=Q_{\HH}-Q_{\HL}-Q_{\LH}+Q_{\LL}, &
+ \Delta_{\rm joint}&=Q_{\HH}-Q_{\LL}=\delta_k+\delta_{c_p}+I_{k,c_p}.
+ \label{eq:contrast}
+\end{align}
+The conditional conductivity effect at held $c_p$ is $Q_{\HH}-Q_{\LH}=\delta_k+I_{k,c_p}$; the conditional storage effect at held $k$ is $Q_{\HH}-Q_{\HL}=\delta_{c_p}+I_{k,c_p}$. Reporting both conditions checks whether a direction changes with the other factor. These deterministic contrasts distinguish two continuation choices within the same model. They are not estimates from replicated material experiments and have no sampling-significance interpretation.
+
+
+The retained face transport diagnostic is
+\begin{equation}
+ |\mathrm{Pe}_f|=\frac{|\bm u\cdot\bm n_f|d_f}{D_f},
+ \label{eq:pe}
+\end{equation}
+where $d_f$ is the adjacent cell-center separation. Unweighted medians are taken over internal axial faces adjacent to at least one cell with $T_s\leq T<T_l$. The diagnostic compares coordinate transport with diffusion in the discretized field; its selected face population can change between solved branches.
+
+The discrete rear hot-region budget selects cells with $T\geq T_s$ and $\xi<0$. Net outward diffusive power is the sum of signed conductive face powers on the boundary of this selected cell set; internal face contributions cancel. The region is selected separately in each field, so its boundary and sampled faces change with the continuation. This accounting diagnostic is interpreted alongside the matched-coordinate centerline thresholds rather than as a fixed-region causal contrast.
+
+\subsection{Numerical evidence for the reported comparisons}
+Verification and physical comparison are treated separately~\cite{oberkampf2002}. An analytical constant-property moving Gaussian reference gives $L/W/D=407.535/153.293/34.836$~\um; the corresponding finite-volume values differ by +0.139\%, +0.190\% and $-0.499$\%. This checks the source, frame and extraction for a simpler problem. It does not establish nonlinear phase-change accuracy.
+
+At frozen calibrated $\eta$, axial refinement from 4 to 2~\um\ changes B $L/W/D$ by +0.361/$-0.009$/+0.041~\um\ and C by +0.199/$-0.029$/+0.045~\um. A/B domain enlargement changes these quantities by less than $3\times10^{-6}$~\um. These are measured sensitivity contrasts rather than certified error bounds. There is no branch-specific three-dimensional asymptotic refinement sequence. In particular, submicrometre interaction effects are reported descriptively. An older transient comparison at a different B calibration stage supplies only approximate local steady consistency. Fixed-field, blackbody top-loss estimates for the B corners are 0.099--0.180\% of absorbed power; they screen the loss scale without solving feedback into the field.
+
+All six retained production fields were inspected for finite temperature, bounded phase fraction, qualified nontruncated geometry, integrated source power and executed-source/dependency consistency. Their normalized absolute residuals range from $6.90\times10^{-8}$ to $1.31\times10^{-7}$; signed global balance magnitudes are below $6.1\times10^{-11}$, and full-solve temperature corrections are below $2.7\times10^{-5}$~$^\circ$C. Thus the final results satisfy the recorded nonlinear gates.
+
+The reproducibility package retains executed solver snapshots, input manifests, temperature arrays, calibration history and primary-observer code for the six solutions. Source-power integration, threshold crossings, primary passage geometry and finite-contrast algebra were independently reproduced from these artifacts.
+

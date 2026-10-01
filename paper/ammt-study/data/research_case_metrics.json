@@ -1,0 +1,44 @@
+[
+  {
+    "case": "A",
+    "power_W": 137.9,
+    "speed_m_s": 0.4,
+    "absorbed_line_energy_J_m": 99.65166019954228,
+    "residence_w_over_v_us": 212.50000000000003,
+    "rear_Ts_Tl_span_um": 48.29519038375836,
+    "rear_phase_passage_us": 120.7379759593959,
+    "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.4969438946051072,
+    "model_width_depth_ratio": 3.7895393959794506,
+    "experimental_mean_width_depth_ratio": 3.48,
+    "full_model_liquid_volume_nL": 0.5999520000000003,
+    "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+  },
+  {
+    "case": "B",
+    "power_W": 179.2,
+    "speed_m_s": 0.8,
+    "absorbed_line_energy_J_m": 64.74828683015944,
+    "residence_w_over_v_us": 106.25000000000001,
+    "rear_Ts_Tl_span_um": 80.26402604458121,
+    "rear_phase_passage_us": 100.3300325557265,
+    "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.5980263184572783,
+    "model_width_depth_ratio": 4.596369358143031,
+    "experimental_mean_width_depth_ratio": 3.4305555555555554,
+    "full_model_liquid_volume_nL": 0.4427280000000002,
+    "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+  },
+  {
+    "case": "C",
+    "power_W": 179.2,
+    "speed_m_s": 1.2,
+    "absorbed_line_energy_J_m": 43.16552455343963,
+    "residence_w_over_v_us": 70.83333333333334,
+    "rear_Ts_Tl_span_um": 80.79140265237265,
+    "rear_phase_passage_us": 67.32616887697722,
+    "model_centerline_Tl_to_Ts_mean_cooling_MK_s": 0.8911839333920206,
+    "model_width_depth_ratio": 5.853883946135397,
+    "experimental_mean_width_depth_ratio": 3.5810810810810807,
+    "full_model_liquid_volume_nL": 0.23299200000000014,
+    "cooling_definition": "Centerline rear Tl=1350 to Ts=1290°C interval; not Lane's reported cooling-rate observable"
+  }
+]

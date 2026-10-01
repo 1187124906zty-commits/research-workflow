@@ -1,0 +1,26 @@
+{
+  "L": {
+    "model_C_minus_B_um": -38.52618274987998,
+    "experiment_C_minus_B_um": 11.0,
+    "model_C_vs_B_percent": -10.726819806301691,
+    "experiment_C_vs_B_percent": 3.064066852367686,
+    "combined_expanded_U_if_uncorrelated_um": 38.89463330589453,
+    "uncertainty_note": "Descriptive class-mean contrast; cross-condition covariance not supplied. Quadrature scale assumes zero correlation and is not a new uncertainty validation model."
+  },
+  "W": {
+    "model_C_minus_B_um": -13.994435732604614,
+    "experiment_C_minus_B_um": -17.5,
+    "model_C_vs_B_percent": -9.783539441087763,
+    "experiment_C_vs_B_percent": -14.17004048582996,
+    "combined_expanded_U_if_uncorrelated_um": 7.730485107675973,
+    "uncertainty_note": "Descriptive class-mean contrast; cross-condition covariance not supplied. Quadrature scale assumes zero correlation and is not a new uncertainty validation model."
+  },
+  "D": {
+    "model_C_minus_B_um": -9.075808504002712,
+    "experiment_C_minus_B_um": -6.399999999999999,
+    "model_C_vs_B_percent": -29.163581183248755,
+    "experiment_C_vs_B_percent": -17.77777777777777,
+    "combined_expanded_U_if_uncorrelated_um": 5.136973817336429,
+    "uncertainty_note": "Descriptive class-mean contrast; cross-condition covariance not supplied. Quadrature scale assumes zero correlation and is not a new uncertainty validation model."
+  }
+}

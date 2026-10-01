@@ -1,0 +1,15 @@
+{
+  "reason": "User corrected the premature technical framing: establish a declarative field challenge and literature-grounded gap before presenting specific variables; make the abstract concise and distinctive, align reference scale and analysis depth with comparable research papers.",
+  "stage": "paper_formation",
+  "constraints": [
+    "Original SimAgent case and installed skills remain unmodified",
+    "No new PDE runs unless a consequential gap requires them",
+    "No invented authors, references, blind validation or agent efficacy",
+    "Separate field challenge, literature gap and internal technical tasks; derive the gap from literature rather than reverse-engineering it from existing runs",
+    "Use a declarative reader-facing problem statement and a concise challenge-response abstract; emphasize real significance without unsupported novelty or result claims",
+    "Align reference scale and analytic depth with comparable research papers: provisional target at least 38 relevant verified actual citations, recalibrated after expanding recent exemplars",
+    "Expand deep learning to six same-direction and six distinct target-journal research exemplars; do not report this set or the 38 citations as complete before actual reading and use",
+    "Abstract need not reproduce each section or secondary result, but its central method, findings and promised response must be supported in the article"
+  ],
+  "next_decision": "Use the documented original abstract/introduction reading to refine field-level framing preferences; then investigate recent near-neighbour work and journal exemplars before committing the gap or rewriting the open manuscript. Existing numerical claims retain their limited evidence level."
+}

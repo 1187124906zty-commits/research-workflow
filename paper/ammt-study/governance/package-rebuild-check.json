@@ -1,0 +1,9 @@
+{
+  "source_package_matches_canonical": true,
+  "used_vector_figures": 5,
+  "extracted_package_build": "XeLaTeX/BibTeX/XeLaTeX/XeLaTeX",
+  "package_pdf_pages": 22,
+  "page_text_matches_canonical_pdf": true,
+  "tex_diagnostics": [],
+  "scope": "Rebuild in existing TeX Live 2026; not cross-platform or PDE replay verification"
+}

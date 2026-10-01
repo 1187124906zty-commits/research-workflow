@@ -1,0 +1,376 @@
+{
+  "date": "2026-10-01",
+  "purpose": "R2 target-journal learning, not independent manuscript review",
+  "main_requested_sources": [
+    {
+      "id": "Myers2023",
+      "title": "High-resolution melt pool thermal imaging for metals additive manufacturing using the two-color method with a color camera",
+      "doi": "10.1016/j.addma.2023.103663",
+      "year": 2023,
+      "version": "final publisher version of record",
+      "pdf_path": "../../literature/myers2023-published.pdf",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935822",
+      "pages_total": 11,
+      "read_scope": "abstract; complete Introduction pp1-2; relevant Results/Discussion pp7-9",
+      "read_pages": [
+        1,
+        2,
+        7,
+        8,
+        9
+      ],
+      "visual_pages": [
+        1,
+        8
+      ],
+      "reference_count": 43,
+      "reference_count_type": "numbered bibliography items",
+      "function": "geometry-temperature parameter ambiguity; paired quantitative figures",
+      "boundary": "not four re-fitted branches in current study",
+      "learning_status": "completed for assigned purpose"
+    },
+    {
+      "id": "Hooper2018",
+      "title": "Melt pool temperature and cooling rates in laser powder bed fusion",
+      "doi": "10.1016/j.addma.2018.05.032",
+      "year": 2018,
+      "version": "final publisher version of record",
+      "pdf_path": "../../literature/hooper2018-published.pdf",
+      "source_url": "https://spiral.imperial.ac.uk/bitstreams/49ae8804-9fc7-4ca2-af88-cf9736245261/download",
+      "pages_total": 12,
+      "read_scope": "abstract; complete Introduction pp1-2; thermal histories/errors pp10-12",
+      "read_pages": [
+        1,
+        2,
+        10,
+        11,
+        12
+      ],
+      "visual_pages": [
+        1,
+        11
+      ],
+      "reference_count": 17,
+      "reference_count_type": "numbered bibliography items",
+      "function": "separate spatial temperature from temporal thermal histories",
+      "boundary": "Ti6Al4V pulsed/transient measurements are not validation of quasi-steady x/v mapping",
+      "learning_status": "completed for assigned purpose"
+    },
+    {
+      "id": "LaneAbsorption2020",
+      "title": "Transient Laser Energy Absorption, Co-axial Melt Pool Monitoring, and Relationship to Melt Pool Morphology",
+      "doi": "10.1016/j.addma.2020.101504",
+      "year": 2020,
+      "version": "final publisher version of record",
+      "pdf_path": "../../literature/lane2020-absorption-nist.pdf",
+      "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=929214",
+      "pages_total": 13,
+      "read_scope": "abstract; complete Introduction sections1.1-1.6 pp1-4; Results/Discussion pp9-11",
+      "read_pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "visual_pages": [
+        11,
+        13
+      ],
+      "reference_count": 52,
+      "reference_count_type": "numbered bibliography items",
+      "function": "observation identity, absorption/coupling distinctions, average versus transient findings",
+      "boundary": "not Lane geometry DOI10.1007/s40192-020-00169-1; plume causality not established by energy differences alone",
+      "learning_status": "completed for assigned purpose"
+    },
+    {
+      "id": "Zafari2025",
+      "title": "Operando synchrotron X-ray analysis of melt pool dynamics in an Al-Sn immiscible alloy",
+      "doi": "10.1016/j.addma.2025.104754",
+      "year": 2025,
+      "version": "final publisher version of record, CC-BY; classified from actual PDF rather than OSTI Accepted Manuscript label",
+      "pdf_path": "pdfs/operando2025.pdf",
+      "source_url": "https://www.osti.gov/servlets/purl/3001943",
+      "pages_total": 16,
+      "read_scope": "abstract; complete Introduction pp1-3; relevant Methods p3; Results/Discussion force analysis pp11-14; conclusions p14",
+      "read_pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "visual_pages": [
+        1,
+        9,
+        13,
+        16
+      ],
+      "reference_count": 69,
+      "reference_count_type": "terminal bibliography number, visually confirmed p16 and Crossref",
+      "function": "observation-based mechanism comparison with explicit scale-model assumptions",
+      "boundary": "Al-Sn powder/transient; does not identify cause of IN625 bare-plate residuals; numerical 0.06-0.09m/s versus order1m/s should not inherit text exaggeration of two orders",
+      "learning_status": "completed for assigned purpose"
+    },
+    {
+      "id": "Hou2024",
+      "title": "Dissolution zone model of the oxide structure in additively manufactured dispersion-strengthened alloys",
+      "doi": "10.1016/j.addma.2024.104554",
+      "year": 2024,
+      "version": "final publisher version of record, CC-BY; classified from actual PDF rather than OSTI Accepted Manuscript label",
+      "pdf_path": "pdfs/dissolution2024.pdf",
+      "source_url": "https://www.osti.gov/servlets/purl/2538374",
+      "pages_total": 23,
+      "read_scope": "abstract; complete Introduction pp1-3; model sections4.1-4.3 pp7-10, section4.7 p13; case study p15; conclusions p18; AppendixA p19",
+      "read_pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        13,
+        15,
+        18,
+        19,
+        23
+      ],
+      "visual_pages": [
+        1,
+        9,
+        10,
+        23
+      ],
+      "reference_count": 72,
+      "reference_count_type": "terminal bibliography number, visually confirmed p23 and Crossref",
+      "function": "competing mechanisms; flow-advected thermal excursions; reduced conduction field scaled against CFD",
+      "boundary": "Ni-20Cr ODS material; no direct current IN625 comparison or microstructure validation; Crossref month differs from PDF online date, do not use month ranking",
+      "learning_status": "completed for assigned purpose"
+    },
+    {
+      "id": "Bayat2019",
+      "title": "Keyhole-induced porosities in Laser-based Powder Bed Fusion (L-PBF) of Ti6Al4V: High-fidelity modelling and experimental validation",
+      "doi": "10.1016/j.addma.2019.100835",
+      "year": 2019,
+      "version": "publisher UNCORRECTED PROOF; actual extracted watermark; not final VoR",
+      "pdf_path": "../literature/pdfs/bayat2019.pdf",
+      "source_url": null,
+      "read_scope": "abstract and Introduction beginning p1; part of Introduction p2 only",
+      "read_pages": [
+        1,
+        2
+      ],
+      "read_pages_qualification": "p2 partial",
+      "visual_pages": [],
+      "reference_count": null,
+      "function": "publisher research sample; high-fidelity keyhole problem framing at abstract level",
+      "boundary": "Results/Discussion and reference endpoint not read by this agent; scientific interpretation assigned to literature colleague",
+      "learning_status": "partial; retained unresolved assigned main-six coverage gap"
+    }
+  ],
+  "main_set_summary": {
+    "distinct_research_papers": 6,
+    "final_publisher_versions": 5,
+    "publisher_uncorrected_proof": 1,
+    "fully_learned_for_assignment": 5,
+    "partial_main_source": "Bayat2019"
+  },
+  "supplementary_sources": [
+    {
+      "id": "Tian2024",
+      "title": "Operando visualization of porous metal additive manufacturing with foaming agents through high-speed x-ray imaging",
+      "doi": "10.1016/j.addma.2024.104505",
+      "year": 2024,
+      "version": "publisher CORRECTED PROOF, not final VoR",
+      "pdf_path": "pdfs/foaming2024.pdf",
+      "source_url": "https://www.osti.gov/servlets/purl/2569860",
+      "pages_total": 14,
+      "read_scope": "abstract; complete Introduction pp1-2; Methods pp2-4; relevant Results/Discussion pp4-5 and7-12; conclusions pp12-13; refs endpoint p14",
+      "read_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "visual_pages": [],
+      "rendered_but_not_viewed_pages": [
+        1,
+        11,
+        14
+      ],
+      "reference_count": 55,
+      "reference_count_type": "numbered bibliography items; duplicates [35]/[38], [39]/[53] etc, not unique works",
+      "function": "observation proxy and normalization definitions; negative and counterintuitive findings",
+      "boundary": "porous Ti64/foaming-agent findings unrelated to current closure residual; typography not final",
+      "learning_status": "completed text/figure-caption learning; visual-page learning pending"
+    },
+    {
+      "id": "Plotkowski2017",
+      "title": "Verification and validation of a rapid heat transfer calculation methodology for transient melt pool solidification conditions in powder bed metal additive manufacturing",
+      "doi": "10.1016/j.addma.2017.10.017",
+      "year": 2017,
+      "version": "author manuscript",
+      "pdf_path": "pdfs/vverification2017.pdf",
+      "source_url": "https://www.osti.gov/servlets/purl/1408593",
+      "pages_total": 30,
+      "read_scope": "local title page; saved OSTI complete abstract; root independently reported abstract reading",
+      "read_pages": [
+        1
+      ],
+      "visual_pages": [],
+      "reference_count": null,
+      "function": "narrow Introduction background for existing pragmatic transient conduction-to-solidification use",
+      "boundary": "no method detail/accuracy/CET thresholds read by this agent; AlSi10Mg SLM and IN718 EBM distinct from current AMMT case",
+      "learning_status": "narrow abstract-level use only"
+    }
+  ],
+  "completed_text_learning_alternative_set": [
+    "Myers2023",
+    "Hooper2018",
+    "LaneAbsorption2020",
+    "Zafari2025",
+    "Hou2024",
+    "Tian2024"
+  ],
+  "alternative_set_version_summary": "5 final VoR + 1 publisher corrected proof; Tian visual learning pending",
+  "access_gaps": [
+    {
+      "doi": "10.1016/j.addma.2024.104369",
+      "title": "Avoiding heat source calibration for finite element modeling of the laser powder bed fusion process",
+      "status": "metadata verified; no readable legal fulltext obtained; institution browser attempted by root; no content claim"
+    },
+    {
+      "doi": "10.1016/j.addma.2024.104111",
+      "title": "Scalable path level thermal history simulation of powder bed fusion process validated by melt pool images",
+      "status": "metadata verified; no readable legal fulltext obtained; institution browser attempted by root; no content claim"
+    },
+    {
+      "doi": "10.1016/j.addma.2026.105245",
+      "title": "Modeling internal reflections of thermal emission in melt pool keyholes to resolve discrepancies in simulated and measured temperatures",
+      "status": "metadata verified; no readable legal fulltext obtained; institution browser attempted by root; no content claim"
+    }
+  ],
+  "other_pdf_classifications": [
+    {
+      "file": "pdfs/kirschbaum2025.pdf",
+      "version_note": "author submitted manuscript with Editorial Manager cover, not VoR",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/dynamic2024.pdf",
+      "version_note": "Coleman2024 author manuscript; research-line agent owns",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/sensitivity2024.pdf",
+      "version_note": "accepted manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/timeparallel2026.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/registration2022.pdf",
+      "version_note": "author manuscript despite Version of Record link",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/gas2025.pdf",
+      "version_note": "publisher Journal Pre-proof after cover, not final",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/preheating2020.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/grain2024.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/multimodal2023.pdf",
+      "version_note": "LLNL cover, likely author manuscript; no complete content learning",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/solidification2024.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/dendrite2026.pdf",
+      "version_note": "corrupted-font author manuscript; rejected for readable/layout learning",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/raytrace2026.pdf",
+      "version_note": "PDF NeurIPS proceedings differs from Additive Manufacturing DOI record; rejected",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/porosity2020.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/efficiency2022.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/microstructure2024.pdf",
+      "version_note": "author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/dedmodel2023.pdf",
+      "version_note": "LLNL cover then author manuscript",
+      "counted_as_final_exemplar": false
+    },
+    {
+      "file": "pdfs/gasflow2021.pdf",
+      "version_note": "Revised Manuscript, not publisher VoR",
+      "counted_as_final_exemplar": false
+    }
+  ],
+  "current_am_guide": {
+    "url": "https://www.sciencedirect.com/journal/additive-manufacturing/publish/guide-for-authors",
+    "read": false,
+    "status": "HTTP/fetch403 and browser unsuccessful; hard requirements unverified"
+  },
+  "official_publisher_wide_policies": [
+    {
+      "url": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "local": "latex-official.txt",
+      "read": true
+    },
+    {
+      "url": "https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals",
+      "local": "ai-policy-official.txt",
+      "read": true,
+      "policy_updated": "June2026"
+    }
+  ],
+  "counts_are_submission_gates": false,
+  "prior_exposure": "Read root argument-r001.md; old canonical manuscript headings only. Journal-learning is writing support, not blinded review."
+}

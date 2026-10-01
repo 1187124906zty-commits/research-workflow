@@ -1,87 +1,40 @@
-# ResearchFlow：面向 Codex 的多智能体科研治理框架
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-light.svg">
+    <img src="docs/assets/logo-light.svg" width="600" alt="ResearchFlow — Research Governance">
+  </picture>
+</p>
 
-ResearchFlow 是一个以 skill 为知识与流程载体、以轻量运行时为状态基础的多智能体科研协调框架。项目面向从研究问题形成、文献与工具能力调查，到证据获取、机制解释、论文写作和独立评阅的完整研究过程。
+<h3 align="center">围绕问题协作，沿着证据成稿。</h3>
 
-框架关注研究目标与局部执行之间的失衡：执行智能体可能持续优化数值精度、检索覆盖或文字表达，而未说明这些投入是否改变研究判断。ResearchFlow 将研究问题、论文论断、证据层级、任务预算和返回条件显式关联，使专业执行服务于可演化的整体研究路线。
+<p align="center">把研究问题、专业任务、实际证据与论文主张，连成可追溯的多 Agent 研究流程。</p>
 
-项目采用 MIT 许可，当前版本为 **v0.1.0 预发布版**。
+<p align="center">
+  <a href="https://github.com/1187124906zty-commits/research-workflow/actions/runs/36809713217"><img src="https://img.shields.io/badge/core_CI-4%2F4_passed-0f968a" alt="Core CI: 4/4 passed"></a>
+  <a href="https://github.com/1187124906zty-commits/research-workflow/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/version-0.1.0_prerelease-0f968a" alt="Version 0.1.0 prerelease"></a>
+  <a href="docs/compatibility.md"><img src="https://img.shields.io/badge/Python-%E2%89%A53.11-3776ab" alt="Python 3.11 or higher"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-64748b" alt="MIT license"></a>
+  <a href="docs/COMMUNITY.md"><img src="https://img.shields.io/badge/QQ-871287830-6856c8" alt="QQ group 871287830"></a>
+</p>
 
-- [源码仓库](https://github.com/1187124906zty-commits/research-workflow)
-- [版本发布与源码包](https://github.com/1187124906zty-commits/research-workflow/releases/tag/v0.1.0)
-- 设计论文：[中文正文](paper/researchflow-design.zh.md) · [LaTeX 源文件](paper/researchflow-design.zh.tex)
+<p align="center">
+  <a href="#安装">安装</a> · <a href="#使用">使用</a> · <a href="#看看效果">案例与稿件</a> · <a href="docs/design.md">文档</a> · <a href="CONTRIBUTING.md">参与贡献</a> · <a href="#交流与反馈">交流群</a>
+</p>
 
-设计论文阐述问题、动机、治理原则与系统架构，不包含实证结果。最新论文随当前仓库维护；v0.1.0 源码包对应首次工具发行，未被后续文档更新重新打包。软件检查、示例与既有行为观察另见[验证记录](docs/validation.md)。
+## ResearchFlow 是什么？
 
-## 定位与设计原则
+面向 Codex 的科研协作框架，以 skills 组织研究方法，以轻量 Python 运行时保存问题、任务、证据和判断。协调者维护整体研究路线，专业角色按需完成文献调查、证据生产、机制分析、论文写作与独立评阅。
 
-ResearchFlow 提供科研协作的组织方法与可检查状态，不提供通用数值求解器，也不把程序运行成功等同于科学结论成立。研究协调者负责问题、论断范围、任务优先级和下一行动；专业角色负责各自的调查、证据生产、解释或评阅。
+- **每项任务都要回答一个研究问题。** 派发时说明输入、论断范围、输出、预算和返回条件。
+- **结果要回到整体判断。** 接收交付与支持假设分别登记；负面结果、反证和尚未验证的解释继续保留。
+- **论文沿着证据形成。** 证据版本、适用范围与待补验证进入写作交接，问题和论证可随新证据调整。
 
-框架遵循以下原则：
-
-1. **研究路线允许演化。** 阅读、工具试用与反证可以改变问题、模型和论文框架；一次运行的输入应固定，整个研究方向可有依据地调整。
-2. **要求由用途与论断确定。** 数值精度、检索深度和重复试验依据关注量、效应尺度、不确定性与用途设置，保持方程、单位、证据真实性及校准与验证的区别。
-3. **任务有明确的回传点。** 委派说明研究意义、输入、交付、预算、验收依据和返回条件；请求者解释结果意味着什么，再决定下一行动。
-4. **负面结果保留科研价值。** 接收任务交付与支持研究假设分别判断。反证影响相关论断及其依赖，失败记录不因收窄论断而消失。
-5. **上下文按任务组织。** 持久状态保存当前理解和证据定位；工作智能体读取相关任务与必要原始材料，避免重复载入全部历史。
-
-两轮没有改变研究理解时，默认返回协调者重审。这个条件触发研究判断：继续投入、采用更有区分力的检验、调整论断或推进另一项工作。它不构成科学充分性的统一标准。
-
-## 系统组成
-
-| 组件 | 位置 | 职责 |
-| --- | --- | --- |
-| 规则入口 | `templates/AGENTS.research.md` | 在适用科研任务中调用治理 skill，约定协作与状态记录方式 |
-| 顶层治理 skill | `skills/research-workflow-governor` | 演化研究问题、安排阶段与任务、解释证据、衔接论文论证 |
-| 模拟 skill | `skills/simulation-project-orchestrator` | 组织有限模拟任务、真实执行与逐论断验证；专业求解器另行配置 |
-| 专业角色 | `templates/agents/rf_*.toml` | 文献、论证与写作、证据生产、机制分析、独立评阅五类职责 |
-| 状态运行时 | `src/researchflow` | 保存研究理解、任务契约、证据版本、依赖与处置，提供审计命令 |
-| PaperSpine 适配器 | `integrations/paperspine` | 导出写作交接包，诊断并调用单独安装的上游公开接口 |
-| 安装与开发工具 | `scripts` | 安装自有 skill、角色和规则入口，执行检查与维护者发布流程 |
-
-五类角色是职责模板，实际按任务需要启用。独立证据任务可以并行；依赖前序结果的任务顺序开展。协调者单独写共享研究状态，工作智能体写各自声明的输出。
-
-`AGENTS.md`、skill 与角色指令引导模型遵循治理约定。运行时检查其入口内的状态、证据绑定、预算和依赖，不能拦截任意外部工具调用，也不能自动判定机理、因果或期刊接受可能性。具体求解器和数据工具需要在项目中接入已登记任务，并在关键使用点审计。
-
-## 研究流程
-
-```mermaid
-flowchart LR
-    Q[研究想法与用户问题] --> L[文献研究线与工具能力调查]
-    L --> P[候选期刊读者与暂定论证]
-    P --> T[有限证据任务]
-    T --> E[文献 · 实验 · 模拟证据]
-    E --> J[解释与研究判断更新]
-    J --> W[证据约束的论文成稿]
-    W --> R[独立评阅与针对性修改]
-    J --> P
-    J --> T
-    R --> T
-    R --> W
-```
-
-PaperSpine 角色在早期参与期刊读者、贡献类型和论证方案，结果返回后参与正文与讨论。期刊惯例影响表达和所需比较，科学主张仍以实际证据为依据。模拟或实验角色先评估工具能力与可行性，再开展能够回答当前问题的有限工作。
-
-工作流程区分探索、形成论文与最终评阅阶段。阶段决定当前任务需要的证据深度，并保留尚未完成的验证事项。具体设计见[设计说明](docs/design.md)、[治理 skill](skills/research-workflow-governor/SKILL.md)和[模拟规则调整依据](docs/simulation-audit.md)。
-
-## 依赖与兼容
-
-| 使用范围 | 必需条件 | 可选或外部条件 |
-| --- | --- | --- |
-| 状态运行时与 CLI | Python **3.11 或更高**；无第三方运行时 Python 依赖 | `pip` 用于安装；构建后端为 `setuptools>=68` |
-| 完整 Codex 工作流 | 支持 `AGENTS.md`、本地 skills 和 subagents 的 Codex 客户端与可用模型账户 | 自定义角色 TOML 的发现取决于客户端版本；职责可显式委派 |
-| PaperSpine 写作接入 | 基于文件的导出使用 Python 标准库 | 实时调用需要单独安装 PaperSpine、其运行环境和有效 profile |
-| 数值或实验研究 | 本仓库包含模拟编排 skill | 求解器、软件许可、项目依赖、数据来源及实验设备由研究项目提供 |
-| 开发与 GitHub 发布 | 检查使用 Python 标准库；源码安装需要构建工具 | Git 用于克隆；GitHub CLI 与认证仅供维护者发布 |
-
-核心代码已在 Windows 和 Linux 的 Python 3.11、3.13 CI 矩阵中检查，本地使用 Python 3.12 验证。macOS 未经本项目测试。`requires-python >=3.11` 是包声明范围，不表示所有更新解释器、客户端或求解器均已验证。
-
-本包不要求配置独立 API key，也不调用模型服务；Codex 或其他外部服务的账户、访问权限与认证由相应宿主管理。已核验的 PaperSpine 接口范围为 **0.4.0-alpha.3 / public request schema 1.1**，不构成对全部上游版本的兼容承诺。
-
-布局、版本、profile 限制和外部软件接入条件详见[依赖与兼容说明](docs/compatibility.md)。
+当前提供 **治理 skill、模拟编排 skill、五类专业角色、状态 CLI、PaperSpine 适配器与可审阅案例**。多 Agent 由宿主调度，领域角色判断科学意义；运行时检查协议与证据绑定。方法与边界见 [设计说明](docs/design.md)。
 
 ## 安装
 
-克隆仓库或解压发布源码包，进入项目目录：
+需要 **Python ≥3.11**。克隆仓库或解压 [v0.1.0 源码包](https://github.com/1187124906zty-commits/research-workflow/releases/tag/v0.1.0)，安装状态运行时：
 
 ```powershell
 git clone https://github.com/1187124906zty-commits/research-workflow.git
@@ -89,66 +42,118 @@ cd research-workflow
 python -m pip install -e .
 ```
 
-运行时安装与 Codex 集成安装分别进行。以下方式任选其一：
+在支持本地 skills 与 subagents 的 Codex 中，再选择一种集成安装方式：
 
 ```powershell
-# 用户范围：本项目开发时的桌面兼容布局 ~/.codex/skills
-python scripts/install.py
-
 # 用户范围：当前官方文档的 ~/.agents/skills 布局
 python scripts/install.py --skill-layout agents
 
-# 项目范围：先建立目标科研项目，再安装到其中
+# 或项目范围：目标科研项目目录须已存在
 python scripts/install.py --project D:/my-research
 ```
 
-已有本项目同名 skill 或角色时，安装器会停止并提示冲突。确认更新这些内容后，在所选命令末尾添加 `--update`。这个选项会覆盖本仓库提供的 skill 与角色文件；请先保留需要继续维护的本地定制。
+开发机桌面客户端使用的 `~/.codex/skills` 兼容布局可用 `python scripts/install.py` 安装。选择宿主实际发现的一种布局，完成后启动新的 Codex 运行。仅安装 Python 包不会自动安装 skills 与角色。
 
-项目安装使用 `.agents/skills` 与 `.codex/agents`；用户安装的兼容布局可以选择。不要在同一宿主可发现的多个位置重复安装同名 skill。安装器保留既有用户规则，只维护 ResearchFlow 标记区块；存在非空 `AGENTS.override.md` 时，将入口写入该优先文件。
-
-安装不修改 `config.toml`、模型设置、权限或 PaperSpine 管理文件。完成后启动新的 Codex 运行，以重新发现规则与角色。源码包包含集成脚本、skills 和模板；仅安装 Python 包不会自动安装这些资源。
+同名文件已存在时，安装器提示冲突；确需更新本项目文件时添加 `--update`，先保留自己的定制差异。目录规则、角色发现与完整兼容条件见 [依赖与兼容说明](docs/compatibility.md)。
 
 ## 使用
 
-在已有科研项目中向 Codex 提交研究问题，例如：
+| 你想做什么 | 从这里开始 |
+|---|---|
+| 查看实际成果 | [AMMT IN625 研究稿](paper/ammt-study/manuscript.pdf)与[证据说明](paper/ammt-study/README.md) |
+| 开始自己的研究 | 安装集成后，在 Codex 中提交问题、材料位置与可用工具 |
+| 查看状态或接入工具 | [CLI 与状态协议](docs/API.md)，登记任务、结果、处置并执行审计 |
+| 接入写作产品 | [PaperSpine 接入](docs/paperspine-integration.md)，先做文件交接，再核对实时接口 |
 
-> 使用 $research-workflow-governor，以多 agent 模式推进这个研究项目。先调查现有材料、问题和工具能力，建立候选期刊论证与有限证据任务；依据结果调整问题和框架，完成论文草稿及独立评估。
+在 Codex 中可以这样开始：
 
-协调者通过运行时保存 `.researchflow/research-state.json`，并按契约委派工作：
+```text
+$research-workflow-governor
+研究这个项目中的核心问题。已有论文、数据与代码都在项目目录中。
+请先调查材料和工具能力，提出面向候选期刊读者的论证方案，
+安排有限的证据任务，依据结果更新判断，交付稿件并进行独立评阅。
+```
+
+协调者通过运行时保存 `.researchflow/research-state.json`：
 
 ```powershell
 python -m researchflow init ./study --question "哪个机制影响这个可测量的结果？"
-python -m researchflow plan ./study ./plan.json
 python -m researchflow task ./study ./contract.json
-python -m researchflow context ./study --task pilot
 python -m researchflow record ./study pilot ./result.json
 python -m researchflow decide ./study pilot ./decision.json
 python -m researchflow audit ./study
 ```
 
-命令中的 JSON 是需要依据实际任务填写的计划、契约、返回和处置文件，字段与可运行示例见 [CLI 与状态协议](docs/API.md)。接收交付与提升论断分别登记；观察、数值核验和物理验证保留不同证据层级。
+JSON 文件需按真实任务填写；完整字段、计划与上下文命令见 [API 文档](docs/API.md)。协调者单独写共享状态，工作角色写各自声明的产物；关键交接回读原始证据。
 
-PaperSpine 的文件交接可独立于其 Web 服务运行。实时接入需要回读当前 schema，并检查目标 profile；已有启动冲突和证据 locator 的回读限制见 [PaperSpine 接入说明](docs/paperspine-integration.md)。本框架保留研究状态中的原始证据定位，不以服务页面状态替代科学审阅。
+## 看看效果
 
-## 开发与验证
+**AMMT IN625 激光熔池：把已有计算证据组织成可审阅的研究稿。**
+
+<p align="center">
+  <a href="paper/ammt-study/manuscript.pdf">
+    <img src="docs/assets/ammt-operating-cases.png" width="900" alt="AMMT IN625 三工况的表面固相线等温轮廓与熔合区包络">
+  </a>
+</p>
+
+案例基于公开 AMMT 实验条件与既有三维传导、相变计算，讨论扫描工况和高温物性对熔池形貌及热历程的影响。本次协作用这些产物准备英文稿件、核对论断范围并开展评阅，保留数据来源、模型假设与比较条件。
+
+**数值计算原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 执行。** ResearchFlow 与 [MAF 重构版](https://github.com/1187124906zty-commits/research-assistant-maf) 用于本次稿件准备与评阅。B 工况长度参与有效热源因子标定，A/C 为固定参数非盲比较；R2 初稿实际引用 39 项相关来源，包含五幅科学图，尚未经期刊同行评审。
+
+[阅读稿件 PDF →](paper/ammt-study/manuscript.pdf) · [编辑 LaTeX 源文件 →](paper/ammt-study/manuscript.tex) · [查看来源与交付范围 →](paper/ammt-study/README.md)
+
+案例包同时提供[完整 LaTeX 源码压缩包](paper/ammt-study/submission-source.zip)、核实数据表、[近期研究线与引用职责](paper/ammt-study/revision-r2/literature/citation-map.md)、[期刊原文学习](paper/ammt-study/revision-r2/journal/journal-learning.md)、[章节交叉审阅](paper/ammt-study/revision-r2/exchange/cross-section-review.md)和[当前全文评阅](paper/ammt-study/revision-r2/review/whole-review.md)。MAF 的[原有限协作](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-manuscript)与[R2 分章运行](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-deep-revision)分别保留实际完成范围；R2 原生讨论返回超时由协调者接收真实候选，后续评阅另行执行。
+
+<details>
+<summary><strong>再看一个可复跑的例子：扩散计算 → 证据登记 → 技术稿</strong></summary>
+
+![一维稳态扩散的实际计算浓度剖面](examples/steady_diffusion/sample-output/profile.png)
+
+标准库示例执行保守一维稳态扩散、三对网格和解析参考核验，再登记结果、判断并生成技术稿。它是确定性合成示例，未执行实验、模型调用或实时 PaperSpine。
+
+```powershell
+python examples/steady_diffusion/run.py --project ./local-runs/new-diffusion
+```
+
+使用新的输出目录。[查看示例与保存产物 →](examples/steady_diffusion/README.md)
+
+</details>
+
+## 依赖与兼容
+
+| 使用层次 | 条件与实际范围 |
+|---|---|
+| 状态运行时与 CLI | Python ≥3.11；无第三方运行时 Python 依赖；安装构建使用 `setuptools>=68` |
+| Codex 多 Agent 协作 | 宿主须支持 `AGENTS.md`、本地 skills、subagents 和可用模型账户；角色发现随客户端版本核对 |
+| PaperSpine | 文件导出用标准库；实时调用需独立安装上游。已核验 `0.4.0-alpha.3` / public schema `1.1` |
+| 数值与实验研究 | 求解器、许可、数据、设备与科学计算环境由具体项目提供 |
+| 已检查平台 | Windows / Linux × Python 3.11、3.13 CI；开发机 Python 3.12。macOS 尚未测试 |
+
+本包不直接调用模型服务，也不要求独立 API key；模型访问由宿主管理。包版本为 **v0.1.0 预发布版**，当前分支持续维护；首次 release 源码包不自动包含后续案例与文档。完整范围见 [兼容说明](docs/compatibility.md)。
+
+## 验证与贡献
+
+已核实的 [核心 CI](https://github.com/1187124906zty-commits/research-workflow/actions/runs/36809713217) 四组环境通过，运行安装、标准测试与确定性扩散示例。本地记录包含 38 项标准测试、14 项独立检查及有限模型行为观察；详情见 [验证记录](docs/validation.md)。这些检查说明相应软件路径与示例行为，科研主张仍需对应领域证据。
 
 ```powershell
 python -m unittest discover -s tests -v
 python scripts/independent_check.py
-python examples/steady_diffusion/run.py --project ./local-runs/diffusion
 ```
 
-标准检查覆盖状态恢复、契约、证据版本、反证、交接与安装；确定性扩散示例演示从数值求解到证据登记和技术稿的路径。它不调用模型或实时 PaperSpine，其合成输出仅说明示例工作流。
+欢迎贡献工具适配、研究案例、证据交接、文档与测试。可 [提交 Issue](https://github.com/1187124906zty-commits/research-workflow/issues/new) 或按 [贡献指南](CONTRIBUTING.md) 提交 Pull Request；描述具体问题、修改结果和实际验证范围。
 
-[验证记录](docs/validation.md)区分软件检查、有限模型行为观察和产品接口探针。它们的范围有限，不能推出长期科研可靠率、论文可接收性或所有客户端的兼容性。CI 配置见 [GitHub Actions](https://github.com/1187124906zty-commits/research-workflow/actions)。
+## 交流与反馈
 
-## 文档、许可与维护
+**QQ 交流群：基米绿豆 研习群 · 871287830**
 
-- [设计论文](paper/researchflow-design.zh.md)：研究动机、多智能体治理与系统方法。
-- [依赖与兼容](docs/compatibility.md)：最低条件、已检查环境和未验证边界。
-- [CLI 与状态协议](docs/API.md)：任务、证据、处置和审计字段。
-- [PaperSpine 接入](docs/paperspine-integration.md)：交接格式、公开调用和身份边界。
-- [第三方来源说明](THIRD_PARTY.md)：上游依赖及分发范围。
-- [MIT 许可](LICENSE)：本项目代码与维护内容的许可。
+<p align="center">
+  <a href="docs/COMMUNITY.md"><img src="docs/assets/qq-community.jpg" width="260" alt="基米绿豆研习群 QQ 二维码，群号 871287830"></a>
+</p>
 
-PaperSpine 是独立维护的可选上游项目，本仓库不重新分发其管理产品。外部 `simulation-agent-mvp` 的程序没有包含或修改，仍遵守其原有运行限制。维护者可使用 `scripts/publish.ps1` 发布已审阅提交；普通使用者无需 GitHub CLI 或仓库写入权限。
+欢迎交流多 Agent 科研协作、证据与稿件衔接、使用问题和改进想法。需要跟踪的事项请同步到 Issue；二维码失效时可搜索群号。[社区说明 →](docs/COMMUNITY.md)
+
+## 继续了解
+
+[设计说明](docs/design.md) · [CLI 与状态协议](docs/API.md) · [依赖与兼容](docs/compatibility.md) · [PaperSpine 接入](docs/paperspine-integration.md) · [设计论文](paper/researchflow-design.zh.md) · [验证记录](docs/validation.md)
+
+项目采用 [MIT 许可](LICENSE)。可选上游产品与案例材料遵循各自来源和分发范围，见 [第三方说明](THIRD_PARTY.md)；设计论文阐述方法与架构，不含科研效果实证。

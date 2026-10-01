@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "revision": 36,
+  "protocol_ok": true,
+  "scientific_validity": "not_judged",
+  "risks": [
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.tex",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.pdf",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: literature/bibliography-r2.bib",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    }
+  ]
+}

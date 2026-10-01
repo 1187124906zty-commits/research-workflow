@@ -1,0 +1,13 @@
+{
+  "reason": "User feedback identified insufficient recent-literature coverage, section-specific research and whole-paper argument coordination. Deliver an investigated collaboration design before further manuscript rewriting or GitHub publication.",
+  "stage": "paper_formation",
+  "uncertainties": [
+    "Venue contribution sufficiency after comparison with the closest recent original work",
+    "Journal-specific current guide remains incompletely accessible",
+    "Physical predictive validation is not established by the retained numerical case",
+    "Literature tracking for 2025-2026 and detailed 2024 near-neighbour comparison have not been completed",
+    "The current MAF run covers two bounded manuscript inputs, not section ownership, cross-section review or complete-article research",
+    "The proposed manuscript collaboration layer has not yet been implemented and validated through the deeper revision"
+  ],
+  "next_decision": "Deliver and critically inspect the documented manuscript-collaboration design and AMMT phase contracts. Then prioritize recent research-line comparison, target-journal learning and methods-observation audit before committing the article argument and section drafts. Preserve the open manuscript and hold publication of the current draft."
+}

@@ -1,0 +1,421 @@
+{
+  "coding": "first letter k, second cp; L linear extrapolation, H hold last value at own endpoint",
+  "effect_formulas": {
+    "k_conditional_at_cp_L": "Q_HL-Q_LL",
+    "cp_conditional_at_k_L": "Q_LH-Q_LL",
+    "interaction": "Q_HH-Q_HL-Q_LH+Q_LL",
+    "joint": "Q_HH-Q_LL",
+    "k_average_main": "((Q_HL-Q_LL)+(Q_HH-Q_LH))/2",
+    "cp_average_main": "((Q_LH-Q_LL)+(Q_HH-Q_HL))/2"
+  },
+  "effects": [
+    {
+      "quantity": "L_um",
+      "k_effect_at_cp_linear": 43.213712463555225,
+      "cp_effect_at_k_linear": -6.168857760595699,
+      "k_effect_at_cp_hold": 40.451770343843634,
+      "cp_effect_at_k_hold": -8.93079988030729,
+      "k_main_average": 41.83274140369943,
+      "cp_main_average": -7.549828820451495,
+      "interaction_HH_HL_LH_LL": -2.761942119711591,
+      "joint_HH_minus_LL": 34.282912583247935
+    },
+    {
+      "quantity": "W_um",
+      "k_effect_at_cp_linear": 0.10945140794945019,
+      "cp_effect_at_k_linear": 0.6755986588119924,
+      "k_effect_at_cp_hold": 0.07069637402872786,
+      "cp_effect_at_k_hold": 0.6368436248912701,
+      "k_main_average": 0.09007389098908902,
+      "cp_main_average": 0.6562211418516313,
+      "interaction_HH_HL_LH_LL": -0.038755033920722326,
+      "joint_HH_minus_LL": 0.7462950328407203
+    },
+    {
+      "quantity": "D_um",
+      "k_effect_at_cp_linear": -1.0283374586335121,
+      "cp_effect_at_k_linear": 0.4930772686258891,
+      "k_effect_at_cp_hold": -0.8163618854804362,
+      "cp_effect_at_k_hold": 0.705052841778965,
+      "k_main_average": -0.9223496720569742,
+      "cp_main_average": 0.599065055202427,
+      "interaction_HH_HL_LH_LL": 0.2119755731530759,
+      "joint_HH_minus_LL": -0.3232846168545471
+    },
+    {
+      "quantity": "surface_peak_C",
+      "k_effect_at_cp_linear": 809.4996583430361,
+      "cp_effect_at_k_linear": 59.281335475414835,
+      "k_effect_at_cp_hold": 964.5920270710867,
+      "cp_effect_at_k_hold": 214.37370420346542,
+      "k_main_average": 887.0458427070614,
+      "cp_main_average": 136.82751983944013,
+      "interaction_HH_HL_LH_LL": 155.0923687280506,
+      "joint_HH_minus_LL": 1023.8733625465015
+    },
+    {
+      "quantity": "Ts_rear_um",
+      "k_effect_at_cp_linear": -42.487288722914684,
+      "cp_effect_at_k_linear": 6.223377970654269,
+      "k_effect_at_cp_hold": -39.728932529991255,
+      "cp_effect_at_k_hold": 8.981734163577698,
+      "k_main_average": -41.10811062645297,
+      "cp_main_average": 7.602556067115984,
+      "interaction_HH_HL_LH_LL": 2.7583561929234293,
+      "joint_HH_minus_LL": -33.505554559336986
+    },
+    {
+      "quantity": "Ts_front_um",
+      "k_effect_at_cp_linear": 0.726423740640513,
+      "cp_effect_at_k_linear": 0.05452021005854846,
+      "k_effect_at_cp_hold": 0.7228378138523723,
+      "cp_effect_at_k_hold": 0.05093428327040783,
+      "k_main_average": 0.7246307772464426,
+      "cp_main_average": 0.052727246664478145,
+      "interaction_HH_HL_LH_LL": -0.0035859267881406254,
+      "joint_HH_minus_LL": 0.7773580239109208
+    },
+    {
+      "quantity": "Tl_rear_um",
+      "k_effect_at_cp_linear": -43.500431573763166,
+      "cp_effect_at_k_linear": 6.5302808771700995,
+      "k_effect_at_cp_hold": -39.12999914790754,
+      "cp_effect_at_k_hold": 10.900713303025725,
+      "k_main_average": -41.31521536083535,
+      "cp_main_average": 8.715497090097912,
+      "interaction_HH_HL_LH_LL": 4.3704324258556255,
+      "joint_HH_minus_LL": -32.59971827073744
+    },
+    {
+      "quantity": "Tl_front_um",
+      "k_effect_at_cp_linear": 1.0416202105302048,
+      "cp_effect_at_k_linear": 0.08821484601943297,
+      "k_effect_at_cp_hold": 1.025080240001735,
+      "cp_effect_at_k_hold": 0.07167487549096307,
+      "k_main_average": 1.0333502252659699,
+      "cp_main_average": 0.07994486075519802,
+      "interaction_HH_HL_LH_LL": -0.016539970528469894,
+      "joint_HH_minus_LL": 1.113295086021168
+    },
+    {
+      "quantity": "Tl_length_um",
+      "k_effect_at_cp_linear": 44.54205178429339,
+      "cp_effect_at_k_linear": -6.4420660311506595,
+      "k_effect_at_cp_hold": 40.15507938790927,
+      "cp_effect_at_k_hold": -10.829038427534783,
+      "k_main_average": 42.34856558610133,
+      "cp_main_average": -8.635552229342721,
+      "interaction_HH_HL_LH_LL": -4.386972396384124,
+      "joint_HH_minus_LL": 33.71301335675861
+    },
+    {
+      "quantity": "rear_phase_span_um",
+      "k_effect_at_cp_linear": -1.013142850848439,
+      "cp_effect_at_k_linear": 0.3069029065158446,
+      "k_effect_at_cp_hold": 0.598933382083743,
+      "cp_effect_at_k_hold": 1.9189791394480267,
+      "k_main_average": -0.207104734382348,
+      "cp_main_average": 1.1129410229819356,
+      "interaction_HH_HL_LH_LL": 1.612076232932182,
+      "joint_HH_minus_LL": 0.9058362885995876
+    },
+    {
+      "quantity": "rear_phase_passage_us",
+      "k_effect_at_cp_linear": -1.2664285635605381,
+      "cp_effect_at_k_linear": 0.38362863314482354,
+      "k_effect_at_cp_hold": 0.7486667276046717,
+      "cp_effect_at_k_hold": 2.3987239243100333,
+      "k_main_average": -0.2588809179779332,
+      "cp_main_average": 1.3911762787274284,
+      "interaction_HH_HL_LH_LL": 2.01509529116521,
+      "joint_HH_minus_LL": 1.1322953607494952
+    },
+    {
+      "quantity": "liquid_half_volume_m3",
+      "k_effect_at_cp_linear": 2.4696000000000024e-14,
+      "cp_effect_at_k_linear": 9.119999999999864e-16,
+      "k_effect_at_cp_hold": 2.5128000000000047e-14,
+      "cp_effect_at_k_hold": 1.3440000000000092e-15,
+      "k_main_average": 2.4912000000000036e-14,
+      "cp_main_average": 1.1279999999999978e-15,
+      "interaction_HH_HL_LH_LL": 4.320000000000228e-16,
+      "joint_HH_minus_LL": 2.6040000000000033e-14
+    },
+    {
+      "quantity": "mushy_half_volume_m3",
+      "k_effect_at_cp_linear": -6.311999999999994e-15,
+      "cp_effect_at_k_linear": 4.559999999999932e-16,
+      "k_effect_at_cp_hold": -5.327999999999995e-15,
+      "cp_effect_at_k_hold": 1.4399999999999918e-15,
+      "k_main_average": -5.819999999999994e-15,
+      "cp_main_average": 9.479999999999925e-16,
+      "interaction_HH_HL_LH_LL": 9.839999999999986e-16,
+      "joint_HH_minus_LL": -4.872000000000002e-15
+    },
+    {
+      "quantity": "heat_to_Ts_half_J",
+      "k_effect_at_cp_linear": 0.00038744011902145173,
+      "cp_effect_at_k_linear": -5.5427703648384605e-05,
+      "k_effect_at_cp_hold": 0.00036639266234854157,
+      "cp_effect_at_k_hold": -7.647516032129476e-05,
+      "k_main_average": 0.00037691639068499665,
+      "cp_main_average": -6.595143198483968e-05,
+      "interaction_HH_HL_LH_LL": -2.1047456672910157e-05,
+      "joint_HH_minus_LL": 0.00031096495870015697
+    },
+    {
+      "quantity": "heat_to_Tl_half_J",
+      "k_effect_at_cp_linear": 0.0004352980256111102,
+      "cp_effect_at_k_linear": -5.637469709380855e-05,
+      "k_effect_at_cp_hold": 0.00040670294702976114,
+      "cp_effect_at_k_hold": -8.496977567515763e-05,
+      "k_main_average": 0.0004210004863204357,
+      "cp_main_average": -7.067223638448309e-05,
+      "interaction_HH_HL_LH_LL": -2.8595078581349076e-05,
+      "joint_HH_minus_LL": 0.0003503282499359526
+    },
+    {
+      "quantity": "hot_front_net_outward_latent_coordinate_W",
+      "k_effect_at_cp_linear": -0.08720932596657804,
+      "cp_effect_at_k_linear": 0.049943475978088125,
+      "k_effect_at_cp_hold": -0.09801168847818831,
+      "cp_effect_at_k_hold": 0.03914111346647786,
+      "k_main_average": -0.09261050722238318,
+      "cp_main_average": 0.04454229472228299,
+      "interaction_HH_HL_LH_LL": -0.010802362511610264,
+      "joint_HH_minus_LL": -0.04806821250010018
+    },
+    {
+      "quantity": "hot_front_net_outward_sensible_coordinate_W",
+      "k_effect_at_cp_linear": 0.35493359144153347,
+      "cp_effect_at_k_linear": -0.0986664051827626,
+      "k_effect_at_cp_hold": 0.3497325831524547,
+      "cp_effect_at_k_hold": -0.10386741347184136,
+      "k_main_average": 0.3523330872969941,
+      "cp_main_average": -0.10126690932730198,
+      "interaction_HH_HL_LH_LL": -0.005201008289078768,
+      "joint_HH_minus_LL": 0.2510661779696921
+    },
+    {
+      "quantity": "hot_front_net_outward_diffusive_W",
+      "k_effect_at_cp_linear": -0.19749672477409153,
+      "cp_effect_at_k_linear": 0.04872292844098247,
+      "k_effect_at_cp_hold": -0.1814933553361051,
+      "cp_effect_at_k_hold": 0.06472629787896889,
+      "k_main_average": -0.18949504005509832,
+      "cp_main_average": 0.05672461315997568,
+      "interaction_HH_HL_LH_LL": 0.016003369437986414,
+      "joint_HH_minus_LL": -0.13277042689512264
+    },
+    {
+      "quantity": "hot_rear_net_outward_latent_coordinate_W",
+      "k_effect_at_cp_linear": 0.15316908648354932,
+      "cp_effect_at_k_linear": -0.07374441658718589,
+      "k_effect_at_cp_hold": 0.14186755166562648,
+      "cp_effect_at_k_hold": -0.08504595140510873,
+      "k_main_average": 0.1475183190745879,
+      "cp_main_average": -0.07939518399614731,
+      "interaction_HH_HL_LH_LL": -0.011301534817922843,
+      "joint_HH_minus_LL": 0.06812313507844059
+    },
+    {
+      "quantity": "hot_rear_net_outward_sensible_coordinate_W",
+      "k_effect_at_cp_linear": -0.3398070876489492,
+      "cp_effect_at_k_linear": 0.10069460854218915,
+      "k_effect_at_cp_hold": -0.3419289723229366,
+      "cp_effect_at_k_hold": 0.0985727238682017,
+      "k_main_average": -0.3408680299859429,
+      "cp_main_average": 0.09963366620519543,
+      "interaction_HH_HL_LH_LL": -0.0021218846739874397,
+      "joint_HH_minus_LL": -0.24123436378074747
+    },
+    {
+      "quantity": "hot_rear_net_outward_diffusive_W",
+      "k_effect_at_cp_linear": 0.1893441564501721,
+      "cp_effect_at_k_linear": -0.016398356490615384,
+      "k_effect_at_cp_hold": 0.2288532788473603,
+      "cp_effect_at_k_hold": 0.023110765906572794,
+      "k_main_average": 0.2090987176487662,
+      "cp_main_average": 0.003356204707978705,
+      "interaction_HH_HL_LH_LL": 0.03950912239718818,
+      "joint_HH_minus_LL": 0.2124549223567449
+    },
+    {
+      "quantity": "mushy_x_face_Pe_median",
+      "k_effect_at_cp_linear": 1.3365233342448457,
+      "cp_effect_at_k_linear": -0.04682125122565317,
+      "k_effect_at_cp_hold": 1.3295508966256788,
+      "cp_effect_at_k_hold": -0.05379368884482005,
+      "k_main_average": 1.3330371154352623,
+      "cp_main_average": -0.05030747003523661,
+      "interaction_HH_HL_LH_LL": -0.006972437619166882,
+      "joint_HH_minus_LL": 1.2827296454000257
+    },
+    {
+      "quantity": "liquid_x_face_Pe_median",
+      "k_effect_at_cp_linear": 0.28467960463979947,
+      "cp_effect_at_k_linear": -0.07377303593521095,
+      "k_effect_at_cp_hold": 0.2326858501554822,
+      "cp_effect_at_k_hold": -0.1257667904195282,
+      "k_main_average": 0.25868272739764087,
+      "cp_main_average": -0.09976991317736958,
+      "interaction_HH_HL_LH_LL": -0.05199375448431731,
+      "joint_HH_minus_LL": 0.15891281422027126
+    },
+    {
+      "quantity": "blackbody_no_feedback_absorbed_fraction",
+      "k_effect_at_cp_linear": 0.0006638126486904891,
+      "cp_effect_at_k_linear": 1.961608301046143e-05,
+      "k_effect_at_cp_hold": 0.0007880079216758455,
+      "cp_effect_at_k_hold": 0.00014381135599581788,
+      "k_main_average": 0.0007259102851831673,
+      "cp_main_average": 8.171371950313965e-05,
+      "interaction_HH_HL_LH_LL": 0.00012419527298535645,
+      "joint_HH_minus_LL": 0.000807624004686307
+    }
+  ],
+  "matched_temperature_properties": {
+    "LL": [
+      {
+        "T_C": 1290.0,
+        "k_W_mK": 31.859459459459455,
+        "cp_J_kgK": 714.3693693693695,
+        "cp_effective_J_kgK": 5381.036036036036,
+        "enthalpy_from_T0_J_m3": 6034992409.309309,
+        "alpha_m2_s": 7.015038453971535e-07
+      },
+      {
+        "T_C": 1320.0,
+        "k_W_mK": 32.508108108108104,
+        "cp_J_kgK": 721.1261261261261,
+        "cp_effective_J_kgK": 5387.792792792793,
+        "enthalpy_from_T0_J_m3": 7398326139.039039,
+        "alpha_m2_s": 7.148885870188642e-07
+      },
+      {
+        "T_C": 1350.0,
+        "k_W_mK": 33.15675675675675,
+        "cp_J_kgK": 727.8828828828829,
+        "cp_effective_J_kgK": 727.8828828828829,
+        "enthalpy_from_T0_J_m3": 8763370679.57958,
+        "alpha_m2_s": 5.397194760949321e-06
+      },
+      {
+        "T_C": 2000.0,
+        "k_W_mK": 47.2108108108108,
+        "cp_J_kgK": 874.2792792792793,
+        "cp_effective_J_kgK": 874.2792792792793,
+        "enthalpy_from_T0_J_m3": 13158101490.390388,
+        "alpha_m2_s": 6.398067638040591e-06
+      }
+    ],
+    "HL": [
+      {
+        "T_C": 1290.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 714.3693693693695,
+        "cp_effective_J_kgK": 5381.036036036036,
+        "enthalpy_from_T0_J_m3": 6034992409.309309,
+        "alpha_m2_s": 5.548712126300526e-07
+      },
+      {
+        "T_C": 1320.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 721.1261261261261,
+        "cp_effective_J_kgK": 5387.792792792793,
+        "enthalpy_from_T0_J_m3": 7398326139.039039,
+        "alpha_m2_s": 5.541753562823321e-07
+      },
+      {
+        "T_C": 1350.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 727.8828828828829,
+        "cp_effective_J_kgK": 727.8828828828829,
+        "enthalpy_from_T0_J_m3": 8763370679.57958,
+        "alpha_m2_s": 4.102008799404261e-06
+      },
+      {
+        "T_C": 2000.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 874.2792792792793,
+        "cp_effective_J_kgK": 874.2792792792793,
+        "enthalpy_from_T0_J_m3": 13158101490.390388,
+        "alpha_m2_s": 3.415135256302409e-06
+      }
+    ],
+    "LH": [
+      {
+        "T_C": 1290.0,
+        "k_W_mK": 31.859459459459455,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 5336.666666666667,
+        "enthalpy_from_T0_J_m3": 5998106377.777778,
+        "alpha_m2_s": 7.07336190786996e-07
+      },
+      {
+        "T_C": 1320.0,
+        "k_W_mK": 32.508108108108104,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 5336.666666666667,
+        "enthalpy_from_T0_J_m3": 7349350377.777778,
+        "alpha_m2_s": 7.217373348138775e-07
+      },
+      {
+        "T_C": 1350.0,
+        "k_W_mK": 33.15675675675675,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 670.0,
+        "enthalpy_from_T0_J_m3": 8700594377.777779,
+        "alpha_m2_s": 5.863471167283856e-06
+      },
+      {
+        "T_C": 2000.0,
+        "k_W_mK": 47.2108108108108,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 670.0,
+        "enthalpy_from_T0_J_m3": 12376214377.777777,
+        "alpha_m2_s": 8.348802930397326e-06
+      }
+    ],
+    "HH": [
+      {
+        "T_C": 1290.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 5336.666666666667,
+        "enthalpy_from_T0_J_m3": 5998106377.777778,
+        "alpha_m2_s": 5.59484445444346e-07
+      },
+      {
+        "T_C": 1320.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 5336.666666666667,
+        "enthalpy_from_T0_J_m3": 7349350377.777778,
+        "alpha_m2_s": 5.59484445444346e-07
+      },
+      {
+        "T_C": 1350.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 670.0,
+        "enthalpy_from_T0_J_m3": 8700594377.777779,
+        "alpha_m2_s": 4.456391030628846e-06
+      },
+      {
+        "T_C": 2000.0,
+        "k_W_mK": 25.2,
+        "cp_J_kgK": 670.0,
+        "cp_effective_J_kgK": 670.0,
+        "enthalpy_from_T0_J_m3": 12376214377.777777,
+        "alpha_m2_s": 4.456391030628846e-06
+      }
+    ]
+  },
+  "limits": [
+    "Not material-property identification or true liquid-temperature validation.",
+    "LL and HH reuse frozen earlier runs, new wrapper's legacy equivalence is verified.",
+    "Interaction is a finite model response contrast, not statistical inference.",
+    "No cross-condition repeatability claimed; selected-temperature CVs change with the state."
+  ]
+}

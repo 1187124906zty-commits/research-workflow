@@ -1,0 +1,55 @@
+{
+  "eta": 0.2890548519203547,
+  "root_residual_um": 0.1575457177625026,
+  "dL_deta_bracket_um": 1276.787776412803,
+  "eta_expanded_sensitivity_from_B_U": 0.016651161918021334,
+  "sensitivity_note": "Local/bracket propagation of reported B U only; not posterior parameter certainty",
+  "objective_points": [
+    {
+      "eta": 0.2,
+      "L_um": 234.56922314200827,
+      "residual_um": -124.43077685799173,
+      "data_role": "B_LENGTH_ONLY_CALIBRATION",
+      "directory": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\verification\\fipy-application-B-cal-01-r13"
+    },
+    {
+      "eta": 0.4,
+      "L_um": 511.68225620654886,
+      "residual_um": 152.68225620654886,
+      "data_role": "B_LENGTH_ONLY_CALIBRATION",
+      "directory": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\verification\\fipy-application-B-cal-02-r13"
+    },
+    {
+      "eta": 0.2898050701419095,
+      "L_um": 359.95786945492335,
+      "residual_um": 0.9578694549233546,
+      "data_role": "B_LENGTH_ONLY_CALIBRATION",
+      "directory": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\verification\\fipy-application-B-cal-03-r13-repair-01"
+    },
+    {
+      "eta": 0.285314816634814,
+      "L_um": 354.22476866406913,
+      "residual_um": -4.775231335930869,
+      "data_role": "B_LENGTH_ONLY_CALIBRATION",
+      "directory": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\verification\\fipy-application-B-cal-04-r13"
+    },
+    {
+      "eta": 0.2890548519203547,
+      "L_um": 359.1575457177625,
+      "residual_um": 0.1575457177625026,
+      "data_role": "B_LENGTH_ONLY_CALIBRATION",
+      "directory": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\verification\\fipy-application-B-cal-05-r13"
+    }
+  ],
+  "data_roles": {
+    "B_L": "calibration",
+    "B_W_D": "post-calibration diagnostics",
+    "A_C": "nonblind retrospective condition comparison"
+  },
+  "observations_read_by_calibration": [
+    "validation/b-length-calibration-only.json"
+  ],
+  "provenance_audit_status": "PASS",
+  "source": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\application-research-results.json",
+  "limitation": "Five retained successful points show a local bracket and monotone sampled response; no proof of global unique root over eta in [0,1]. Propagated B U is sensitivity, not a calibrated posterior or complete prediction uncertainty."
+}

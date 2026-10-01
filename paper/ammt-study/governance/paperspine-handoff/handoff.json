@@ -1,0 +1,256 @@
+{
+  "schema_version": "researchflow.paperspine-handoff/1",
+  "authority": {
+    "state_path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\skill开发\\research-workflow\\paper\\ammt-study\\.researchflow\\research-state.json",
+    "project_revision": 6,
+    "selection_source": "agent_export",
+    "web_user_confirmation": false
+  },
+  "project": {
+    "question": "How do scan conditions and high-temperature closure alter geometry and solidification history in a conduction-based IN625 single-track model?",
+    "purpose": "Develop the existing IN625 moving-source enthalpy study into a journal-facing first manuscript from located evidence",
+    "stage": "paper_formation",
+    "target_journal": "Additive Manufacturing",
+    "constraints": [
+      "Original SimAgent case and installed skills remain unmodified",
+      "No new PDE runs unless a consequential gap requires them",
+      "No invented authors, references, blind validation or agent efficacy"
+    ],
+    "coordinator": "coordinator"
+  },
+  "research": {
+    "facts": [
+      "SimAgent generated original numerical case; current ResearchFlow/MAF process prepares and reviews manuscript",
+      "B length is fitted; A/C are retrospective nonblind fixed-parameter comparisons",
+      "Six unique current production runs; no new PDE solves during manuscript formation"
+    ],
+    "hypotheses": [
+      "Beam shape, imaging/fusion operators, constitutive storage and omitted directional heat transport can contribute to geometry discrepancies"
+    ],
+    "uncertainties": [
+      "Venue contribution sufficiency",
+      "Journal-specific guide could not be accessed",
+      "Physical predictive validation not established"
+    ],
+    "next_decision": "Use bounded MAF returns, verified literature and actual figures to assemble and independently review an English first draft"
+  },
+  "research_task_id": null,
+  "claims": {
+    "C_GEOMETRY": {
+      "id": "C_GEOMETRY",
+      "statement": "Fixed-parameter conduction model exhibits condition-dependent melt-pool geometry discrepancies",
+      "status": "supported",
+      "support": {
+        "numerical_verification": [
+          {
+            "path": "evidence/verified-data.json",
+            "level": "numerical_verification",
+            "kind": "support",
+            "claim_ids": [
+              "C_GEOMETRY",
+              "C_TIME",
+              "C_CLOSURE"
+            ],
+            "summary": "Located retained-model quantities and actual consistency/refinement checks; no physical validation inferred",
+            "revision": "sha256:fab6c358cbffb28de5abaa98dd86ae9d1516063541aaf040eada8a45f9cefe4a",
+            "task_id": "T_EVIDENCE",
+            "attempt": 1,
+            "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+          }
+        ]
+      },
+      "challenges": [],
+      "limitations": []
+    },
+    "C_TIME": {
+      "id": "C_TIME",
+      "statement": "Similar rear mushy spatial spans correspond to distinct material passage times at different scan speeds",
+      "status": "supported",
+      "support": {
+        "numerical_verification": [
+          {
+            "path": "evidence/verified-data.json",
+            "level": "numerical_verification",
+            "kind": "support",
+            "claim_ids": [
+              "C_GEOMETRY",
+              "C_TIME",
+              "C_CLOSURE"
+            ],
+            "summary": "Located retained-model quantities and actual consistency/refinement checks; no physical validation inferred",
+            "revision": "sha256:fab6c358cbffb28de5abaa98dd86ae9d1516063541aaf040eada8a45f9cefe4a",
+            "task_id": "T_EVIDENCE",
+            "attempt": 1,
+            "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+          }
+        ]
+      },
+      "challenges": [],
+      "limitations": []
+    },
+    "C_CLOSURE": {
+      "id": "C_CLOSURE",
+      "statement": "Within the computed B-condition factorial, high-temperature conductivity and heat-capacity extensions change the thermal tail through opposing effects",
+      "status": "supported",
+      "support": {
+        "numerical_verification": [
+          {
+            "path": "evidence/verified-data.json",
+            "level": "numerical_verification",
+            "kind": "support",
+            "claim_ids": [
+              "C_GEOMETRY",
+              "C_TIME",
+              "C_CLOSURE"
+            ],
+            "summary": "Located retained-model quantities and actual consistency/refinement checks; no physical validation inferred",
+            "revision": "sha256:fab6c358cbffb28de5abaa98dd86ae9d1516063541aaf040eada8a45f9cefe4a",
+            "task_id": "T_EVIDENCE",
+            "attempt": 1,
+            "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+          }
+        ]
+      },
+      "challenges": [],
+      "limitations": []
+    }
+  },
+  "tasks": {
+    "T_EVIDENCE": {
+      "contract": {
+        "id": "T_EVIDENCE",
+        "role": "evidence",
+        "question": "Which results, equations and verification evidence survive direct inspection?",
+        "purpose": "Determine permissible manuscript claims and unresolved limitations",
+        "claim_ids": [
+          "C_GEOMETRY",
+          "C_TIME",
+          "C_CLOSURE"
+        ],
+        "inputs": [
+          {
+            "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\current-results.json",
+            "revision": "sha256:978e0648928384f9e9f1297242fc6971b94be5b223ad4c1edf4fa097132cdefd"
+          },
+          {
+            "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\experimental-comparison.csv",
+            "revision": "sha256:1ce5b53bf2787d585a0734ab88f66a267b456851cd6116889d81a4fcaba0d14d"
+          },
+          {
+            "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\constitutive-factorial-effects.csv",
+            "revision": "sha256:9bf1c231376cb865e9d43c0e88a900fd7f46cd0cd674f4f84c265308e704c392"
+          },
+          {
+            "path": "C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\constitutive-factorial-results.json",
+            "revision": "sha256:a09291f793d4f37b436cb6c92c422faffd20f8f24f2dc3676abdb61e25585405"
+          }
+        ],
+        "outputs": [
+          "evidence"
+        ],
+        "acceptance": [
+          "Exact values with original locators; distinguish calibration, diagnostic comparison, numerical verification and physical inference"
+        ],
+        "budget": {
+          "max_attempts": 2,
+          "max_no_progress": 2
+        },
+        "depends_on": [],
+        "writes": [
+          "evidence"
+        ],
+        "owner": "evidence",
+        "project_revision": 1
+      },
+      "status": "accepted",
+      "latest_attempt": [
+        {
+          "attempt": 1,
+          "changed_understanding": true,
+          "reason": "Independent direct inspection distinguished actual FiPy method, calibration role, observation mismatch and claim-specific numerical adequacy.",
+          "evidence": [
+            {
+              "path": "evidence/evidence-dossier.md",
+              "level": "observation",
+              "kind": "observation",
+              "claim_ids": [
+                "C_GEOMETRY",
+                "C_TIME",
+                "C_CLOSURE"
+              ],
+              "summary": "Independent interpretation and explicit scientific boundaries",
+              "revision": "sha256:3d3de0b81f61a9a2593bb1431b5ae179289140ee6d97c519c7fe66dfc4732e50"
+            },
+            {
+              "path": "evidence/verified-data.json",
+              "level": "numerical_verification",
+              "kind": "support",
+              "claim_ids": [
+                "C_GEOMETRY",
+                "C_TIME",
+                "C_CLOSURE"
+              ],
+              "summary": "Located retained-model quantities and actual consistency/refinement checks; no physical validation inferred",
+              "revision": "sha256:fab6c358cbffb28de5abaa98dd86ae9d1516063541aaf040eada8a45f9cefe4a"
+            }
+          ],
+          "blockers": [],
+          "contribution": {
+            "answer": "A bounded discrepancy and closure-sensitivity manuscript can be drafted.",
+            "effect_on_project": "Remove predictive validation and exact reproduction claims; retain major tail response, geometry discrepancy and derived passage-time distinction.",
+            "uncertainties": [
+              "Operator mismatch, combined uncertainty, liquid transport and branch-specific fine convergence remain unresolved"
+            ],
+            "next_options": [
+              "Draft current scoped article"
+            ],
+            "cost_note": "Read-only inspection; no solver runs"
+          }
+        }
+      ],
+      "latest_decision": [
+        {
+          "action": "accept",
+          "reason": "Accepted located evidence for bounded model diagnostics after coordinator read; broader physical validation is excluded.",
+          "promotions": [
+            {
+              "claim_id": "C_GEOMETRY",
+              "level": "numerical_verification",
+              "evidence_indices": [
+                1
+              ],
+              "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+            },
+            {
+              "claim_id": "C_TIME",
+              "level": "numerical_verification",
+              "evidence_indices": [
+                1
+              ],
+              "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+            },
+            {
+              "claim_id": "C_CLOSURE",
+              "level": "numerical_verification",
+              "evidence_indices": [
+                1
+              ],
+              "reason": "Supports only the recorded conduction-model result and major-scale comparison, with dossier limits."
+            }
+          ],
+          "attempt": 1,
+          "time": "2026-10-01T08:27:46.625730+00:00"
+        }
+      ],
+      "no_progress_count": 0
+    }
+  },
+  "boundaries": [
+    "Task acceptance is handoff acceptance, not hypothesis confirmation.",
+    "Observation, numerical verification and physical validation remain distinct.",
+    "Read referenced files/revisions before citing them; this packet is not evidence reading.",
+    "Return missing evidence as a bounded proposal to the coordinator; do not launch an unlimited refinement loop.",
+    "Counterevidence may narrow or change the paper argument; do not conceal it for venue fit.",
+    "Independent manuscript review requires another actual agent/context and the actual draft/renders."
+  ]
+}

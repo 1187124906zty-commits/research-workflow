@@ -1,0 +1,803 @@
+{
+  "date": "2026-10-01",
+  "scope": "This worker literature return; primary evidence and manuscript are unchanged. Usable means only the recorded claim/read scope, not fulltext or validation completeness.",
+  "counts": {
+    "identities": 47,
+    "usable_with_scope": 37,
+    "hold_metadata_only": 10
+  },
+  "sources": [
+    {
+      "key": "lane2020",
+      "status": "usable_with_scope",
+      "support": "AMMT length/cooling and cross-sectional measurement definitions, sampling and uncertainty.",
+      "limits_counterevidence": "Radiance-length front/rear rules differ from two solidus crossings; cooling exemplars are not calibration data. Separate populations and uncertainty budgets.",
+      "point_of_use": "Methods observation operators; Results geometry comparison; Discussion material-time interpretation.",
+      "read_scope": "Prior direct full HTML §§2–5, documented with paragraph ranges and official source identity in ../../literature/exemplar-notes.md. No local original-text path is asserted here.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "kollmannsberger2019",
+      "status": "usable_with_scope",
+      "support": "Nonlinear temperature/phase-change conduction can reproduce AMMT geometry with measured input and effective directional conductivity; scalar eta alone is insufficient for all geometry in its stated model.",
+      "limits_counterevidence": "Its anisotropic closure and source differ from the current isotropic circular Gaussian. Authors explicitly do not establish internal temperature validity.",
+      "point_of_use": "Introduction existing geometry solutions; Methods benchmark lineage; Discussion shape discrepancy and competing closure/source choices.",
+      "read_scope": "Prior direct author-preprint §§2–5, particularly §4.2–4.3 pp8–10 Tables7–10; documented original notes.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "vanelsen2007",
+      "status": "usable_with_scope",
+      "support": "Moving-source analytical and nonlinear enthalpy formulations; source representation and material-property effects need separate treatment.",
+      "limits_counterevidence": "Analytical solutions require constant properties/semi-infinite assumptions. Ti64 latent response is not an IN625 quantitative result.",
+      "point_of_use": "Introduction computational hierarchy; Methods moving-frame and enthalpy formulation; Discussion conditional latent contribution.",
+      "read_scope": "Prior direct author-preprint §§2–5, pp4–6 and16–24; equations32–35 in original notes.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "vanini2024",
+      "status": "hold_metadata_only",
+      "support": "Candidate: alternatives to heat-source calibration.",
+      "limits_counterevidence": "Title/metadata only in this worker return. Do not use title as proof of calibration-free accuracy or generality.",
+      "point_of_use": "Hold pending direct substantive reading by journal/coordinator.",
+      "read_scope": "Verified DOI and Crossref/OpenAlex identity only; public metadata no abstract.",
+      "identity_sources": [
+        "../../literature/bibliography.bib",
+        "metadata/vanini2024-crossref.json",
+        "metadata/vanini2024-openalex.json"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "ross2022",
+      "status": "usable_with_scope",
+      "support": "An inverse heat-conduction procedure fits double-ellipsoid heat-source parameters from solidification-boundary temperatures; trends allow interpolation to intermediate power/speed.",
+      "limits_counterevidence": "Published abstract only. Calibration incorporates effective absorption/vapour penetration, not identification of intrinsic eta or proof for the present source.",
+      "point_of_use": "Introduction successful calibrated-source route; Discussion a source-based alternative to changing conductivity.",
+      "read_scope": "Full scholarly abstract reconstructed from OpenAlex inverted index on1October2026; no fulltext learning claim.",
+      "identity_sources": [
+        "../../literature/bibliography.bib",
+        "metadata/ross2022-crossref.json",
+        "metadata/ross2022-openalex.json"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "myers2023",
+      "status": "usable_with_scope",
+      "support": "Geometry-fitting parameter combinations can produce different thermal profiles; two-colour measurements offer an additional discriminating observable.",
+      "limits_counterevidence": "Already establishes this observation. Its FLOW-3D/source/surface and instrument assumptions differ; no universal mathematical forward nonuniqueness follows.",
+      "point_of_use": "Introduction central precedent; Discussion independent thermal data and limitations.",
+      "read_scope": "Prior direct version-of-record Intro, Methods, Results, Discussion and Conclusion pp1–10; figure8 p9. Original notes retain links.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "hooper2018",
+      "status": "usable_with_scope",
+      "support": "Two-wavelength thermography measures spatial and temporal thermal histories relevant to gradients/cooling, with explicit instrument calibration.",
+      "limits_counterevidence": "Close-band emissivity assumption, registration, plume/angle/reflection/noise remain. Ti64 and scan-turn transients differ from current quasi-steady bare IN625.",
+      "point_of_use": "Introduction importance of thermal interpretation; Discussion independent measurements and spatial-versus-material time.",
+      "read_scope": "Prior direct version-of-record §§2.1–2.6 and3.4–3.6 pp2–4,10–12; figures13–14.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "liu2024",
+      "status": "hold_metadata_only",
+      "support": "Candidate: scalable path-level thermal history and image validation.",
+      "limits_counterevidence": "Title/metadata only in this worker return; do not claim exact validation protocol from title.",
+      "point_of_use": "Hold pending substantive journal/coordinator reading.",
+      "read_scope": "Verified DOI and Crossref/OpenAlex identity only; no public abstract returned.",
+      "identity_sources": [
+        "../../literature/bibliography.bib",
+        "metadata/liu2024-crossref.json",
+        "metadata/liu2024-openalex.json"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "fipy2009",
+      "status": "usable_with_scope",
+      "support": "FiPy as the finite-volume Python PDE implementation.",
+      "limits_counterevidence": "Software citation supports implementation lineage; it does not verify this discretization or validate physical temperatures.",
+      "point_of_use": "Methods implementation.",
+      "read_scope": "Existing verified software citation and implementation record; not counted as a scientific-method exemplar.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "scipy2020",
+      "status": "usable_with_scope",
+      "support": "SciPy numerical algorithms used by the implementation.",
+      "limits_counterevidence": "Software pedigree does not replace numerical or physical checks.",
+      "point_of_use": "Methods interpolation/root finding/implementation as applicable.",
+      "read_scope": "Existing verified software citation and implementation record; not a fulltext research exemplar.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "oberkampf2002",
+      "status": "usable_with_scope",
+      "support": "Numerical verification and physical validation answer different questions.",
+      "limits_counterevidence": "General CFD methodology, not an LPBF accuracy tolerance or certification of this calculation.",
+      "point_of_use": "Methods verification and Discussion limits.",
+      "read_scope": "Existing verified methodological source from original dossier; scope restricted to standard verification/validation distinction.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "specialmetals625",
+      "status": "usable_with_scope",
+      "support": "Supplier typical IN625 density/melting range and solid-state cp/k tables; cp endpoint1093°C and k endpoint982°C are below adopted solidus.",
+      "limits_counterevidence": "cp is calculated; k is measured for specified annealed material; typical values are not specifications or measured liquid functions for this coupon.",
+      "point_of_use": "Methods property provenance and continuation figure; Discussion closure uncertainty.",
+      "read_scope": "Prior direct August2013 bulletin pp1–2 Tables2–3; source link in original bibliography and notes.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "nist2018",
+      "status": "usable_with_scope",
+      "support": "Official AMB2018-02 width/depth class means and SDs.",
+      "limits_counterevidence": "Class SD, individual measurement estimate and Lane expanded U(k=2) are different quantities/populations.",
+      "point_of_use": "Methods references/populations; Results shape comparison.",
+      "read_scope": "Prior direct official current page §2 Table2,1October2026; created2018/updated2025.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "lane2020absorption",
+      "status": "usable_with_scope",
+      "support": "Direct unreflected-power/absorption and morphology evidence distinguishes dynamic, integrated and ex-situ observables.",
+      "limits_counterevidence": "Unreflected power includes plume and mass-energy pathways; reflection alone does not isolate substrate heating. Different spot/power/speed from current case.",
+      "point_of_use": "Introduction absorption-observation route; Discussion fitted eta and alternate causes.",
+      "read_scope": "Prior direct version-of-record Intro/Methods/Results/Discussion/Conclusion pp1–12; §§2.2,3.2.1,4 especially pp4–5,9–11.",
+      "identity_sources": [
+        "../../literature/bibliography.bib"
+      ],
+      "prior_read_evidence": "../../literature/exemplar-notes.md"
+    },
+    {
+      "key": "rosenthal1946",
+      "status": "usable_with_scope",
+      "support": "Moving-source heat-flow solutions and cooling-time/rate predictions are established foundations.",
+      "limits_counterevidence": "The historical abstract concerns welding/metal treatment and steel conditions, not near-source finite-Gaussian LPBF temperature accuracy.",
+      "point_of_use": "Introduction analytical conduction lineage or Methods moving-source context.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; no original fulltext inspected. Archive journal field retrospectively differs from original Transactions of ASME.",
+      "identity_sources": [
+        "metadata/rosenthal1946-crossref.json",
+        "metadata/rosenthal1946-openalex.json"
+      ],
+      "doi": "10.1115/1.4018624"
+    },
+    {
+      "key": "goldak1984",
+      "status": "hold_metadata_only",
+      "support": "Candidate: double-ellipsoid welding source foundation.",
+      "limits_counterevidence": "Metadata only; no source details imported. Current model is a surface Gaussian.",
+      "point_of_use": "Hold; optional lineage only after reading.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/goldak1984-crossref.json",
+        "metadata/goldak1984-openalex.json"
+      ],
+      "doi": "10.1007/BF02667333"
+    },
+    {
+      "key": "debroy2018",
+      "status": "hold_metadata_only",
+      "support": "Candidate broad process-structure-property review.",
+      "limits_counterevidence": "Metadata only; do not count as read background or substitute for directly read King/Sarkar.",
+      "point_of_use": "Hold; broad review is optional, not indispensable.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/debroy2018-crossref.json",
+        "metadata/debroy2018-openalex.json"
+      ],
+      "doi": "10.1016/j.pmatsci.2017.10.001"
+    },
+    {
+      "key": "king2015",
+      "status": "usable_with_scope",
+      "support": "LPBF spans coupled physical, material and computational scales; geometry and thermal histories have process-structure roles.",
+      "limits_counterevidence": "Review/context, not proof of the present closure or quantitative accuracy.",
+      "point_of_use": "Introduction affordable models and thermal interpretation; Discussion omitted physics.",
+      "read_scope": "Author manuscript PDF pp3–6 abstract/Introduction; rest of55pages not claimed read.",
+      "identity_sources": [
+        "metadata/king2015-crossref.json",
+        "metadata/king2015-openalex.json"
+      ],
+      "doi": "10.1063/1.4937809",
+      "local_fulltext": "pdfs/king2015.pdf",
+      "local_extraction": "text/king2015.txt",
+      "retrieval": {
+        "key": "king2015",
+        "url": "https://www.osti.gov/servlets/purl/1260471",
+        "final_url": "https://www.osti.gov/servlets/purl/1260471",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 7665353,
+        "valid_pdf": true,
+        "pages": 55
+      }
+    },
+    {
+      "key": "khairallah2016",
+      "status": "usable_with_scope",
+      "support": "High-fidelity powder-resolved models connect recoil/Marangoni/radiative/evaporative physics with melt flow and pores.",
+      "limits_counterevidence": "Read author manuscript uses earlier title/three-author cover; final DOI has four authors. Powder316L and direct rays differ from bare IN625. Does not diagnose this residual.",
+      "point_of_use": "Introduction high-fidelity route; Discussion source/flow/evaporation alternatives.",
+      "read_scope": "Author-manuscript PDF p3 abstract and pp5–7 Introduction/physics, including no reflection tracking and35µm powder assumption; final metadata separately verified.",
+      "identity_sources": [
+        "metadata/khairallah2016-crossref.json",
+        "metadata/khairallah2016-openalex.json"
+      ],
+      "doi": "10.1016/j.actamat.2016.02.014",
+      "local_fulltext": "pdfs/khairallah2016.pdf",
+      "local_extraction": "text/khairallah2016.txt",
+      "retrieval": {
+        "key": "khairallah2016",
+        "url": "https://www.osti.gov/servlets/purl/1262168",
+        "final_url": "https://www.osti.gov/servlets/purl/1262168",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 5090253,
+        "valid_pdf": true,
+        "pages": 26
+      }
+    },
+    {
+      "key": "matthews2016",
+      "status": "usable_with_scope",
+      "support": "Powder denudation depends on vapour flux, gas-driven entrainment and pressure; experiments constrain mechanisms.",
+      "limits_counterevidence": "Full abstract only; powder/gas mechanism absent from bare-plate study and cannot explain its residual without evidence.",
+      "point_of_use": "Discussion only if situating powder generalization boundary.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; no fulltext.",
+      "identity_sources": [
+        "metadata/matthews2016-crossref.json",
+        "metadata/matthews2016-openalex.json"
+      ],
+      "doi": "10.1016/j.actamat.2016.05.017"
+    },
+    {
+      "key": "trapp2017",
+      "status": "usable_with_scope",
+      "support": "Calorimetric effective absorption depends on power, regime and powder/bare conditions.",
+      "limits_counterevidence": "Full abstract only; measurements on316L/Al/W cannot provide actual IN625 eta. Do not equate fitted model eta with material absorptivity.",
+      "point_of_use": "Introduction source-calibration burden; Discussion eta meaning.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; no fulltext.",
+      "identity_sources": [
+        "metadata/trapp2017-crossref.json",
+        "metadata/trapp2017-openalex.json"
+      ],
+      "doi": "10.1016/j.apmt.2017.08.006"
+    },
+    {
+      "key": "simonds2018",
+      "status": "usable_with_scope",
+      "support": "Time-resolved optical coupling and calorimetry can differ because of mass loss; calibrated independent input/output data aid model assessment.",
+      "limits_counterevidence": "10ms stationary316L spot weld, not current moving-track conditions. Source is an author arXiv manuscript, not a studied publisher layout.",
+      "point_of_use": "Discussion energy coupling and measurement distinction.",
+      "read_scope": "Author manuscript PDF pp1–3 abstract/Introduction; direct instrumental claim bounded to that text.",
+      "identity_sources": [
+        "metadata/simonds2018-crossref.json",
+        "metadata/simonds2018-openalex.json"
+      ],
+      "doi": "10.1103/PhysRevApplied.10.044061",
+      "local_fulltext": "pdfs/simonds2018.pdf",
+      "local_extraction": "text/simonds2018.txt",
+      "retrieval": {
+        "key": "simonds2018",
+        "url": "https://arxiv.org/pdf/1809.03993",
+        "final_url": "https://arxiv.org/pdf/1809.03993",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 1402395,
+        "valid_pdf": true,
+        "pages": 21
+      }
+    },
+    {
+      "key": "cunningham2019",
+      "status": "usable_with_scope",
+      "support": "Synchrotron imaging directly observes vapour-depression/keyhole sequence and power-density-dependent transition.",
+      "limits_counterevidence": "Scholarly abstract only. No regime label for current AMMT case is inferred. Crossref editor précis is not used as scientific abstract.",
+      "point_of_use": "Discussion potential omitted free-surface physics; broader Introduction route if needed.",
+      "read_scope": "Complete scholarly OpenAlex abstract reconstructed and read; fulltext not inspected.",
+      "identity_sources": [
+        "metadata/cunningham2019-crossref.json",
+        "metadata/cunningham2019-openalex.json"
+      ],
+      "doi": "10.1126/science.aav4687"
+    },
+    {
+      "key": "martin2019",
+      "status": "usable_with_scope",
+      "support": "X-ray experiments plus high-fidelity model connect laser turn-around transients to pore formation.",
+      "limits_counterevidence": "Ti64 transient turn-around, unlike this steady straight-track field; no causal transfer to current width/depth residual.",
+      "point_of_use": "Discussion scope of quasi-steady and omitted transients, only if needed.",
+      "read_scope": "Version-of-record PDF pp1–2 abstract/Introduction; remaining8pages not claimed read.",
+      "identity_sources": [
+        "metadata/martin2019-crossref.json",
+        "metadata/martin2019-openalex.json"
+      ],
+      "doi": "10.1038/s41467-019-10009-2",
+      "local_fulltext": "pdfs/martin2019.pdf",
+      "local_extraction": "text/martin2019.txt",
+      "retrieval": {
+        "key": "martin2019",
+        "url": "https://www.nature.com/articles/s41467-019-10009-2.pdf",
+        "final_url": "https://www.nature.com/articles/s41467-019-10009-2.pdf",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 3083949,
+        "valid_pdf": true,
+        "pages": 10
+      }
+    },
+    {
+      "key": "king2014",
+      "status": "hold_metadata_only",
+      "support": "Candidate historical keyhole observation.",
+      "limits_counterevidence": "Metadata only. Use directly read Cunningham abstract/Khairallah text for bounded physics context instead.",
+      "point_of_use": "Hold; not indispensable.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/king2014-crossref.json",
+        "metadata/king2014-openalex.json"
+      ],
+      "doi": "10.1016/j.jmatprotec.2014.06.005"
+    },
+    {
+      "key": "rubenchik2018",
+      "status": "usable_with_scope",
+      "support": "Eagar–Tsai conduction scaling in normalized energy and dwell/diffusion time can organize cross-material dimensions and reduce computation.",
+      "limits_counterevidence": "Neglects flow, evaporation, surface tension and powder; empirical collapse is conditional and later Naderi finds important limits.",
+      "point_of_use": "Introduction fast-model successes; Discussion need for case-specific diagnostics.",
+      "read_scope": "Accepted-manuscript PDF pp4–7 abstract and Introduction/scaling scope; no whole-paper read claim.",
+      "identity_sources": [
+        "metadata/rubenchik2018-crossref.json",
+        "metadata/rubenchik2018-openalex.json"
+      ],
+      "doi": "10.1016/j.jmatprotec.2018.02.034",
+      "local_fulltext": "pdfs/rubenchik2018.pdf",
+      "local_extraction": "text/rubenchik2018.txt",
+      "retrieval": {
+        "key": "rubenchik2018",
+        "url": "https://www.osti.gov/servlets/purl/1891730",
+        "final_url": "https://www.osti.gov/servlets/purl/1891730",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 1264970,
+        "valid_pdf": true,
+        "pages": 35
+      }
+    },
+    {
+      "key": "bertoli2017",
+      "status": "hold_metadata_only",
+      "support": "Candidate energy-density limitations.",
+      "limits_counterevidence": "Metadata only; title is not evidence. Current paper need not make a broad VED claim.",
+      "point_of_use": "Hold; exclude from active prose.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/bertoli2017-crossref.json",
+        "metadata/bertoli2017-openalex.json"
+      ],
+      "doi": "10.1016/j.matdes.2016.10.037"
+    },
+    {
+      "key": "ye2019",
+      "status": "usable_with_scope",
+      "support": "Absorption and melt-depth scaling couple laser conditions, material response and geometry across studied alloys.",
+      "limits_counterevidence": "Author manuscript title/version differs from final journal title; empirical scaling is not independent eta truth for this coupon. Later limits in Naderi/Hong apply.",
+      "point_of_use": "Introduction measured/scaled coupling route; Discussion calibrated or correlated absorption.",
+      "read_scope": "Complete Crossref abstract and author manuscript PDF p3–4 abstract/Introduction start; final metadata verified separately.",
+      "identity_sources": [
+        "metadata/ye2019-crossref.json",
+        "metadata/ye2019-openalex.json"
+      ],
+      "doi": "10.1002/adem.201900185",
+      "local_fulltext": "pdfs/ye2019.pdf",
+      "local_extraction": "text/ye2019.txt",
+      "retrieval": {
+        "key": "ye2019",
+        "url": "https://www.osti.gov/servlets/purl/1569671",
+        "final_url": "https://www.osti.gov/servlets/purl/1569671",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 3558083,
+        "valid_pdf": true,
+        "pages": 37
+      }
+    },
+    {
+      "key": "mills2006",
+      "status": "usable_with_scope",
+      "support": "Composition-based estimates of thermophysical properties help where experiments are unavailable, including liquid/phase concerns.",
+      "limits_counterevidence": "Authors explicitly do not present estimates as a replacement for measurement. Alloy-composition estimates are not current IN625 coupon properties.",
+      "point_of_use": "Methods/Discussion property provenance and cheaper alternative to full new measurement.",
+      "read_scope": "Version-of-record J-STAGE PDF pp1–2 abstract/Introduction; remaining8pages not claimed read.",
+      "identity_sources": [
+        "metadata/mills2006-crossref.json",
+        "metadata/mills2006-openalex.json"
+      ],
+      "doi": "10.2355/isijinternational.46.623",
+      "local_fulltext": "pdfs/mills2006.pdf",
+      "local_extraction": "text/mills2006.txt",
+      "retrieval": {
+        "key": "mills2006",
+        "url": "https://www.jstage.jst.go.jp/article/isijinternational/46/5/46_5_623/_pdf",
+        "final_url": "https://www.jstage.jst.go.jp/article/isijinternational/46/5/46_5_623/_pdf",
+        "status": 200,
+        "content_type": "application/pdf;charset=UTF-8",
+        "bytes": 524922,
+        "valid_pdf": true,
+        "pages": 10
+      }
+    },
+    {
+      "key": "pottlacher2001",
+      "status": "usable_with_scope",
+      "support": "Fast resistive heating measures solid/liquid enthalpy/cp; conductivity can be estimated via resistivity/Wiedemann–Franz.",
+      "limits_counterevidence": "Actual first author is Hosaeus. IN718, not IN625; no numerical substitution for current liquid functions.",
+      "point_of_use": "Discussion feasible high-temperature evidence routes, if needed.",
+      "read_scope": "Complete scholarly Crossref/OpenAlex abstract; no fulltext.",
+      "identity_sources": [
+        "metadata/pottlacher2001-crossref.json",
+        "metadata/pottlacher2001-openalex.json"
+      ],
+      "doi": "10.1068/htwu340"
+    },
+    {
+      "key": "promoppatum2017",
+      "status": "usable_with_scope",
+      "support": "FE and Rosenthal can both reasonably estimate IN718 geometry within studied conditions, while differing in absorption sensitivity and high-input shape.",
+      "limits_counterevidence": "Full abstract only; qualified success prevents a strawman claim that analytical/conduction models always fail. Microstructure result not replicated here.",
+      "point_of_use": "Introduction successful affordable models; Discussion source/loss assumptions.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; no fulltext (public PDF403).",
+      "identity_sources": [
+        "metadata/promoppatum2017-crossref.json",
+        "metadata/promoppatum2017-openalex.json"
+      ],
+      "doi": "10.1016/J.ENG.2017.05.023",
+      "retrieval": {
+        "key": "promoppatum2017",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2095809917307208/pdf",
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S2095809917307208/pdf",
+        "status": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 832805,
+        "valid_pdf": false
+      }
+    },
+    {
+      "key": "coen2022",
+      "status": "hold_metadata_only",
+      "support": "Candidate methodological validation of analytical pools.",
+      "limits_counterevidence": "Metadata only; details can change gap appraisal, not current measured evidence.",
+      "point_of_use": "Hold pending targeted access; optional because other analytical-validation sources are usable.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/coen2022-crossref.json",
+        "metadata/coen2022-openalex.json"
+      ],
+      "doi": "10.1016/j.jmatprotec.2022.117547"
+    },
+    {
+      "key": "whalen2021",
+      "status": "usable_with_scope",
+      "support": "An adapted Eagar–Tsai model includes temperature-dependent/powder properties, infers apparent absorption/porosity distributions and propagates depth uncertainty.",
+      "limits_counterevidence": "316L; input distributions fitted to geometry are effective parameters. External printability comparison is qualitative with different ratio thresholds; not internal thermal validation.",
+      "point_of_use": "Introduction prior property/uncertainty treatment; Discussion distinction from deterministic continuation scenarios.",
+      "read_scope": "Author-manuscript PDF pp1–4 abstract/Introduction,pp7–8 model properties/powder,pp19–20 external comparison/Conclusion.",
+      "identity_sources": [
+        "metadata/whalen2021-crossref.json",
+        "metadata/whalen2021-openalex.json"
+      ],
+      "doi": "10.1007/s40192-021-00238-z",
+      "local_fulltext": "pdfs/whalen2021.pdf",
+      "local_extraction": "text/whalen2021.txt",
+      "retrieval": {
+        "key": "whalen2021",
+        "url": "https://www.osti.gov/servlets/purl/1976761",
+        "final_url": "https://www.osti.gov/servlets/purl/1976761",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 1856117,
+        "valid_pdf": true,
+        "pages": 22
+      }
+    },
+    {
+      "key": "naderi2023",
+      "status": "usable_with_scope",
+      "support": "Scaling-law fidelity depends on material and regime; revised separate regime fits improve studied depth errors.",
+      "limits_counterevidence": "Not a universal condemnation of thermal conduction. Revised fits and multi-alloy depth data do not examine current local nonlinear cp/k continuations.",
+      "point_of_use": "Introduction known regime/transfer limits; Discussion no cross-condition ranking.",
+      "read_scope": "Version-of-record PDF pp1–2 Intro/abstract,p5 measurement conditions,pp13–14 Conclusions; print2023 vs online2022.",
+      "identity_sources": [
+        "metadata/naderi2023-crossref.json",
+        "metadata/naderi2023-openalex.json"
+      ],
+      "doi": "10.1007/s40192-022-00289-w",
+      "local_fulltext": "pdfs/naderi2023.pdf",
+      "local_extraction": "text/naderi2023.txt",
+      "retrieval": {
+        "key": "naderi2023",
+        "url": "https://link.springer.com/content/pdf/10.1007/s40192-022-00289-w.pdf",
+        "final_url": "https://link.springer.com/content/pdf/10.1007/s40192-022-00289-w.pdf",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 4597059,
+        "valid_pdf": true,
+        "pages": 16
+      }
+    },
+    {
+      "key": "bayat2019",
+      "status": "usable_with_scope",
+      "support": "High-fidelity ray-reflection/free-surface flow model plus XCT validates keyhole-porosity mechanisms in Ti64.",
+      "limits_counterevidence": "Uncorrected proof, powderTi64; scope differs. No current residual/keyhole label follows.",
+      "point_of_use": "Introduction physically richer route; Discussion alternate physics.",
+      "read_scope": "Uncorrected-proof PDF pp1–2 abstract/Introduction; no complete numerical method read claim.",
+      "identity_sources": [
+        "metadata/bayat2019-crossref.json",
+        "metadata/bayat2019-openalex.json"
+      ],
+      "doi": "10.1016/j.addma.2019.100835",
+      "local_fulltext": "pdfs/bayat2019.pdf",
+      "local_extraction": "text/bayat2019.txt",
+      "retrieval": {
+        "key": "bayat2019",
+        "url": "https://lirias.kuleuven.be/retrieve/b5966eae-025f-430b-b38e-67a840481349",
+        "final_url": "https://lirias.kuleuven.be/retrieve/b5966eae-025f-430b-b38e-67a840481349",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 3915823,
+        "valid_pdf": true,
+        "pages": 19
+      }
+    },
+    {
+      "key": "weaver2024",
+      "status": "usable_with_scope",
+      "support": "AMBench2022 provides controlled IN718 track/pad geometry, uncertainties and heat-buildup effects.",
+      "limits_counterevidence": "Different year/material/dataset; cannot supply AMB2018IN625 statistics or repair Hong dataset identity.",
+      "point_of_use": "Methods benchmark lineage or Discussion future multi-observable controlled measurements.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; no fulltext (PMC request403).",
+      "identity_sources": [
+        "metadata/weaver2024-crossref.json",
+        "metadata/weaver2024-openalex.json"
+      ],
+      "doi": "10.1007/s40192-024-00355-5",
+      "retrieval": {
+        "key": "weaver2024",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11187816/pdf/nihms-2000894.pdf",
+        "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11187816/pdf/nihms-2000894.pdf",
+        "status": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 134,
+        "valid_pdf": false
+      }
+    },
+    {
+      "key": "yang2024",
+      "status": "usable_with_scope",
+      "support": "Analytical LPBF models have already quantified k/cp and source/laser sensitivity of thermal/geometry outputs.",
+      "limits_counterevidence": "Constant-property Ti64; one-factor changes and radar weighting are not nonlinear high-temperature four-corner closure interactions. Some extreme peak values and a unit typo must not be imported as physical truth.",
+      "point_of_use": "Introduction direct material-sensitivity precedent; Discussion scope of our independent closure decomposition.",
+      "read_scope": "Version-of-record18pp PDF: abstract/Intro1–2; methods3–6; sensitivity9,12–15; Conclusion16.",
+      "identity_sources": [
+        "metadata/yang2024-crossref.json",
+        "metadata/yang2024-openalex.json"
+      ],
+      "doi": "10.3390/ma17112565",
+      "local_fulltext": "pdfs/sigler2024.pdf",
+      "local_extraction": "text/sigler2024.txt"
+    },
+    {
+      "key": "soares2026",
+      "status": "usable_with_scope",
+      "support": "Thermal-camera and post-process comparisons expose different agreement for surface and depth; high correlation can coexist with biased scale.",
+      "limits_counterevidence": "Analytical Gaussian fixed0.8Tmelt properties, powder corrections and no explicit phase change. Camera calibration uses melting/metallography; not wholly independent temperature truth. Proposed depth correction is not prospective validation.",
+      "point_of_use": "Introduction recent reliability assessment; Discussion observation/shape discrepancies and correlation versus agreement.",
+      "read_scope": "Version-of-record27pp PDF §§2.1 pp3–6;3.2 pp12–13;3.2.2p17;3.3pp17–18;Discussion18–21;Conclusion21–22.",
+      "identity_sources": [
+        "metadata/soares2026-crossref.json",
+        "metadata/soares2026-openalex.json"
+      ],
+      "doi": "10.3390/app16125850",
+      "local_fulltext": "pdfs/reliability2026.pdf",
+      "local_extraction": "text/reliability2026.txt"
+    },
+    {
+      "key": "hong2026",
+      "status": "usable_with_scope",
+      "support": "A recent fitting-free diagnostic asks whether an Eagar–Tsai conduction model requires physically infeasible absorption to explain measured depth; sensitivity/effective-diffusivity controls test robustness.",
+      "limits_counterevidence": "Effective/constant-property231bare tracks across datasets; IN625 empirical absorption and data-label concern require caution. Does not examine our nonlinear high-T functions or rear Ts/Tl split. Its mechanism inference cannot be transferred.",
+      "point_of_use": "Introduction direct diagnostic overlap; Discussion controls needed before attributing conduction-model discrepancy.",
+      "read_scope": "Version-of-record21pp PDF Intro1–3;Methods2.1–2.4pp4–7;robustness3.4pp12–13;correction3.5p14;Discussion16–18;Conclusion18;refs20–21.",
+      "identity_sources": [
+        "metadata/hong2026-crossref.json",
+        "metadata/hong2026-openalex.json"
+      ],
+      "doi": "10.3390/ma19153290",
+      "local_fulltext": "pdfs/fittingfree2026.pdf",
+      "local_extraction": "text/fittingfree2026.txt"
+    },
+    {
+      "key": "solidpath2024",
+      "status": "hold_metadata_only",
+      "support": "Critical candidate: alloy solidification path and melt-pool response.",
+      "limits_counterevidence": "Metadata only; do not claim lack of related latent/solidification analysis. This limits breadth/priority of novelty claim.",
+      "point_of_use": "Hold; scientific question recorded in research-line.md.",
+      "read_scope": "Crossref/OpenAlex identity only; parent handled one targeted publisher session.",
+      "identity_sources": [
+        "metadata/solidpath2024-crossref.json",
+        "metadata/solidpath2024-openalex.json"
+      ],
+      "doi": "10.1016/j.ijheatmasstransfer.2024.125632"
+    },
+    {
+      "key": "jmapro2024",
+      "status": "hold_metadata_only",
+      "support": "Close IN625 candidate: processing parameters and melt-pool characteristics.",
+      "limits_counterevidence": "Metadata only; not evidence of our exact continuation design or absence of overlap.",
+      "point_of_use": "Hold; gap-impact question in research-line.md.",
+      "read_scope": "Crossref/OpenAlex identity only; parent public/session access queue.",
+      "identity_sources": [
+        "metadata/jmapro2024-crossref.json",
+        "metadata/jmapro2024-openalex.json"
+      ],
+      "doi": "10.1016/j.jmapro.2024.05.025"
+    },
+    {
+      "key": "heatsourcebayes2024",
+      "status": "usable_with_scope",
+      "support": "Four source models were compared through fusion-zone errors and Bayesian optimization; a calibrated conical-source regression transfers across a studied process window.",
+      "limits_counterevidence": "IN738LC; calibration still occurs during model construction. Cross-sectional agreement and reported LOOCV do not prove thermal histories or all-material validity. Conical source cannot be ranked against current Gaussian across unlike cases.",
+      "point_of_use": "Introduction successful source-calibration/transfer route; Discussion source alternative and comparison design.",
+      "read_scope": "Version-of-record17pp PDF pp1–2 Intro/abstract,p4 calibration/Methods,pp15–16 Conclusions. Reported source ranking restricted to its experiment.",
+      "identity_sources": [
+        "metadata/heatsourcebayes2024-crossref.json",
+        "metadata/heatsourcebayes2024-openalex.json"
+      ],
+      "doi": "10.1007/s40192-023-00334-2",
+      "local_fulltext": "pdfs/heatsourcebayes2024.pdf",
+      "local_extraction": "text/heatsourcebayes2024.txt",
+      "retrieval": {
+        "key": "heatsourcebayes2024",
+        "url": "https://mdr.nims.go.jp/filesets/4ff985eb-b70b-4ece-be4f-3efe850cd480/download",
+        "final_url": "https://mdr.nims.go.jp/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6ImRjN2Q0ZWYxLTQ5YjMtNDE1Ny04YzZkLWIzNTNkNTg0OGRkMCIsInB1ciI6ImJsb2JfaWQifX0=--4ab66984e764f72322b8355d11f8b5a2cf9074de/s40192-023-00334-2.pdf",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 7023529,
+        "valid_pdf": true,
+        "pages": 17
+      }
+    },
+    {
+      "key": "dynamic2024",
+      "status": "usable_with_scope",
+      "support": "A dynamic two-parameter volumetric source adjusts depth/absorption and improves IN625 geometry across a calibrated spot-size range; local dynamic conditions motivate source transfer.",
+      "limits_counterevidence": "Bare-plate EOSmulti-spot195W/800mm/s then AMB2018-01 layer case, not our threeAMB2018-02 targets. Table2 uses different phase-dependent k/cp and eutectic1410K, not our solidus. Effective source success cannot validate internal temperatures.",
+      "point_of_use": "Introduction successful calibrated-source route; Discussion source/closure alternatives and a future discriminating comparison.",
+      "read_scope": "Author manuscript45pp PDF pp1–6 Intro/model;pp17–20 calibration/problem/materials;pp39–40 Discussion/Conclusions. Final journal identity separately verified.",
+      "identity_sources": [
+        "metadata/dynamic2024-crossref.json",
+        "metadata/dynamic2024-openalex.json"
+      ],
+      "doi": "10.1016/j.addma.2024.104531",
+      "local_fulltext": "pdfs/dynamic2024.pdf",
+      "local_extraction": "text/dynamic2024.txt",
+      "retrieval": {
+        "key": "dynamic2024",
+        "url": "https://www.osti.gov/servlets/purl/2478364",
+        "final_url": "https://www.osti.gov/servlets/purl/2478364",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 6534054,
+        "valid_pdf": true,
+        "pages": 45
+      }
+    },
+    {
+      "key": "gasliquid2025",
+      "status": "usable_with_scope",
+      "support": "Recent multiphase modelling connects spatter/entrainment and tail-flow perturbations with possible defects.",
+      "limits_counterevidence": "Full abstract only; powder mechanisms are not present in this bare-plate study and are not a cause assigned to its thermal tail.",
+      "point_of_use": "Discussion boundary on extension to powder; optional citation only.",
+      "read_scope": "Complete Crossref/OpenAlex scholarly abstract; public repository PDF403.",
+      "identity_sources": [
+        "metadata/gasliquid2025-crossref.json",
+        "metadata/gasliquid2025-openalex.json"
+      ],
+      "doi": "10.1016/j.actamat.2025.120816",
+      "retrieval": {
+        "key": "gasliquid2025",
+        "url": "https://scholars.cityu.edu.hk/files/276293030/273196911.pdf",
+        "final_url": "https://scholars.cityu.edu.hk/files/276293030/273196911.pdf",
+        "status": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 5627,
+        "valid_pdf": false
+      }
+    },
+    {
+      "key": "feedforward2025",
+      "status": "hold_metadata_only",
+      "support": "Candidate vector-level thermal model control.",
+      "limits_counterevidence": "Metadata only; no algorithm/validation claims. Optional to present paper, not a dependency.",
+      "point_of_use": "Hold; no active prose.",
+      "read_scope": "Crossref/OpenAlex identity only.",
+      "identity_sources": [
+        "metadata/feedforward2025-crossref.json",
+        "metadata/feedforward2025-openalex.json"
+      ],
+      "doi": "10.1016/j.addma.2025.104981"
+    },
+    {
+      "key": "weeks2026",
+      "status": "usable_with_scope",
+      "support": "An observation model for internal thermal-emission reflections can reconcile some simulated/camera discrepancy.",
+      "limits_counterevidence": "Full abstract only here;316L concave keyhole, not a universal correction or matched AMMT sensor. Changes observation mapping, not necessarily thermal physics.",
+      "point_of_use": "Introduction observation-aware assessment; Discussion camera-to-field mapping.",
+      "read_scope": "Complete scholarly OpenAlex abstract from prior search; version-of-record fulltext/format not read by this worker.",
+      "identity_sources": [
+        "metadata/weeks2026-crossref.json",
+        "metadata/weeks2026-openalex.json"
+      ],
+      "doi": "10.1016/j.addma.2026.105245"
+    },
+    {
+      "key": "review2024",
+      "status": "usable_with_scope",
+      "support": "Recent review describes FEM model hierarchies, material-temperature dependence and thermal/structural coupling.",
+      "limits_counterevidence": "Broad FEM/part-scale review and journal pre-proof; equation forms are illustrative and not imported without independent derivation.",
+      "point_of_use": "Introduction computational tradeoff or Discussion material-data requirements, with primary sources for detailed claims.",
+      "read_scope": "Journal-pre-proof84pp PDF p2 abstract,pp16–18 material properties/thermal equations; remaining66pages not claimed read.",
+      "identity_sources": [
+        "metadata/review2024-crossref.json",
+        "metadata/review2024-openalex.json"
+      ],
+      "doi": "10.1016/j.addma.2024.104157",
+      "local_fulltext": "pdfs/review2024.pdf",
+      "local_extraction": "text/review2024.txt",
+      "retrieval": {
+        "key": "review2024",
+        "url": "https://lirias.kuleuven.be/retrieve/caf98d5f-c384-442c-ba28-8a6de6d41470",
+        "final_url": "https://lirias.kuleuven.be/retrieve/caf98d5f-c384-442c-ba28-8a6de6d41470",
+        "status": 200,
+        "content_type": "application/pdf",
+        "bytes": 2500973,
+        "valid_pdf": true,
+        "pages": 84
+      }
+    }
+  ]
+}

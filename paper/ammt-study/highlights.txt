@@ -1,0 +1,4 @@
+Length fitting leaves width and depth discrepancies in IN625 laser tracks.
+High-temperature conductivity and storage continuations oppose tail response.
+Rear boundary translation dominates the modeled 34 micrometre length change.
+Similar spatial phase spans correspond to different material passage times.

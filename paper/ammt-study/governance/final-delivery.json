@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-01",
+  "disposition": "Complete local evidence-bounded first draft for human scientific review",
+  "canonical_source": "manuscript.tex",
+  "canonical_pdf": "manuscript.pdf",
+  "source_archive": "submission-source.zip",
+  "delivery_check": {
+    "latex_pdf_pages": 22,
+    "pdf_bytes": 419764,
+    "verified_cited_sources": 39,
+    "bibliography_candidates": 49,
+    "scientific_figures": 5,
+    "checked_document_links": 116,
+    "unresolved_delivery_defects": [],
+    "limits": [
+      "Current AM-specific author-guide terms unverified",
+      "Authorship/human final verification pending",
+      "Full PDE replay requires original case fields and environment",
+      "Scientific novelty/acceptance not certified"
+    ]
+  },
+  "package_check": {
+    "source_package_matches_canonical": true,
+    "used_vector_figures": 5,
+    "extracted_package_build": "XeLaTeX/BibTeX/XeLaTeX/XeLaTeX",
+    "package_pdf_pages": 22,
+    "page_text_matches_canonical_pdf": true,
+    "tex_diagnostics": [],
+    "scope": "Rebuild in existing TeX Live 2026; not cross-platform or PDE replay verification"
+  },
+  "independent_review": "revision-r2/review/whole-review.md",
+  "review_response": "revision-r2/review/review-response.md",
+  "review_findings_closed": [
+    "R2-W1",
+    "R2-W2",
+    "R2-W3"
+  ],
+  "native_maf_r2": "Partial writer batch: Introduction complete, Discussion interrupted after candidates; native reviewer/requester not executed",
+  "later_review": "Actual separate Codex cross-section and whole-manuscript review, plus root integration",
+  "publication": "Separate authorized publication step follows; this task binds local files, not remote availability",
+  "native_compiler": "Platform-directory failure; existing TeX Live 2026 produced and rebuilt delivered PDF",
+  "evidence_promotion": "None; no new PDE, physical validation, journal acceptance or agent-effectiveness finding"
+}
