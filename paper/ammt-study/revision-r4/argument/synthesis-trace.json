@@ -1,0 +1,516 @@
+{
+  "task": "R4 Introduction/abstract argument reconstruction",
+  "date": "2026-10-02",
+  "write_scope": "revision-r4/argument",
+  "path_base": "All source paths are relative to ammt-study unless an absolute result-root path is given.",
+  "citation_policy": "Primary full-text passages support technical claims. Synthesis inference and local derivation are separately identified. No abstract-only source is used in this candidate.",
+  "sources": {
+    "vanelsen2007": {
+      "title": "Solutions for modelling moving heat sources in a semi-infinite medium and applications to laser material processing",
+      "doi": "10.1016/j.ijheatmasstransfer.2007.02.044",
+      "journal": "International Journal of Heat and Mass Transfer",
+      "year": 2007,
+      "volume": "50",
+      "pages": "4872-4882",
+      "version": "Author manuscript",
+      "original": "revision-r3/citations/pdfs/vanelsen2007.pdf",
+      "extract": "revision-r3/citations/text/vanelsen2007.txt",
+      "metadata_basis": "Previously verified original title page, Crossref and bibliography; R3 source record retained."
+    },
+    "Plotkowski2017Rapid": {
+      "title": "Verification and validation of a rapid heat transfer calculation methodology for transient melt pool solidification conditions in powder bed metal additive manufacturing",
+      "doi": "10.1016/j.addma.2017.10.017",
+      "journal": "Additive Manufacturing",
+      "year": 2017,
+      "volume": "18",
+      "pages": "256-268",
+      "version": "Author manuscript",
+      "original": "revision-r2/journal/pdfs/vverification2017.pdf",
+      "extract": "revision-r2/journal/texts/vverification2017.txt",
+      "metadata": "revision-r3/citations/metadata/Plotkowski2017Rapid-crossref.json"
+    },
+    "dynamic2024": {
+      "title": "A dynamic volumetric heat source model for laser additive manufacturing",
+      "doi": "10.1016/j.addma.2024.104531",
+      "journal": "Additive Manufacturing",
+      "year": 2024,
+      "volume": "95",
+      "article": "104531",
+      "version": "Author manuscript",
+      "original": "revision-r2/literature/pdfs/dynamic2024.pdf",
+      "extract": "revision-r2/literature/text/dynamic2024.txt",
+      "metadata": "revision-r2/literature/metadata/dynamic2024-crossref.json",
+      "identity_note": "The rejected task-hint DOI 10.1016/j.addma.2023.104011 is not used."
+    },
+    "kollmannsberger2019": {
+      "title": "Accurate Prediction of Melt Pool Shapes in Laser Powder Bed Fusion by the Non-Linear Temperature Equation Including Phase Changes",
+      "doi": "10.1007/s40192-019-00132-9",
+      "journal": "Integrating Materials and Manufacturing Innovation",
+      "year": 2019,
+      "volume": "8",
+      "pages": "167-177",
+      "version": "arXiv:1903.09076v1 author version, with published identity checked",
+      "original": "revision-r3/citations/pdfs/kollmannsberger2019.pdf",
+      "extract": "revision-r3/citations/text/kollmannsberger2019.txt",
+      "metadata_basis": "Existing verified Crossref/bibliography record and original title page."
+    },
+    "myers2023": {
+      "title": "High-resolution melt pool thermal imaging for metals additive manufacturing using the two-color method with a color camera",
+      "doi": "10.1016/j.addma.2023.103663",
+      "journal": "Additive Manufacturing",
+      "year": 2023,
+      "volume": "73",
+      "article": "103663",
+      "version": "Version of record",
+      "original": "literature/myers2023-published.pdf",
+      "extract": "literature/myers2023-published.txt",
+      "metadata_basis": "Published PDF title page, DOI and previously verified bibliography."
+    },
+    "lane2020": {
+      "title": "Measurements of Melt Pool Geometry and Cooling Rates of Individual Laser Traces on IN625 Bare Plates",
+      "doi": "10.1007/s40192-020-00169-1",
+      "journal": "Integrating Materials and Manufacturing Innovation",
+      "year": 2020,
+      "volume": "9",
+      "pages": "16-30",
+      "version": "Published full HTML",
+      "original": "Published HTML extracted into paragraph-indexed text",
+      "extract": "literature/lane2020-body.txt",
+      "metadata_basis": "Published HTML/DOI and previously verified bibliography."
+    },
+    "specialmetals625": {
+      "title": "INCONEL alloy 625",
+      "publisher": "Special Metals Corporation",
+      "year": 2013,
+      "date": "August 2013",
+      "version": "Supplier technical bulletin",
+      "original": "revision-r3/citations/pdfs/specialmetals625.pdf",
+      "extract": "revision-r3/citations/text/specialmetals625.txt",
+      "metadata_basis": "Original bulletin copyright/date and title read directly.",
+      "doi": null
+    },
+    "mills2006": {
+      "title": "Calculation of Thermophysical Properties of Ni-based Superalloys",
+      "doi": "10.2355/isijinternational.46.623",
+      "journal": "ISIJ International",
+      "year": 2006,
+      "volume": "46",
+      "pages": "623-632",
+      "version": "Version of record",
+      "original": "revision-r2/literature/pdfs/mills2006.pdf",
+      "extract": "revision-r2/literature/text/mills2006.txt",
+      "metadata_basis": "Published PDF and DOI/bibliography previously verified."
+    },
+    "hooper2018": {
+      "title": "Melt pool temperature and cooling rates in laser powder bed fusion",
+      "doi": "10.1016/j.addma.2018.05.032",
+      "journal": "Additive Manufacturing",
+      "year": 2018,
+      "volume": "22",
+      "pages": "548-559",
+      "version": "Version of record",
+      "original": "literature/hooper2018-published.pdf",
+      "extract": "literature/hooper2018-published.txt",
+      "metadata_basis": "Published PDF title page, DOI and previously verified bibliography."
+    },
+    "Hou2024Dissolution": {
+      "title": "Dissolution zone model of the oxide structure in additively manufactured dispersion-strengthened alloys",
+      "doi": "10.1016/j.addma.2024.104554",
+      "journal": "Additive Manufacturing",
+      "year": 2024,
+      "volume": "96",
+      "article": "104554",
+      "version": "Version of record",
+      "original": "revision-r2/journal/pdfs/dissolution2024.pdf",
+      "extract": "revision-r2/journal/texts/dissolution2024-layout.txt",
+      "metadata": "revision-r3/citations/metadata/Hou2024Dissolution-crossref.json"
+    }
+  },
+  "claims": [
+    {
+      "id": "S01",
+      "paragraph": "P1",
+      "anchor": "The fused boundary constrains where melting occurred, while solidification analysis requires temperature gradients and the cooling histories experienced by material.",
+      "type": "synthesis_inference",
+      "function": "Motivates the difference between a useful geometric fit and the information required for thermal interpretation.",
+      "evidence": [
+        {
+          "key": "hooper2018",
+          "level": "full_text",
+          "locator": "Published pp557-558, PDF pp10-11, Figs13-14",
+          "passage": "In Fig. 14 temperature-time histories of stationary locations in the build layer are plotted.",
+          "conditions": "Ti6Al4V pulsed LPBF, two-wavelength surface thermography; spatial profiles and stationary histories are distinct outputs."
+        },
+        {
+          "key": "myers2023",
+          "level": "full_text",
+          "locator": "Section4.1; published PDF p9 Fig8 and nearby text",
+          "passage": "Although multiple FLOW-3D input parameter combinations yield reasonable geometric agreement with ex-situ melt pool dimensional measurements, the resulting temperature profiles differ substantially.",
+          "conditions": "Bare 316L; jointly fitted six power/velocity combinations; thermal imaging is an additional observation."
+        }
+      ],
+      "limits": "This is an evidence-based motivation, not a theorem of exact nonuniqueness or a claim that every geometric fit fails."
+    },
+    {
+      "id": "S02",
+      "paragraph": "P2",
+      "anchor": "The progression from concentrated-source solutions to distributed heating resolves the singular near-source behavior of classical solutions, while nonlinear conduction formulations incorporate temperature-dependent properties and latent heat.",
+      "type": "historical_synthesis",
+      "evidence": [
+        {
+          "key": "vanelsen2007",
+          "level": "full_text",
+          "locator": "Author pp3-5, introduction and moving-source formulation; p21 Eqs32-35",
+          "passage": "To overcome this problem, 2D heat sources were introduced",
+          "conditions": "Conduction-only localized heat sources in a semi-infinite medium; classical concentrated sources become singular at the source."
+        },
+        {
+          "key": "vanelsen2007",
+          "level": "full_text",
+          "locator": "Author p21 Eqs32-35",
+          "passage": "The effective heat capacity becomes ceff = c + cLf.",
+          "conditions": "Conservative enthalpy/sensible-plus-latent accounting; their latent distribution differs from the adopted linear fraction."
+        }
+      ],
+      "limits": "Does not attribute the present coordinate sign, FiPy discretization or branch inverses to the source."
+    },
+    {
+      "id": "S03",
+      "paragraph": "P2",
+      "anchor": "Rapid transient calculations extend this approach to scan-path effects and have been compared with solidification conditions and grain-structure trends",
+      "type": "full_text_fact_synthesis",
+      "evidence": [
+        {
+          "key": "Plotkowski2017Rapid",
+          "level": "full_text",
+          "locator": "Author pp5-8 methods; pp18-24 solidification/grain comparisons",
+          "passage": "The method relies on a transient solution for a stationary circular ring heat source",
+          "conditions": "Constant uniform properties; semi-infinite conduction; arbitrary beam path by temporal integration; selected laser AlSi10Mg and electron-beam IN718 cases."
+        }
+      ],
+      "limits": "No latent heat, flow or vaporization in that rapid method. Grain/CET trends do not independently validate accurate temperature histories."
+    },
+    {
+      "id": "S04",
+      "paragraph": "P3",
+      "anchor": "imposing the measured laser profile reduced the freedom to adjust the source shape",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "kollmannsberger2019",
+          "level": "full_text",
+          "locator": "Author p9, section4.2, Tables7-8; p9 section4.3; p10 Tables9-10",
+          "passage": "the absorptivity eta is the only parameter left for a re-calibration",
+          "conditions": "AMMT IN625 measured laser map constrains source shape. Isotropic predictions are narrower/deeper than the reference; directional factors are calibrated at B and retained for A/C."
+        },
+        {
+          "key": "kollmannsberger2019",
+          "level": "full_text",
+          "locator": "Author p9 section4.3",
+          "passage": "After calibration to the AMMT machine B we obtain the set [theta_x=1.0, theta_y=1.4, theta_z=0.9].",
+          "conditions": "The bracketed symbols render the original mathematical notation; not present study parameters."
+        }
+      ],
+      "limits": "The present model has the opposite shape bias. The paragraph uses this study to establish source/closure dependence, not a causal equivalence or controlled performance ranking."
+    },
+    {
+      "id": "S05",
+      "paragraph": "P3",
+      "anchor": "a volumetric source whose deposition depth and absorption respond to the calculated pool",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "dynamic2024",
+          "level": "full_text",
+          "locator": "Author pp4-5 model motivation; pp14-17 dynamic/calibration procedure; pp17-18 case studies",
+          "passage": "the heat source is described with an effective volumetric distribution to match melt pool geometry predictions to experimental observations",
+          "conditions": "Unresolved fluid, free-surface and powder effects represented through effective source deposition."
+        },
+        {
+          "key": "dynamic2024",
+          "level": "full_text",
+          "locator": "Author p18",
+          "passage": "The second case study applied the calibrated model to simulate representative layers from the NIST AMB2018-01 experiment",
+          "conditions": "Calibration: bare IN625 EOS tracks, 195W, 800mm/s and spot diameters80-322um; transfer: bridge-layer case, different from current AMB2018-02."
+        }
+      ],
+      "limits": "Supports the complementary source route and its calibration roles, not direct comparison to current source, temperatures or geometry."
+    },
+    {
+      "id": "S06",
+      "paragraph": "P3",
+      "anchor": "the calibrated geometry depends on the combination of source deposition and transport closure",
+      "type": "synthesis_inference",
+      "evidence_ids": [
+        "S04",
+        "S05"
+      ],
+      "limits": "A thematic conclusion from distinct modeling approaches; fitted parameter meaning is model dependent. Does not establish a universal compensation law or show identical refits in the present L/H branches."
+    },
+    {
+      "id": "S07",
+      "paragraph": "P4",
+      "anchor": "several combinations of absorption and vaporization parameters in a fluid model gave comparable agreement",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "myers2023",
+          "level": "full_text",
+          "locator": "Section4.1, pp8-9; Fig8 caption",
+          "passage": "The four combinations of simulated accommodation and Fresnel coefficients shown had the best agreement to ex-situ geometry measurements (<20%).",
+          "conditions": "Bare316L FLOW-3D; cross-sectional area and width/depth ratio fitted across six power/speed conditions; constant surface tension removes Marangoni."
+        },
+        {
+          "key": "myers2023",
+          "level": "full_text",
+          "locator": "Section4.1 comparison following calibration",
+          "passage": "Once the two coefficients were fit based on the ex-situ geometry, surface temperature profiles near the centerline of melt pool on the top of the plate were compared",
+          "conditions": "Independent two-color profiles discriminate temperature behavior; plume obstruction remains an observation complication."
+        }
+      ],
+      "limits": "Comparable geometry does not mean identical geometry. The present branches are deliberately not re-fitted to the same target."
+    },
+    {
+      "id": "S08",
+      "paragraph": "P4",
+      "anchor": "The authors of the AMMT conduction study explicitly stated that their calibrated model was not valid for predicting the temperature distribution within the melt pool",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "kollmannsberger2019",
+          "level": "full_text",
+          "locator": "Author p10 conclusion",
+          "passage": "However, it is not valid to predict the temperature distribution within the melt pool.",
+          "conditions": "Authors' stated boundary of their calibrated transient conduction/directional-closure model."
+        }
+      ],
+      "limits": "This is the source authors' validity statement, not independently established current-model temperature error."
+    },
+    {
+      "id": "S09",
+      "paragraph": "P4",
+      "anchor": "imaging length uses radiance-profile features at the front and rear, whereas width and depth come from metallographic cross-sections",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "lane2020",
+          "level": "full_text",
+          "locator": "Full HTML P27-P31",
+          "passage": "Determine the solidification point T freeze using the minimum of the second derivative of T rad (x).",
+          "conditions": "Rear radiance-profile derivative location; front threshold calculated from emittance-scaled true-temperature profile."
+        },
+        {
+          "key": "lane2020",
+          "level": "full_text",
+          "locator": "Full HTML P35,P38-P40",
+          "passage": "For thermography-based measurements ... the sample population N is the number of video frames ... For microscopy-based measurements ... this is the number of measurements per track",
+          "conditions": "Length and metallographic cross-section widths/depths involve different acquisition methods and populations."
+        }
+      ],
+      "limits": "Current two-solidus crossings are a thermal proxy, not a replay of the radiance observation. NIST100us decimal targets also differ from later combined-class means; detailed target population is assigned to Methods."
+    },
+    {
+      "id": "S10",
+      "paragraph": "P5",
+      "anchor": "conductivity ends at982C and sensible specific heat at1093C, below ...1290--1350C",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "specialmetals625",
+          "level": "full_text",
+          "locator": "Bulletin p1 typical-property statement; p2 Tables2-3 and footnotes",
+          "passage": "The properties ... are typical of the alloy but should not be used for specification purposes.",
+          "conditions": "General IN625 bulletin, August2013; cp marked calculated with last1093C/670JkgK; conductivity measured at Battelle, last982C/25.2WmK; melting1290-1350C."
+        }
+      ],
+      "limits": "Not coupon measurements, liquid-function data or measured equilibrium fraction(T). Data continuation is necessary within this selected table basis, not because no other data exist."
+    },
+    {
+      "id": "S11",
+      "paragraph": "P5",
+      "anchor": "liquid-property estimates depend on the available measurements and estimation procedure",
+      "type": "full_text_fact_synthesis",
+      "evidence": [
+        {
+          "key": "mills2006",
+          "level": "full_text",
+          "locator": "Journal p623 Introduction; p629 sections9.3-9.4; IN625 Fig13",
+          "passage": "For the liquid alloy ... k can be calculated by one of the following procedures",
+          "conditions": "Several liquid-k estimation procedures, dependence on microstructure; original estimated uncertainty exceeds10% for liquid k."
+        },
+        {
+          "key": "mills2006",
+          "level": "full_text",
+          "locator": "Journal p623 Introduction",
+          "passage": "It should not be taken as a substitute for actual measurements.",
+          "conditions": "Authors describe estimates where reliable alloy-property data are scarce."
+        }
+      ],
+      "limits": "No IN718/CMSX4 numerical values are transferred to IN625. The source uncertainty is not a probability bound for the present branches."
+    },
+    {
+      "id": "S12",
+      "paragraph": "P6",
+      "anchor": "A linear fraction across a selected freezing interval is an established continuum approximation",
+      "type": "full_text_fact",
+      "evidence": [
+        {
+          "key": "dynamic2024",
+          "level": "full_text",
+          "locator": "Author p5 Eq1 and following paragraph",
+          "passage": "applied as a linear temperature-solid fraction relationship across the alloy freezing range",
+          "conditions": "Temperature-dependent cp/k, constant density, latent storage; continuum IN625 closure."
+        },
+        {
+          "key": "dynamic2024",
+          "level": "full_text",
+          "locator": "Author p18 material rationale; p20 Table2",
+          "passage": "The choice to terminate solidification at the eutectic temperature instead of the solidus temperature is motivated by the rapid cooling rates in AM processes leading to limited diffusion in solid",
+          "conditions": "Gulliver-Scheil eutectic1410K with liquidus1620K; properties and latent217.5kJ/kg differ from current inputs."
+        },
+        {
+          "key": "specialmetals625",
+          "level": "full_text",
+          "locator": "Bulletin p2 Table2",
+          "passage": "Melting Range ...1290-1350",
+          "conditions": "Supplier typical melting interval supplies present endpoints."
+        }
+      ],
+      "limits": "Precedent for a closure is distinct from validation of the present endpoint/fraction law. The paper does not select a physically correct nonequilibrium endpoint for this coupon."
+    },
+    {
+      "id": "S13",
+      "paragraph": "P6",
+      "anchor": "a sensitivity to sensible heat capacity cannot be interpreted as an isolated latent-heat effect",
+      "type": "synthesis_inference_local_definition",
+      "evidence_ids": [
+        "S02",
+        "S12"
+      ],
+      "local_basis": "Frozen manuscript-input.tex, Methods enthalpy and common f(T); H=rho[integral cp dT+L f]. Changing cp while f and L are fixed changes the sensible contribution, though the coupled temperature field also changes.",
+      "limits": "No separate latent-heat ablation is claimed. All L/H corners retain one phase law."
+    },
+    {
+      "id": "S14",
+      "paragraph": "P7",
+      "anchor": "Moving both crossings downstream can lengthen the pool with little change in their separation",
+      "type": "local_derivation",
+      "local_basis": "Frozen manuscript-input.tex, Methods melt-pool geometry and material passage. L=xi_s_plus-xi_s_minus and ell_m=xi_l_minus-xi_s_minus; equal rear crossing shifts cancel in ell_m while the rear solidus shift changes L.",
+      "citation_function": "No citation attached; mathematical relationship derived from the study's defined observables.",
+      "limits": "This is a geometric decomposition, not an identified latent-heat mechanism or a claim that integrated rear escape decreases when conductivity is held."
+    },
+    {
+      "id": "S15",
+      "paragraph": "P8",
+      "anchor": "a time equal to its length divided by scan speed",
+      "type": "local_derivation_with_published_mapping_precedent",
+      "evidence": [
+        {
+          "key": "lane2020",
+          "level": "full_text",
+          "locator": "Full HTML P32-P34",
+          "passage": "The time-rate change is then calculated using the known constant scan speed v = Delta x / Delta t.",
+          "conditions": "Published mapping applies to assumed1290C solidification location and1190C lower temperature; additional1000C for CBM."
+        }
+      ],
+      "local_basis": "For stationary laboratory material and xi=x-vt, dxi/dt=-v; tau_m=ell_m/v.",
+      "limits": "Published below-solidus cooling examples are not recommended by Lane as reference/calibration data. They do not independently validate the current1350-1290C interval."
+    },
+    {
+      "id": "S16",
+      "paragraph": "P8",
+      "anchor": "pulsed ... heating events ... fluid ... thermal paths",
+      "type": "full_text_fact_synthesis",
+      "evidence": [
+        {
+          "key": "hooper2018",
+          "level": "full_text",
+          "locator": "Journal pp557-558, Figs13-14",
+          "passage": "Pulsing of the temperature is seen with rapid increases and decreases in temperature and is a direct result of the pulsed laser strategy used.",
+          "conditions": "Ti6Al4V pulsed LPBF; successive heating events and cooling after final pulse; latent release slows cooling during solidification."
+        },
+        {
+          "key": "Hou2024Dissolution",
+          "level": "full_text",
+          "locator": "Published pp9-10 section4.3, Figs13-14",
+          "passage": "for trajectories near the surface, the peak of the thermal excursion in the CFD simulations is narrower due to rapid acceleration from the laser spot by the surface tension-driven flow",
+          "conditions": "Ni20Cr+oxide,140W,1.2m/s,20um beam radius; FLOW-3D with fluid motion, free surface, Marangoni and vapor recoil."
+        },
+        {
+          "key": "Hou2024Dissolution",
+          "level": "full_text",
+          "locator": "Published p10 section4.3",
+          "passage": "trajectories underneath the surface experience higher temperatures in CFD because of heat redistribution via convection as well as depression of the melt pool from the vapor recoil pressure",
+          "conditions": "Comparison to Eagar-Tsai conduction trajectory; AppendixC fits a reduced trajectory mapping to CFD."
+        }
+      ],
+      "limits": "Different materials/scan conditions illustrate scope. They do not validate the current passage time or liquid residence."
+    },
+    {
+      "id": "S17",
+      "paragraph": "P9",
+      "anchor": "One effective source factor is fitted to condition B surface length",
+      "type": "own_study_design",
+      "local_basis": "revision-r4/manuscript-input.tex, Methods benchmark design, property continuations and calibration; revision-r3/evidence-refresh/verified-current.json.",
+      "conditions": "Three AMMT bare IN625 conditions; measuredD4sigma170um represented by circularGaussian; eta0.2890548519203547 fitted only to B length; common eta for widths/depths and A/C; four B property corners share source/phase/mesh; no refitting.",
+      "limits": "Public targets consulted during development; condition-level observation populations preserved. No prospective holdout or predictive improvement is implied."
+    },
+    {
+      "id": "S18",
+      "paragraph": "Abstract",
+      "anchor": "conductivity holding extends ... heat-capacity holding shortens ... rear ... one-third",
+      "type": "own_simulation_findings",
+      "local_basis": "revision-r3/evidence-refresh/verified-current.json; evidence/verified-data.json; frozen manuscript-input.tex Results.",
+      "values": {
+        "B_width_model_um": 143.0406226383922,
+        "B_width_reference_um": 123.5,
+        "B_depth_model_um": 31.12035,
+        "B_depth_reference_um": 36,
+        "conductivity_length_effect_um": 43.2137,
+        "cp_length_effect_um": -6.16886,
+        "rear_share_of_conductivity_length_effect_percent": 98.319,
+        "B_rear_span_um": 80.264,
+        "C_rear_span_um": 80.7914,
+        "B_passage_us": 100.33,
+        "C_passage_us": 67.32617
+      },
+      "derived_anchor": "1-67.32617/100.3300 = 0.32895, approximately one-third shorter.",
+      "conditions": "Effects are within same-source deterministic enthalpy conduction contrast. B/C have fixed nominal power and speeds0.8/1.2m/s. Abstract includes the time ratio only; the meaning remains in opposed response and translation/span distinction.",
+      "limits": "No independent thermal validation, latent-isolation ablation, or physical peak-temperature claim."
+    }
+  ],
+  "negative_findings_and_boundaries": [
+    "Current wider/shallower shape differs from Kollmannsberger's narrower/deeper isotropic AMMT result; no shared-bias mechanism or controlled model ranking is inferred.",
+    "Linear phase-fraction precedent does not establish the current interval as an equilibrium coupon measurement.",
+    "Geometric comparison does not demonstrate current temperature accuracy; the branch histories transform one solved field.",
+    "No prior-work absence or first-discovery claim was found or needed; L/H is introduced after the scientific interpretation problem.",
+    "No reduction of integrated rear heat escape is claimed from the lower held conductivity; retained rear-region power actually rises and the selected regions change."
+  ],
+  "checks": {
+    "introduction_words_initial": 1152,
+    "citation_keys": 10,
+    "all_keys_in_existing_bib": true,
+    "abstract_only_sources_used": 0,
+    "canonical_manuscript_edited": false,
+    "pde_runs": 0,
+    "introduction_words_final": 1134,
+    "abstract_words_final": 180,
+    "latex_braces_balanced": true,
+    "introduction_paragraphs": 9,
+    "interrogative_motivation_removed": true
+  },
+  "pending_at_creation": "Resolved: guidance read and incorporated before final return; no outstanding dependency.",
+  "writing_guidance_disposition": {
+    "package": "revision-r4/guidance",
+    "read": [
+      "section-guides.md",
+      "synthesis.md",
+      "source-ledger.json relevant records",
+      "sources/mit-cee-title-fetch.txt title/main-message passage",
+      "sources/mit-introduction-fetch.txt Specific Background/Knowledge Gap",
+      "sources/mit-abstract-fetch.txt writing from results and implications"
+    ],
+    "application": "Evidence-to-question sequence, declarative motivation, distinct paragraph controlling ideas, qualitative answer with a chosen numeric anchor, relational title with semantic parsing.",
+    "authority_boundary": "Pedagogy is not a venue rule or a scientific source; no writing-guide citations enter the manuscript bibliography."
+  }
+}

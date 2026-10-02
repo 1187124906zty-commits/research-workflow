@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "revision": 69,
+  "protocol_ok": true,
+  "scientific_validity": "not_judged",
+  "risks": [
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\report\\current-results.json",
+      "blocking": false,
+      "task_id": "T_EVIDENCE"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: C:\\Users\\Administrator\\Documents\\ChatGPT\\电脑答疑\\simulation-agent-mvp\\research\\reproduction-case\\nist-amb2018-02\\README.md",
+      "blocking": false,
+      "task_id": "T_JOURNAL"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.tex",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.pdf",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: literature/bibliography-r2.bib",
+      "blocking": false,
+      "task_id": "R2_WHOLE_REVIEW"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.tex",
+      "blocking": false,
+      "task_id": "R2_FINAL_DELIVERY"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.pdf",
+      "blocking": false,
+      "task_id": "R2_FINAL_DELIVERY"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: submission-source.zip",
+      "blocking": false,
+      "task_id": "R2_FINAL_DELIVERY"
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r3/editorial/methods.tex",
+      "blocking": false,
+      "task_id": "R3_EDITORIAL",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r3/editorial/appendix-additions.tex",
+      "blocking": false,
+      "task_id": "R3_EDITORIAL",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r3/citations/citation-audit.md",
+      "blocking": false,
+      "task_id": "R3_CITATIONS",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r3/review/review-response.md",
+      "blocking": false,
+      "task_id": "R3_INDEPENDENT",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: manuscript.tex",
+      "blocking": false,
+      "task_id": "R3_DELIVERY"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: submission-source.zip",
+      "blocking": false,
+      "task_id": "R3_DELIVERY"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: reproduction-notes.md",
+      "blocking": false,
+      "task_id": "R3_DELIVERY"
+    },
+    {
+      "code": "stale_input",
+      "message": "Input is missing or changed: literature/bibliography-r3.bib",
+      "blocking": false,
+      "task_id": "R3_DELIVERY"
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r3/delivery/delivery-check.json",
+      "blocking": false,
+      "task_id": "R3_DELIVERY",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r4/argument/title-logic.md",
+      "blocking": false,
+      "task_id": "R4_ARGUMENT",
+      "attempt": 1,
+      "claim_ids": []
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "task": "R4 bounded recent-assessment addendum",
+  "date": "2026-10-02",
+  "output": "revision-r4/argument/recent-assessment.tex",
+  "recommended_insertion": {
+    "location": "After existing Introduction P4 (Temperature measurements provide a direct test...) and before P5 (The material description supplies another basis for that interpretation...).",
+    "reason": "P4 establishes geometry/temperature observations and their operators. This paragraph distinguishes sensitivity, observed agreement and attainability, then hands the reader to the constitutive description in P5. It supplements the synthesis without interrupting the property/phase/spatial-time chain.",
+    "integration": "Coordinator inserts the supplied paragraph; this task does not modify canonical/integration files or the already returned Introduction.",
+    "anticipated_total_words": "Approximately1300 words, within the agreed reasoning range."
+  },
+  "coverage": "Exactly three previously retained primary papers. No new retrieval, PDE runs or reference-count expansion.",
+  "sources": [
+    {
+      "key": "yang2024",
+      "title": "Model-Based Sensitivity Analysis of the Temperature in Laser Powder Bed Fusion",
+      "authors": [
+        "Zhihao Yang",
+        "Shiting Zhang",
+        "Xia Ji",
+        "Steven Y. Liang"
+      ],
+      "journal": "Materials",
+      "year": 2024,
+      "volume": "17",
+      "article": "2565",
+      "doi": "10.3390/ma17112565",
+      "published": "2024-05-27",
+      "original": "revision-r2/literature/pdfs/sigler2024.pdf",
+      "text": "revision-r2/literature/text/sigler2024.txt",
+      "identity_checks": "PDF title page read; identity consistent with retained Crossref/OpenAlex record and existing bibliography key.",
+      "read_this_addendum": "Published pp1,3,9,12-16",
+      "evidence_level": "full_text",
+      "disposition": "Include: closest direct material/source sensitivity precedent; prevents presenting property-output sensitivity as globally unexplored.",
+      "conditions": "Ti6Al4V; homogeneous semi-infinite analytical conduction; isotropic constant properties; point/surface/body sources compared; sensitivity uses Gaussian surface source around a common process/property baseline.",
+      "passages": [
+        {
+          "locator": "p3 section2.2.1",
+          "quote": "The physical properties of the material are isotropic and remain constant, and are independent of the temperature"
+        },
+        {
+          "locator": "p9 baseline for sensitivity",
+          "quote": "This set of parameters is chosen as the standard set of parameters and the predicted results of the other parameter sets were compared with the standard set of results."
+        },
+        {
+          "locator": "pp12-14 section3.2.2 and Figs14-15",
+          "quote": "Figure14 shows the molten pool size and temperature variation with thermal conductivity.",
+          "quote_note": "Whitespace and figure-number spacing normalized; the passage and following results explicitly address k and cp changes."
+        },
+        {
+          "locator": "p14 section3.2.3",
+          "quote": "the sensitivity analysis of the above parameters on the width, depth, and maximum temperature is carried out",
+          "conditions": "One-factor variations then mathematical/SPSS weight aggregation; source/laser/rho/k/cp outputs."
+        }
+      ],
+      "limits": "No nonlinear high-temperature continuation interaction or rear solidus/liquidus decomposition. Large modeled peaks (e.g.24723K for reduced spot) and loose interpretation/typo are not imported. No ranking, magnitude, mechanism or general superiority result is borrowed.",
+      "validation_role": "Source-model geometry comparisons provide selected checks; temperature/property sensitivities remain outputs of the analytical assumptions, not directly measured thermal-history effects."
+    },
+    {
+      "key": "soares2026",
+      "title": "Reliability of Thermal Conduction-Based Melt Pool Simulations Using In-Process Thermal Camera and Post-Process Single-Track Measurements",
+      "authors": [
+        "Matheus De Araujo Soares",
+        "Donatien Campion",
+        "Aurore Leclercq",
+        "Alena Kreitcberg",
+        "Vladimir Brailovski"
+      ],
+      "journal": "Applied Sciences",
+      "year": 2026,
+      "volume": "16",
+      "article": "5850",
+      "doi": "10.3390/app16125850",
+      "published": "2026-06-10",
+      "original": "revision-r2/literature/pdfs/reliability2026.pdf",
+      "text": "revision-r2/literature/text/reliability2026.txt",
+      "identity_checks": "PDF title page read; identity consistent with retained Crossref/OpenAlex record and existing bibliography key.",
+      "read_this_addendum": "Published pp1,3-5,17-18,21",
+      "evidence_level": "full_text",
+      "disposition": "Include: recent combined-observation assessment demonstrates correlation versus dimensional agreement and regime-specific depth adequacy.",
+      "conditions": "Single tracks printed with powder for316L/IN625/CoCr; Gaussian semi-infinite conduction model; material inputs fixed at0.8Tmelt; powder density/absorptivity/conductivity corrections; no explicit phase change.",
+      "passages": [
+        {
+          "locator": "p4 section2.1",
+          "quote": "the material properties ... are considered constant",
+          "quote_note": "Ellipsis omits the list of properties; the original explicitly includes cp,k,density,resistivity and melting temperature."
+        },
+        {
+          "locator": "p5 section2.2",
+          "quote": "Since the present model does not explicitly account for phase change effects"
+        },
+        {
+          "locator": "p17 section3.3",
+          "quote": "In the keyhole melting region, where the energy input is higher, the greater the melt pool depth, the greater the discrepancy between simulations and experiments"
+        },
+        {
+          "locator": "p17 section3.3",
+          "quote": "For measured depths between10 and35 micrometres, the model overestimates the experiments, with a difference of~30%, while following linear regression with a low dispersion",
+          "quote_note": "Numerals/unit rendering normalized; original reports R2adj0.84 and calls this a fit, demonstrating why correlation is not agreement."
+        },
+        {
+          "locator": "p21 Discussion/Table7",
+          "quote": "Despite a relatively good correlation between melt pool surface measurements ... the predicted melt pool depth presented significant agreement with the metallographic results only within the conduction melting mode.",
+          "quote_note": "Ellipsis omits width,length,area list; no statistical-significance interpretation is imported."
+        },
+        {
+          "locator": "p18 Discussion camera calibration",
+          "quote": "The calibration curve of the present work was obtained by correlating the results of post-process melt pool metallographic analyses with thermal measurements"
+        }
+      ],
+      "limits": "Surface trends also contain scale bias (p17 area~30% overestimate). Camera calibration uses metallography/melting interpretation and is not wholly independent temperature truth. Empirical depth compensation is proposed, not prospectively validated. Do not transfer keyhole mechanism or bias magnitude to current bare-plate AMMT conditions.",
+      "validation_role": "In-process surface dimensions compared with calculation; post-process cross sections assess depth/width; shared width permits observation comparison. The paragraph cites output-specific agreement, not direct validation of current phase histories."
+    },
+    {
+      "key": "hong2026",
+      "title": "Fitting-Free Diagnosis of Conduction-Model Breakdown in Laser Powder Bed Fusion",
+      "authors": [
+        "Gisuk Hong",
+        "Jaebong Cho",
+        "Hyunbo Cho"
+      ],
+      "journal": "Materials",
+      "year": 2026,
+      "volume": "19",
+      "article": "3290",
+      "doi": "10.3390/ma19153290",
+      "published": "2026-08-03",
+      "original": "revision-r2/literature/pdfs/fittingfree2026.pdf",
+      "text": "revision-r2/literature/text/fittingfree2026.txt",
+      "identity_checks": "PDF title page read; identity consistent with retained Crossref/OpenAlex record and existing bibliography key.",
+      "read_this_addendum": "Published pp1,4,6-7,12-13",
+      "evidence_level": "full_text",
+      "disposition": "Include: direct current-model feasibility/diagnostic neighbor; shows a different scientific role for inversion than geometric fitting.",
+      "conditions": "231bare tracks:IN718,IN625,316L; quasi-steady Gaussian Eagar-Tsai conduction; effective constant melting-range cp/k; no latent sink in solved temperature field; liquidus geometry; measured absorption for IN718 and empirical relation for other two alloys in forward comparisons.",
+      "passages": [
+        {
+          "locator": "p6 section2.4 Eq5",
+          "quote": "The central method is an unconstrained inversion of the forward map.",
+          "conditions": "Each measured depth is inverted for required absorptivity; Brent search0.02-8; recovered value compared with physical ceiling1."
+        },
+        {
+          "locator": "p7 section2.4",
+          "quote": "A value below unity means that conduction with a physical absorptivity can account for the depth.",
+          "conditions": "Claim applies to the specified forward model and its inputs; above-unity inversion diagnoses unattainability in that closure."
+        },
+        {
+          "locator": "p12 section3.4",
+          "quote": "Three classes of assumption could, in principle, manufacture the above-unity absorptivities: the thermal-property values, the effective conductivity that stands in for convection, and the closed-form absorptivity used where no measurement exists."
+        },
+        {
+          "locator": "p12 section3.4",
+          "quote": "we therefore repeated the inversion with an anisotropic effective diffusivity, scaling the through-thickness component by a factor while leaving the in-plane component fixed"
+        },
+        {
+          "locator": "p12 section3.4",
+          "quote": "the geometric limit invoked above is a property of the isotropic assumption and not of conduction as such"
+        }
+      ],
+      "limits": "Reported keyhole necessity is model/assumption-specific; directional controls do not prove all convective alternatives impossible. IN625 beam convention and data labeling require caution retained from R2. The input empirical absorption does not affect inverse feasibility but affects forward comparison. No claim applies this physical ceiling test to current effective eta or attributes the current width/depth discrepancy to keyholing.",
+      "validation_role": "Forward comparison uses absorption not fitted to current depth; inverse recovery is a diagnostic, not reused as a predictive input. Property/beam/directional robustness assess the diagnosis."
+    }
+  ],
+  "synthesis": [
+    {
+      "id": "R01",
+      "anchor": "distinguishing parameter response from observational agreement and physical feasibility",
+      "type": "synthesis_inference",
+      "source_keys": [
+        "yang2024",
+        "soares2026",
+        "hong2026"
+      ],
+      "claim_scope": "A useful classification of the scientific questions actually answered by these three studies; not a comprehensive history or a universal adequacy definition."
+    },
+    {
+      "id": "R02",
+      "anchor": "laser inputs and constant thermophysical properties change pool dimensions and temperature histories",
+      "type": "full_text_fact_synthesis",
+      "source_key": "yang2024",
+      "locators": [
+        "p3",
+        "p9",
+        "pp12-14"
+      ],
+      "claim_scope": "Model-internal quantified response; no imported magnitude or causal material experiment."
+    },
+    {
+      "id": "R03",
+      "anchor": "strong depth correlations coexisted with systematic deviations outside stable conduction melting",
+      "type": "full_text_fact",
+      "source_key": "soares2026",
+      "locators": [
+        "p17 section3.3",
+        "p21 Table7"
+      ],
+      "claim_scope": "Their powder/single-track campaign and constant-property Gaussian model; supports correlation-versus-agreement distinction."
+    },
+    {
+      "id": "R04",
+      "anchor": "compares that value with its physical bound and tests alternative effective-transport assumptions",
+      "type": "full_text_fact",
+      "source_key": "hong2026",
+      "locators": [
+        "pp6-7 section2.4",
+        "pp12-13 section3.4"
+      ],
+      "claim_scope": "Required-absorptivity inversion and specified directional effective-transport controls; no present-study diagnosis."
+    },
+    {
+      "id": "R05",
+      "anchor": "basis for examining the constitutive assumptions that shape each modeled observable",
+      "type": "synthesis_inference",
+      "source_keys": [
+        "yang2024",
+        "soares2026",
+        "hong2026"
+      ],
+      "claim_scope": "Bridge to next paragraph's data coverage and property continuation. No global absence/first/superiority claim."
+    }
+  ],
+  "negative_findings": [
+    "All three sources earn different uses; none is retained only for recency or reference count.",
+    "Yang's numerical peaks/rankings and material-packing explanations are unnecessary for the bounded claim and omitted.",
+    "Soares's correlation is not taken as unbiased agreement, and camera/microscopy calibration is not called wholly independent thermometry.",
+    "Hong's failure diagnosis is not generalized to all conduction closures or transferred to the current fitted effective source factor."
+  ],
+  "checks": {
+    "new_citation_keys": 3,
+    "all_preexisting_bibliography_keys": true,
+    "abstract_only_claims": 0,
+    "new_retrievals": 0,
+    "canonical_edits": 0,
+    "pde_runs": 0
+  }
+}

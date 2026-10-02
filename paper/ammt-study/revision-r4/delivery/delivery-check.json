@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-02",
+  "canonical_source": "manuscript.tex",
+  "pdf_pages": 19,
+  "source_archive": "submission-source.zip",
+  "tex_build": "passed",
+  "tex_diagnostics": [],
+  "source_package_rebuild": "passed",
+  "all_pages_visual_review": "review/repair-verification.md",
+  "maf_tests": 93,
+  "researchflow_tests": 38,
+  "skills_frontmatter_valid": 9,
+  "new_writing_skills": 7,
+  "guidance_sources_read": 12,
+  "wheel_outside_checkout_demo": "complete",
+  "new_pde_solves": 0,
+  "builtin_editor_compile": "platform directory error; existing TeX Live build verified",
+  "human_peer_review": "not_completed",
+  "human_oversight_attestation": "pending_before_submission",
+  "journal_specific_submission_readiness": "not_certified"
+}

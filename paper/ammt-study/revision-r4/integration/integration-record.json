@@ -1,0 +1,38 @@
+{
+  "title": "Thermophysical-property effects on melt-pool geometry and cooling histories in IN625 laser processing",
+  "source": "Existing canonical manuscript.tex, edited in place",
+  "guides": [
+    "guidance/source-ledger.json",
+    "guidance/section-guides.md"
+  ],
+  "candidates": [
+    "argument/introduction.tex",
+    "argument/abstract.tex",
+    "integration/body-candidate.tex"
+  ],
+  "unchanged_scientific_blocks": {
+    "equation": 11,
+    "align": 1,
+    "tabular": 5,
+    "figure_inputs": 5
+  },
+  "cited_keys": [
+    "Hou2024Dissolution",
+    "Plotkowski2017Rapid",
+    "dynamic2024",
+    "hong2026",
+    "hooper2018",
+    "kollmannsberger2019",
+    "lane2020",
+    "mills2006",
+    "myers2023",
+    "nist2018",
+    "oberkampf2002",
+    "soares2026",
+    "specialmetals625",
+    "vanelsen2007",
+    "yang2024"
+  ],
+  "new_pde_solves": 0,
+  "scope": "Evidence-bound manuscript revision, not new data or independent thermal validation"
+}

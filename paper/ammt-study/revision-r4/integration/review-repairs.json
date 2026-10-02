@@ -1,0 +1,26 @@
+[
+  {
+    "before": "Conductivity and sensible heat-capacity continuations above their tabulated ranges are varied independently while the calibrated source and phase law remain fixed.",
+    "after": "Linear continuation and holding at the last tabulated value are compared independently for conductivity and sensible heat capacity, with the calibrated source and phase law retained."
+  },
+  {
+    "before": "A separate transient-conduction study connected geometry verification, solidification-condition calculations and an experimental grain-structure comparison for AlSi10Mg laser and IN718 electron-beam cases~\\cite{Plotkowski2017Rapid}.",
+    "after": "A separate transient-conduction study assessed geometric and solidification-condition calculations for AlSi10Mg laser and IN718 electron-beam cases, and compared predicted grain morphology with experiments for the IN718 case~\\cite{Plotkowski2017Rapid}."
+  },
+  {
+    "before": "The relation follows from passage through the same quasi-steady field and defines a derived centerline history.",
+    "after": "For each condition, the relation follows from passage through its calculated quasi-steady field and defines a derived centerline history."
+  },
+  {
+    "before": "would establish their physical correspondence.",
+    "after": "would test their physical correspondence."
+  },
+  {
+    "before": "The solved problem is steady; retained warm fields provide nonlinear initial guesses rather than a transient thermal initial condition.",
+    "after": "The solved problem is steady; retained warm fields provide nonlinear initial guesses."
+  },
+  {
+    "before": "This recovers conductive flux while conserving enthalpy; $U$ is a scaled enthalpy, not temperature.",
+    "after": "This coefficient recovers conductive flux in the conservative equation for scaled enthalpy $U$. Coordinate enthalpy transport uses an exponentially fitted finite-volume convection flux. Material coefficients and the diffusion--transport stencil are updated with each nonlinear iterate; Anderson acceleration solves the fixed-point residual and preconditioned GMRES solves the inner linear system. Software versions and iterative controls are given in the accompanying numerical reproduction notes."
+  }
+]

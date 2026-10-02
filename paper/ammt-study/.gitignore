@@ -52,3 +52,14 @@ revision-r3/**/metadata/
 revision-r3/editorial/source-extracts/
 revision-r3/editorial/candidate-proof.*
 .latex-build-*/
+revision-r4/manuscript-input.tex
+revision-r4/review/manuscript-reviewed.tex
+revision-r4/review/manuscript-reviewed.pdf
+revision-r4/**/raw/
+revision-r4/**/text/
+revision-r4/**/pdfs/
+revision-r4/**/renders/
+revision-r4/**/metadata/
+revision-r4/integration/body-candidate.tex
+revision-r4/guidance/sources/
+revision-r4/review/visual/

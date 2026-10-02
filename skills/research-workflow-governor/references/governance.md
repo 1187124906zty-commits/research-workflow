@@ -22,6 +22,8 @@ Requester disposition answers: What is known now? Did this result change the pap
 
 ## When rigor becomes local optimization
 
+Before interrupting a worker for a delayed return, send a progress inquiry: why no return, current activity, existing candidate, remaining evidence question and the concrete value of further work. Ask for concise task status rather than private reasoning. Slow reasoning and consequential source checks justify continuation. Elapsed time cannot identify a revision loop. When the response or observable work establishes repeated revision without changed understanding, request the best current candidate with remaining limitations; send it to another agent for focused feedback before further revision. An unknown status calls for investigation and visible reassessment. Preserve explicit user cancellation and genuine transport failure as separate operational cases.
+
 Symptoms are repeating the same refinement after the decision is stable, tightening tolerances without a claim-dependent reason, reading another near-identical source without changing coverage, or rebuilding an already usable figure while key evidence is absent. Ask for an incremental-value explanation. Stop optional work if there is none. Preserve the current limitation; do not claim higher adequacy than shown.
 
 Counterexamples to premature stopping also matter: an effect smaller than numerical uncertainty, a ranking that reverses on refinement, wrong units, a nonconservative coupling, wrong experimental conditions, or a failed independent reference. These require correction or scope change. “We need a complete paper” never repairs them.

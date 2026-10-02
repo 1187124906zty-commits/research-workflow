@@ -1,0 +1,357 @@
+{
+  "task": "R4_PRIMARY_WRITING_GUIDANCE",
+  "date": "2026-10-02",
+  "scope": "Generalized writing pedagogy; distinct from R3 manuscript review and manuscript research bibliography.",
+  "core_source_count": 12,
+  "origin_groups": [
+    "MIT/Broad/CEE",
+    "University of Manchester",
+    "UNC Chapel Hill",
+    "PLOS scholarly article",
+    "USC Libraries"
+  ],
+  "sources": [
+    {
+      "id": "MIT_CEE_TITLE",
+      "title": "Journal Article",
+      "original_url": "https://mitcommlab.mit.edu/cee/commkit/journal-article/",
+      "provenance": "MIT Civil and Environmental Engineering Communication Lab; page credits Communication Fellow Andrew Feldman for the most recent revision.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive guide, especially Criteria for Success, Identify Your Purpose, Analyze Your Audience and Skills: The title is attractive / The abstract is key / Each paragraph starts with the message.",
+      "local_reading_record": "sources/mit-cee-title-fetch.txt",
+      "passages": [
+        {
+          "section": "Skills > The title is attractive",
+          "short_quote": "A great option for your title is a shortened version of your one-to-two sentence main message.",
+          "paraphrase": "A title can condense the main message while using accessible topic keywords; readership determines background and detail.",
+          "agent_application": "Compare title candidates with the evidence-supported central message and search terms.",
+          "boundary": "A useful option, not a mandate to use a declarative title or exactly one sentence. No title grammar/collocation list is supplied; that check remains an editorial inference.",
+          "local_text_line": 76
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC 4.0 unless otherwise noted.",
+      "reuse_scope": "Attribute source and observe the noncommercial condition for copied/adapted licensed content; this package uses brief located quotation and independently worded synthesis, not a republished CommKit. Full local text is a private reading record."
+    },
+    {
+      "id": "MIT_ABSTRACT",
+      "title": "Journal Article: Abstract",
+      "original_url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-abstract/",
+      "provenance": "Broad Research Communication Lab on the MIT domain; page states adaptation from MIT Biological Engineering Communication Lab.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive guide: When to Write the Abstract, Purpose and Abstract Formula; linked annotated PDFs not read.",
+      "local_reading_record": "sources/mit-abstract-fetch.txt",
+      "passages": [
+        {
+          "section": "When to Write the Abstract",
+          "short_quote": "write your abstract last.",
+          "paraphrase": "Distill the actual completed sections and subtract/consolidate findings until the crucial results remain.",
+          "agent_application": "Draft from the current Results/Discussion; rank possible quantitative anchors by what conclusion each establishes.",
+          "boundary": "Writing last is a tactic, not an exclusive sequence; a working abstract can guide earlier work.",
+          "local_text_line": 17
+        },
+        {
+          "section": "Abstract Formula > Implications",
+          "short_quote": "Describe how your findings influence our understanding of the relevant field",
+          "paraphrase": "Context, question, approach, selected findings and implications jointly make the abstract informative.",
+          "agent_application": "End on the concrete understanding or decision changed by the finding, including a useful negative finding.",
+          "boundary": "The six-component formula and suggested sentence ranges are this teaching model; do not impose six sentences or a fixed number of numerical results.",
+          "local_text_line": 35
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC 4.0 unless otherwise noted.",
+      "reuse_scope": "Attribute source and observe the noncommercial condition for copied/adapted licensed content; this package uses brief located quotation and independently worded synthesis, not a republished CommKit. Full local text is a private reading record."
+    },
+    {
+      "id": "MIT_INTRODUCTION",
+      "title": "Journal Article: Introduction",
+      "original_url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-introduction/",
+      "provenance": "Broad Research Communication Lab on the MIT domain; adapted from MIT Biological Engineering Communication Lab.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive guide: When to Write the Introduction, Purpose and Introduction Formula; annotated example PDFs not read.",
+      "local_reading_record": "sources/mit-introduction-fetch.txt",
+      "passages": [
+        {
+          "section": "Introduction Formula > Specific Background",
+          "short_quote": "Your purpose is not to showcase the breadth of your knowledge",
+          "paraphrase": "Supply the knowledge needed to understand the system, question and significance, then articulate a question made logical by that background.",
+          "agent_application": "Synthesize related evidence by what it establishes; remove background that does not help derive the current question.",
+          "boundary": "The four ordered components are a rhetorical model, not four paragraphs or a required broad-opening sentence.",
+          "local_text_line": 29
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC 4.0 unless otherwise noted.",
+      "reuse_scope": "Attribute source and observe the noncommercial condition for copied/adapted licensed content; this package uses brief located quotation and independently worded synthesis, not a republished CommKit. Full local text is a private reading record."
+    },
+    {
+      "id": "MIT_METHODS",
+      "title": "Journal Article: Methods",
+      "original_url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-methods/",
+      "provenance": "Broad Research Communication Lab on the MIT domain; adapted from MIT Biological Engineering Communication Lab.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive guide: Criteria, Identify Your Purpose, Analyze your audience, all Skills subsections; linked example PDF not read.",
+      "local_reading_record": "sources/mit-methods-fetch.txt",
+      "passages": [
+        {
+          "section": "Skills > Provide minimal essential detail",
+          "short_quote": "specify any methodological details that might cause someone to reach a different conclusion.",
+          "paraphrase": "Methods serve validity assessment and replication; describe purpose/application, original standard-method sources and modifications, with a logical correspondence to Results.",
+          "agent_application": "Preserve controls, operators, calibration data, parameter roles and changes affecting interpretation; allocate routine execution detail to an accessible reproduction record.",
+          "boundary": "Minimal means sufficient, not short by quota. Its avoid-we/passive preference is local advice, not universal journal policy; conflicts with UNC active-voice option are retained.",
+          "local_text_line": 59
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC 4.0 unless otherwise noted.",
+      "reuse_scope": "Attribute source and observe the noncommercial condition for copied/adapted licensed content; this package uses brief located quotation and independently worded synthesis, not a republished CommKit. Full local text is a private reading record."
+    },
+    {
+      "id": "MANCHESTER_INTRODUCTION",
+      "title": "Academic Phrasebank: Introducing work",
+      "original_url": "https://www.phrasebank.manchester.ac.uk/introducing-work/",
+      "provenance": "University of Manchester institutional Academic Phrasebank; its overview attributes CARS to John Swales (1990).",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Full overview/CARS passage; full functional subsections Identifying a knowledge gap and Stating the purpose of the current research; relevant context/previous-research examples inspected, not every phrase category.",
+      "local_reading_record": "sources/manchester-introduction.txt",
+      "passages": [
+        {
+          "section": "Overview before CARS",
+          "short_quote": "this is far from fixed or rigid, and not all the elements are present in all introductions.",
+          "paraphrase": "Introduction moves include context, a problem/niche and research purpose, but their presence/order varies. Phrase lists realize functions rather than supply evidence.",
+          "agent_application": "Use rhetorical functions to diagnose missing reasoning, then write study-specific language from verified sources.",
+          "boundary": "Do not paste no/few-studies phrases without a literature search. CARS here is institutional explanation of Swales, not a fresh reading of his original monograph.",
+          "local_text_line": 35
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "No explicit open reuse license was observed in the substantive page/footer read.",
+      "reuse_scope": "Link and attribute; use minimal quotation and independently worded commentary. Do not redistribute the full page or phrase bank as an open-licensed source. Local full text is a private reading record."
+    },
+    {
+      "id": "MANCHESTER_METHODS",
+      "title": "Academic Phrasebank: Describing methods",
+      "original_url": "https://www.phrasebank.manchester.ac.uk/describing-methods/",
+      "provenance": "University of Manchester Academic Phrasebank institutional original page.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Overview; complete categories current methodology, reasons adopted/rejected, established methods, selection/inclusion, infinitive purpose, statistical procedures and methodological problems/limitations.",
+      "local_reading_record": "sources/manchester-methods.txt",
+      "passages": [
+        {
+          "section": "Overview",
+          "short_quote": "clear and detailed enough for another experienced person to repeat the research and reproduce the results.",
+          "paraphrase": "Detail depends on method novelty, controversy and reader expertise; method descriptions include purpose, selection rules and reasons, not only actions.",
+          "agent_application": "Describe why the design answers the scientific question and specify exclusions/selection factually where they alter inference.",
+          "boundary": "The simple-past observation applies to most example functional categories, not equations, definitions or all Methods sentences. Listed statistical phrases do not license unperformed tests.",
+          "local_text_line": 19
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "No explicit open reuse license was observed in the substantive page/footer read.",
+      "reuse_scope": "Link and attribute; use minimal quotation and independently worded commentary. Do not redistribute the full page or phrase bank as an open-licensed source. Local full text is a private reading record."
+    },
+    {
+      "id": "MANCHESTER_TRANSITIONS",
+      "title": "Academic Phrasebank: Signalling transition",
+      "original_url": "https://www.phrasebank.manchester.ac.uk/signalling-transition/",
+      "provenance": "University of Manchester Academic Phrasebank institutional original page.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive overview and all transition/previewing categories; no linked PDF purchase.",
+      "local_reading_record": "sources/manchester-transitions.txt",
+      "passages": [
+        {
+          "section": "Overview",
+          "short_quote": "It must be accurate, but it must be easy to follow.",
+          "paraphrase": "A preview or transition helps readers track movement between topics and sections; functions include contrast, return and summary.",
+          "agent_application": "Select signposting only after identifying the actual relation between adjacent argument units.",
+          "boundary": "Thesis-style roadmaps and repeated section summaries are available options, not a requirement for every research-article paragraph.",
+          "local_text_line": 19
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "No explicit open reuse license was observed in the substantive page/footer read.",
+      "reuse_scope": "Link and attribute; use minimal quotation and independently worded commentary. Do not redistribute the full page or phrase bank as an open-licensed source. Local full text is a private reading record."
+    },
+    {
+      "id": "UNC_PARAGRAPHS",
+      "title": "Paragraphs",
+      "original_url": "https://writingcenter.unc.edu/tips-and-tools/paragraphs/",
+      "provenance": "University of North Carolina at Chapel Hill Writing Center, College of Arts and Sciences.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive handout: definition, thesis/control, organization options, five-step illustration, all troubleshooting sections and reuse footer.",
+      "local_reading_record": "sources/unc-paragraphs.txt",
+      "passages": [
+        {
+          "section": "What is a paragraph?",
+          "short_quote": "Length and appearance do not determine whether a section in a paper is a paragraph.",
+          "paraphrase": "Unity/coherence around a controlling idea, adequate evidence and explanation define a paragraph; completion can be a conclusion or transition.",
+          "agent_application": "Reverse-outline each paragraph by its inference and supporting evidence, then remove or relocate unrelated claims.",
+          "boundary": "The five-step illustration is an example, not five sentences; the topic sentence can occur later; do not force every paragraph to end with a gap or summary.",
+          "local_text_line": 17
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire handout with attribution.",
+      "reuse_scope": "Do not distribute an edited/translated version of the handout as a licensed derivative. Here: attribution, minimal quotation and independently composed analysis of ideas; full extracted handout remains local. No permission for commercial republishing is claimed."
+    },
+    {
+      "id": "UNC_TRANSITIONS",
+      "title": "Transitions",
+      "original_url": "https://writingcenter.unc.edu/tips-and-tools/transitions/",
+      "provenance": "University of North Carolina at Chapel Hill Writing Center, College of Arts and Sciences.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive handout: logical function, diagnosis, organization/reverse outline, mechanics, transition types and relation table, footer.",
+      "local_reading_record": "sources/unc-transitions.txt",
+      "passages": [
+        {
+          "section": "How transitions work",
+          "short_quote": "Transitions cannot substitute for good organization",
+          "paraphrase": "Transitions expose relations already built into the argument. Diagnose organization before adding however/therefore or roadmaps.",
+          "agent_application": "Write the relation in plain words; if no relation can be named, reorder or repair the reasoning first.",
+          "boundary": "Connectors can introduce unjustified causal/contrast claims. There is no requirement to insert a connector in every paragraph.",
+          "local_text_line": 30
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire handout with attribution.",
+      "reuse_scope": "Do not distribute an edited/translated version of the handout as a licensed derivative. Here: attribution, minimal quotation and independently composed analysis of ideas; full extracted handout remains local. No permission for commercial republishing is claimed."
+    },
+    {
+      "id": "UNC_SCIENTIFIC_STYLE",
+      "title": "Scientific Writing",
+      "original_url": "https://writingcenter.unc.edu/tips-and-tools/sciences/",
+      "provenance": "University of North Carolina at Chapel Hill Writing Center, College of Arts and Sciences.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive handout: precision, word choice, detail, quantification, clarity, sentence structure, verbosity, objectivity/voice and limitations; footer.",
+      "local_reading_record": "sources/unc-sciences.txt",
+      "passages": [
+        {
+          "section": "Word and phrasing choice",
+          "short_quote": "repetition is preferable to ambiguity.",
+          "paraphrase": "Choose terms for their precise scientific meaning, keep subjects and actions legible, include necessary details and avoid unsupported generalization.",
+          "agent_application": "Check title noun relationships and collocations against their intended physical meaning; keep stable terms rather than decorative synonyms.",
+          "boundary": "Its sentence/preposition rules are heuristics, not automatic thresholds. Objective claims depend on evidence and scope, not passive voice.",
+          "local_text_line": 32
+        },
+        {
+          "section": "Passive voice",
+          "short_quote": "Currently, the active voice is preferred in most scientific fields",
+          "paraphrase": "Active voice can be clear and acceptable; editorial preferences vary. Passive can be useful but may become awkward.",
+          "agent_application": "Choose the grammatical subject to clarify the scientific action; never invent what an author did, and do not equate we with subjectivity.",
+          "boundary": "This statement is writing-center advice, not a verified present-day survey of every journal; check the actual target requirement.",
+          "local_text_line": 75
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Footer explicitly states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire handout with attribution.",
+      "reuse_scope": "Do not distribute an edited/translated version of the handout as a licensed derivative. Here: attribution, minimal quotation and independently composed analysis of ideas; full extracted handout remains local. No permission for commercial republishing is claimed."
+    },
+    {
+      "id": "PLOS_STRUCTURE",
+      "title": "Ten simple rules for structuring papers",
+      "original_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
+      "provenance": "Brett Mensh and Konrad Kording, PLOS Computational Biology 13(9):e1005619 (2017); publisher original scholarly advice article; DOI10.1371/journal.pcbi.1005619.",
+      "source_kind": "scholarly writing-advice article",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Overview, Introduction, full Rules1–10 and Discussion; relevant Figure1/Table1 captions in text; image pixels not inspected; linked correction not substantively read.",
+      "local_reading_record": "sources/plos-structure.txt",
+      "passages": [
+        {
+          "section": "Rule 1",
+          "short_quote": "make the claim and/or model as simple as the data and logic can support but no simpler.",
+          "paraphrase": "A central contribution focuses title and whole paper; complexity should follow evidence, and one contribution can be multifaceted.",
+          "agent_application": "Write a contribution sentence and trace it to comparisons, figures and limits before revising prose.",
+          "boundary": "Central contribution need not be improved accuracy or a new algorithm. This advice is not the target journal author guide.",
+          "local_text_line": 39
+        },
+        {
+          "section": "Rule 7",
+          "short_quote": "Every scientific argument has its own particular logical structure",
+          "paraphrase": "Results form a sequence of evidence-supported statements, not a chronology of work; negative/hypothesis-disproving findings can advance the argument.",
+          "agent_application": "Select result units by what question they answer and connect them to the central contribution.",
+          "boundary": "CCC and gap-ending paragraphs are advocated defaults, not universal paragraph templates. No fixed title/abstract numbers or paragraph counts follow.",
+          "local_text_line": 76
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Article explicitly CC BY; unrestricted use/distribution/reproduction with author/source credit.",
+      "reuse_scope": "Brief quotation and attributed paraphrase are used; an adapted scheme must be labeled our adaptation. Pedagogy references belong to guidance, not the study bibliography."
+    },
+    {
+      "id": "USC_TITLE",
+      "title": "Choosing a Title — Organizing Your Social Sciences Research Paper",
+      "original_url": "https://libguides.usc.edu/writingguide/title",
+      "provenance": "University of Southern California Libraries Research Guide. Institutional authored/curated teaching page, drawing on cited writing literature; not those cited originals themselves.",
+      "source_kind": "institutional teaching guide",
+      "retrieved_and_read_on": "2026-10-02",
+      "read_scope": "Complete substantive Definition, Importance, Structure and Writing Style, Working/Final Title and Subtitle sections; page shows Last Updated Sep29,2026; linked references not read.",
+      "local_reading_record": "sources/usc-title-fetch.txt",
+      "passages": [
+        {
+          "section": "The Final Title",
+          "short_quote": "Indicate accurately the subject and scope of the study",
+          "paraphrase": "Titles should identify the research focus/scope and use current field nomenclature; subtitles can qualify context or method.",
+          "agent_application": "Test each modifier and relational phrase for a supported meaning; distinguish topic, relationship and scope before removing words.",
+          "boundary": "The 5–12 substantive-word suggestion, capitalization and social-science examples are conventions of this guide, not universal requirements. Its flexible title-form advice does not excuse ambiguity or unsupported causality.",
+          "local_text_line": 128
+        }
+      ],
+      "authority": "writing pedagogy or scholarly advice; not this manuscript venue requirement",
+      "license_observed": "Page footer © University of Southern California; no explicit open license observed.",
+      "reuse_scope": "Link and attribute; use minimal quotation and independently worded commentary. Do not redistribute the full page or phrase bank as an open-licensed source. Local full text is a private reading record."
+    }
+  ],
+  "access_gaps": [
+    {
+      "target": "Harvard Writing Center Transitions/Anatomy of a Body Paragraph",
+      "status": "403 from direct requests; fetch service declined because robots retrieval403. Not read; not used or counted. UNC complete originals cover paragraph/cohesion needs."
+    },
+    {
+      "target": "Gopen & Swan (1990) The Science of Scientific Writing",
+      "status": "American Scientist publisher URL503/proxy failure; guessed Duke/source-PDF URLs404. Author current site identifies the article but does not supply its full original text. No original Gopen/Swan reading claimed; its ideas are not attributed from an unread original."
+    },
+    {
+      "target": "MIT standalone Journal Article Title guessed paths",
+      "status": "404 via fetch. Title guidance actually read in MIT CEE Journal Article, exact URL retained. Direct requests to MIT pages403; fetch tool succeeded for the listed substantive originals."
+    }
+  ],
+  "local_methods_separate_from_primary_sources": [
+    {
+      "path": "C:/Users/Administrator/.codex/skills/research-workflow-governor/SKILL.md",
+      "use": "Bound task, preserve evidence and return promptly; not institutional pedagogy."
+    },
+    {
+      "path": "C:/Users/Administrator/.codex/skills/research-workflow-governor/references/journal-and-claims.md",
+      "use": "Separate journal rules/heuristics and claim scope; operational method."
+    },
+    {
+      "path": "C:/Users/Administrator/.codex/skills/research-paper-writing/SKILL.md",
+      "use": "Reverse outline and claim/evidence check; global template instructions refined against source variability."
+    },
+    {
+      "path": "C:/Users/Administrator/.codex/skills/research-paper-writing/references/abstract.md",
+      "use": "Section drafting questions; challenge/advantage templates are not imposed on negative findings."
+    },
+    {
+      "path": "C:/Users/Administrator/.codex/skills/paper-spine/references/editorial-completeness.md",
+      "use": "Previously read R3; actual paragraphs and discussion do new work, no quotas."
+    },
+    {
+      "path": "C:/Users/Administrator/.codex/skills/paper-spine/references/assertive-scientific-writing.md",
+      "use": "Previously read R3; evidence-calibrated assertion and consequential limits."
+    }
+  ],
+  "reuse_policy": "Full-source extracts are local reading records only. Public/shared agent guidance consists of independently written synthesis, minimal attributed quotations, locators and links. Do not copy the full guide collection into a reusable product. Source licenses remain source-specific; no blanket relicensing is claimed.",
+  "result_kind": "editorial/pedagogical synthesis; no new study result, source citation count or physical validation claim"
+}

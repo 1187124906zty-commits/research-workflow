@@ -1,0 +1,75 @@
+{
+  "schema": "R4_FORWARD_USE_EVALUATION_V1",
+  "evaluated_at_utc": "2026-10-02T02:58:00Z",
+  "scope": "Actual initial native writer title/abstract/Introduction candidate and guide use; no manuscript or guide edits, no PDE solves, no later-reviewer disposition.",
+  "candidate": "research-assistant-maf/local-runs/ammt-writing-r4-forward/outputs/frontmatter.tex",
+  "native_thread_id": "01a0fa79-4581-7e63-8f28-e6dec52f93fc",
+  "disposition": "partial_acceptance_focused_editorial_repair",
+  "scientific_delta": "No new result or evidence promotion; no new scientific defect demonstrated by this pass.",
+  "editorial_delta": "Clearer opening question, explicit tail/span/time distinction, synthesized geometric-success precedent and necessary term definitions; abstract selection and final objective remain overloaded.",
+  "findings": [
+    {
+      "id": "R4-F01",
+      "kind": "reader_understanding",
+      "severity": "medium",
+      "location": "frontmatter.tex lines9-15, Abstract",
+      "defect": "The supported numerical collection collectively obscures the central answer despite local roles for each value.",
+      "evidence": "B residual pair, two continuation effects, rear fraction, span/speed/time mapping precede the explicit answer; near-total retention of old anchors is treated as verification success.",
+      "affected_purpose": "Abstract story and answer significance",
+      "owner": "writer/editor; reusable paper-title-abstract guidance",
+      "smallest_repair": "Judge evidence selection as a complete argument; merge redundant representations and keep the anchors needed for the central distinction and negative finding without fixed number limits.",
+      "status": "open_on_initial_candidate"
+    },
+    {
+      "id": "R4-F02",
+      "kind": "reader_understanding",
+      "severity": "medium",
+      "location": "frontmatter.tex I2-I5 and I8 line47",
+      "defect": "Related boundary endings recur, and the final objective accumulates detailed data/observer/calibration rules before the contribution.",
+      "evidence": "I8 adds retrospective/nonblind disclosure, proxy definitions, separate populations, four-corner rules and derived quantities after I7 already explains the needed relation.",
+      "affected_purpose": "Closed synthesis-to-objective argument",
+      "owner": "writer/editor; reusable introduction/allocation guidance",
+      "smallest_repair": "Make the final paragraph answer the question/design/contribution relation; preserve detailed factual conditions in their existing Methods location and repeat only those required to prevent a local misreading.",
+      "status": "open_on_initial_candidate"
+    },
+    {
+      "id": "R4-F03",
+      "kind": "task_guide_interaction",
+      "severity": "medium",
+      "location": "native task acceptance and candidate artifact verification",
+      "defect": "Preserving scientific quantities and citation identities is partly operationalized as retaining all old front-matter items.",
+      "evidence": "Actual validation asserts all original Introduction keys present; note celebrates retained old numerical anchors.",
+      "affected_purpose": "Correctness-preserving editorial selection",
+      "owner": "coordinator/task contract and shared writing guidance",
+      "smallest_repair": "Clarify unchanged factual records versus mandatory inclusion; separate integrity checks from reader-purpose acceptance.",
+      "status": "root_reports_guide_repair_not_behavior_verified"
+    },
+    {
+      "id": "R4-F04",
+      "kind": "bounded_execution",
+      "severity": "medium",
+      "location": "native rollout turn events 02:37:28-02:53:53 UTC",
+      "defect": "First bounded turn produced source checks without files; second produced files without final return before interruption.",
+      "evidence": "358.725s interrupted turn, 299.988s interrupted resumed turn, then 35.9s final-only turn; real source reads and artifacts exist.",
+      "affected_purpose": "Autonomous bounded delivery",
+      "owner": "coordinator/editor handoff and reading prioritization",
+      "smallest_repair": "Name unresolved claim before reread, use existing supported material, reserve effort for assigned files and structured return; do not skip pivotal originals.",
+      "status": "completed_after_coordinator_resumptions"
+    }
+  ],
+  "bounded_successes": [
+    "Idiomatic honestly scoped title",
+    "Improved opening problem and explicit displacement/span/time answer",
+    "Genuine original-PDF and full-text source use with abstract-only coverage identified",
+    "Calibration, observation populations, negative finding and derived-time limits retained",
+    "Missing evidence routed to named bounded questions without new solves or evidence promotion"
+  ],
+  "limits": [
+    "Candidate and producer note read together before native trace; not blinded",
+    "Same model family; no statistically independent or human journal review",
+    "No candidate render inspection or complete original-source re-audit",
+    "Guides contain examples closely matched to this IN625 case; no unseen transfer or efficacy claim",
+    "Later guide edits and native reviewers/requester are outside this initial-candidate evaluation"
+  ],
+  "return_condition": "Contracted actual-candidate evaluation answered; root records disposition and focused subsequent repair or retained limitations."
+}
