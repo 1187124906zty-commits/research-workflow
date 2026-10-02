@@ -41,14 +41,24 @@ documents=[REPO/'README.md',REPO/'CONTRIBUTING.md',REPO/'docs/COMMUNITY.md',ROOT
            MAF/'docs/manuscript-collaboration.zh.md',MAF/'docs/abstract-introduction-positioning.zh.md',
            MAF/'examples/ammt-manuscript/README.md',MAF/'examples/ammt-deep-revision/README.md',
            REPO/'docs/manuscript-audit.md',ROOT/'revision-r3/README.md',
-           ROOT/'revision-r3/review/review-response.md',MAF/'docs/manuscript-audit.zh.md']
+           ROOT/'revision-r3/review/review-response.md',MAF/'docs/manuscript-audit.zh.md',
+           ROOT/'revision-r5/README.md',ROOT/'revision-r5/guidance/coverage-audit.md',
+           ROOT/'revision-r5/guidance/reusable-methods.md',ROOT/'revision-r5/architecture/report.md',
+           ROOT/'revision-r5/application/introduction-handoff.md',
+           ROOT/'revision-r5/review/review-response.md',ROOT/'revision-r5/delivery/provenance.md',
+           MAF/'examples/ammt-writing-r5/README.md',MAF/'docs/writing-skills.zh.md',
+           MAF/'skills/scientific-writing/references/object-and-continuity.md',
+           MAF/'skills/scientific-writing/references/chapter-contracts.md',
+           MAF/'skills/scientific-writing/references/cohesion-source-ledger.md']
 links=0
 for path in documents:
     for target in re.findall(r'\]\(([^)]+)\)',path.read_text(encoding='utf-8')):
         if re.match(r'^(?:https?://|mailto:|#)',target):continue
         links+=1
         name=target.split('#')[0].strip('<>')
-        if not (path.parent/name).exists():issues.append(f'Broken local link {path.name}: {target}')
+        resolved = path.parent/name
+        if not resolved.exists() and resolved.resolve() != args.output.resolve():
+            issues.append(f'Broken local link {path.name}: {target}')
 summary={'latex_pdf_pages':len(doc),'pdf_bytes':args.pdf.stat().st_size,
          'checked_pdf_input':str(args.pdf.resolve().relative_to(ROOT)),
          'local_canonical_pdf_matches_checked':(ROOT/'manuscript.pdf').read_bytes()==args.pdf.read_bytes(),

@@ -98,13 +98,15 @@ JSON 文件需按真实任务填写；完整字段、计划与上下文命令见
 
 案例基于公开 AMMT 实验条件与既有三维传导、相变计算，讨论扫描工况和高温物性对熔池形貌及热历程的影响。本次协作用这些产物准备英文稿件、核对论断范围并开展评阅，保留数据来源、模型假设与比较条件。
 
-**数值计算原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 执行。** ResearchFlow 与 [MAF 重构版](https://github.com/1187124906zty-commits/research-assistant-maf) 用于本次稿件准备与评阅。B 工况长度参与有效热源因子标定，A/C 保留同一因子用于公开参考数据下的比较；当前 R4 稿保留五幅科学图，并以有机构来源的章节指南重建摘要、引言和客观研究叙述，尚未经期刊同行评审。
+**数值计算原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 执行。** ResearchFlow 与 [MAF 重构版](https://github.com/1187124906zty-commits/research-assistant-maf) 用于稿件准备与评阅。B 工况热成像平均长度参与有效热源功率系数标定，A/C 保留该系数用于公开实验数据下的比较；当前 R5 稿保留五幅科学图，通过原件谱系核对、方法—结果共同责任、句间对象诊断和全文评閱修订论证，尚未经期刊同行评审。
 
 [阅读稿件 PDF →](paper/ammt-study/manuscript.pdf) · [编辑 LaTeX 源文件 →](paper/ammt-study/manuscript.tex) · [查看来源与交付范围 →](paper/ammt-study/README.md)
 
 R3 增加了[科学编辑与逐句来源审查](paper/ammt-study/revision-r3/README.md)，通用责任与交接见[论文审查模式](docs/manuscript-audit.md)。案例包同时提供[完整 LaTeX 源码压缩包](paper/ammt-study/submission-source.zip)、核实数据表、[近期研究线与引用职责](paper/ammt-study/revision-r2/literature/citation-map.md)、[期刊原文学习](paper/ammt-study/revision-r2/journal/journal-learning.md)、[章节交叉审阅](paper/ammt-study/revision-r2/exchange/cross-section-review.md)和[当前全文评阅](paper/ammt-study/revision-r4/review/independent-review.md)。MAF 的[原有限协作](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-manuscript)与[R2 分章运行](https://github.com/1187124906zty-commits/research-assistant-maf/tree/codex/maf-reconstruction/examples/ammt-deep-revision)分别保留实际完成范围；R2 原生讨论返回超时由协调者接收真实候选，后续评阅另行执行。
 
 [R4 写作方法与案例评价](paper/ammt-study/revision-r4/README.md)将标题关系、摘要证据选择、引言文献综合、段落衔接和评阅路由转为通用章节技能。已实读 12 份机构/学者原始指导，来源与适用范围可追溯；MAF 的[技能分发说明](https://github.com/1187124906zty-commits/research-assistant-maf/blob/codex/maf-reconstruction/docs/writing-skills.zh.md)说明实际加载与反馈机制。原安装技能和原数值案例保留，新的写作资源发布在独立重构仓库。
+
+[R5 研究对象与章节依赖](paper/ammt-study/revision-r5/README.md)进一步将具体前驱限制、物性外推定义、热像/金相比较及成对后部相界连为研究路线；补入 Duke/Purdue 的实读指导和实际章节互查。显式写作任务直接收到短对象与衔接方法，全文审查检查目录、段落及引言—结果—结论闭合。研究稿的改进与通用框架效能仍分别评价。
 
 <details>
 <summary><strong>再看一个可复跑的例子：扩散计算 → 证据登记 → 技术稿</strong></summary>

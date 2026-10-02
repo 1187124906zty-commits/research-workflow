@@ -1,0 +1,570 @@
+{
+  "version": "r5-guidance-investigation",
+  "read_date": "2026-10-02",
+  "purpose": "Writing guidance coverage, source-grounded sentence/object methods and bounded manuscript reader diagnosis; not scientific evidence for AMMT study.",
+  "successful_sources_count": 13,
+  "fresh_network_sources_count": 9,
+  "original_records_reread_count": 4,
+  "scope_limits": [
+    "One substantive investigation pass; all writes restricted to revision-r5/guidance.",
+    "Frozen manuscript read; no independent blinded domain-evidence audit or rendered-page review.",
+    "Full source extracts and failure records are private local reading records, not public reusable-product content.",
+    "Institutional teaching sources, target-journal requirements and project scientific-editorial methods are distinct."
+  ],
+  "sources": [
+    {
+      "id": "DUKE_RESOURCE",
+      "title": "Duke Graduate School Scientific Writing Resource: Introduction",
+      "url": "https://sites.duke.edu/scientificwriting/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/duke-scientific-writing-fetch.txt",
+      "source_file_private": true,
+      "authority": "Institutional Graduate School course resource. Created 2010–2011 by Nathan Sheffield, maintained by Duke Graduate School. The resource credits Joseph Williams and George Gopen; it is not Gopen/Swan's original article.",
+      "read_scope": "Complete substantive Introduction and About This Guide/license footer. Linked lessons were read separately; course worksheets and all other focus articles not read.",
+      "locators": [
+        {
+          "section": "Communicating Effectively",
+          "local_text_line": 22,
+          "short_quote": "These lessons do not put forth absolute rules.",
+          "supported_principle": "Reader communication is the purpose; teaching principles need not be used as rigid rules."
+        },
+        {
+          "section": "Communicating Effectively",
+          "local_text_line": 24,
+          "short_quote": "treat these as principles of revision rather than principles of writing.",
+          "supported_principle": "Use expectation-based checks on difficult actual passages before generalizing the method."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "observed": "About This Guide identifies Attribution-NonCommercial-ShareAlike; direct HTML anchor on the resource home points to this exact version.",
+        "limit": "Credit Duke University Graduate School and link to its resource; copied/adapted licensed material retains the noncommercial and share-alike terms. This output uses short attribution and independently composed methods, not a copied lesson collection."
+      },
+      "transfer_limits": [
+        "Does not establish a target journal rule, empirical intervention effect or scientific validity.",
+        "No reading of Williams's original Style book or Gopen/Swan 1990 is claimed."
+      ]
+    },
+    {
+      "id": "DUKE_SUBJECTS_ACTIONS",
+      "title": "Lesson 1: Subjects and Actions",
+      "url": "https://sites.duke.edu/scientificwriting/lesson-1-subjects-and-actions/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/duke-subjects-actions-fetch.txt",
+      "source_file_private": true,
+      "authority": "Duke Graduate School Scientific Writing Resource, Nathan Sheffield/Graduate School institutional lesson.",
+      "read_scope": "Complete substantive lesson: introduction; Principles 1–3 and revision techniques; Examples 1–4; About This Guide footer. Linked lesson1.pdf worksheet not read.",
+      "locators": [
+        {
+          "section": "Principles",
+          "local_text_line": 14,
+          "short_quote": "Put actions in verbs",
+          "supported_principle": "Use the main verb for the intended scientific action."
+        },
+        {
+          "section": "Principle 2 / Revision Technique",
+          "local_text_line": 101,
+          "short_quote": "Highlight the subject of each sentence.",
+          "supported_principle": "Inspect subject continuity and intentional topic shifts."
+        },
+        {
+          "section": "Principle 1",
+          "local_text_line": 34,
+          "short_quote": "There is nothing inherently wrong with nominalizations",
+          "supported_principle": "A nominalization can supply a useful backward link and is not inherently defective."
+        },
+        {
+          "section": "Principle 3 / Revision Technique",
+          "local_text_line": 134,
+          "short_quote": "Identify the main subject and its verb in your sentence.",
+          "supported_principle": "Investigate subject–verb separation where the reader must reconstruct the main action."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "observed": "About This Guide identifies Attribution-NonCommercial-ShareAlike; direct HTML anchor on the resource home points to this exact version.",
+        "limit": "Credit Duke University Graduate School and link to its resource; copied/adapted licensed material retains the noncommercial and share-alike terms. This output uses short attribution and independently composed methods, not a copied lesson collection."
+      },
+      "transfer_limits": [
+        "Subject characters may be abstract scientific entities, not only people.",
+        "The lesson expressly permits intentional chains of related subjects. No universal one-subject or distance threshold follows.",
+        "Source lineage and comparator evidence roles are project scientific-editorial adaptations, not Duke's experimental protocol."
+      ]
+    },
+    {
+      "id": "DUKE_COHESION_COHERENCE",
+      "title": "Lesson 2: Cohesion, Coherence, and Emphasis",
+      "url": "https://sites.duke.edu/scientificwriting/lesson-2-cohesion-coherence-and-emphasis/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/duke-cohesion-coherence-fetch.txt",
+      "source_file_private": true,
+      "authority": "Duke Graduate School institutional writing lesson.",
+      "read_scope": "Complete substantive lesson: definitions; Principles 1–3 and revision techniques; all displayed examples; About This Guide footer. Linked worksheet, passive-voice focus articles and dangling-modifier focus article not read.",
+      "locators": [
+        {
+          "section": "Principle 1",
+          "local_text_line": 20,
+          "short_quote": "begin sentences with familiar (old) information",
+          "supported_principle": "A recognizable premise can introduce new information and reduce backward reconstruction."
+        },
+        {
+          "section": "Principle 1 / Revision Technique",
+          "local_text_line": 52,
+          "short_quote": "underline any pieces of new information",
+          "supported_principle": "Use a temporary old/new-information diagnosis on actual prose."
+        },
+        {
+          "section": "Principle 2 / Ambiguous characters",
+          "local_text_line": 86,
+          "short_quote": "who sequenced the DNA?",
+          "supported_principle": "A citation can leave execution attribution versus method provenance unclear; name the actor where necessary."
+        },
+        {
+          "section": "Principle 2 / Advantage of passive voice",
+          "local_text_line": 104,
+          "short_quote": "Choose passive voice for a reason",
+          "supported_principle": "Active/passive selection can serve information order; no voice alone confers objectivity."
+        },
+        {
+          "section": "Principle 3 / Revision Technique",
+          "local_text_line": 122,
+          "short_quote": "make sure each sentence in a paragraph supports the main point",
+          "supported_principle": "Cohesion between sentences and coherence around a paragraph point are separate checks."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "observed": "About This Guide identifies Attribution-NonCommercial-ShareAlike; direct HTML anchor on the resource home points to this exact version.",
+        "limit": "Credit Duke University Graduate School and link to its resource; copied/adapted licensed material retains the noncommercial and share-alike terms. This output uses short attribution and independently composed methods, not a copied lesson collection."
+      },
+      "transfer_limits": [
+        "Old/new order is a reader expectation, not a mandatory order for every sentence.",
+        "First/last topic agreement is a diagnostic, not required identical wording.",
+        "Nature/Science quotations on the lesson are not current journal-author instructions checked here."
+      ]
+    },
+    {
+      "id": "DUKE_WILLIAMS_SUMMARY",
+      "title": "William's Ten Principles for Writing Clearly",
+      "url": "https://sites.duke.edu/scientificwriting/williams-ten-principles-for-writing-clearly/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/duke-williams-principles-fetch.txt",
+      "source_file_private": true,
+      "authority": "Duke Graduate School's short secondary summary attributed on-page to Style.",
+      "read_scope": "Complete numbered summary and About This Guide footer. Original Williams book not read.",
+      "locators": [
+        {
+          "section": "Numbered principle 1",
+          "local_text_line": 10,
+          "short_quote": "Distinguish real grammatical rules from folklore",
+          "supported_principle": "Separate grammatical requirements from writing heuristics."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "observed": "About This Guide identifies Attribution-NonCommercial-ShareAlike; direct HTML anchor on the resource home points to this exact version.",
+        "limit": "Credit Duke University Graduate School and link to its resource; copied/adapted licensed material retains the noncommercial and share-alike terms. This output uses short attribution and independently composed methods, not a copied lesson collection."
+      },
+      "transfer_limits": [
+        "Secondary institutional summary only; no original-book attribution/read claim.",
+        "Listed concision/clause advice is not adopted as a universal quota."
+      ]
+    },
+    {
+      "id": "PURDUE_REVERSE_OUTLINE",
+      "title": "Reverse Outlining: An Exercise for Taking Notes and Revising Your Work",
+      "url": "https://owl.purdue.edu/owl/general_writing/the_writing_process/reverse_outlining.html",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/purdue-reverse-outlining-fetch.txt",
+      "source_file_private": true,
+      "authority": "The Writing Lab and Purdue OWL; institution-hosted instructional exercise. Page footer says materials collect contributor ideas and do not express Purdue University positions.",
+      "read_scope": "Complete substantive two-step exercise, revision explanation and legal notices. Linked fair-use terms not read.",
+      "locators": [
+        {
+          "section": "Two-step process / Step 1",
+          "local_text_line": 20,
+          "short_quote": "write down the topic of each paragraph",
+          "supported_principle": "Identify the actual paragraph topic."
+        },
+        {
+          "section": "Two-step process / Step 2",
+          "local_text_line": 25,
+          "short_quote": "how the paragraph topic advances the overall argument",
+          "supported_principle": "Assess each paragraph's role and arrangement in the complete argument."
+        }
+      ],
+      "license": {
+        "name": "Copyright; no open license observed",
+        "observed": "Both 1995–2018 notice and 2026 footer reserve copyright and restrict republication/reproduction/rewriting/redistribution without permission.",
+        "limit": "Only minimal quotation, link and independently composed method are shared; full extracted guide is a private reading record. No redistribution permission is claimed."
+      },
+      "transfer_limits": [
+        "Its 5–10-word tactic is not an acceptance threshold for a scientific paragraph.",
+        "This source does not set journal requirements or scientific evidence standards."
+      ]
+    },
+    {
+      "id": "UNC_TRANSITIONS_R5",
+      "title": "Transitions",
+      "url": "https://writingcenter.unc.edu/tips-and-tools/transitions/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/unc-transitions-fetch.txt",
+      "source_file_private": true,
+      "authority": "University of North Carolina at Chapel Hill Writing Center, College of Arts and Sciences.",
+      "read_scope": "Complete substantive handout, relation table and license/footer. Linked organization handout and video not separately read.",
+      "locators": [
+        {
+          "section": "How transitions work",
+          "local_text_line": 52,
+          "short_quote": "Transitions cannot substitute for good organization",
+          "supported_principle": "Repair the relation/order before adding a connector."
+        },
+        {
+          "section": "Types of transitions / Transitions between sections",
+          "local_text_line": 74,
+          "short_quote": "Particularly in longer works, it may be necessary",
+          "supported_principle": "Section-overview/bridge prose is conditional, not universal."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-ND 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "observed": "Footer states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire attributed handout.",
+        "limit": "No permission for edited/translated full-handout distribution or commercial republishing is claimed. Full extracts stay private; shared content is short quoted evidence, links and original analysis of ideas."
+      },
+      "transfer_limits": [
+        "Relations such as contrast or cause need actual content support.",
+        "No connector quota, roadmap quota or identical paragraph ending follows."
+      ]
+    },
+    {
+      "id": "UNC_SCIENTIFIC_STYLE_R5",
+      "title": "Scientific Writing",
+      "url": "https://writingcenter.unc.edu/tips-and-tools/sciences/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/unc-sciences-fetch.txt",
+      "source_file_private": true,
+      "authority": "University of North Carolina at Chapel Hill Writing Center institutional handout.",
+      "read_scope": "Complete substantive handout: genre/purpose; precision; level of detail; quantification; language/sentence structure; verbosity; objectivity/passive voice; limits; works consulted/footer. Works-consulted books not read.",
+      "locators": [
+        {
+          "section": "Word and phrasing choice",
+          "local_text_line": 55,
+          "short_quote": "repetition is preferable to ambiguity",
+          "supported_principle": "Keep precise scientific terms rather than decorative synonyms."
+        },
+        {
+          "section": "Sentence structure",
+          "local_text_line": 106,
+          "short_quote": "The subject and the action are now close together",
+          "supported_principle": "Clear main subject/action can reduce the need to reread."
+        },
+        {
+          "section": "Acknowledging your limitations",
+          "local_text_line": 134,
+          "short_quote": "Your conclusions should be directly supported by the data",
+          "supported_principle": "Scientific scope must remain evidence-based."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-ND 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "observed": "Footer states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire attributed handout.",
+        "limit": "No permission for edited/translated full-handout distribution or commercial republishing is claimed. Full extracts stay private; shared content is short quoted evidence, links and original analysis of ideas."
+      },
+      "transfer_limits": [
+        "Handout sentence/preposition advice is heuristic; no automatic word/distance thresholds.",
+        "The active-voice trend claim is not a current survey or current author-guideline verification."
+      ]
+    },
+    {
+      "id": "MIT_CEE_TITLE_R5",
+      "title": "Journal Article",
+      "url": "https://mitcommlab.mit.edu/cee/commkit/journal-article/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/mit-cee-fetch.txt",
+      "source_file_private": true,
+      "authority": "MIT Civil and Environmental Engineering Communication Lab; most recent revision credited to Communication Fellow Andrew Feldman.",
+      "read_scope": "Complete substantive guide and footer; linked diagrams' pixels and annotated example PDFs not read.",
+      "locators": [
+        {
+          "section": "Identify Your Purpose",
+          "local_text_line": 33,
+          "short_quote": "directly support the message",
+          "supported_principle": "Methodology and argument support the current central message."
+        },
+        {
+          "section": "Skills / The abstract is key",
+          "local_text_line": 81,
+          "short_quote": "stand alone",
+          "supported_principle": "Abstract readers need a self-contained problem, finding and consequence."
+        },
+        {
+          "section": "Skills / The title is attractive",
+          "local_text_line": 76,
+          "short_quote": "a shortened version of your one-to-two sentence main message",
+          "supported_principle": "Title should make the central contribution discoverable."
+        },
+        {
+          "section": "Skills / The conclusion gives a little more detail than the abstract",
+          "local_text_line": 99,
+          "short_quote": "can be longer and include more detail",
+          "supported_principle": "Abstract and conclusions share a supported answer without needing identical wording."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "observed": "CommKit footer expressly identifies Creative Commons Attribution Non-Commercial License 4.0 unless otherwise noted.",
+        "limit": "Attribution and noncommercial conditions apply to reused licensed content; full CommKit guides and PDFs are not republished here. Teaching formulas are not official journal requirements."
+      },
+      "transfer_limits": [
+        "Suggested similar section weighting or first-topic-sentence teaching is not a universal numerical or paragraph rule.",
+        "Title/abstract/closure consistency is an editorial check, not a demand for positive improvement."
+      ]
+    },
+    {
+      "id": "MIT_INTRODUCTION_R5",
+      "title": "Journal Article: Introduction",
+      "url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-introduction/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": true,
+      "source_file": "sources/mit-introduction-fetch.txt",
+      "source_file_private": true,
+      "authority": "Broad Research Communication Lab on MIT domain; page credits adaptation from MIT Biological Engineering Communication Lab.",
+      "read_scope": "Complete substantive guide and footer; annotated PDFs not read.",
+      "locators": [
+        {
+          "section": "Introduction Formula / Specific Background",
+          "local_text_line": 29,
+          "short_quote": "give readers all the tools they need",
+          "supported_principle": "Background should prepare readers for the actual result and its significance."
+        },
+        {
+          "section": "Introduction Formula / Knowledge Gap",
+          "local_text_line": 31,
+          "short_quote": "a logical next step",
+          "supported_principle": "The current question should follow from what the background establishes."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "observed": "CommKit footer expressly identifies Creative Commons Attribution Non-Commercial License 4.0 unless otherwise noted.",
+        "limit": "Attribution and noncommercial conditions apply to reused licensed content; full CommKit guides and PDFs are not republished here. Teaching formulas are not official journal requirements."
+      },
+      "transfer_limits": [
+        "The four-component formula is a teaching model, not four required paragraphs.",
+        "Evidence-type introductory questions and role allocation are project adaptations."
+      ]
+    },
+    {
+      "id": "MIT_ABSTRACT_R4_REREAD",
+      "title": "Journal Article: Abstract",
+      "url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-abstract/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": false,
+      "source_file": "../../revision-r4/guidance/sources/mit-abstract-fetch.txt",
+      "source_file_private": true,
+      "authority": "Broad Research Communication Lab on MIT domain; adaptation from MIT Biological Engineering Communication Lab.",
+      "read_scope": "Complete substantive R4 saved original and footer reread in R5; linked annotated PDFs not read.",
+      "locators": [
+        {
+          "section": "When to Write the Abstract",
+          "local_text_line": 17,
+          "short_quote": "crossing off or consolidating each finding",
+          "supported_principle": "Select results by their contribution to the actual abstract's complete story."
+        },
+        {
+          "section": "Abstract Formula / Implications",
+          "local_text_line": 35,
+          "short_quote": "influence our understanding",
+          "supported_principle": "Implications should arise from what the findings establish."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "observed": "CommKit footer expressly identifies Creative Commons Attribution Non-Commercial License 4.0 unless otherwise noted.",
+        "limit": "Attribution and noncommercial conditions apply to reused licensed content; full CommKit guides and PDFs are not republished here. Teaching formulas are not official journal requirements."
+      },
+      "transfer_limits": [
+        "Not freshly fetched in R5; original R4 extract was read.",
+        "Six components and sentence ranges are not hard rules or numerical-anchor quotas."
+      ]
+    },
+    {
+      "id": "MIT_METHODS_R4_REREAD",
+      "title": "Journal Article: Methods",
+      "url": "https://mitcommlab.mit.edu/broad/commkit/journal-article-methods/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": false,
+      "source_file": "../../revision-r4/guidance/sources/mit-methods-fetch.txt",
+      "source_file_private": true,
+      "authority": "Broad Research Communication Lab on MIT domain; adaptation from MIT Biological Engineering Communication Lab.",
+      "read_scope": "Complete substantive R4 saved guide and footer reread; annotated example PDF not read.",
+      "locators": [
+        {
+          "section": "Identify Your Purpose",
+          "local_text_line": 23,
+          "short_quote": "answered in the Results section",
+          "supported_principle": "Methods design and Results answer must correspond."
+        },
+        {
+          "section": "Provide minimal essential detail",
+          "local_text_line": 61,
+          "short_quote": "any modifications or alterations should be clearly stated",
+          "supported_principle": "Identify inherited method and local changes instead of a chain of topical citations."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "observed": "CommKit footer expressly identifies Creative Commons Attribution Non-Commercial License 4.0 unless otherwise noted.",
+        "limit": "Attribution and noncommercial conditions apply to reused licensed content; full CommKit guides and PDFs are not republished here. Teaching formulas are not official journal requirements."
+      },
+      "transfer_limits": [
+        "Not freshly fetched in R5.",
+        "The avoid-we/passive preference differs from Duke and UNC; no universal voice rule is adopted.",
+        "Method–result ownership and printed section combination are distinct project decisions."
+      ]
+    },
+    {
+      "id": "UNC_PARAGRAPHS_R4_REREAD",
+      "title": "Paragraphs",
+      "url": "https://writingcenter.unc.edu/tips-and-tools/paragraphs/",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": false,
+      "source_file": "../../revision-r4/guidance/sources/unc-paragraphs.txt",
+      "source_file_private": true,
+      "authority": "University of North Carolina at Chapel Hill Writing Center institutional handout.",
+      "read_scope": "Complete substantive R4 saved handout reread: controlling idea, organization choices, illustration, troubleshooting, works consulted/license footer; linked videos not read.",
+      "locators": [
+        {
+          "section": "What is a paragraph?",
+          "local_text_line": 17,
+          "short_quote": "Length and appearance do not determine",
+          "supported_principle": "Paragraph quality rests on unity, explanation and evidence, not length."
+        },
+        {
+          "section": "Illustration Step 5",
+          "local_text_line": 50,
+          "short_quote": "simply transition to the next paragraph",
+          "supported_principle": "Closure need not always be a summary or newly manufactured gap."
+        }
+      ],
+      "license": {
+        "name": "CC BY-NC-ND 4.0",
+        "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "observed": "Footer states CC BY-NC-ND 4.0 and permits noncommercial reproduction of the entire attributed handout.",
+        "limit": "No permission for edited/translated full-handout distribution or commercial republishing is claimed. Full extracts stay private; shared content is short quoted evidence, links and original analysis of ideas."
+      },
+      "transfer_limits": [
+        "Not freshly fetched in R5.",
+        "The five-step illustration and sandwich example are not universal five-sentence/first-sentence templates."
+      ]
+    },
+    {
+      "id": "PLOS_STRUCTURE_R4_CHECK",
+      "title": "Ten simple rules for structuring papers",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619",
+      "read_date": "2026-10-02",
+      "retrieval": "substantive_text_read",
+      "fresh_network_fetch": false,
+      "source_file": "../../revision-r4/guidance/sources/plos-structure.txt",
+      "source_file_private": true,
+      "authority": "Brett Mensh and Konrad Kording, PLOS Computational Biology 13(9):e1005619 (2017); publisher original scholarly advice article. DOI 10.1371/journal.pcbi.1005619.",
+      "read_scope": "Targeted passages in Rules 1,3,5–9 and article copyright in the R4 saved original checked in R5; not full article, linked correction or image pixels.",
+      "locators": [
+        {
+          "section": "Rule 1",
+          "local_text_line": 39,
+          "short_quote": "as simple as the data and logic can support but no simpler",
+          "supported_principle": "Contribution focus must preserve evidence-required complexity."
+        },
+        {
+          "section": "Rule 7",
+          "local_text_line": 76,
+          "short_quote": "Every scientific argument has its own particular logical structure",
+          "supported_principle": "Evidence ordering depends on the actual argument, including negative findings."
+        }
+      ],
+      "license": {
+        "name": "CC BY",
+        "observed": "Article copyright at local line 23 states the Creative Commons Attribution License and unrestricted use with credit.",
+        "limit": "Attribute authors/source for reused content; this output supplies short quotations and independently composed methods. Not a journal author guide."
+      },
+      "transfer_limits": [
+        "Not freshly fetched in R5; limited original scope checked.",
+        "CCC and gap-focused paragraph advice remains an advocated default, not an unlimited veto or mandatory structure."
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "id": "GOPEN_SWAN_PUBLISHER_R5",
+      "url": "https://www.americanscientist.org/blog/the-long-view/the-science-of-scientific-writing",
+      "retrieval": "failed",
+      "failure": "mcp fetch status code 503",
+      "read_scope": "No substantive original read",
+      "source_file": "sources/gopen-swan-publisher-fetch.txt",
+      "consequence": "No Gopen/Swan original-source reading or attribution from this original claimed; Duke institutional reader-expectation resource is read separately."
+    },
+    {
+      "id": "GOPEN_SWAN_CMU_CANDIDATE_R5",
+      "url": "https://www.cs.cmu.edu/~mleone/how-to/science.html",
+      "retrieval": "failed",
+      "failure": "mcp fetch status code 404",
+      "read_scope": "No substantive original read",
+      "source_file": "sources/gopen-swan-cmu-mirror-fetch.txt",
+      "consequence": "Candidate mirror not counted as a source."
+    },
+    {
+      "id": "PURDUE_COHESION_CANDIDATE_R5",
+      "url": "https://owl.purdue.edu/owl/general_writing/the_writing_process/revising_drafts/revising_for_cohesion.html",
+      "retrieval": "failed",
+      "failure": "mcp fetch status code 404",
+      "read_scope": "No substantive original read",
+      "source_file": "sources/purdue-cohesion-fetch.txt",
+      "consequence": "Cohesion/coherence needs covered by actually read Duke lesson; no inferred Purdue text."
+    }
+  ],
+  "local_methods": {
+    "files_read": [
+      "research-assistant-maf/skills/scientific-writing/references/section-specific-guidance.md",
+      "research-assistant-maf/skills/scientific-writing/references/source-use.md",
+      "research-assistant-maf/skills/scientific-writing/references/argument-and-readers.md",
+      "research-assistant-maf/skills/scientific-writing/references/review-and-handoffs.md",
+      "research-assistant-maf/skills/scientific-writing/references/chapter-contracts.md",
+      "research-assistant-maf/skills/scientific-writing/references/object-and-continuity.md",
+      "research-assistant-maf/src/research_assistant/guidance.py",
+      "research-assistant-maf/src/research_assistant/engine.py"
+    ],
+    "source_status": "Operational/source-audit inputs; not institutional primary-source authority.",
+    "pending_acceptance": "Coordinator owns final source/loader/manuscript disposition; guide delivery does not prove application."
+  }
+}

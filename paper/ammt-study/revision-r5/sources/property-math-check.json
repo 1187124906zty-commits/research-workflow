@@ -1,0 +1,55 @@
+{
+  "m_k": 0.02162162162162162,
+  "m_cp": 0.22522522522522523,
+  "sensible_enthalpy_to_1093_J_per_kg": 578686.1111111111,
+  "values": [
+    {
+      "T_C": 1290,
+      "k_linear": 31.85945945945946,
+      "k_constant": 25.2,
+      "cp_linear": 714.3693693693693,
+      "cp_constant": 670,
+      "k_reduction_percent": 20.902612826603328,
+      "cp_reduction_percent": 6.2109842991361335,
+      "effective_cp_linear": 5381.036036036036,
+      "sensible_enthalpy_linear_minus_constant_J_per_kg": 4370.382882882883,
+      "enthalpy_reduction_percent": 0.6112026168356532
+    },
+    {
+      "T_C": 1320,
+      "k_linear": 32.508108108108104,
+      "k_constant": 25.2,
+      "cp_linear": 721.1261261261261,
+      "cp_constant": 670,
+      "k_reduction_percent": 22.48087795144662,
+      "cp_reduction_percent": 7.089762008870008,
+      "effective_cp_linear": 5387.792792792793,
+      "sensible_enthalpy_linear_minus_constant_J_per_kg": 5802.815315315315,
+      "enthalpy_reduction_percent": 0.6619843507956338
+    },
+    {
+      "T_C": 1350,
+      "k_linear": 33.15675675675676,
+      "k_constant": 25.2,
+      "cp_linear": 727.8828828828829,
+      "cp_constant": 670,
+      "k_reduction_percent": 23.997391587870887,
+      "cp_reduction_percent": 7.952224766384058,
+      "effective_cp_linear": 727.8828828828829,
+      "sensible_enthalpy_linear_minus_constant_J_per_kg": 7437.95045045045,
+      "enthalpy_reduction_percent": 0.7163488125417682
+    },
+    {
+      "T_C": 2200,
+      "k_linear": 51.535135135135135,
+      "k_constant": 25.2,
+      "cp_linear": 919.3243243243244,
+      "cp_constant": 670,
+      "k_reduction_percent": 51.10132158590309,
+      "cp_reduction_percent": 27.120388064089376,
+      "effective_cp_linear": 919.3243243243244,
+      "sensible_enthalpy_linear_minus_constant_J_per_kg": 138001.01351351352,
+      "enthalpy_reduction_percent": 7.9384968634646915
+    }
+  ]
+}

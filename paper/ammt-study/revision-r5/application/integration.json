@@ -1,0 +1,13 @@
+{
+  "source": "manuscript.tex",
+  "candidate_owners": {
+    "introduction": "r5_architecture",
+    "methods_results": "r5_sources",
+    "discussion_conclusions_title_abstract": "root editor"
+  },
+  "retained_scientific_figures": 5,
+  "retained_tables": 5,
+  "new_definition": "Study-defined final-secant linear extrapolation and constant endpoint extrapolation",
+  "new_production_PDE_runs": 0,
+  "scientific_support_promoted": false
+}

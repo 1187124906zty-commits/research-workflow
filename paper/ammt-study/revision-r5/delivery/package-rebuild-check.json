@@ -1,0 +1,22 @@
+{
+  "source_package_matches_canonical": true,
+  "used_vector_figures": 5,
+  "reproduction_notes_included": true,
+  "archive_files": [
+    "manuscript.tex",
+    "bibliography.bib",
+    "highlights.txt",
+    "reproduction-notes.md",
+    "ammt-application-experiment.pdf",
+    "ammt-property-continuations.pdf",
+    "ammt-research-condition-trends.pdf",
+    "ammt-research-constitutive-factorial.pdf",
+    "ammt-research-operating-cases.pdf",
+    "README.txt"
+  ],
+  "extracted_package_build": "XeLaTeX/BibTeX/XeLaTeX/XeLaTeX",
+  "package_pdf_pages": 20,
+  "page_text_matches_compiled_pdf": true,
+  "tex_diagnostics": [],
+  "scope": "Existing Windows TeX Live 2026; source/figure/content parity, not cross-platform or PDE replay verification"
+}

@@ -63,3 +63,15 @@ revision-r4/**/metadata/
 revision-r4/integration/body-candidate.tex
 revision-r4/guidance/sources/
 revision-r4/review/visual/
+revision-r5/manuscript-input.tex
+revision-r5/guidance/sources/
+revision-r5/**/pdfs/
+revision-r5/**/text/
+revision-r5/**/renders/
+revision-r5/review/manuscript-reviewed.tex
+revision-r5/review/manuscript-reviewed.pdf
+revision-r5/sources/*-pages.json
+revision-r5/sources/*-crossref.json
+revision-r5/sources/*-original.html
+revision-r5/sources/*.png
+revision-r5/application/instructions/

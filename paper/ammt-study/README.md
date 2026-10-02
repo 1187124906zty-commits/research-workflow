@@ -1,10 +1,10 @@
 # AMMT IN625：从既有多 Agent 模拟到期刊研究初稿
 
-[阅读 R4 英文稿 PDF](manuscript.pdf) · [编辑 LaTeX](manuscript.tex) · [写作方法与评价](revision-r4/README.md) · [近期研究线](revision-r2/literature/research-line.md) · [期刊学习](revision-r2/journal/journal-learning.md)
+[阅读 R5 英文稿 PDF](manuscript.pdf) · [编辑 LaTeX](manuscript.tex) · [写作方法与评价](revision-r5/README.md) · [近期研究线](revision-r2/literature/research-line.md) · [期刊学习](revision-r2/journal/journal-learning.md)
 
 需要完整源文件时，可下载 [扁平 LaTeX 源码包](submission-source.zip)，其中包含 TeX、当前 BibTeX、highlights、五幅矢量图和复现说明。它是供修改与评阅的完整初稿包，投稿元数据仍待负责研究者补齐。
 
-本案例围绕 **几何标定的实用价值与凝固热解释所需约束之间的科学矛盾**，整理为面向 *Additive Manufacturing* 读者的英文研究论文初稿。全文从已有模型与测量成就收束到一个有限研究点：固定已标定热源，分解高温物性变化、后部相界位移和材料时间。当前题目为 **Thermophysical-property effects on melt-pool geometry and cooling histories in IN625 laser processing**，采用关系式标题；摘要提炼比较发现，引言综合已有认识、观测与模型假设，再引出实际研究设计。方法、量化结果、讨论、结论和附录保留可核对的科学定义与证据。
+本案例围绕**几何标定与凝固热信息所需约束的关系**，整理为面向 *Additive Manufacturing* 读者的英文研究初稿。当前 R5 以原件中已明确的高温物性外推问题为具体来由：保留长度拟合的热源功率系数，分辨后部固相线/液相线位置、间距与材料通过时间的响应。题目为 **Melt-pool geometry and solidification time in IN625 laser melting: sensitivity to high-temperature property extrapolation**。摘要提炼模型比较的独特认识，引言从具体前驱的成功与限制推导动机；方法、结果、讨论、结论和附录保留定义、来源、定量证据及范围。
 
 数值研究原由 [SimAgent](https://github.com/1187124906zty-commits/simulation-agent-research) 完成。本次 **ResearchFlow 任务治理 → 文献/期刊/证据专家 → PaperSpine 本地论证方法 → MAF 分章写作 → 章节交叉审阅 → 协调者整合 → 独立全文评阅** 在既有证据上执行。没有重新求解 PDE，也没有把 ResearchFlow/MAF 的参与追溯为原始模拟来源。PaperSpine 使用本地学术方法和实际文件适配器，未声称调用其在线产品或替用户点击配置。
 
@@ -12,18 +12,20 @@ R3 进一步执行 [科学编辑与逐句来源审查](revision-r3/README.md)，
 
 R4 将标题、摘要、引言和客观叙述的意见整理为[通用章节写作指南](revision-r4/guidance/section-guides.md)，依据[12 份实读机构/学者指导](revision-r4/guidance/source-ledger.json)，并在独立 MAF 仓库按任务范围分发。实际论文修订、前向应用、独立全文审查和修复记录见 [R4 交付说明](revision-r4/README.md)。它同时记录指南的有效部分和真实应用中的不足；七项技能不会自行认证文稿质量。
 
+R5 将研究对象、句间关系和章节依赖落实到[通用指南与实际应用](revision-r5/README.md)：核对最近前驱的具体限制，专业定义末段割线线性外推与端值常数外推，明确热像/金相比较对象；方法—结果同责任，引言写作者与其互查，全文 reviewer 检查目录和段落主线。Duke/Purdue 等原始指导的来源与许可可追溯；MAF 显式写作任务直接收到短方法。已有结果、五图和五表继续保留，没有新 PDE 求解。
+
 R2 原生 MAF 批次实际派发引言和讨论 writer；引言完成结构化返回，讨论产出章稿后在 1500 秒期限下中断。该批次的原生 reviewer/requester 未执行。协调者保留实际文件与超时记录，通过另行 Codex 专家交叉审阅和全文评阅推进稿件；[真实运行记录](revision-r2/native-drafts-record.md)与[MAF 诊断](https://github.com/1187124906zty-commits/research-assistant-maf/blob/codex/maf-reconstruction/examples/ammt-deep-revision/recovery/diagnosis.md)区分这些范围，未将部分运行报告为自动闭环。
 
 ![三工况的实际温度场与熔合区包络](figures/ammt-research-operating-cases.png)
 
 ## 稿件得到的结果
 
-- B 工况拟合长度为 **359.16 μm**，但宽度为 **143.04 μm**、深度为 **31.12 μm**，参照均值为 **123.5/36 μm**。长度拟合没有解决宽浅偏差。
+- B 工况拟合长度为 **359.16 μm**，但宽度为 **143.04 μm**、深度为 **31.12 μm**，NIST 100 μs 金相组平均宽深为 **123.5/36 μm**。长度拟合没有解决宽浅偏差。
 - 固定 B 的四角对照将联合长度响应分解为 **+43.21 − 6.17 − 2.76 = +34.28 μm**。主要变化是后部固相线与液相线共同平移。
 - B/C 的后部相变空间跨度为 **80.26/80.79 μm**，但材料通过时间为 **100.33/67.33 μs**。空间相近不等于冷却历程相同。
 - 保存场和原始执行绑定经过只读核对。基准 B 轴向精化使长度改变约 **0.361 μm**，支持讨论大热尾响应；它没有认证所有小交互的精度。
 
-这些是当前传导/潜热模型内的结果。B 长度参与标定，A/C 为公开数据下的固定参数**非盲比较**。高温分支是线性延续与保持末值两种模型规则，没有识别真实液相物性或 Marangoni 流。长度与宽深来自不同观测及轨迹群；NIST 当前宽深均值和 Lane 扩展不确定度来源分别说明。稿件尚未经期刊同行评审。
+这些是当前传导/潜热模型内的结果。B 长度参与标定，A/C 为公开数据下的固定参数**非盲比较**。高温分支分别为按末段表格斜率线性外推与在表格端值处作常数外推两种数学定义，没有识别真实液相物性或 Marangoni 流。长度与宽深来自不同观测及轨迹群；NIST 当前宽深均值和 Lane 扩展不确定度来源分别说明。稿件尚未经期刊同行评审。
 
 ## 工具如何用于本次写作
 
@@ -34,14 +36,14 @@ R2 原生 MAF 批次实际派发引言和讨论 writer；引言完成结构化�
 | 期刊与文献 | 两项专家任务追踪近邻至 2026-10-01，核实身份、阅读范围、对比条件与反证 | [研究线](revision-r2/literature/research-line.md)、[期刊学习](revision-r2/journal/journal-learning.md) |
 | 建模与定量结果 | 专家只读原执行绑定、六个保存场、物性和观测代码；协调者采用方法/结果候选 | [R2 定量审查](revision-r2/methods-results/audit.md) |
 | 分章与接口 | 实际 `agent-framework-core==1.19.0` writer 批次；另一专家审阅引言–方法–结果–讨论接口 | [原生返回状态](revision-r2/native-drafts-record.md)、[交叉审阅](revision-r2/exchange/cross-section-review.md) |
-| 成稿与评阅 | 协调者合成全文、学习期刊论证习惯；独立责任角色审查实际稿件、原件与页面 | [当前全文评阅](revision-r4/review/independent-review.md)、[修复处置](revision-r4/review/review-response.md) |
+| 成稿与评阅 | 协调者合成全文、学习期刊论证习惯；独立责任角色审查实际稿件、原件与页面 | [当前全文评阅](revision-r5/review/independent-review.md)、[修复处置](revision-r5/review/review-response.md) |
 | PDF 验证 | XeLaTeX/BibTeX 真实编译、页面渲染与图文检查 | [LaTeX](manuscript.tex)、[PDF](manuscript.pdf) |
 
 软件协议审计检查交接和证据绑定，不判断科学真伪。原 R1 有已完成的有限 MAF evidence review；R2 native 写作批次中断，不能移用 R1 完成状态。R2 章节与实际全文另由专家读取，各检查范围分别说明。同模型不同上下文的审查不是统计独立的人类期刊同行评审。
 
 ## 期刊样式与当前限制
 
-目标期刊是 *Additive Manufacturing*。采用官方 Elsevier `elsarticle` 的 `preprint,12pt` 与编号参考文献，按实际相近论文的读者逻辑组织 Introduction–Methods–Results–Discussion–Conclusions，并提供 [highlights](highlights.txt)。阅读版将单栏正文宽度设为 180 mm、高度设为 245 mm，以保持原矢量图标签可读；当前为 19 页。此尺寸是本稿阅读选择，未冒称 AM 专属投稿要求，印刷后的双栏版式由出版社处理。
+目标期刊是 *Additive Manufacturing*。采用官方 Elsevier `elsarticle` 的 `preprint,12pt` 与编号参考文献，按实际相近论文的读者逻辑组织 Introduction–Methods–Results–Discussion–Conclusions，并提供 [highlights](highlights.txt)。阅读版将单栏正文宽度设为 180 mm、高度设为 245 mm，以保持原矢量图标签可读；当前为 20 页。此尺寸是本稿阅读选择，未冒称 AM 专属投稿要求，印刷后的双栏版式由出版社处理。
 
 已经读取合法公开取得的目标期刊原文，并记录具体学习位置。R2 目标学习包含五篇 final VoR 和一篇已实质阅读的 corrected proof；其版次与视觉范围分别记录，未冒称六篇 final。Paper Access 机构下载入口实际串行尝试四项关键全文，其中三篇 AM 和一篇热传导期刊未暴露 View PDF；未虚报取得全文。当前期刊专属 author guide 返回 403/验证码，摘要硬限、图形摘要、匿名规则等条款尚未核实；[当前学习索引](revision-r2/journal/source-index.json) 将可验证的官方要求、样本惯例和缺口分开。没有绕过访问控制，也不在仓库分发下载的期刊全文。
 
@@ -67,6 +69,6 @@ xelatex -interaction=nonstopmode -halt-on-error manuscript.tex
 
 LaTeX 源、当前 BibTeX 与五幅矢量图完整保留。桌面内置编译器本次仍报告 `Unable to find standard directories for platform`；交付 PDF 使用本机已有 TeX Live 2026 编译。源文件仍可在内置编辑器修改，未创建替代编辑文档。
 
-完整源码包已解压至独立构建目录，在现有 TeX Live 2026 下完成 XeLaTeX/BibTeX 重建，19 页逐页提取文本与当前 PDF 一致，且所用五幅矢量图与当前稿件一致；[重建记录](revision-r4/delivery/package-rebuild-check.json) 限定了实际验证环境。这项检查不表示其他平台已验证，也不表示数值研究已重跑。AI 使用声明已说明工具与用途；实际人类监督范围须由负责作者在投稿前如实补齐。
+完整源码包已解压至独立构建目录，在现有 TeX Live 2026 下完成 XeLaTeX/BibTeX 重建，20 页逐页提取文本与当前 PDF 一致，且所用五幅矢量图与当前稿件一致；[重建记录](revision-r5/delivery/package-rebuild-check.json) 限定了实际验证环境。这项检查不表示其他平台已验证，也不表示数值研究已重跑。AI 使用声明已说明工具与用途；实际人类监督范围须由负责作者在投稿前如实补齐。
 
 此包没有重复发布六个完整温度场、大型求解器环境或原始全部执行日志；不能仅凭紧凑表格重跑 PDE。完整求解再现需要原案例的脚本、执行清单和所指字段。代码适用项目许可证；本稿与用户授权的案例图表为研究初稿材料，不授予第三方论文/实验图像的转载许可。

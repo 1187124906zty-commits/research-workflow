@@ -1,0 +1,26 @@
+section: Introduction
+section: Materials and methods
+subsection: Benchmark observations and comparison design
+subsection: Moving-frame enthalpy model and high-temperature properties
+subsection: Geometry, rear phase boundaries and material passage
+subsection: Length calibration and property comparisons at retained source power
+subsection: Numerical solution and verification
+section: Results
+subsection: Geometry discrepancy after length calibration
+subsection: Property effects on rear-boundary position and separation
+subsection: Scan speed and derived material passage time
+section: Discussion
+subsection: Constraints supplied by melt-pool geometry
+subsection: Effects of property extrapolation on rear phase boundaries
+subsection: Solidification interval in material coordinates
+subsection: Material data and thermal measurements for model assessment
+section: Conclusions
+section: Data and code availability
+section: Declaration of generative AI use in manuscript preparation
+section: Material data and numerical verification
+subsection: Material-property inputs
+subsection: Spatial discretization and observation recovery
+subsection: Scaled enthalpy diffusion and diagnostic definitions
+subsection: Scalar calibration and solution acceptance
+subsection: Separate constant-property verification problem
+subsection: Calibration record and retained sensitivities

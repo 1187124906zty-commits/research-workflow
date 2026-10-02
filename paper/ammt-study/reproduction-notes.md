@@ -1,6 +1,6 @@
 # Numerical reproduction notes
 
-These implementation details are retained from the executed case and the prior manuscript. R3 and R4 did not repeat the PDE solves or add physical evidence. The enthalpy face coefficient, exponential transport discretization, surface recovery and diagnostic definitions are in Appendix A of manuscript.tex. This file accompanies the flat source archive and the canonical manuscript package.
+These implementation details are retained from the executed case and the prior manuscript. R3, R4 and R5 did not repeat the PDE solves or add physical evidence. R5 defines final-secant linear extrapolation and constant endpoint extrapolation explicitly while retaining the archived LL/HL/LH/HH labels and results. The enthalpy face coefficient, exponential transport discretization, surface recovery and diagnostic definitions are in Appendix A of manuscript.tex. This file accompanies the flat source archive and the canonical manuscript package.
 
 ## Executed environment and methods
 

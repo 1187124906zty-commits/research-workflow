@@ -1,0 +1,52 @@
+{
+  "stage": "pre-publication; R5_REVIEW accepted; delivery artifacts inspected, publication next",
+  "protocol_ok": true,
+  "blocking": [],
+  "historical_nonblocking_counts": {
+    "stale_input": 15,
+    "stale_evidence": 10
+  },
+  "R5_historical_nonblocking": [
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r5/architecture/report.md",
+      "blocking": false,
+      "task_id": "R5_ARCHITECTURE",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r5/guidance/reusable-methods.md",
+      "blocking": false,
+      "task_id": "R5_GUIDANCE",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r5/application/methods-results.tex",
+      "blocking": false,
+      "task_id": "R5_APPLICATION",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r5/application/discussion-conclusions.tex",
+      "blocking": false,
+      "task_id": "R5_APPLICATION",
+      "attempt": 1,
+      "claim_ids": []
+    },
+    {
+      "code": "stale_evidence",
+      "message": "Evidence is missing or changed: revision-r5/application/introduction-handoff.md",
+      "blocking": false,
+      "task_id": "R5_APPLICATION",
+      "attempt": 1,
+      "claim_ids": []
+    }
+  ],
+  "interpretation": "Closed-task observations remain bound to their historical versions. Later link/candidate repairs are explicitly retained as changed-file warnings; final review and delivery bind current text without promoting physical evidence."
+}

@@ -1,0 +1,357 @@
+[
+  {
+    "key": "kollmannsberger2019",
+    "doi": "10.1007/s40192-019-00132-9",
+    "title": [
+      "Accurate Prediction of Melt Pool Shapes in Laser Powder Bed Fusion by the Non-Linear Temperature Equation Including Phase Changes"
+    ],
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-0823-8649",
+        "authenticated-orcid": false,
+        "given": "Stefan",
+        "family": "Kollmannsberger",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Massimo",
+        "family": "Carraturo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alessandro",
+        "family": "Reali",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ferdinando",
+        "family": "Auricchio",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "journal": [
+      "Integrating Materials and Manufacturing Innovation"
+    ],
+    "volume": "8",
+    "pages": "167-177",
+    "article_number": null,
+    "date": {
+      "date-parts": [
+        [
+          2019,
+          4,
+          29
+        ]
+      ]
+    }
+  },
+  {
+    "key": "vanelsen2007",
+    "error": "429 Client Error: Too Many Requests for url: https://api.crossref.org/works/10.1016/j.ijheatmasstransfer.2007.02.044"
+  },
+  {
+    "key": "lane2020",
+    "doi": "10.1007/s40192-020-00169-1",
+    "title": [
+      "Measurements of Melt Pool Geometry and Cooling Rates of Individual Laser Traces on IN625 Bare Plates"
+    ],
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-5153-1678",
+        "authenticated-orcid": false,
+        "given": "Brandon",
+        "family": "Lane",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jarred",
+        "family": "Heigel",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Richard",
+        "family": "Ricker",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ivan",
+        "family": "Zhirnov",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Vladimir",
+        "family": "Khromschenko",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jordan",
+        "family": "Weaver",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Thien",
+        "family": "Phan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mark",
+        "family": "Stoudt",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sergey",
+        "family": "Mekhontsev",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lyle",
+        "family": "Levine",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "journal": [
+      "Integrating Materials and Manufacturing Innovation"
+    ],
+    "volume": "9",
+    "pages": "16-30",
+    "article_number": null,
+    "date": {
+      "date-parts": [
+        [
+          2020,
+          2,
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "key": "myers2023",
+    "doi": "10.1016/j.addma.2023.103663",
+    "title": [
+      "High-resolution melt pool thermal imaging for metals additive manufacturing using the two-color method with a color camera"
+    ],
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-5852-0223",
+        "authenticated-orcid": false,
+        "given": "Alexander J.",
+        "family": "Myers",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Guadalupe",
+        "family": "Quirarte",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2432-7783",
+        "authenticated-orcid": false,
+        "given": "Francis",
+        "family": "Ogoke",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Brandon M.",
+        "family": "Lane",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Syed Zia",
+        "family": "Uddin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2952-8576",
+        "authenticated-orcid": false,
+        "given": "Amir Barati",
+        "family": "Farimani",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jack L.",
+        "family": "Beuth",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4560-4476",
+        "authenticated-orcid": false,
+        "given": "Jonathan A.",
+        "family": "Malen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "journal": [
+      "Additive Manufacturing"
+    ],
+    "volume": "73",
+    "pages": "103663",
+    "article_number": "103663",
+    "date": {
+      "date-parts": [
+        [
+          2023,
+          7
+        ]
+      ]
+    }
+  },
+  {
+    "key": "dynamic2024",
+    "error": "429 Client Error: Too Many Requests for url: https://api.crossref.org/works/10.1016/j.addma.2024.104531"
+  }
+]

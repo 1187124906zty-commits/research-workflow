@@ -1,0 +1,192 @@
+from pathlib import Path
+import json
+
+DEST = Path(__file__).resolve().parent
+ROOT = DEST.parents[1]
+
+def metadata(key, cached=None):
+    path = ROOT / cached if cached else DEST / f'{key}-crossref.json'
+    data = json.loads(path.read_text(encoding='utf-8'))
+    message = data['response']['message'] if cached else data
+    return {
+        'title': message['title'][0],
+        'authors': [' '.join([a.get('given', ''), a.get('family', '')]).strip() for a in message.get('author', [])],
+        'journal': message.get('container-title', [''])[0],
+        'year': message['published']['date-parts'][0][0],
+        'volume': message.get('volume'),
+        'pages_or_article_number': message.get('page') or message.get('article-number'),
+        'doi': message['DOI'],
+        'metadata_path': str(path.relative_to(ROOT)).replace('\\', '/'),
+        'verification': 'archived successful Crossref record read; current request HTTP 429' if cached else 'fresh Crossref record retrieved 2026-10-02',
+    }
+
+sources = {
+    'vanelsen2007': {
+        **metadata('vanelsen2007', 'revision-r3/citations/metadata/vanelsen2007-crossref.json'),
+        'original': 'revision-r3/citations/pdfs/vanelsen2007.pdf',
+        'version': '26-page author preprint, dated 20 February 2006; published identity 2007',
+        'read_scope': 'PDF pp1,4-5,20-24',
+        'evidence_class': 'full_text',
+        'objects': ['moving-source coordinate energy balance', 'conservative enthalpy implementation', 'Gaussian latent-heat distribution', 'rear temperature profile'],
+        'conditions': 'TiAl6V4 illustrative calculations; constant properties; deliberately tenfold latent heat for Fig7 illustration',
+        'limits': ['not a precedent for the present linear phase fraction', 'latent-effect magnitude is not directly transferable to IN625', 'coordinate transport is not liquid momentum'],
+    },
+    'kollmannsberger2019': {
+        **metadata('kollmannsberger2019'),
+        'original': 'revision-r3/citations/pdfs/kollmannsberger2019.pdf',
+        'version': 'arXiv1903.09076v1 author preprint, 13 pages',
+        'read_scope': 'PDF pp1,3-6,9-11',
+        'evidence_class': 'full_text',
+        'objects': ['AMMT/CBM L/W/D geometry', 'measured 2D source profile', 'scalar absorptivity calibration', 'high-temperature extrapolated conductivity', 'calibrated anisotropic conductivity'],
+        'conditions': 'bare IN625 AMB2018-02; AMMT P=137.9/179.2/179.2 W, v=400/800/1200 mm/s, D4sigma=170 micrometers',
+        'limits': ['conductivity input ends at871C rather than current982C', 'different smooth phase function and calibration parameters', 'isotropic residual is narrower/deeper whereas present model is wider/shallower', 'authors exclude predicting melt-pool temperature distribution'],
+    },
+    'lane2020': {
+        **metadata('lane2020'),
+        'original': 'revision-r5/sources/lane2020-original.html',
+        'url': 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8194244/',
+        'version': 'PMC author-manuscript full HTML; header says Author manuscript, available in PMC2021Jun11; published metadata2020',
+        'read_scope': 'Sections2-5; paragraphsP6,P15-P18,P27-P42,P60,P68-P71; Tables1-7',
+        'evidence_class': 'full_text',
+        'objects': ['radiance-profile freezing feature', '20us thermographic class length', '100us metallographic challenge dimensions', 'compiled100us/20us microscopy analysis', 'measurement uncertainty', 'below-solidus cooling-rate exemplar'],
+        'conditions': 'bare IN625 AMMT170micrometer beam versus CBM100micrometer beam; AMMT conduction-mode sections',
+        'limits': ['length operator differs from two modeled solidus crossings', 'measurement populations differ across length and cross sections', 'cooling-rate values explicitly not recommended for reference/calibration', 'Tables6-7 uncertainty belongs to compiled microscopy population'],
+        'correction_to_prior_ledger': 'Replace Full published HTML by PMC author-manuscript full text with independently verified published metadata',
+    },
+    'myers2023': {
+        **metadata('myers2023'),
+        'original': 'literature/myers2023-published.pdf',
+        'version': '11-page version of record',
+        'read_scope': 'PDF pp1-2,7-9; Section4.1/Fig8',
+        'evidence_class': 'full_text',
+        'objects': ['two-color surface-temperature measurement', 'Fresnel/accommodation parameter combinations', 'ex-situ area and width/depth ratio'],
+        'conditions': 'six no-powder316L power/velocity cases; FLOW-3D model with recoil-driven flow and constant surface tension',
+        'limits': ['different material/solver/calibration target from present study', 'no Marangoni effect in this particular model', 'plume effects and camera sensitivity affect temperature observations', 'does not establish mathematical forward nonuniqueness or equal refitting of present property cases'],
+    },
+    'dynamic2024': {
+        **metadata('dynamic2024', 'revision-r2/literature/metadata/dynamic2024-crossref.json'),
+        'original': 'revision-r2/literature/pdfs/dynamic2024.pdf',
+        'version': '45-page author manuscript',
+        'read_scope': 'PDF pp1-13,17-20,30-32,36-37',
+        'evidence_class': 'full_text',
+        'objects': ['radial distribution and volumetric shape parameters', 'dynamic source depth and cavity-dependent effective absorption', 'linear solid-fraction closure', 'single-track geometry calibration and layer application'],
+        'conditions': 'EOS M270 bareIN625195W800mm/s D4sigma80-322micrometers; AMB2018-01 representative layers',
+        'limits': ['not the three present AMMT tracks', 'linear phase law uses1620K liquidus and1410K eutectic instead of present1350/1290C', 'density, latent heat and thermophysical laws differ', 'upper-surface shape mismatch and transient layer correspondence remain'],
+    },
+    'specialmetals625': {
+        'title': 'INCONEL alloy625',
+        'authors': ['Special Metals Corporation'],
+        'year': 2013,
+        'edition': 'August2013',
+        'doi': None,
+        'url': 'https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf',
+        'original': 'revision-r3/citations/pdfs/specialmetals625.pdf',
+        'version': 'original18-page supplier bulletin',
+        'read_scope': 'PDF pp1-2,18; p2 Tables2-3 visually inspected',
+        'evidence_class': 'full_text',
+        'objects': ['typical alloy density', 'supplier-listed melting range', 'calculated specific heat', 'Battelle-measured thermal conductivity'],
+        'conditions': 'Table3 material annealed2100F/1h; not benchmark-coupon measurements',
+        'limits': ['table endpoints lie below melting range', 'no liquid data in these tables', 'equilibrium label not stated', 'typical data not specifications'],
+    },
+    'nist2018': {
+        'title': 'CHAL-AMB2018-02-MP-xsection: Melt Pool Geometry—Width and Depth',
+        'authors': ['National Institute of Standards and Technology'],
+        'year': 2018,
+        'page_update': '2025-05-20',
+        'url': 'https://www.nist.gov/ambench/chal-amb2018-02-mp-xsection',
+        'original': 'literature/nist-challenge-current.html',
+        'read_scope': 'Overview and Table2',
+        'evidence_class': 'full_text_auxiliary',
+        'objects': ['ten-track100us-specimen class width/depth means and class standard deviations'],
+        'limits': ['class standard deviations are not automatic expanded uncertainties', 'current C-depth29.6 differs from predecessor2019Table4 value29.5'],
+    },
+}
+
+claims = [
+    {'id': 'S01', 'claim': 'Moving-source coordinate energy transport and conservative enthalpy are established method foundations.', 'source': 'vanelsen2007', 'locators': ['PDF pp4-5 Section2 Eqs1-4', 'PDF p21 Eqs31-35'], 'kind': 'full_text_fact', 'role': 'Methods support', 'limit': 'Does not source current solver, current linear phase law or liquid convection.'},
+    {'id': 'S02', 'claim': 'High-temperature conductivity extrapolation is explicitly identified as a calibrated physical model in the closest AMMT predecessor.', 'source': 'kollmannsberger2019', 'locators': ['PDF p6 Section4.2 paragraph beginning It is noteworthy'], 'quote': 'this extrapolation itself represents a physical model which, in turn, needs to be calibrated', 'kind': 'full_text_fact', 'role': 'Central predecessor-to-gap link', 'limit': 'Their input endpoint871C differs from current982C.'},
+    {'id': 'S03', 'claim': 'With measured AMMT beam shape, a scalar absorptivity was insufficient to fit length, width and depth simultaneously.', 'source': 'kollmannsberger2019', 'locators': ['PDF p9 Tables7-8 and adjacent calibration paragraph'], 'kind': 'full_text_fact', 'role': 'Specific geometric limitation', 'limit': 'Predecessor narrower/deeper residual is opposite to present wider/shallower residual.'},
+    {'id': 'S04', 'claim': 'Directional conductivity was a competing simplified convection closure that improved AMMT shape predictions.', 'source': 'kollmannsberger2019', 'locators': ['PDF p9 Section4.3', 'PDF p10 Tables9-10'], 'kind': 'full_text_fact', 'role': 'Competing method', 'limit': 'Does not establish actual anisotropic material conductivity or present flow mechanism.'},
+    {'id': 'S05', 'claim': 'Even the improved calibrated predecessor was not claimed valid for predicting temperature distribution inside the pool.', 'source': 'kollmannsberger2019', 'locators': ['PDF p10 final sentence Section5'], 'quote': 'it is not valid to predict the temperature distribution within the melt pool', 'kind': 'full_text_fact', 'role': 'Thermal claim boundary'},
+    {'id': 'S06', 'claim': 'Geometric/thermal parameter ambiguity was already experimentally demonstrated for316L CFD calibration.', 'source': 'myers2023', 'locators': ['PDF p7 Section4.1', 'PDF p9 Fig8'], 'kind': 'full_text_fact', 'role': 'Prior known result and discriminating thermal observation', 'limit': 'Six no-powder316L cases, area/ratio targets; not present extrapolation cases and not forward mathematical nonuniqueness.'},
+    {'id': 'S07', 'claim': 'The actual source table requires defining both k and cp beyond their endpoints before entering the present adopted phase interval.', 'source': 'specialmetals625', 'locators': ['PDF p2 Tables2-3 and footnotes'], 'kind': 'full_text_fact_plus_endpoint_comparison', 'role': 'Specific constitutive object', 'limit': 'Extrapolation rules themselves are study choices.'},
+    {'id': 'S08', 'claim': 'Conductivity data are measured and specific heat data are calculated typical alloy data, not AMMT-coupon measurements.', 'source': 'specialmetals625', 'locators': ['PDF p1 typical-data paragraph', 'PDF p2 Table2 footnotea', 'PDF p2 Table3 footnotesb-c'], 'kind': 'full_text_fact', 'role': 'Material provenance'},
+    {'id': 'S09', 'claim': 'A linear continuum solid-fraction approximation is precedented, but an alternate IN625 freezing interval terminates at a lower Scheil eutectic.', 'source': 'dynamic2024', 'locators': ['PDF p5 Eq1 paragraph', 'PDF p18 phase-interval paragraph', 'PDF p20 Table2'], 'kind': 'full_text_fact', 'role': 'Phase-law precedent and competing condition', 'limit': 'Does not prove supplier melting range is equilibrium or source present thresholds.'},
+    {'id': 'S10', 'claim': 'Dynamic source depth/absorption is an existing alternative to fixed single-track source parameters.', 'source': 'dynamic2024', 'locators': ['PDF pp2-3 Introduction', 'PDF pp11-13 Section2.2.4 Eqs7-8', 'PDF p17 calibration dataset', 'PDF pp30-31 Fig13/14 discussion'], 'kind': 'full_text_fact', 'role': 'Competing method and explanation', 'limit': 'EOS M270 variable spot/layer cases; not present three AMMT steady fields.'},
+    {'id': 'S11', 'claim': 'Thermographic length uses a rear radiance-profile feature plus a converted front threshold, rather than two direct temperature solidus crossings.', 'source': 'lane2020', 'locators': ['HTML Section2.3 P15,P27-P31'], 'kind': 'full_text_fact', 'role': 'Observation operator definition'},
+    {'id': 'S12', 'claim': 'Lane20us length, NIST100us cross-section means and Lanecompiled microscopy uncertainty have separate population provenance.', 'source': 'lane2020', 'secondary_source': 'nist2018', 'locators': ['HTML Table4 caption and P36,P38-P41,P70', 'HTML Tables5-7', 'NIST Table2'], 'kind': 'full_text_fact', 'role': 'Comparator identity', 'limit': 'delta/U is descriptive scale normalization, not a total uncertainty or formal joint statistical test.'},
+    {'id': 'S13', 'claim': 'Lane cooling rates are exemplar data and not recommended as model reference/calibration targets.', 'source': 'lane2020', 'locators': ['HTML P34,P42,P69-P70'], 'kind': 'full_text_negative_finding', 'role': 'Reject false cooling validation'},
+    {'id': 'S14', 'claim': 'Constant-speed mapping relates distance and elapsed time in Lane cooling estimates.', 'source': 'lane2020', 'locators': ['HTML Section2.3 P32-P33'], 'kind': 'full_text_fact', 'role': 'Mapping precedent', 'limit': 'Source interval1290-1190C differs from present1350-1290C.'},
+    {'id': 'D01', 'claim': 'Final-secant and constant-endpoint extrapolation functions and their primitive differences are mathematically consistent.', 'source': 'current_study_definition', 'locators': ['report.md section Explicit mathematical definitions', 'property-math-check.json'], 'kind': 'independent_derivation', 'role': 'Methods definition', 'limit': 'Does not establish true liquid-property law or confidence bounds.'},
+    {'id': 'D02', 'claim': 'The circularGaussian source integrates to etaP, and D4sigma=2w for this assumed intensity map.', 'source': 'current_study_definition', 'locators': ['manuscript-input.tex Eqsource', 'report.md section Source-factor function'], 'kind': 'independent_derivation', 'role': 'Source-factor interpretation', 'limit': 'Matches diameter, not actual measured2D beam map; eta is not directly measured absorption.'},
+    {'id': 'D03', 'claim': 'Rear isotherm separation divided by scan speed is the cooling-interval passage time for stationary material in a quasi-steady translated field.', 'source': 'current_study_definition', 'locators': ['manuscript-input.tex Eqpassage', 'report.md comparator table'], 'kind': 'independent_derivation', 'role': 'Thermal interpretation', 'limit': 'Not a liquid-parcel residence time or independent temperature validation.'},
+]
+
+ledger = {
+    'task': 'R5 bounded source/object audit',
+    'date': '2026-10-02',
+    'frozen_input': 'revision-r5/manuscript-input.tex',
+    'write_ownership': 'revision-r5/sources/ only',
+    'prior_context_read': ['AGENTS.md at research-workflow repository root', 'revision-r3/citations/support-ledger.json', 'revision-r2/journal/journal-learning.md'],
+    'scope': 'Six contracted source originals plus NIST auxiliary comparator page; one substantive investigation pass; no new production runs or manuscript edits',
+    'sources': sources,
+    'claims': claims,
+    'property_definition': {
+        'common_within_table': 'piecewise-linear interpolation',
+        'linear_above_endpoint': 'p_n + ((p_n-p_n_minus_1)/(T_n-T_n_minus_1))*(T-T_n)',
+        'constant_above_endpoint': 'p_n',
+        'conductivity_endpoint_C': 982,
+        'conductivity_endpoint_W_per_mK': 25.2,
+        'conductivity_final_slope_W_per_mK2': 2.4/111,
+        'cp_endpoint_C': 1093,
+        'cp_endpoint_J_per_kgK': 670,
+        'cp_final_slope_J_per_kgK2': 25/111,
+        'adopted_thresholds_C': [1290, 1350],
+        'latent_heat_J_per_kg': 280000,
+        'latent_effective_cp_J_per_kgK': 280000/60,
+        'first_label': 'conductivity',
+        'corners': {'LL': 'both final-secant linear extrapolation; only B-length-fitted branch', 'HL': 'constant-endpoint k, linear cp, retained LL-fitted eta', 'LH': 'linear k, constant-endpoint cp, retained LL-fitted eta', 'HH': 'both constant-endpoint, retained LL-fitted eta'},
+        'physical_evidence_status': 'defined deterministic scenarios; not measured liquid laws, probability distribution or physical bounds',
+    },
+    'comparators': {
+        'Lane20us_length': {'mean_um': [300,359,370], 'N_video_frames': [19,10,7], 'expanded_U_k2_um': [11.91,21.26,32.57], 'locators': ['Lane Tables4-5']},
+        'NIST100us_microscopy': {'mean_width_um': [147.9,123.5,106], 'mean_depth_um': [42.5,36,29.6], 'class_tracks': [3,3,4], 'locators': ['NIST Table2', 'Lane P36,P70']},
+        'Lane_compiled_microscopy_uncertainty': {'expanded_U_width_k2_um': [6.42,6.30,4.48], 'expanded_U_depth_k2_um': [4.49,3.97,3.26], 'population': 'Table4 reports incorporation of100us and20us classes', 'locators': ['Lane Table4 caption/P40, Tables6-7']},
+        'calibration_and_assessment': {'B_length': 'calibration', 'B_width_depth': 'retrospective comparison with unused-in-objective outputs', 'A_C': 'retrospective fixed-parameter comparison; benchmark consulted during development', 'thermal_descriptors': 'derived outputs with no independent thermal validation in current evidence'},
+    },
+    'central_gap': {
+        'predecessor': 'Kollmannsberger: high-temperature extrapolation itself a calibrated model; one scalar remaining with measured source cannot fit3D shape; improved model excludes pool temperature-distribution prediction.',
+        'already_known': 'Myers: geometry-fitting parameter combinations can predict different temperature fields.',
+        'present_object': 'Change explicit above-table k/cp functions at retained B-length-fitted source power and fixed phase law; separate rear boundary displacement from their separation and derive passage-time consequences.',
+        'contribution_scope': 'Specific thermal interpretation of6 existing conduction solutions, not new physics, new solver, new property measurements, broad novelty proof or thermal validation.',
+    },
+    'rejected_or_limited_claims': [
+        'Present study is first to show geometric fit does not validate temperature.',
+        'Property cases are independently refitted and all match B length.',
+        'H is measured liquid plateau or L/H bound true material uncertainty.',
+        'Supplier melting range is explicitly an equilibrium thermodynamic calculation.',
+        'Present residual reproduces sign/mechanism of predecessor residual.',
+        'Present eta0.28905 is experimentally measured Fresnel absorption because it is close to0.28.',
+        'Lane cooling estimates independently validate present1350-1290C time/rate.',
+        'Delta/U with NIST100us means is a formal uncertainty-consistent statistical agreement test.',
+        'Stationary-material passage time is a liquid-particle residence time.',
+    ],
+    'retrieval_limits': [
+        'VanElsen and Coleman fresh Crossref requests returned429; verified archived successful metadata instead.',
+        'EuropePMC fullTextXML returned500; PMC complete HTML obtained successfully.',
+        'No inaccessible contracted full text remains; preprint/author-manuscript versions remain explicitly identified.',
+        'No publisher-authentication workflow needed because legitimate existing originals and PMC full text answered contracted questions.',
+    ],
+    'actionable_gaps': [
+        'Empirical high-temperatureIN625 property selection requires targeted original measurements beyond supplier tables.',
+        'Co-registered rear thermometry and explicitly defined phase assumptions are needed for thermal-output validation.',
+        'Per-case source refits are needed for an equally fitted geometry identifiability claim; not among current6 runs.',
+        'Matched observation populations/uncertainty are needed for formal joint statistical agreement.',
+        'Omitted source-depth, flow, surface and nonequilibrium-phase explanations remain unisolated.',
+    ],
+    'return_condition': 'Contracted source-dependent decisions answered; additional searches should be justified by a changed claim.',
+    'report': 'revision-r5/sources/report.md',
+}
+
+(DEST / 'source-ledger.json').write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+print('Wrote source-ledger.json:', len(sources), 'sources;', len(claims), 'claim records')

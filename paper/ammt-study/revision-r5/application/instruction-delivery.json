@@ -1,0 +1,70 @@
+{
+  "source": "research_assistant.guidance.load_role",
+  "selections": [
+    {
+      "name": "introduction",
+      "role": "writer",
+      "writing": {
+        "mode": "revise",
+        "sections": [
+          "introduction"
+        ]
+      },
+      "skills": [
+        "scientific-writing",
+        "scientific-editor",
+        "paper-introduction"
+      ],
+      "directly_delivered_references": [
+        "object-and-continuity.md"
+      ],
+      "output": "revision-r5/application/instructions/introduction.md",
+      "instruction_characters": 18330
+    },
+    {
+      "name": "methods-results",
+      "role": "writer",
+      "writing": {
+        "mode": "revise",
+        "sections": [
+          "methods_results"
+        ]
+      },
+      "skills": [
+        "scientific-writing",
+        "scientific-editor",
+        "paper-methods-results"
+      ],
+      "directly_delivered_references": [
+        "object-and-continuity.md"
+      ],
+      "output": "revision-r5/application/instructions/methods-results.md",
+      "instruction_characters": 18568
+    },
+    {
+      "name": "whole-review",
+      "role": "reviewer",
+      "writing": {
+        "mode": "audit",
+        "sections": [
+          "full_manuscript"
+        ]
+      },
+      "skills": [
+        "scientific-writing",
+        "paper-writing-review",
+        "paper-title-abstract",
+        "paper-introduction",
+        "paper-methods-results",
+        "paper-discussion-conclusions"
+      ],
+      "directly_delivered_references": [
+        "object-and-continuity.md",
+        "chapter-contracts.md"
+      ],
+      "output": "revision-r5/application/instructions/whole-review.md",
+      "instruction_characters": 37084
+    }
+  ],
+  "execution_boundary": "Actual loader output applied by same-task Codex specialists; R5 does not claim a new native MAF model execution."
+}
