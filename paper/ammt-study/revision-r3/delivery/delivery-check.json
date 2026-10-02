@@ -1,8 +1,8 @@
 {
   "latex_pdf_pages": 18,
-  "pdf_bytes": 400359,
-  "checked_pdf_input": ".latex-build-dcpcj1z8\\manuscript.pdf",
-  "local_canonical_pdf_matches_checked": false,
+  "pdf_bytes": 400358,
+  "checked_pdf_input": "manuscript.pdf",
+  "local_canonical_pdf_matches_checked": true,
   "resolved_cited_identities": 26,
   "bibliography_candidates": 49,
   "scientific_figures": 5,
