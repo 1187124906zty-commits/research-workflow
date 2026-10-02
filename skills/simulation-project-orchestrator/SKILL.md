@@ -11,6 +11,8 @@ Produce evidence that helps the research coordinator decide what to investigate,
 
 Read the project's current research state and task contract. If absent, record a compact contract containing: research question, stage, proposed claim and Context of Use (COU), quantities of interest (QoIs), available evidence, expected effect or decision scale, relevant checks, time/compute budget, required outputs, and return condition. Inspect available files and software before asking for information.
 
+Select the physical system, constitutive assumptions, parameters, observables and comparisons from that contract and its original sources. Registered applications supply case-specific inputs only when selected for the task; they do not define a default scientific topic or model for this skill.
+
 Choose exploration, paper_formation, or submission. Read [references/research-efficiency.md](references/research-efficiency.md) for the stage policy, numerical-adequacy decision, and return protocol. Match fidelity to the current question; do not inherit a universal residual, mesh size, relative-error target, or another paper's exact numerics. State why further refinement could change the research judgment before doing it.
 
 ## Preserve scientific hard lines

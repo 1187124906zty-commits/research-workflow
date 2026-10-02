@@ -6,15 +6,15 @@ Read this reference only when `simulation-agent-mvp` is present or the user asks
 
 ## Scope
 
-The prototype has three execution paths:
+The prototype provides native and external-backend execution, together with separately registered application cases:
 
 1. a native one-dimensional steady heat-conduction MMS problem with a smooth exact field, SymPy-derived source, uniform-grid centered second differences, and an O(n) Thomas tridiagonal solver; and
 2. a process-isolated openPASO MCP adapter that probes the real tool catalog and executes reviewed solver cases in a separate Python runtime; and
-3. the AMMT IN625 single-track application under `research/reproduction-case/nist-amb2018-02`: a FiPy three-dimensional moving-frame conservative-enthalpy model, literature/experimental contracts, useful-resolution runs, B-only length-proxy calibration, frozen A/C comparison, controlled sensitivities and mechanism outputs.
+3. registered application cases with their own physical models, source/experimental contracts, calibration data, comparisons, sensitivity analyses and interpretation outputs. Discover the available cases from the prototype's current case index and read only the selected case's contract.
 
-The MMS and Poisson cases verify code/numerics and demonstrate the control layer. The axisymmetric convective-fin reconstruction is a literature-conditioned comparison. The AMMT path is an application research workflow with its own nonlinear physics and experimental referent; its actual numerical and physical status comes from the current case index and bound run artifacts. It does not inherit acceptance from the MMS or from a completed subprocess.
+The MMS and Poisson cases verify code/numerics and demonstrate the control layer. A literature-conditioned reconstruction or application has its own physical and comparison assumptions; its actual numerical and physical status comes from the current case index and bound run artifacts. It does not inherit acceptance from the MMS or from a completed subprocess.
 
-Never generalize an MMS result to real material conductivity, geometry, boundary conditions or model form. Imported data may be screened, but the MMS backend keeps physical validation blocked because it lacks a real-system model and combined uncertainty model. AMMT calibration, experiment comparison and mechanism conclusions retain their separate data roles and limits. Reject safety-relevant use at input validation.
+Never generalize an MMS result to real material parameters, geometry, boundary conditions or model form. Imported data may be screened, but the MMS backend keeps physical validation blocked because it lacks a real-system model and combined uncertainty model. Calibration, experiment comparison and mechanism conclusions retain their separate data roles and limits in each selected application. Reject safety-relevant use at input validation.
 
 ## Commands
 

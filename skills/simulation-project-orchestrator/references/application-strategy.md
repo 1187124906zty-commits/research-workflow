@@ -27,7 +27,7 @@ The case-specific strategy records:
   validation comparison, sensitivity and mechanism analysis.
 
 Resolution follows the physical structures and observation precision. Avoid
-uniformly spending cells in the far field while leaving a melt depth, boundary
+uniformly spending cells in the far field while leaving a thin feature, boundary
 layer or interface only one or two cells thick. Local/adaptive/graded meshes,
 symmetry, suitable reference frames and implicit integration may reduce cost,
 but each must preserve the intended physical question and observation operator.
@@ -62,7 +62,7 @@ do not invent a new numerical algorithm merely to avoid a framework cache.
 
 Complete a finite, physically scaled calculation matrix. Use serial runs,
 graded/local meshes and retained-field warm starts to manage resources. Judge
-spacing against the melt depth, interface, boundary layer or other smallest
+spacing against the feature thickness, interface, boundary layer or other smallest
 relevant structure, and the precision of the experimental observable. Geometry
 resampling does not improve the field resolution. Include connected-component,
 truncation and measurement-definition checks where the observable is a contour.
