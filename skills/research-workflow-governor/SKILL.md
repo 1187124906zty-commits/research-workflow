@@ -13,7 +13,7 @@ Address earlier questions, constraints and doubts before treating the last reque
 
 On resume, recover `.researchflow/research-state.json`, open task dispositions and the relevant original evidence. Separate located facts, hypotheses, inferences and rejected explanations. A saved summary is a navigation aid, not a substitute for a passage that matters to a scientific decision.
 
-Read [workflow.md](references/workflow.md) to start a complete project; [governance.md](references/governance.md) for delegation, return or disagreement; [journal-and-claims.md](references/journal-and-claims.md) when framing or writing. Load only the needed details.
+Read [workflow.md](references/workflow.md) to start a complete project; [governance.md](references/governance.md) for delegation, return or disagreement; [journal-and-claims.md](references/journal-and-claims.md) when framing or writing. Use [writing-craft.md](references/writing-craft.md) for readable evidence-to-prose handoffs. Load only needed details; project facts and library/tool protocols are separate from generic teaching.
 
 ## Use the smallest effective team
 
@@ -24,6 +24,8 @@ Assign each worker a research question, why its answer changes the project, rele
 Use `simulation-project-orchestrator` for simulation evidence. Use `paper-spine` early for readership, journal fit, contribution and argument structure, and again for evidence-bound writing and review. Skills do not spawn themselves: dispatch a named subagent and give it the skill path and task contract. If PaperSpine services are unavailable, read applicable local methods and keep file-based evidence handoff explicit. Do not claim live integration, user choices or trusted review that did not occur.
 
 ## Choose actions by research value
+
+When evidence has not established the intended contribution, actively investigate feasible improvements or discriminating discoveries before accepting a limitations-only manuscript. Use [constructive-research.md](references/constructive-research.md) to connect hypotheses, fair comparisons, revision and confirmation. Require informative work and honest gains/tradeoffs, not a guaranteed favorable result.
 
 At each substantive return, ask what changed in the research understanding and which unresolved question matters next. Compare the expected discrimination between explanations, impact on the paper's argument, feasibility and cost. State the reason for the selected action; do not invent precision for an arbitrary numerical priority score.
 

@@ -1,0 +1,65 @@
+# From a research decision to a supported paragraph
+
+Use this reference when forming the argument, handing evidence to a writer, or revising a consequential inference. It distills reviewed expression functions from the [Scientific Writing Library](https://github.com/1187124906zty-commits/scientific-writing-library), not a universal article template. The coordinator owns claim scope; writers and reviewers inspect the science before choosing wording. Use only the parts needed for the passage.
+
+## Five decisions, in this order
+
+1. **Choose the paragraph's reader task.** State what this paragraph must establish: an information gap, an adopted assumption, a reproducible comparison, a finding, a candidate explanation, or a boundary. Recover its controlling point and the preceding/following points. A paragraph may need several moves, but no fixed count or prescribed combination of contrast, concession and causality is required.
+2. **Locate the evidence units.** Read the passages, equations, figure panels or raw results that bear on this point. Preserve source/version/locator, scientific object and observable, reference or baseline, conditions, data role, uncertainty, and relevant contrary evidence. A citation alone or a keyword-matched sentence is insufficient. A source excerpt can report a finding in its original study; a newly authored library frame/example is an editorial abstraction. Neither automatically supplies evidence for the current study.
+3. **Determine the support boundary.** Write what those units permit and what they leave unresolved. Distinguish observed result, mathematical consequence under assumptions, model-consistent explanation, causal identification, and extrapolation. Recover comparison identity and assumptions before renaming a quantity. If a needed inference exceeds support, investigate the decisive gap within authorization; do not try to repair it with stronger verbs or default immediately to abandoning the question.
+4. **Choose sentence frames and collocations.** Query the reviewed library by reader task, evidence kind, relevant section and domain, then read each candidate's `use_when`, `avoid`, `source_function` and context locator. Start from the supported statement in the current study. Select the object, action, reference and conditions before choosing its wording. Adapt or discard a frame when its slots or relation do not fit. Domain collocations are optional; do not import melt-pool terms into an unrelated problem.
+5. **Verify the paragraph in context.** Read adjacent paragraphs, methods definitions and corresponding displays. Check subject/action, referents, quantity names/units, comparison conditions, and the information carried from known to new. Check that all sentences serve the controlling point and that Abstract/Conclusion preserve its scope. A locally correct sentence can imply an unsupported conclusion through placement or a missing qualifier. Return the repaired text plus remaining evidence questions, then let the requester close the handoff.
+
+For a consequential passage, the writer's ordinary result file can include a compact trace: paragraph purpose; evidence locators and data roles; permitted inference and excluded inference; chosen entry IDs or a reason for using no frame; revised passage; adjacent-context check; unresolved question and proposed diagnostic. This is an optional representation, not a new runtime schema or a form required for every sentence. The runtime binds the file revision; it does not validate the trace's scientific interpretation.
+
+## Scientific distinctions that wording must preserve
+
+| Available evidence | Permitted use | Further evidence required for a broader claim |
+|---|---|---|
+| Approximation/existence theorem under stated hypotheses | A model class can represent the target within the theorem's norm and assumptions | Optimizer convergence, finite-data learning, finite architecture error and empirical performance need their own checks |
+| Agreement for a measured output under matched conditions | That output agrees to the reported error over the tested comparison | A different field or physical mechanism needs corresponding observations and discriminating alternatives |
+| Ranking in specified benchmarks, metrics and compute settings | A conditional performance comparison | Universal superiority requires an appropriate broader scope; disclose tradeoffs and counterexamples |
+| Multiple parameter sets fitting observations comparably | Demonstrated ambiguity for those observations, or practical non-identifiability with appropriate diagnostics | Unique identification needs informative observables/excitation and an identifiability analysis; one optimizer run proves neither uniqueness nor non-uniqueness |
+| Held-out objects with responses covered by training data | Performance on the declared split and response support | Distribution shift, new constitutive laws or boundary conditions need separate tests; unseen IDs alone do not establish extrapolation |
+| Fast inference after training | Inference speed under matched workload and hardware | Total efficiency counts data generation, training, preprocessing and amortization |
+| Small residual or conserved global quantity | The checked equation/balance property to its stated tolerance | Accuracy of other observables, local physics and real-world validation remain distinct |
+
+`suggest`, `support`, `indicate` and `demonstrate` do not form a universal strength ladder. Judge **verb + exact assertion + conditions**: the same evidence can directly establish a tested difference yet leave its mechanism uncertain. Do not weaken an established definition or measured conditional result simply to sound cautious.
+
+Connectors encode actual relations. Spell out the two propositions before using `whereas` (comparison), `although` (concession), `therefore` (warranted consequence), or `because` (supported explanation). `agreement with`, `sensitivity to`, `under`, `within`, and `across` should identify the reference, response/parameter, conditions, range, and case population. Concision must preserve necessary qualifiers, independent-data roles and contrary observations.
+
+## Return to research when prose exposes a gap
+
+The writer returns the affected claim, missing observable/comparison, alternatives to distinguish, fixed conditions, available source/raw data, proposed output and finite return point. The coordinator chooses the next evidence task by how its answer changes understanding. A new investigation can produce a negative result; inspect its actual return before revising the argument. Keep unaffected writing active. If supplementary work is infeasible, preserve the limitation and record the disposition of the affected claim instead of inventing a result.
+
+Record writing traces as separate task outputs using the existing `task/record/decide` interface. Accepting an editorial delivery closes that task; it does not promote physical validation. Neither text similarity, short-anchor matches, source venue, fluent prose nor `protocol_ok: true` is a scientific PASS. A result used to promote a claim needs the coordinator's evidence-specific judgment at its exact support level.
+
+## Select an expression by section, position and purpose
+
+For library-assisted revision, specify the assigned section, the sentence's position and the scientific job it must perform, together with the current object, its introduction status, preceding premise, intended claim and evidence. Use the library's manually reviewed position-purpose index when available; full-text keyword search only locates material to inspect. Recommended use and a verified original source position are separate fields. An unclassified or incompatible result can legitimately require independently written prose rather than forcing a frame. Read the entry, use/avoid conditions and necessary original context before adaptation. Slot completion checks the declared contract, not scientific adequacy or naturalness.
+
+A first sentence should give readers a recognizable scientific object and a concrete relation, or clearly introduce the present study and its operation. Avoid beginning with an unintroduced compound such as a calibrated field that supplies downstream inputs. In an Introduction, make each paragraph's established point prepare the next paragraph's new question; its final unit should draw the preceding tension into a study objective, identify the chosen model/design and express only the contribution actually supported. A goal, an executed operation and an earned finding are different statements. A summary bridge or contribution list is useful where it clarifies that route, not compulsory phrasing. At the first relevant model introduction, state that the study adopts, formulates or uses a named model and its role/scope; definite short references such as “the model” become useful after that identity is available. Review these boundary passages as integrated reader tasks, not as connector or phrase quotas.
+
+Judge information selection from the intended reader's knowledge before selecting expressions. Have the writer state the problem, changed factor or reasoning dependency, response and supported finding in recognizable terms. An abstract usually needs the question and answering comparison, not the full calibration or observation procedure; retain details when they change the inference and locate reproduction detail elsewhere. If the same opacity recurs across sections, rebuild the affected argument and information allocation rather than adding successive term substitutions. The reviewer should reconstruct what the actual prose lets the reader understand, as well as check retained evidence; preservation alone does not establish clear exposition.
+
+## Allocate evidence to a readable artifact
+
+Before a whole-paper writing handoff, name the decisions the reader must make and assign prose, a plot, a comparison/definition table or an appendix to each. Main results need their decisive comparisons and limitations within easy reach; exact full tables and detailed implementation checks can remain in the appendix. Ask a display to expose a relationship or scale that prose obscures, using actual evidence with its observation and uncertainty identities. Do not require a fixed figure count, a figure-to-paragraph ratio or a decorative workflow.
+
+Inspect the rendered artifact: can the reader see the essential evidence near the inference, and does prose interpret rather than transcribe it? Merge fragments with one controlling point, preserve distinct reasoning tasks and avoid giant merged blocks. Relocating a number requires a precise retained display/source, not deletion of contrary evidence. Review text and displays together before closing the editorial handoff. This addition responds to an observed AMMT information-allocation weakness; it is editorial guidance rather than a sourced journal requirement.
+
+## Distillation provenance and portable use
+
+Reviewed source snapshot: 2026-10-03; base [language integration](https://github.com/1187124906zty-commits/scientific-writing-library/blob/main/docs/language-integration.md), [paragraph chains](https://github.com/1187124906zty-commits/scientific-writing-library/blob/main/examples/paragraph-chains.md), and populated expansion entries with [separate anchor and semantic audit fields](https://github.com/1187124906zty-commits/scientific-writing-library/blob/main/provenance/expansion/validation.json). This adaptation read the local library and its audit records; it did not independently reread every original full text or infer current-study support from the audit.
+
+Representative reviewed entries for rechecking a specific use:
+
+| Entry / source | Located function retained here |
+|---|---|
+| G103; DOI `10.1038/nphys3424`, PDF p.1 block 22 | Reproducing behavior under assumptions leaves mechanism necessity unresolved |
+| EXP-NMI-P010; DOI `10.1038/s42256-026-01233-9`, PDF p.4 block 9 | Existence of approximating models under assumptions |
+| EXP-NMI-P012; same DOI, PDF p.8 block 7 | Include upfront data generation/training in efficiency |
+| EXP-NMI-P006 / P008; DOI `10.1038/s42256-023-00762-x`, PDF p.4 block 7 / p.6 block 10 | Distinguish unseen objects from response novelty and training-domain limits |
+| EXP-NPCM-P007; DOI `10.1038/s41524-026-02054-5`, PDF p.8 block 3 | Good fit with nearly identical likelihoods from different parameter sets |
+
+Page/block locators belong to the library's declared source versions and extraction; other versions need fresh location checks. Select entries by the scientific task, not journal prestige. A library-building target such as 260 papers is an acquisition scope for that library, not a minimum reading count for a research project. Local reviewed entries can be used offline without downloading the entire corpus; fetch pivotal original sources when their interpretation actually matters. Missing library access permits direct evidence-shaped writing with the same checks, not fabricated entry provenance.

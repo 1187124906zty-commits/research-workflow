@@ -1,0 +1,114 @@
+{
+  "fixture_kind": "synthetic instruction-development cases; no current-study or published findings",
+  "cases": [
+    {
+      "id": "W1",
+      "request": "Revise this Methods-to-Results bridge: 'Our approximation theorem guarantees that the trained network solves every admissible PDE accurately.' Return the paragraph purpose, evidence use, revised passage, and the next useful action.",
+      "previous": "The proposed model composes a coordinate map with an operator network.",
+      "next": "The next paragraph reports numerical error for three trained networks.",
+      "evidence_units": [
+        {"locator": "synthetic/theorem.txt:1", "text": "For each epsilon > 0 there exist component networks whose composition approximates continuous operators on a compact domain within epsilon in the supremum norm; the map satisfies the stated smoothness and invertibility conditions."},
+        {"locator": "synthetic/training.csv:1-4", "text": "Three finite networks: held-out relative L2 errors 0.018, 0.021, 0.020. No optimizer convergence proof; no tests outside the stated domain."}
+      ]
+    },
+    {
+      "id": "W2",
+      "request": "Write a short Discussion passage supporting 'the measured width identifies Marangoni convection as the cause'. Include a bounded evidence question if needed.",
+      "previous": "Model A predicts a melt-pool width of 100 micrometres, matching the measured width within its 5-micrometre uncertainty.",
+      "next": "The next subsection examines temperature trajectories.",
+      "evidence_units": [
+        {"locator": "synthetic/comparison.json:width", "text": "A includes convection; B omits it but adjusts absorptivity. Both predict width 100 micrometres under identical scan conditions."},
+        {"locator": "synthetic/comparison.json:temperature", "text": "Predicted peak temperatures: A 2100 K; B 2500 K. No temperature or velocity observations have been acquired."}
+      ]
+    },
+    {
+      "id": "W3",
+      "request": "Rewrite the Abstract claim 'A is the universally best solver'. Choose a useful supported comparison and state any follow-up needed for the paper's stated target: accuracy at fixed compute on these cases.",
+      "previous": "The study compares solvers A and B on two declared model problems.",
+      "next": "The abstract closes with an applicability statement.",
+      "evidence_units": [
+        {"locator": "synthetic/benchmark.csv:2", "text": "Case X, same CPU and 10-minute budget: A error 1%, B error 3%; numerical uncertainty 0.1 percentage point."},
+        {"locator": "synthetic/benchmark.csv:3", "text": "Case Y, same CPU and 10-minute budget: A error 5%, B error 2%; numerical uncertainty 0.1 percentage point."}
+      ]
+    },
+    {
+      "id": "W4",
+      "request": "Draft a Results paragraph from the inverse fit and address the author's sentence 'The physical parameters were uniquely recovered'.",
+      "previous": "The inverse problem uses load-displacement observations from one excitation condition.",
+      "next": "The next paragraph proposes a second excitation condition.",
+      "evidence_units": [
+        {"locator": "synthetic/likelihood.csv:2-4", "text": "Parameter pairs (1,4), (2,2), (4,1) have losses 0.010, 0.011, 0.010; observation-noise-based loss resolution is 0.003."},
+        {"locator": "synthetic/identification-notes.txt:1", "text": "All three pairs predict the same measured compliance within noise. No structural identifiability proof or additional measurement is available."}
+      ]
+    },
+    {
+      "id": "W5",
+      "request": "Revise the paragraph 'Unseen specimens demonstrate out-of-distribution generalization; the method therefore handles arbitrary materials.' Preserve the actual testing success.",
+      "previous": "Training and testing were split by specimen identity.",
+      "next": "A future experiment would vary the constitutive law and loading boundary condition.",
+      "evidence_units": [
+        {"locator": "synthetic/split.json:1", "text": "No shared specimen IDs. Test responses lie within the training response range; all simulations use the same constitutive law and boundary conditions."},
+        {"locator": "synthetic/errors.csv:2", "text": "On these held-out specimens relative response error is 2%, compared with baseline error 6%, using identical metrics."}
+      ]
+    },
+    {
+      "id": "W6",
+      "request": "Write an efficiency conclusion for a planned batch of 100 predictions, replacing '100 times faster overall'. State a useful next action if the evidence permits one.",
+      "previous": "On the same hardware, inference takes 0.01 s and direct solution takes 1 s per prediction.",
+      "next": "The deployment discussion estimates the expected prediction workload.",
+      "evidence_units": [
+        {"locator": "synthetic/timing.json:1", "text": "Data generation and training cost 1000 s once. Learned total cost = 1000 + 0.01*N seconds; direct total cost = N seconds. No extra preprocessing costs in this fixture."}
+      ]
+    },
+    {
+      "id": "W7",
+      "request": "Use journal-style writing to revise 'Although alpha is superior, therefore it is optimal'. Keep the paragraph in the supplied context; return any clarification to quantities and the applicable language choices.",
+      "previous": "Alpha denotes the absorption coefficient, not a solver variant. Variants A and B share the same alpha.",
+      "next": "The next paragraph compares cooling rates, which were not measured here.",
+      "evidence_units": [
+        {"locator": "synthetic/geometry.csv:2", "text": "For fixed alpha=0.3 and scan speed, variant A width error is 2%; B width error is 8%. Width errors use the same measurement reference; uncertainty is 0.2 percentage point."},
+        {"locator": "synthetic/library-audit.txt:1", "text": "A source expression has an exact short-anchor match and high text similarity. The expression library's acquisition project targets 260 papers. Neither record supplies new study data."}
+      ]
+    },
+    {
+      "id": "W8",
+      "request": "Deliver a concise Results paragraph and choose whether another refinement is needed for the stated decision: which variant produces larger flux in this synthetic model. Avoid hiding a clear result behind unnecessary hedging.",
+      "previous": "The model uses identical normalized boundary values and geometry for variants A and B.",
+      "next": "Mechanism discrimination and experimental comparisons remain separate future questions.",
+      "evidence_units": [
+        {"locator": "synthetic/flux.csv:2-4", "text": "At meshes 16, 32, 64, A flux is 1.000, 1.000, 1.000 in normalized units; B is 1.400, 1.400, 1.400. Independent analytic comparison bounds each flux error below 0.1%; balance and bounds checks pass. No physical experiment is available."}
+      ]
+    },
+    {
+      "id": "W9",
+      "request": "Revise an inverse-design Results paragraph claiming 'The generator uniquely determines the design and achieves 1% error for all samples'. Preserve what candidate generation and verification actually establish.",
+      "previous": "For a target response we sampled ten candidate geometries and ranked them with a forward evaluator.",
+      "next": "The next paragraph reports fabrication feasibility of the selected geometry.",
+      "evidence_units": [
+        {"locator": "synthetic/candidates.csv:2-11", "text": "Ten candidate errors are 1%, 3%, 5%, 7%, 9%, 11%, 13%, 15%, 17%, 19%. The plot shows the best candidate and a band for the ten predictions. Two distinct geometries satisfy the strict error < 5% criterion."},
+        {"locator": "synthetic/selection.txt:1", "text": "The best candidate was evaluated by an independent forward calculation. Candidate generation and ranking do not include a uniqueness proof."}
+      ]
+    },
+    {
+      "id": "W10",
+      "request": "Repair Methods and a short Results transition: 'Physical constraints in the training loss guarantee compliance; FEM labels independently validate the model, which improves every target.'",
+      "previous": "The active-learning loop predicts modulus and yield strength for generated candidates.",
+      "next": "The Discussion compares final fabricated specimens with the predicted response.",
+      "evidence_units": [
+        {"locator": "synthetic/acquisition.txt:1", "text": "Selection filters for target modulus and yield above the current best, adds 5% exploratory selections, and excludes weight more than 15% above a reference. These rules operate at candidate acquisition; the training loss is ordinary prediction error."},
+        {"locator": "synthetic/fem-role.txt:1", "text": "FEM parameters were calibrated using laboratory observations and FEM outputs then supplied training labels. Final printed specimens have separate measured responses."},
+        {"locator": "synthetic/target-history.csv:2-3", "text": "Target E=500: yield plateau, acquisition stopped. Target E=1000: yield increased but the selected candidate's realized modulus was 1300. Units are MPa."}
+      ]
+    },
+    {
+      "id": "W11",
+      "request": "Draft a computational-materials paragraph replacing 'Rare-event inverse design finds any high-performance material directly at negligible cost'. State the supported procedure and a useful comparison.",
+      "previous": "A surrogate evaluates candidate geometric parameters and their predicted material properties.",
+      "next": "The next paragraph explains high-fidelity verification of selected candidates.",
+      "evidence_units": [
+        {"locator": "synthetic/search.json:1", "text": "The procedure evaluates 1.5 billion randomly generated candidates with a trained surrogate and retains those inside prescribed property windows. End-to-end search time and rare-event acceptance rate are not recorded."},
+        {"locator": "synthetic/verification.txt:1", "text": "Three retained designs were checked by high-fidelity forward simulation. Those checks do not evaluate arbitrary targets or the total search/training workload."}
+      ]
+    }
+  ]
+}
