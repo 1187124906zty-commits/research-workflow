@@ -1,0 +1,22 @@
+{
+  "scope": "Generic editable-document instructions and role routing; scientific manuscript content is unchanged.",
+  "standard_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "result": "passed",
+    "count": 98,
+    "elapsed_seconds": 14.711,
+    "log": "research-assistant-maf/local-runs/r11-word-delivery-tests.log"
+  },
+  "native_maf_demo": {
+    "command": "python -m research_assistant demo local-runs/r11-word-delivery-check",
+    "status": "complete",
+    "cycles": 2,
+    "checkpoint": "6aff96dc-cbf4-41ef-b516-4f8ec613fe97",
+    "provider": "deterministic offline demo"
+  },
+  "skill_validation": {
+    "skill": "skills/scientific-writing",
+    "result": "valid"
+  },
+  "limits": "Tests and demo verify software flow, not Word conversion fidelity. Actual conversion and independent document review are separate desktop-agent work; no remote native MAF paper-conversion run or research efficiency claim."
+}

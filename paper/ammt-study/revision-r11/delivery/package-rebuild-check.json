@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-03T02:34:10.988870+00:00",
+  "source_package_matches_canonical": true,
+  "used_vector_figures": 4,
+  "reproduction_notes_included": true,
+  "archive_files": [
+    "manuscript.tex",
+    "bibliography.bib",
+    "highlights.txt",
+    "reproduction-notes.md",
+    "ammt-property-continuations.pdf",
+    "r8-geometry-validation.pdf",
+    "r8-property-boundaries.pdf",
+    "r8-speed-passage.pdf",
+    "README.txt"
+  ],
+  "extracted_package_build": "XeLaTeX/BibTeX/XeLaTeX/XeLaTeX",
+  "package_pdf_pages": 20,
+  "page_text_matches_compiled_pdf": true,
+  "tex_diagnostics": [],
+  "rebuild_directory": "revision-r11\\delivery\\source-rebuild-g1k9_4w6",
+  "scope": "Existing Windows TeX Live 2026; independent source/figure/page-text parity, not cross-platform or PDE replay verification"
+}

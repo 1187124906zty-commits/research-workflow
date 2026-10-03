@@ -54,15 +54,17 @@ def main():
     # Generic official Elsevier source instructions request one-folder assets.
     source = (ROOT/'manuscript.tex').read_text(encoding='utf-8')
     bibliography = re.search(r'\\bibliography\{([^}]+)\}',source).group(1)
+    figures = list(dict.fromkeys(re.findall(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}', source)))
     source = source.replace('{figures/','{').replace('{'+bibliography+'}','{bibliography}')
     with zipfile.ZipFile(ROOT/'submission-source.zip','w',zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('manuscript.tex',source)
         archive.write(ROOT/(bibliography+'.bib'),'bibliography.bib')
         archive.write(ROOT/'highlights.txt','highlights.txt')
         archive.write(ROOT/'reproduction-notes.md','reproduction-notes.md')
-        for path in sorted((ROOT/'figures').glob('*.pdf')):
+        for relative in figures:
+            path = ROOT / relative
             archive.write(path,path.name)
-        archive.writestr('README.txt','Research first draft; authorship and current Additive Manufacturing-specific submission requirements remain to be completed. Build with XeLaTeX, BibTeX, XeLaTeX twice. Uses standard elsarticle, geometry and siunitx packages. The author-reading surface is single-column 12pt, 180 mm wide and 245 mm high to preserve vector-figure readability; this geometry is not asserted to be an AM submission requirement.\n')
+        archive.writestr('README.txt','Research draft for human evaluation. The Additive Manufacturing guide dated 2026-10-02 has been studied; final authorship, human verification, ISO/ASTM terminology review and journal-specified word-count reporting remain pending. Build with XeLaTeX, BibTeX, XeLaTeX twice. Uses standard elsarticle, geometry and siunitx packages. The author-reading surface is single-column 12pt, 180 mm wide and 245 mm high to preserve vector-figure readability; this geometry is a reading choice. Third-party reading copies are provided separately for local personal review and are excluded from this source archive.\n')
     print('Created submission-source.zip (flat TeX/BibTeX/figure/reproduction assets).')
 
 if __name__=='__main__':

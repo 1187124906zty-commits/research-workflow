@@ -1,0 +1,20 @@
+{
+  "latex_pdf_pages": 20,
+  "pdf_bytes": 406318,
+  "checked_pdf_input": "manuscript.pdf",
+  "local_canonical_pdf_matches_checked": true,
+  "resolved_cited_identities": 38,
+  "bibliography_candidates": 55,
+  "scientific_figures": 4,
+  "checked_document_links": 547,
+  "unresolved_delivery_defects": [],
+  "human_review_status": "awaiting_review",
+  "supplement_task_status": "accepted",
+  "supplement_requester_closed": true,
+  "limits": [
+    "Author guide read; Word/iThenticate count and ISO/ASTM terminology review pending",
+    "Authorship/human final verification pending",
+    "Full PDE replay requires original case fields and environment",
+    "Scientific novelty/acceptance not certified"
+  ]
+}

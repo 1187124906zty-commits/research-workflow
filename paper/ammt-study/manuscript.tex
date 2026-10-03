@@ -7,12 +7,14 @@
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \sisetup{detect-all}
 \setlength{\emergencystretch}{1.5em}
+\widowpenalty=10000
+\clubpenalty=10000
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\textfraction}{0.08}
 \renewcommand{\floatpagefraction}{0.8}
 % Wider author-reading surface keeps the supplied 180 mm vector figure labels readable.
-% AM-specific submission margin requirements remain unverified.
+% The acquired AM guide does not specify this author-reading geometry.
 \geometry{textwidth=180mm,textheight=245mm,headheight=14pt,headsep=8pt,footskip=16pt}
 \journal{Additive Manufacturing}
 \newcommand{\um}{\ensuremath{\mu\mathrm{m}}}
@@ -24,9 +26,10 @@
 \newcommand{\HH}{\mathrm{HH}}
 \begin{document}
 \begin{frontmatter}
-\title{Melt-pool geometry and solidification time in IN625 laser melting: sensitivity to high-temperature property extrapolation}
+\title{Melt-pool geometry and rear phase boundaries in IN625 laser melting: sensitivity to high-temperature property extrapolation}
+
 \begin{abstract}
-Melt-pool dimensions provide accessible calibration targets for thermal models of laser additive manufacturing, yet the solidification history inferred from a fitted field also depends on its thermophysical description. For IN625, the property tables used in the present model stop below the melting interval, leaving the resulting rear temperature profile dependent on extrapolation. Here, an enthalpy-based conduction model of bare-plate laser tracks resolves that dependence through paired rear solidus and liquidus positions. Conductivity and sensible specific heat are extrapolated using either the final tabulated slope or a constant endpoint value, separately and together, while retaining the source-power fraction fitted to one condition's thermographic mean length. The length fit leaves the fusion envelope wider and shallower than the metallographic means. Constant endpoint extrapolation of conductivity lengthens the pool, while the corresponding specific-heat change shortens it. The dominant length increase displaces both rear phase boundaries downstream with much less change in their separation. Across two scan speeds, almost equal separations nevertheless correspond to a passage time through the adopted freezing interval shorter by about one-third at the higher speed. These results connect prescribed property functions to distinct spatial and temporal features of the calibrated field. They identify rear phase-boundary position, separation and material passage time as specific outputs for thermal assessment alongside fusion geometry.
+Thermal fields calibrated to melt-pool geometry supply inputs to solidification models, yet a change in pool length does not reveal whether the rear freezing interval moves or widens. This study examines that distinction for high-temperature material assumptions with a nonlinear enthalpy model of heat conduction for IN625 bare-plate tracks in a moving frame. The source-power fraction is fitted to one thermographic length from the Additive Manufacturing Metrology Testbed. It is then retained while conductivity and sensible specific heat are changed separately and together between linear and constant high-temperature extrapolation at a common phase law. Paired rear solidus and liquidus positions distinguish displacement of the thermal tail from a change in the freezing interval. The calibrated field and its property variants remain wider and shallower than the metallographic means. Replacing linear conductivity extrapolation by its constant endpoint value lengthens the pool chiefly by moving both rear boundaries downstream, while the specific-heat change partly offsets that extension. Their separation changes on a much smaller scale and depends on the partner function. Matched axial refinement preserves the large displacement but leaves the direction of the smallest separation response unresolved. In a separate fixed-power speed comparison, near-equal rear separations yield a stationary-material passage about one third shorter at the higher speed. These results distinguish melting extent, rear boundary position, interval width and passage time as separate assessment targets for a calibrated conduction field used to supply solidification information.
 \end{abstract}
 \begin{keyword}
 Laser powder bed fusion \sep IN625 \sep Melt-pool geometry \sep Enthalpy model \sep High-temperature properties \sep Model discrepancy
@@ -36,33 +39,28 @@ Laser powder bed fusion \sep IN625 \sep Melt-pool geometry \sep Enthalpy model \
 \section{Introduction}
 \label{sec:introduction}
 
-Thermal models of laser powder bed fusion (LPBF) connect processing conditions to the extent of melting and to the thermal conditions experienced during solidification. Melt-pool geometry identifies the fused region, whereas solidification analysis also uses temperature gradients and material cooling histories. Heat-transfer calculations have been used to relate process inputs to these thermal quantities and to assess grain-structure trends in selected laser and electron-beam powder-bed cases~\cite{Plotkowski2017Rapid}. Spatially and temporally resolved thermography provides complementary observations of temperature profiles and cooling during laser processing~\cite{hooper2018}. Geometry and temperature history thus serve related but distinct purposes: a geometric fit constrains a melting boundary, while the thermal information associated with that boundary depends on the model used to calculate it.
+Thermal models of laser powder bed fusion connect processing conditions to the extent of melting and the conditions under which material solidifies~\cite{king2015}. Fusion geometry and local thermal information serve different purposes in these calculations: dimensions describe the melted region, whereas temperature gradients and histories supply inputs to solidification models~\cite{Plotkowski2017Rapid}. IN625 thermal fields calibrated to geometry have supported grain and subgrain predictions, although discrepancies in near-surface temperatures also affect those outputs~\cite{yuan2024}. Assessing such a field therefore requires distinguishing its agreement with a geometric target from the thermal information it provides for subsequent solidification calculations.
 
-Moving-source conduction models provide this information without resolving the full motion of the liquid or the absorbing surface. Distributed-source formulations remove the near-source singularity of concentrated-source solutions, and nonlinear enthalpy formulations accommodate temperature-dependent properties and latent heat~\cite{vanelsen2007}. Their practical value is illustrated by the IN625 benchmark conducted on the Additive Manufacturing Metrology Testbed (AMMT)~\cite{lane2020}. Using the measured beam profile, Kollmannsberger et al. fitted a scalar absorbed-power parameter that reproduced length more closely than width and depth; a calibrated directional-conductivity model then improved the geometric agreement across the tested conditions~\cite{kollmannsberger2019}. This improvement depended on the material description as well as the source. Their conductivity data ended at 871~$^\circ$C, below the melting range, and they explicitly treated its high-temperature extrapolation as a physical model requiring calibration~\cite{kollmannsberger2019}. The resulting geometry therefore reflects both the incident heating and the assumed transport beyond the available material data.
+The IN625 bare-plate measurements from the Additive Manufacturing Metrology Testbed (AMMT) offer a direct setting for this distinction, with a characterized beam and separate observations of length and cross-sectional dimensions~\cite{lane2020}. In the closest nonlinear conduction study, fitting a scalar source-power coefficient reproduced length more closely than width and depth; calibrated directional conductivity then improved the transverse agreement~\cite{kollmannsberger2019}. The transverse dimensions thus supplied constraints beyond the fitted length. That study also identified high-temperature conductivity extrapolation as part of the physical model participating in calibration and restricted the interpretation of temperatures inside the pool. Length calibration therefore establishes a source scale under a specified material description, while the associated rear thermal profile requires its own assessment.
 
-The thermal information in such a calibrated field requires a separate assessment. The AMMT modeling study restricted the use of its improved model for predicting temperatures inside the melt pool~\cite{kollmannsberger2019}. A later study of bare-plate 316L tracks demonstrated why temperature observations add information to a geometric fit: several Fresnel and accommodation coefficient pairs in a fluid model gave comparable agreement with cross-sectional area and width-to-depth ratio, but predicted different surface-temperature profiles. Two-color measurements distinguished those thermal predictions~\cite{myers2023}. This evidence establishes the importance of the particular observable used to assess a model. In the AMMT measurements, length is obtained from a radiance profile, while width and depth are obtained from metallographic cross sections~\cite{lane2020}. The dimensions constrain different features of the calculated field, and their agreement does not select the material functions that generated its temperature distribution.
+The high-temperature description is needed because conductivity and sensible specific heat govern diffusion and energy storage throughout pool formation and cooling. Yet the IN625 measured conductivity and calculated specific-heat data in the Special Metals bulletin end below its listed melting interval~\cite{specialmetals625}. Extending these data therefore introduces assumptions into the temperature range containing the rear phase boundaries. Composition-based property estimates provide other high-temperature inputs, while the scatter in liquid-state data leaves the estimation route consequential~\cite{mills2006}. Local sensitivity analysis has quantified an AMMT model's response to solid and liquid properties, latent heat and phase thresholds~\cite{rincon2024}. Those derivatives describe perturbations near selected property values; changing the extrapolation rule instead replaces an entire above-table function sampled by the thermal field. The relevant question is how that prescribed replacement changes the rear region after the source-power fit.
 
-The IN625 material functions used in the present study make this dependence concrete. Conductivity determines diffusive heat transport, while sensible specific heat enters the enthalpy stored during heating and released during cooling. The supplier tables provide conductivity only to 982~$^\circ$C and sensible specific heat only to 1093~$^\circ$C, both below the listed 1290--1350~$^\circ$C melting range. The bulletin describes conductivity as measured and specific heat as calculated typical alloy data~\cite{specialmetals625}. Both functions must therefore be extended before the model can evaluate transport and sensible storage throughout the adopted melting interval and above it. Assessments of nickel-superalloy properties also show that liquid-property estimates depend on the measurements and estimation procedure available~\cite{mills2006}. The fitted source-power factor is consequently conditional on the chosen extrapolation functions; a geometric calibration does not supply the missing high-temperature material data.
+The rear response must also be separated from the assumed freezing path. Wells et al. changed the IN625 solid-fraction--temperature relation and found substantial changes in tail solidification time and thickness with smaller changes in width and depth~\cite{solidpath2024}. Their result shows that latent-heat distribution can alter the thermal information associated with fusion geometry, motivating a common phase law when conductivity and sensible storage are compared. At that common law, a length change can still arise from downstream displacement of the rear solidus and liquidus, a change in their separation, or both. These alternatives have different meanings for solidification: the boundary positions locate the adopted freezing interval, whereas its separation and the material trajectory determine passage through it. For stationary material in a steady moving field, that passage also depends on scan speed.
 
-The extrapolation of sensible properties must be distinguished from the phase-change prescription in the same enthalpy balance. Latent heat is stored and released according to the adopted liquid-fraction relation as well as the total heat of fusion~\cite{vanelsen2007}. A linear fraction across a specified freezing interval is an established continuum approximation~\cite{dynamic2024}. Its endpoints, however, need not coincide across material descriptions: an IN625 model for rapid additive-manufacturing cooling used a lower eutectic endpoint from Gulliver--Scheil calculations, whereas the supplier bulletin lists a melting range~\cite{dynamic2024,specialmetals625}. Changing that interval redistributes latent storage along the temperature axis. Comparing conductivity and sensible-heat-capacity extrapolations with a common phase law therefore gives their responses a defined meaning within the same thermal model.
+This study examines those distinctions in a length-calibrated IN625 conduction field. Conductivity and sensible specific heat are changed separately and together at the retained fitted source-power fraction and a common phase law to assess dependence on the high-temperature material description. Paired rear solidus and liquidus positions distinguish displacement of the freezing interval from a change in its width; a separate fixed-power speed comparison relates that spatial interval to passage time for stationary material.
 
-With the phase thresholds fixed, the rear temperature profile can resolve features that total pool length combines. A solidus-crossing length depends on the front and rear boundary positions. At the rear, the solidus and liquidus crossings describe both the position of the thermal tail relative to the source and the spatial separation across the adopted freezing interval. Displacing the two rear crossings together changes total length while preserving approximately the same separation. Changing their separation alters the spatial interval over which material cools between the adopted thresholds. Conductivity and sensible storage affect the same coupled field, so an overall length response alone cannot distinguish these changes. Resolving the rear pair provides a direct way to interpret which part of the calculated thermal structure responds to the prescribed property functions.
+\section{Methods}
+\label{sec:methods}
 
-The material time associated with this spatial interval also depends on scan speed. For a steadily translating field, material fixed in the laboratory passes through the rear solidus--liquidus separation in a time equal to that separation divided by the speed. Similar spatial intervals can thus correspond to different passage times and interval-mean cooling rates. Constant-speed conversion from position to time is used in the AMMT cooling analysis, although that analysis considers a below-solidus interval~\cite{lane2020}. The trajectory represented by the conversion remains consequential: pulsed LPBF thermography resolves histories affected by successive heating events~\cite{hooper2018}, and fluid calculations show that liquid motion changes the thermal excursions followed by material parcels~\cite{Hou2024Dissolution}. Passage through a quasi-steady conduction field describes a stationary-material trajectory whose time interpretation is tied to that field and its adopted freezing interval.
+Single-track laser melting of an IN625 bare plate is represented by a quasi-steady conduction field in the laser frame. The AMMT measurements supply the operating conditions and geometric reference quantities: thermographic length~\cite{lane2020} is used to fit the source-power fraction, and metallographic width and depth~\cite{nist2018} assess the fusion shape obtained at that fraction.
 
-Taken together, the need to extrapolate the material inputs and the different information carried by geometry and material time motivate the present assessment of a length-calibrated IN625 conduction field. In a nonlinear moving-frame enthalpy model, an effective source-power fraction is fitted to condition B thermographic length and retained for two complementary comparisons across three AMMT bare-plate conditions. Width, depth and the other operating conditions assess the geometry associated with that fit. At B, independent conductivity and sensible-heat-capacity contrasts compare linear extrapolation using the final tabulated slope with constant endpoint extrapolation under a common phase law. Resolving the rear solidus--liquidus positions and separation distinguishes thermal-tail displacement from a change in interval width, while the operating-condition comparison relates each spatial interval to material passage time at its scan speed. The objective is to determine how the prescribed property functions alter the spatial and temporal interpretation of the calibrated field.
-
-\section{Materials and methods}
-
-The analysis uses two comparisons to examine the thermal information in a length-calibrated field. The first retains the B-fitted effective source-power fraction when assessing width, depth and the other operating conditions. The second changes the above-table conductivity and sensible specific heat at B, with B's source power and the phase law retained. Rear solidus and liquidus positions distinguish displacement of the cooling interval from a change in its spatial extent; scan speed then converts that extent to a passage time for stationary material.
-
-\subsection{Benchmark observations and comparison design}
+\subsection{Experimental data}
 \label{sec:benchmark-design}
-The benchmark comprises constant-speed single-track laser scans on bare IN625 plate made on the Additive Manufacturing Metrology Testbed (AMMT)~\cite{lane2020}, under the three public conditions in Table~\ref{tab:conditions}. Conditions B and C share the same applied power and differ in scan speed; condition A combines a lower power with a lower speed. The effective source-power fraction $\eta$ scales the power supplied to the conduction model to $\eta P$. It is fitted to B length and retained in the comparisons described below. The measured beam diameter is $D_{4\sigma}=170$~\um{}~\cite{lane2020}. For the assumed circular Gaussian, $D_{4\sigma}=2w$, giving $w=85$~\um. This reconstruction matches the measured second-moment diameter with circular symmetry; the published beam measurement retains a two-dimensional intensity map.
+Of the three operating conditions in Table~\ref{tab:conditions}, B and C share applied power and differ in speed, providing the fixed-power speed comparison; A changes both power and speed and supplies a separate operating condition. Speed changes both the absorbed line-energy scale and the beam passage scale. These input scales are retained separately because conduction geometry depends on heating and diffusion as well as energy per unit length~\cite{rubenchik2018}; the rear-interval duration is subsequently obtained from the solved field.
 
 \begin{table}[htbp]
 \centering
-\caption{AMMT operating conditions and model energy scales. The effective source-power fraction $\eta\approx0.28905$ is fitted to B thermographic length only. $E_\ell=\eta P/v$ and $w/v$ are model input scales.}
+\caption{AMMT operating conditions and model input scales. $P$ and $v$ are applied laser power and scan speed. The line-energy scale $E_\ell=\eta P/v$ uses the B-length-fitted source-power fraction, and $w/v$ is the beam passage scale.}
 \label{tab:conditions}
 \begin{tabular}{lrrrr}
 \toprule
@@ -75,87 +73,129 @@ C & 179.2 & 1.2 & 43.17 & 70.83\\
 \end{tabular}
 \end{table}
 
-Length targets are the AMMT-20~\us{} thermographic class means reported by Lane et al.~\cite{lane2020}. Their A/B/C populations contain 19/10/7 video frames, respectively. Width and depth are compared with the NIST challenge Table~2 metallographic means for the AMMT-100~\us{} specimen: three tracks each for A and B, and four for C~\cite{nist2018}. Lane's later cross-section compilation combines the 100 and 20~\us{} microscopy classes~\cite{lane2020}. Length and cross-sectional dimensions consequently enter as condition-level measurements from separate sampling populations, rather than three jointly observed dimensions of one pool.
+The axial calibration uses Lane et al.'s \emph{thermographic length data}: AMMT-20~\us{} class means based on 19, 10 and 7 video frames for A, B and C~\cite{lane2020}. The transverse comparison uses the \emph{metallographic dimensions}: current NIST AMMT-100~\us{} width and depth means from three tracks each for A and B and four for C~\cite{nist2018}. Lane's later microscopy compilation combines the 100 and 20~\us{} classes~\cite{lane2020}. Length, width and depth thus provide condition-level constraints from separate sampling populations, rather than jointly observed dimensions of one pool.
 
-The published geometric targets were consulted during model development, so the post-calibration comparisons are retrospective and nonblind. Only condition B length enters the calibration objective; B width/depth and all A/C dimensions are assessed with the resulting source-power fraction. Expanded uncertainties $U$ with coverage factor $k=2$ are taken from Lane's uncertainty budgets~\cite{lane2020}. For width and depth, these scales belong to the combined-class microscopy analysis, whereas the target means belong to the NIST 100~\us{} classes. Each signed difference $\delta=Q_{\rm model}-Q_{\rm measurement}$ is also reported as $\delta/U$, a descriptive normalization by that published measurement scale. The denominator does not include model, input or calibration uncertainty, and the width/depth ratios do not constitute a formal uncertainty test of the 100~\us{} target means.
+Condition B's thermographic mean length estimates an effective source-power fraction $\eta$, which scales the model input to $\eta P$. The fraction is then retained for B width and depth and all A/C dimensions, leaving those comparisons to assess the geometry associated with the length fit. All geometric targets were available during model development, making this a retrospective assessment. Signed differences are $\delta=Q_{\rm model}-Q_{\rm measurement}$, and $\delta/U$ reports their size relative to Lane's expanded measurement uncertainties with coverage factor $k=2$~\cite{lane2020}. For width and depth, these $U$ values come from Lane's combined-class microscopy analysis, while the target means come from the NIST 100~\us{} classes. The ratios describe the residual scale; they include no model, input or calibration uncertainty and do not form a formal uncertainty test of those target means.
 
-\subsection{Moving-frame enthalpy model and high-temperature properties}
-The conduction model accounts for sensible and latent energy through a conservative enthalpy formulation~\cite{vanelsen2007}. This permits conductivity and sensible specific heat to be changed separately while preserving one phase law. The laboratory-frame balance is
+\subsection{Enthalpy model}
+Separating transport from sensible storage requires a formulation in which changing specific heat leaves the latent-heat relation intact. The adopted conservative enthalpy formulation provides that separation within established moving-source conduction treatments~\cite{vanelsen2007}:
 \begin{equation}
  \frac{\partial H}{\partial t}=\nabla\cdot[k(T)\nabla T],\qquad
  H(T)=\rho\left[\int_{T_0}^{T}c_p(s)\,\mathrm ds+\mathcal L f(T)\right].
  \label{eq:enthalpy}
 \end{equation}
-The density $\rho=8440$~\si{\kilogram\per\cubic\metre} follows the IN625 supplier bulletin; its listed melting range supplies the adopted thresholds $T_s=1290$~$^\circ$C and $T_l=1350$~$^\circ$C~\cite{specialmetals625}. The latent heat $\mathcal L=280000$~\si{\joule\per\kilogram} follows the earlier AMMT model~\cite{kollmannsberger2019}; the reference temperature is set to $T_0=25$~$^\circ$C. A linear liquid-fraction approximation distributes this latent heat over the adopted interval. A linear phase-fraction relation is also used in a continuum IN625 model~\cite{dynamic2024}, although that study selects a different freezing interval. Here the liquid fraction is
+Here $T$ is temperature, $H$ is volumetric enthalpy relative to $T_0$, $\rho$ is constant density, $k$ is conductivity, $c_p$ is sensible specific heat, $\mathcal L$ is latent heat per unit mass and $f$ is liquid fraction. The fixed inputs and their sources are given in Table~\ref{tab:model-inputs}. The bulletin's listed melting range supplies the solidus and liquidus~\cite{specialmetals625}; a linear phase-fraction approximation distributes latent heat uniformly between these thresholds:
 \begin{equation}
  f(T)=\begin{cases}
  0,&T<T_s,\\
  (T-T_s)/(T_l-T_s),&T_s\leq T<T_l,\\
  1,&T\geq T_l.
  \end{cases}
+ \label{eq:phase-fraction}
 \end{equation}
-Sensible specific heat and conductivity are linearly interpolated between the input knots in Table~\ref{tab:properties}. The conductivity table contains 15 points and ends at 982~$^\circ$C; the 12-point specific-heat table ends at 1093~$^\circ$C. The supplier labels specific heats as calculated and conductivity as measured, with the conductivity measurements made at Battelle on material annealed at 2100~$^\circ$F for 1~h~\cite{specialmetals625}. These are typical alloy data rather than benchmark-coupon measurements. Within the adopted phase interval, differentiating Eq.~\eqref{eq:enthalpy} gives $c_{p,\mathrm{eff}}=c_p+\mathcal L/(T_l-T_s)$, with a latent contribution of 4666.67~\si{\joule\per\kilogram\per\kelvin}. Retaining this contribution in every case distinguishes a change in sensible specific heat from a change in latent heat.
+This closure fixes the latent-heat release relation for the material-function comparison. Within the phase interval, differentiating Eq.~\eqref{eq:enthalpy} gives $\mathrm dH/\mathrm dT=\rho[c_p+\mathcal L/(T_l-T_s)]$. A specific-heat change therefore modifies sensible storage while retaining the same latent contribution. A linear phase relation is also used in an IN625 continuum model with different freezing endpoints~\cite{dynamic2024}; the endpoints and relation adopted here remain common to all cases.
 
-Both tables end below the adopted solidus, so the solution through the melting interval requires an above-table property definition. The closest AMMT conduction study likewise identified high-temperature conductivity extrapolation as a modeling assumption that participates in calibration~\cite{kollmannsberger2019}. Figure~\ref{fig:properties} defines the two extrapolation rules examined here.
-
-\begin{figure}[htbp]
+\begin{table}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/ammt-property-continuations.pdf}
-\caption{IN625 property inputs and extrapolation definitions. (a) Conductivity and (b) sensible specific heat use the knots in Table~\ref{tab:properties}, with common piecewise-linear interpolation below their respective endpoints. The final knots are 982~$^\circ$C and 25.2~\si{\watt\per\metre\per\kelvin} for $k$, and 1093~$^\circ$C and 670~\si{\joule\per\kilogram\per\kelvin} for $c_p$. L denotes final-secant linear extrapolation and H constant endpoint extrapolation, as defined in Eq.~\eqref{eq:property-extrapolation}. The displayed window is 25--2200~$^\circ$C; all 15 conductivity and 12 specific-heat source rows, including those below 25~$^\circ$C, are retained in the accompanying data and used in interpolation. Shading marks the adopted 1290--1350~$^\circ$C phase interval. The latent addition to effective specific heat within this interval is 4666.7~\si{\joule\per\kilogram\per\kelvin}, separate from sensible $c_p$. The supplier describes conductivity as measured and specific heat as calculated typical alloy data~\cite{specialmetals625}; the above-table functions are study-defined choices.}
-\label{fig:properties}
-\end{figure}
+\small
+\caption{Fixed model inputs. The phase thresholds and linear liquid fraction define the adopted phase law; the circular Gaussian reconstructs the measured second-moment beam diameter.}
+\label{tab:model-inputs}
+\begin{tabular}{llll}
+\toprule
+Quantity & Symbol & Value & Source or selection\\
+\midrule
+Density & $\rho$ & 8440 kg\,m$^{-3}$ & IN625 bulletin~\cite{specialmetals625}\\
+Solidus & $T_s$ & 1290 $^\circ$C & Listed melting-range lower endpoint~\cite{specialmetals625}\\
+Liquidus & $T_l$ & 1350 $^\circ$C & Listed melting-range upper endpoint~\cite{specialmetals625}\\
+Latent heat & $\mathcal L$ & 280000 J\,kg$^{-1}$ & Earlier AMMT model~\cite{kollmannsberger2019}\\
+Reference temperature & $T_0$ & 25 $^\circ$C & Prescribed cold-material reference\\
+Second-moment diameter & $D_{4\sigma}$ & 170 \um{} & AMMT beam measurement~\cite{lane2020}\\
+Gaussian radius & $w$ & 85 \um{} & Circular reconstruction: $D_{4\sigma}=2w$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-For either property $p\in\{k,c_p\}$, let $(T_{n-1},p_{n-1})$ and $(T_n,p_n)$ be its final two tabulated pairs. Above $T_n$, final-secant linear extrapolation (L) and constant endpoint extrapolation (H) are defined by
+A quasi-steady moving frame supplies the spatial cooling profile needed to relate rear positions to the history of stationary material. This construction follows moving-source heat-flow theory~\cite{rosenthal1946}. With $\xi=x-vt$, steady translation gives $\partial_tH=-v\partial_\xi H$, transforming the laboratory balance into
+\begin{equation}
+ \nabla\cdot(\bm uH-k\nabla T)=0,\qquad \bm u=(-v,0,0).
+ \label{eq:frame}
+\end{equation}
+The term $\bm uH$ is the passage of stationary material through the laser frame. No liquid momentum, evaporation or free-surface deformation is solved. Those processes introduce recoil and Marangoni transport and evaporative cooling in more detailed models~\cite{khairallah2016}. The velocity in Eq.~\eqref{eq:frame} consequently defines a material-coordinate history under steady translation.
+
+The source representation must keep beam shape fixed while the scalar fit changes total input power. The measured beam provides a two-dimensional intensity map~\cite{lane2020}; here a circular Gaussian preserves its second-moment diameter, and $\eta$ sets its integral:
+\begin{equation}
+ q(\xi,y)=\frac{2\eta P}{\pi w^2}
+ \exp\!\left[-\frac{2(\xi^2+y^2)}{w^2}\right],\qquad
+ \int_{\mathbb R^2}q\,\mathrm d\xi\,\mathrm dy=\eta P.
+ \label{eq:source}
+\end{equation}
+This normalization uses the same circular-Gaussian $D_{4\sigma}$ convention as the IN625 source formulation in Ref.~\cite{dynamic2024}. With outward normal $\bm n$, $-k\nabla T\cdot\bm n=-q$ supplies inward heat at the top surface. Incoming material at positive $\xi$ has $H=0$; the negative-$\xi$ boundary has zero diffusive gradient and permits coordinate enthalpy outflow. The symmetry plane, outer transverse boundary and bottom are adiabatic. Radiation and ambient convection are omitted from the solved balance.
+
+Because $\eta$ scales this prescribed source under the stated loss description, its length fit estimates a model source-power fraction. Independent energy-coupling measurements constrain related but distinct quantities: calorimetry measures coupling that varies with surface state and operating conditions~\cite{trapp2017}, and time-resolved reflectometry resolves optical absorptance during melting~\cite{simonds2018}. IN625 reflectometry further distinguishes unreflected power from retained energy when plume interactions or evaporative losses intervene~\cite{lane2020absorption}. These distinctions prevent assigning the fitted fraction an optical or calorimetric identity.
+
+\subsection{Property extrapolation}
+\label{sec:property-extrapolation}
+The solution traverses temperatures beyond the available property tables, so the comparison requires an explicit definition of their unmeasured extensions. The Special Metals bulletin provides typical measured conductivity data and calculated values of sensible specific heat for IN625~\cite{specialmetals625}. Both data groups are retained in Table~\ref{tab:properties} and interpolated independently and linearly between their knots. Their endpoints lie below the adopted solidus, leaving part of the solid-temperature range and the melting range dependent on extrapolation. This material-description issue is recognized in the earlier AMMT conduction model~\cite{kollmannsberger2019} and belongs to the wider need for temperature- and state-dependent inputs in additive-manufacturing thermal modeling~\cite{review2024}.
+
+Linear extrapolation (L) continues the final tabulated slope above each endpoint; constant extrapolation (H) retains the endpoint value. Both rules join continuously to the same interpolated data below that endpoint. For $p\in\{k,c_p\}$, let $(T_{n-1},p_{n-1})$ and $(T_n,p_n)$ be its final two pairs. Above $T_n$, the rules are
 \begin{equation}
  p_{\rm L}(T)=p_n+\frac{p_n-p_{n-1}}{T_n-T_{n-1}}(T-T_n),\qquad
  p_{\rm H}(T)=p_n,\qquad T>T_n.
  \label{eq:property-extrapolation}
 \end{equation}
-Thus H uses $k=25.2$~\si{\watt\per\metre\per\kelvin} above 982~$^\circ$C and $c_p=670$~\si{\joule\per\kilogram\per\kelvin} above 1093~$^\circ$C; the appendix lists the final-secant slopes. Each change applies above its table endpoint, including the solid range between that endpoint and $T_s$. Conductivity changes are applied consistently to $k$, its primitive $K$ and the inverse used for surface-temperature recovery. Specific-heat changes are applied to $c_p$, the enthalpy $H$ and its inverse $T(H)$. The archived two-letter labels place conductivity first: LL uses linear extrapolation for both properties, HL and LH change one property, and HH changes both. These functions define numerical property scenarios rather than bounds on measured liquid properties.
+Figure~\ref{fig:properties} places the extrapolations against the common phase interval. Each rule starts at its own table endpoint, including the solid-temperature range before melting. The same conductivity function is used in $k$, its primitive $K$ and the inverse for surface recovery; the same specific-heat function is used in $c_p$, $H$ and $T(H)$. The comparison thus uses each function consistently in the field solution and in the recovered observations.
 
-Following the moving-source coordinate description~\cite{vanelsen2007}, let $\xi=x-vt$. For a quasi-steady field, $\partial_tH=-v\partial_\xi H$; defining $\bm u=(-v,0,0)$ therefore gives
-\begin{equation}
- \nabla\cdot(\bm uH-k\nabla T)=0.
- \label{eq:frame}
-\end{equation}
-The term $\bm uH$ represents stationary material passing through the laser coordinate frame. No liquid momentum equation or melt convection is included. The assumptions also exclude evaporation and free-surface deformation.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/ammt-property-continuations.pdf}
+\caption{Tabulated IN625 properties and the two extrapolation rules. (a) Conductivity and (b) sensible specific heat use the complete inputs in Table~\ref{tab:properties}, with common linear interpolation below their respective endpoints. L extends the final secant and H holds the endpoint value, following Eq.~\eqref{eq:property-extrapolation}. Shading denotes the adopted phase interval. Panel (b) shows sensible specific heat; the latent contribution enters separately through Eq.~\eqref{eq:enthalpy}. The IN625 conductivity data are measured and the sensible-specific-heat data calculated~\cite{specialmetals625}; the extrapolations are prescribed study functions.}
+\label{fig:properties}
+\end{figure}
 
-The circular Gaussian surface input at $z=0$, normalized consistently with the $D_{4\sigma}$ convention~\cite{dynamic2024}, is
-\begin{equation}
- q(\xi,y)=\frac{2\eta P}{\pi w^2}
- \exp\!\left[-\frac{2(\xi^2+y^2)}{w^2}\right].
- \label{eq:source}
-\end{equation}
-Its full-plane integral is $\eta P$, so fitting $\eta$ adjusts the total input power while retaining the source shape; it does not measure absorptivity independently of the adopted model. With outward normal $\bm n$, the top condition is $-k\nabla T\cdot\bm n=-q$, supplying inward heat. The appendix gives the discrete source integration. At positive $\xi$, incoming material has $H=0$; at negative $\xi$, diffusive gradient vanishes and enthalpy leaves advectively. The $y=0$ plane is symmetric. Outer transverse and bottom boundaries are adiabatic. Radiation and ambient convection are omitted from the solved balance.
-
-\subsection{Geometry, rear phase boundaries and material passage}
+\subsection{Geometry and passage}
 \label{sec:geometry-passage}
-The model solidus-crossing length $L$ is the distance between the front and rear crossings of the recovered surface symmetry-centerline temperature. These crossings are interpolated, must enclose the source, and must form one interval without domain truncation. Surface and symmetry-plane recovery precede threshold extraction; the appendix gives their numerical definitions. Retaining both positions allows a change in total length to be assigned to motion at the front or rear.
+The axial fit and tail comparison require the front and rear boundaries to be retained separately. The surface centerline profile is the recovered temperature at $z=0$ and $y=0$. Model length $L$ is the distance between its front and rear solidus crossings. Linear interpolation locates crossings bounding the single source-containing interval, with all intervals checked for domain truncation. Surface and symmetry-plane recovery precede threshold extraction, as specified in the appendix. The two positions then assign a length change to its front or rear contribution.
 
-Fusion-zone width and depth are extracted from the source-connected component of
+The transverse comparison instead concerns the fusion extent left by source passage. Width and depth are therefore extracted from the source-connected maximum-temperature envelope,
 \begin{equation}
  T_{\max}(y,z)=\max_\xi T(\xi,y,z)\geq T_s.
  \label{eq:fusion}
 \end{equation}
-Each $\xi$ slice is reconstructed at the surface and symmetry plane, bilinearly interpolated onto observation coordinates, and then maximized over passage. This order defines the maximum-temperature fusion envelope; maximizing nodal temperatures before interpolation gives a different envelope. Width is twice the positive-$y$ extent and depth is the negative of the lowest $z$. The observation pitch controls sampling of the reconstructed geometry. Figures label the model surface-length proxy $L_s$ and fusion-envelope extents $W_f$ and $D_f$; these correspond to $L$, $W$ and $D$ in the text. A separate surface-sample maximum is taken over the recovered top-surface temperatures at axial and positive-$y$ cell-center coordinates, before the $y=0$ extension. It therefore has a different sampling definition from the symmetry-centerline field used for the crossings.
+Each $\xi$ slice is reconstructed at the surface and symmetry plane and bilinearly interpolated onto observation coordinates before passage maximization. Width is twice the positive-$y$ extent and depth the negative of the lowest $z$. This order makes the envelope a maximum over reconstructed passage fields; maximizing nodal values before interpolation would define a different observer. The surface maximum is taken over recovered top-surface temperatures at axial and positive-$y$ cell centers, before the $y=0$ extension. Its sampling therefore differs from that of the surface centerline profile.
 
-Lane's thermographic length locates the rear freezing feature from a radiance-profile second-derivative minimum, then finds the front at the assumed freezing temperature after emittance-based conversion~\cite{lane2020}. This measured length includes the effects of emittance, exposure and viewing geometry. The model instead uses two solidus crossings of a recovered temperature field. Its fitted $\eta$ consequently belongs to the combination of source, material law and boundary definition used here. Fusion-envelope width and depth are compared with the metallographic dimensions defined in Section~\ref{sec:benchmark-design}.
+These model observers correspond to different experimental constraints. Thermographic length locates a rear freezing feature through a radiance-profile second-derivative minimum and a front position after emittance-based conversion~\cite{lane2020}, whereas the model length uses two temperature solidus crossings. The fitted fraction therefore depends on this boundary definition as well as the source and material law. Fusion-envelope width and depth are compared with the metallographic dimensions defined in Section~\ref{sec:benchmark-design}.
 
-Let $\xi_s^-$ and $\xi_l^-$ denote the rear centerline solidus and liquidus crossings. Their positions locate the adopted freezing interval relative to the source; their separation gives its spatial extent. Define this rear solidus--liquidus separation, passage time and interval-mean cooling-rate magnitude as
+The rear solidus and liquidus positions $\xi_s^-$ and $\xi_l^-$ locate freezing relative to the source, while their difference measures the spatial interval. Converting that interval to a duration requires a material trajectory. At a fixed laboratory point, $\mathrm d\xi/\mathrm dt=-v$, giving the stationary-material definitions
 \begin{equation}
  \ell_m=\xi_l^- -\xi_s^-,\qquad
  \tau_m=\frac{\ell_m}{v},\qquad
- \overline{\dot T}=\frac{T_l-T_s}{\tau_m}.
+ \overline{|\dot T|}=\frac{T_l-T_s}{\tau_m}.
  \label{eq:passage}
 \end{equation}
-At a fixed laboratory point, $\mathrm d\xi/\mathrm dt=-v$, so the material traverses the rear interval in $\ell_m/v$. The same spatial separation can therefore correspond to different passage times at different scan speeds. Constant-speed space-to-time mapping is also used in the AMMT measurements~\cite{lane2020}, but their cooling estimate covers a below-solidus interval, while Eq.~\eqref{eq:passage} uses 1350--1290~$^\circ$C. Lane et al. present their cooling rates as exemplar data rather than model-calibration references~\cite{lane2020}. Here, separation, time and interval-mean cooling rate are derived from the same modeled field; the passage follows stationary material rather than a moving liquid parcel.
+Passage time and interval-mean cooling-rate magnitude are transformations of the same separation and speed. AMMT thermography also uses constant-speed space-to-time conversion, but its exemplar cooling estimates cover a below-solidus interval and are not recommended as calibration references~\cite{lane2020}. The present definitions cover the adopted liquidus-to-solidus interval and follow stationary material through the conduction field.
 
-\subsection{Length calibration and property comparisons at retained source power}
-With LL properties, fitting $L_B(\eta)=359$~\um{} gives $\eta\approx0.28905$, with a signed length residual of +0.158~\um. Conditions A and C retain this value, beam, phase law and property extrapolations. The appendix gives the safeguarded scalar calibration algorithm, trial values and local sensitivity. This length fit sets the effective source-power fraction across A, B and C, and fixes the source power within the four B property cases.
+\subsection{Comparison design}
+\label{sec:comparison-design}
+The comparison holds source strength fixed so that a material-function response remains visible instead of being absorbed by a new length fit. With both functions linearly extrapolated, a safeguarded scalar fit first adjusts $\eta$ to B's thermographic mean length of 359~\um. Conditions A and C retain this fraction, beam and phase law. At B, the conductivity and sensible-specific-heat choices form a complete $2\times2$ comparison (Table~\ref{tab:comparison-design}). Single-property cases distinguish their finite transport and storage responses at the baseline; the joint case tests addition and supplies each property's response at the other level of its partner. Retaining the phase law prevents a change in latent-heat release from entering that contrast.
 
-The four B cases share power, speed, beam, density, phase thresholds, latent heat, mesh, observation operators and the source-power fraction fitted with LL properties. Only the above-table $k$ and $c_p$ definitions change, including their corresponding primitives and recovery operations. The first letter denotes conductivity and the second sensible specific heat. Sharing B=LL between the three-condition geometry comparison and the four-case property comparison gives six production solutions. Retaining the LL-fitted factor makes the other B cases responses at common source power, rather than separate length fits.
+\begin{table}[htbp]
+\centering
+\small
+\caption{Property comparison schemes at B. Above-table functions follow Eq.~\eqref{eq:property-extrapolation}; each case retains the source-power fraction fitted with the linear extrapolation baseline, the B operating condition, beam, density, phase law, mesh and observation definitions.}
+\label{tab:comparison-design}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.28\textwidth}ll>{\raggedright\arraybackslash}p{0.33\textwidth}}
+\toprule
+Scheme (case code) & Above-table $k$ & Above-table $c_p$ & Comparison role\\
+\midrule
+Linear extrapolation baseline (LL) & Linear & Linear & Calibration and finite-effect reference\\
+Constant conductivity (HL) & Constant & Linear & Conductivity change at baseline storage\\
+Constant specific heat (LH) & Linear & Constant & Storage change at baseline conductivity\\
+Joint constant extrapolation (HH) & Constant & Constant & Joint and conditional property effects\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-For any output $Q$, define the baseline-anchored finite effects
+The case codes give conductivity first and sensible specific heat second. The three-condition geometry comparison uses LL; its B solution also enters the property comparison. These comparisons therefore use six combinations: A, B and C with LL, plus HL, LH and HH at B. The three additional B cases retain the LL-fitted source fraction and are compared through common observations. For any output $Q$, the locally defined finite effects are
 \begin{align}
  \delta_k&=Q_{\HL}-Q_{\LL}, &
  \delta_{c_p}&=Q_{\LH}-Q_{\LL},\\
@@ -163,187 +203,101 @@ For any output $Q$, define the baseline-anchored finite effects
  \Delta_{\rm joint}&=Q_{\HH}-Q_{\LL}=\delta_k+\delta_{c_p}+I_{k,c_p}.
  \label{eq:contrast}
 \end{align}
-At constant-extrapolated $c_p$, the conductivity effect is $Q_{\HH}-Q_{\LH}=\delta_k+I_{k,c_p}$; at constant-extrapolated $k$, the specific-heat effect is $Q_{\HH}-Q_{\HL}=\delta_{c_p}+I_{k,c_p}$. Reporting these conditional effects establishes whether each response direction persists at both levels of the other property. The interaction records the departure of the joint change from the sum of the two LL-anchored changes. All effects are deterministic finite differences between specified functions within this conduction model.
+The contrasts also give each property's effect at the other level of its partner. With H specific-heat extrapolation, the conductivity effect is $Q_{\HH}-Q_{\LH}=\delta_k+I_{k,c_p}$; with H conductivity extrapolation, the specific-heat effect is $Q_{\HH}-Q_{\HL}=\delta_{c_p}+I_{k,c_p}$. The interaction measures departure from adding the two baseline effects. These contrasts quantify finite responses to prescribed functions. Bayesian adaptation of an analytical melt-pool model inferred apparent absorptivity while explicitly excluding thermophysical-property uncertainty~\cite{whalen2021}; the present comparisons retain one fitted source fraction and give deterministic responses rather than posterior uncertainty bounds.
 
-An axial-face P\'eclet diagnostic compares coordinate enthalpy transport with diffusion in the phase interval. A discrete rear hot-region budget measures net outward diffusive power. Each branch defines its temperature-selected region separately, allowing the diagnostic population and region boundary to follow the solved field. These budgets complement the matched-coordinate phase thresholds; their definitions are given in the appendix.
+\subsection{Numerical assessment}
+\label{sec:numerical-assessment}
+The changed material functions must satisfy the same conservative balance before their responses are compared. The baseline grid has near-source cell widths of $4\times3\times1$~\um; the refined grid changes only the axial width to 2~\um. Gaussian power is integrated over each top-face rectangle and supplied to its adjacent control volume, with surface-temperature recovery using the matching conductivity primitive. The appendix gives the graded domain, scaled-enthalpy discretization and recovery relations. Nonlinear acceptance retains the sum of absolute cell residuals, signed global energy balance and a further frozen-coefficient correction separately, so a small global sum does not conceal opposing local errors.
 
-\subsection{Numerical solution and verification}
-The conservative finite-volume solution uses near-source cell widths of $4\times3\times1$~\um. Gaussian power is integrated over each top-face rectangle and supplied to its adjacent control volume; surface-temperature recovery uses the corresponding conductivity primitive. Conductivity and enthalpy relations are updated with the nonlinear solution, so each extrapolation case changes the material functions consistently. The graded-domain geometry, scaled enthalpy discretization and recovery equations are specified in the appendix. Convergence is checked using both the sum of absolute cell residuals and the signed global energy balance, followed by a full frozen-coefficient correction.
+Numerical assessment addresses the quantities on which the interpretation depends. A separate constant-property moving-Gaussian problem tests source integration, frame transport and geometry extraction against a semi-infinite analytical reference. It omits phase change and verifies implementation in that regime, following the distinction between verification and physical validation~\cite{oberkampf2002}. Conditions B and C with LL are solved on both grids at the retained source-power fraction; separate A and B comparisons enlarge the domain. All four property cases at B are also compared on the two grids with the domain, source fraction, phase law and observers retained. The change in each finite contrast between grids measures its axial sensitivity, separately from common shifts in the quantities themselves. Transverse and depth spacings remain fixed.
 
-A separate constant-property moving-Gaussian problem checks source integration, frame transport and geometric extraction against a semi-infinite analytical reference. This verification isolates numerical implementation from assessment against physical measurements~\cite{oberkampf2002}. Its reference $L/W/D$ is $407.535/153.293/34.836$~\um; finite-volume differences are +0.139\%, +0.190\% and $-0.499$\%, respectively. The benchmark uses constant properties and omits phase change, making its accuracy assessment specific to that verification problem.
+Auxiliary diagnostics examine whether the tail response is accompanied by the anticipated change in transport. On the baseline grid, the P\'eclet median compares coordinate enthalpy transport with diffusion on internal axial faces adjacent to at least one cell with $T_s\leq T<T_l$. It is an unweighted median of the face ratios defined in the appendix. Net diffusion power is the signed outward conductive power across the boundary of cells with $T\geq T_s$ and $\xi<0$. Both sampling sets follow each solved field, so these diagnostics are interpreted alongside matched-coordinate phase crossings. The appendix also reports two separate checks: approximate local steady consistency from an earlier transient B calculation at a different calibration stage, and fixed-field top-loss estimates that do not solve loss feedback.
 
-At the calibrated $\eta$, reducing the near-source axial spacing from 4 to 2~\um\ changes B length, width and depth by +0.361, $-0.009$ and +0.041~\um, and C by +0.199, $-0.029$ and +0.045~\um. A/B domain enlargement changes these quantities by less than $3\times10^{-6}$~\um. These measured sensitivities support the interpretation of the larger geometric responses, but do not give a full three-dimensional error bound for every extrapolation case. Submicrometre interactions are consequently reported descriptively.
+\section{Results and Discussion}
+\label{sec:discussion}
+The length fit constrains one axial extent. Fusion shape, rear-boundary displacement and rear phase separation are assessed separately below, using retained-source property and speed comparisons to determine how those responses are related.
 
-An earlier transient B comparison at a different calibration stage provides approximate local steady consistency. Fixed-field blackbody estimates put B-case top losses at 0.099--0.180\% of absorbed power; feedback from these losses is not solved. These checks have distinct roles from the constant-property verification and the calibrated-mesh comparisons.
+\subsection{Geometry after calibration}
 
-All six solutions satisfy the stated energy-balance and nonlinear-correction criteria and give bounded phase fractions and nontruncated extracted geometry. The appendix reports the acceptance thresholds and final residuals.
-
-\section{Results}
-The post-calibration geometry comparison identifies which aspects of the fusion shape remain discrepant after fitting length. The B property comparison then resolves whether its length response arises mainly from motion of the rear phase boundaries or from a change in their separation. The fixed-power B--C comparison finally relates the spatial separation to material passage time at different scan speeds.
-
-\subsection{Geometry discrepancy after length calibration}
-Fitting the source-power fraction to B thermographic length gives a model length of 359.16~\um{}, but leaves a wider and shallower fusion envelope than the B metallographic means (Table~\ref{tab:geometry} and Fig.~\ref{fig:comparison}). Model width exceeds the NIST 100~\us{} class mean by 19.54~\um{}, and depth falls below it by 4.88~\um. Normalizing these differences by Lane's published combined-class microscopy uncertainty scales gives +3.10 and $-1.23$, respectively. The fitted axial extent therefore does not reproduce the transverse fusion shape in this model.
-
-\begin{table}[htbp]
-\centering
-\caption{Model geometry and AMMT measurement means in \um. Length means are from Lane's 20~\us{} thermography classes; width/depth means are from the current NIST 100~\us{} metallography classes. $U$ is Lane's separately sourced expanded measurement uncertainty ($k=2$); width/depth $U$ comes from its combined-class microscopy analysis. B length is fitted. $\delta/U$ is a descriptive difference normalized by that published scale, without combined model uncertainty.}
-\label{tab:geometry}
-\small
-\begin{tabular}{llrrrr}
-\toprule
-Condition & Quantity & Model & Measured mean & $U$ & $\delta/U$\\
-\midrule
-A & $L$ & 309.89 & 300 & 11.91 & +0.83\\
-  & $W$ & 153.36 & 147.9 & 6.42 & +0.85\\
-  & $D$ & 40.47 & 42.5 & 4.49 & $-0.45$\\
-B & $L$ (fitted) & 359.16 & 359 & 21.26 & +0.01\\
-  & $W$ & 143.04 & 123.5 & 6.30 & +3.10\\
-  & $D$ & 31.12 & 36 & 3.97 & $-1.23$\\
-C & $L$ & 320.63 & 370 & 32.57 & $-1.52$\\
-  & $W$ & 129.05 & 106 & 4.48 & +5.14\\
-  & $D$ & 22.04 & 29.6 & 3.26 & $-2.32$\\
-\bottomrule
-\end{tabular}
-\end{table}
+At B, the fitted source-power fraction $\eta\approx0.28905$ gives a length of 359.16~\um{} against the thermographic mean of 359~\um. Width exceeds its metallographic mean by 19.54~\um{}, while depth is 4.88~\um{} smaller; the descriptive differences relative to their published expanded scales are +3.10 and $-1.23$. At C, the width and depth residuals grow to +23.05 and $-7.56$~\um{}, and length is 49.37~\um{} shorter than the thermographic mean. All three A differences fall within their respective published scales. The retained source thus gives wider, shallower B/C envelopes, with a larger transverse discrepancy at C. Figure~\ref{fig:comparison} shows the calculated envelopes and dimensional comparisons; Table~\ref{tab:geometry} retains the exact values and measurement identities.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/ammt-application-experiment.pdf}
-\caption{Geometry comparison with Lane's 20~\us{} thermographic length means, NIST's 100~\us{} metallographic width/depth means, and the published isotropic and effective-anisotropic calculations of Kollmannsberger et al.~\cite{kollmannsberger2019}. Experimental bars show separately sourced Lane $U(k=2)$ scales; width/depth centers use current NIST means. B length is calibrated in the present model. Published-model points provide context under different beam representations, material/phase laws, calibration targets and observation definitions; their differences from the present results are not a single-factor comparison.}
+\includegraphics[width=\textwidth]{figures/r8-geometry-validation.pdf}
+\caption{Geometry at the retained source-power fraction. Top row: calculated dimensions and condition-level measured means; the B thermographic length is the calibration target. Bars show the separately sourced Lane expanded measurement scales $U(k=2)$, with the population distinctions specified in Methods. Bottom row: calculated fusion envelopes for A, B and C, reconstructed at each axial slice before passage maximization. Blue and orange boundaries mark $T_{\max}=1290$ and $1350$~$^\circ$C. These envelopes are numerical fields; measured widths and depths do not define an observed contour. All calculated views use the baseline grid, with near-source spacings of $4\times3\times1$~\um.}
 \label{fig:comparison}
 \end{figure}
 
-Condition A deviations are smaller than their respective published measurement-uncertainty scales. In C, the model is 49.37~\um{} shorter than the thermographic mean, 23.05~\um{} wider and 7.56~\um{} shallower than the NIST metallographic means. The modeled aspect ratios $W/D=3.79,4.60,5.85$ for A/B/C also show the widening relative to penetration, compared with ratios of the measured class means of 3.48,3.43,3.58 (Fig.~\ref{fig:trends}b). These measured ratios are formed from condition-level means, rather than paired with each thermographic length frame.
+The numerical sensitivities are small relative to these dimensional residuals. The separate constant-property Gaussian problem gives dimensions within 0.50\% of the semi-infinite analytical reference. Moving from the baseline to the refined grid changes lengths at conditions B and C by at most 0.37~\um{}, widths by less than 0.03~\um{} and depths by less than 0.05~\um{}, at the retained source fraction. Enlarging the domain for A and B changes dimensions by less than $3\times10^{-6}$~\um. The appendix reports these checks and the separate assessments of rear intervals.
 
-At fixed power from B to C, a 50\% speed increase reduces model input energy per unit length, $\eta P/v$, by one third. Model width decreases by 9.78\% and depth by 29.16\%; the NIST metallographic class-mean changes are 14.17\% and 17.78\% (Fig.~\ref{fig:trends}a). The modeled $W/D$ consequently increases by 27.36\% from B to C. The geometry discrepancy thus concerns both absolute dimensions and how transverse contraction compares with reduced penetration as speed rises. Condition A also changes power, so the B--C pair provides the fixed-power speed comparison.
+The residual direction differs from the closest AMMT modeling comparison. Kollmannsberger et al.'s measured-beam isotropic calculation gave narrower and deeper cross sections; calibrating directional conductivity improved transverse agreement~\cite{kollmannsberger2019}. The opposite residual here cannot inherit that transport explanation. Beam representation, property tables, phase law and calibration differ between the studies. Other source representations also change geometric agreement~\cite{heatsourcebayes2024,dynamic2024}, but the dynamic IN625 comparison uses a distinct calibration across spot sizes and a Scheil-based freezing interval. These comparisons establish relevant model choices without selecting a correction for the present field.
 
-The thermographic class mean increases in length by 11~\um\ from B to C, whereas model length decreases by 38.53~\um. The two reported expanded-uncertainty scales give a zero-correlation quadrature of 38.89~\um, larger than the change between measured means. This descriptive scale comparison limits interpretation of the sign of the measured B--C trend; the C residual in Table~\ref{tab:geometry} compares C with its own mean. The observed axial-refinement changes below 0.37~\um\ are much smaller than the main B/C residuals, so the retained refinement evidence does not remove the principal shape discrepancy.
+A shape residual cannot distinguish energy deposition from material transport or omitted liquid processes. Absorption and vapor-depression observations, together with preheated-alloy fluid calculations, expose several routes to depth changes~\cite{ye2019,cunningham2019,chen2021preheat}. Regime, beam and conduction assumptions also condition depth comparisons~\cite{naderi2023,hong2026}, as do surface/depth observation methods and scan history~\cite{soares2026,weaver2024}. The following comparison therefore retains the source representation and phase law to isolate the response to the two prescribed above-table functions.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/ammt-research-operating-cases.pdf}
-\caption{Model geometry for A, B and C. (a) Surface solidus contours in laser-frame coordinates. (b) Reconstructed maximum-temperature fusion envelopes in transverse/depth coordinates. Fusion envelopes use slice reconstruction and interpolation before passage maximization. Both panels display calculated thermal geometry and use the fixed calibrated source factor.}
-\label{fig:fields}
-\end{figure}
-
-The contours in Fig.~\ref{fig:fields} show the greater fractional reduction in penetration than in width for the fixed-power B--C comparison. The surface solidus contour supplies the model length, while the transverse envelope records the maximum melted extent during material passage. Since a length fit leaves this shape discrepancy, the B property comparison examines how the constitutive definitions change the fitted field's rear boundaries, with the calibrated source-power fraction retained.
-
-\subsection{Property effects on rear-boundary position and separation}
-\label{sec:property-results}
-At the B-fitted source power, the two property changes produce opposing length responses (Table~\ref{tab:factorial}). Replacing final-secant linear extrapolation of conductivity by constant endpoint extrapolation increases length from 359.16 to 402.37~\um\ when $c_p$ remains linear (LL to HL). Changing only $c_p$ to constant endpoint extrapolation decreases length to 352.99~\um\ (LL to LH). Changing both yields 393.44~\um\ (HH), so
-\begin{equation}
- \Delta L_{\rm joint}=43.21-6.17-2.76=34.28~\um.
-\end{equation}
-The specific-heat response and interaction offset part of the conductivity-induced increase. These response directions persist at the other factor level: constant extrapolation of conductivity increases length by 40.45~\um{} at constant-extrapolated $c_p$, and constant extrapolation of $c_p$ decreases length by 8.93~\um{} at constant-extrapolated $k$. Thus the direction of each length response is consistent across the two tested levels of the other property.
-
-\begin{table}[htbp]
-\centering
-\caption{Two-factor property comparison at B and the LL-fitted source-power fraction. The first letter labels $k$, the second $c_p$; L denotes final-secant linear extrapolation and H constant endpoint extrapolation above the respective table endpoints. All cases retain the same source power and phase law. Rounded geometry and finite effects are in \um. Small transverse effects lack branch-specific refinement evidence.}
-\label{tab:factorial}
-\begin{tabular}{lrrr}
-\toprule
-Corner or contrast & $L$ & $W$ & $D$\\
-\midrule
-LL & 359.16 & 143.04 & 31.12\\
-HL & 402.37 & 143.15 & 30.09\\
-LH & 352.99 & 143.72 & 31.61\\
-HH & 393.44 & 143.79 & 30.80\\
-\midrule
-$\delta_k$ & +43.21 & +0.11 & $-1.03$\\
-$\delta_{c_p}$ & $-6.17$ & +0.68 & +0.49\\
-$I_{k,c_p}$ & $-2.76$ & $-0.04$ & +0.21\\
-$\Delta_{\rm joint}$ & +34.28 & +0.75 & $-0.32$\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The rear solidus and liquidus positions identify which part of the field produces these length changes (Fig.~\ref{fig:factorial}). From LL to HL, the rear crossings move by $-42.49$ and $-43.50$~\um{}, respectively, while the front solidus moves by +0.73~\um. Rear solidus displacement accounts for 98.3\% of the conductivity-induced length increase, with the front contributing 1.7\%. Yet the rear solidus--liquidus separation changes by only $-1.01$~\um. From LL to LH, the rear crossings instead move towards the source by +6.22 and +6.53~\um, with a separation change of +0.31~\um. The large length response therefore arises predominantly from displacement of the pair of rear phase boundaries, rather than a comparable change in the distance between them.
-
-The two prescribed changes perturb conductivity and total storage by different relative amounts. At 1320~$^\circ$C, changing L to H reduces conductivity from 32.51 to 25.20~\si{\watt\per\metre\per\kelvin}, or 22.48\%, and sensible specific heat from 721.13 to 670~\si{\joule\per\kilogram\per\kelvin}, or 7.09\%. With the fixed latent contribution included, effective specific heat decreases from 5387.79 to 5336.67~\si{\joule\per\kilogram\per\kelvin}, or 0.95\%, and enthalpy from the cold reference decreases by 0.66\%. Their geometric effect sizes consequently compare these specified input changes rather than equal-percentage perturbations of transport and total storage.
-
-The auxiliary transport diagnostics also change from LL to HL. The median axial-face P\'eclet diagnostic rises from 4.44 to 5.77, while integrated outward diffusion from the rear hot region rises from 14.724 to 14.913~W. The latter increase accompanies the lower conductivity: the solved gradients and the temperature-selected region boundary both change. These values therefore describe each field's selected faces and region, rather than conductive power through one fixed integration boundary. The conductivity case also uses its corresponding material primitive in surface-temperature recovery.
-
-The recovered positive-$y$ surface-sample maxima defined in Section~\ref{sec:geometry-passage} are approximately 2697, 3507, 2756 and 3721~$^\circ$C for LL, HL, LH and HH, respectively. Both cases with constant-extrapolated conductivity give higher sampled temperatures. These are maxima of the stated surface samples, not an independently resolved maximum temperature of the melt pool; they also differ in sampling from the recovered $y=0$ profile used for phase-boundary positions. Their physical interpretation must retain the evaporation, flow and surface-deformation omissions of the conduction balance.
-
-The current-mesh depth response contains opposing contributions. Constant extrapolation of conductivity changes depth by $-1.03$~\um{} from LL; the specific-heat change contributes +0.49~\um\ and the interaction +0.21~\um, leaving a joint change of $-0.32$~\um. Conductivity effects remain negative at both specific-heat levels ($-1.03$ and $-0.82$~\um), while specific-heat effects remain positive at both conductivity levels (+0.49 and +0.71~\um). Every case retains the B width excess and depth deficit. The extrapolation choices thus move the rear boundaries substantially while retaining the principal fusion-shape discrepancy. The 34--43~\um\ length response exceeds the retained baseline axial sensitivity by a wide margin; the 0.04~\um\ width interaction remains an unresolved fine-scale comparison pending branch-specific refinement.
+\subsection{Property-dependent thermal tail}
+\label{sec:rear-results}
+At the retained source power, the crossed comparison distinguishes extension of the tail from a change in rear phase separation. Figure~\ref{fig:factorial} places the four surface phase regions on common coordinates and compares paired rear solidus and liquidus positions on the original and matched refined grids.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/ammt-research-constitutive-factorial.pdf}
-\caption{Property comparison at B: rear centerline temperature profiles, solidus/liquidus positions and their separation, and LL-anchored geometry effects. All four cases retain the same phase thresholds, calibrated source-power fraction and mesh. Profiles are plotted from original field values with segment clipping to the displayed window. Factorial effects are deterministic finite differences between the defined extrapolation functions. Displacement of the rear boundary pair dominates the length response; the joint depth change contains opposing single-property contributions.}
+\includegraphics[width=\textwidth]{figures/r8-property-boundaries.pdf}
+\caption{Property comparison at condition B. The four phase maps show the property cases defined in Table~\ref{tab:comparison-design} on common surface coordinates and the baseline grid. Conductivity varies across columns and sensible specific heat across rows. In (e), blue solidus circles and orange liquidus marks bound the baseline-grid intervals. Grey open circles and vertical marks give the refined-grid positions, offset only along the categorical axis for readability. The positions are compared at the same source-power fraction; the refined grid changes only near-source axial spacing from 4 to 2~\um. Tables~\ref{tab:refined-properties} and~\ref{tab:paired-axial-effects} give the refined quantities and changes in the finite contrasts.}
 \label{fig:factorial}
 \end{figure}
 
-Across the four cases, the rear solidus--liquidus separation lies between 79.25 and 81.17~\um{}, while total length ranges from 352.99 to 402.37~\um. The comparison therefore distinguishes a large response in the location of the rear freezing interval from a smaller response in its spatial extent. The fine ordering of those separations remains a current-mesh result.
+Both conductivity contrasts move the rear boundaries downstream. On the refined grid, HL--LL increases length by 43.32~\um{}, with rear solidus and liquidus displacements of 42.56 and 43.93~\um. The front solidus moves by only 0.76~\um{}, so rear motion accounts for 98.2\% of the length increase. In HH--LH, length increases by 40.61~\um{} and the rear boundaries move by 39.88 and 39.62~\um. The length response is dominated by relocation of the pair rather than a change in its separation.
 
-\subsection{Scan speed and derived material passage time}
-The fixed-power B--C comparison yields nearly equal rear solidus--liquidus separations at different scan speeds. On the present mesh, B and C give 80.26 and 80.79~\um{}, respectively, a difference of 0.53~\um{} (Fig.~\ref{fig:trends}c). Their corresponding passage times are 100.33 and 67.33~\us{} (Fig.~\ref{fig:trends}d). The C separation is 0.66\% larger, yet its passage time is 32.90\% shorter because speed increases from 0.8 to 1.2~m/s. The interval-mean cooling rate over 1350--1290~$^\circ$C consequently rises from 0.598 to 0.891~\si{\mega\kelvin\per\second}, an increase of 49.02\%. Condition A, which also changes power, gives a separation of 48.30~\um{}, a passage time of 120.74~\us{} and a cooling rate of 0.497~\si{\mega\kelvin\per\second}.
+At 1320~$^\circ$C, the prescribed change lowers $k$ from 32.51 to 25.20~\si{\watt\per\metre\per\kelvin}, or 22.48\%; at common sensible and latent storage it lowers local diffusivity. For HL--LL on the baseline grid, the P\'eclet median rises from 4.44 to 5.77, while net diffusion power rises from 14.724 to 14.913~W. These increases oppose a simple reduced-escape explanation for the longer tail. Gradients, selected faces, hot-region boundaries and conductivity-dependent surface recovery all change between fields, so the diagnostics constrain the explanation without isolating those contributions. This finite whole-function replacement differs from analytical parameter comparisons and local derivatives~\cite{yang2024,rincon2024}; it tests the prescribed high-temperature dependence recognized in the earlier AMMT conduction model~\cite{kollmannsberger2019}.
 
-The 49.02\% B--C cooling-rate increase follows from the shorter passage through an almost unchanged spatial interval, using Eq.~\eqref{eq:passage}. It is a second expression of the same centerline separation and scan speed. The spatial interval alone cannot determine the time experienced by material.
+Both specific-heat contrasts shorten the pool on the refined grid: by 5.87~\um{} for LH--LL and 8.58~\um{} for HH--HL. Partial compensation leaves a joint length increase of 34.74~\um{} and an interaction of $-2.71$~\um. At 1320~$^\circ$C, this intervention reduces sensible $c_p$ by 7.09\%, but latent-inclusive $c_p+\mathcal L/(T_l-T_s)$ by only 0.95\%. Its local storage perturbation is therefore smaller than the conductivity perturbation. Because extrapolation starts below solidus, it also changes pre-melting storage through the conservative enthalpy relation~\cite{vanelsen2007}. The midpoint values provide context for these unequal interventions; they do not determine the full-field response. All four refined cases remain wider and shallower than the B metallographic means (Table~\ref{tab:refined-properties}).
+
+Rear separation changes by the difference between the two boundary displacements: $\Delta\ell_m=\Delta\xi_l^- -\Delta\xi_s^-$. On the refined grid, HL--LL reduces it by 1.37~\um{}, whereas HH--LH gives a nominal increase of 0.27~\um. Specific-heat changes increase it by 1.05 and 2.69~\um{} at linear and constant-extrapolated conductivity, respectively, giving an interaction of +1.63~\um. The four refined lengths span 353.65--402.84~\um{}, but separations span only 77.44--80.12~\um{}: large rear displacements largely cancel, leaving a smaller response conditional on the partner function. This occurs at a common latent-release law. Wells et al.'s phase-fraction-path replacement changes that law and the resulting tail time and thickness~\cite{solidpath2024}; the two interventions address different material-model assumptions.
+
+The smaller separation effects require their own numerical assessment. For the two conductivity contrasts, the rear-position changes differ by less than 0.49~\um{} between grids, preserving the 40--44~\um{} movement. The HH--LH separation effect instead falls from +0.60 to +0.27~\um{}; its $-0.33$~\um{} drift exceeds the refined effect, leaving the continuum direction unresolved. LH--LL rises from +0.31 to +1.05~\um{}, while the separation interaction changes by only +0.02~\um. The two grids distinguish persistent large displacement from relatively sensitive small interval effects; unchanged transverse and depth spacings provide no full three-dimensional error bound. Tables~\ref{tab:refined-properties} and~\ref{tab:paired-axial-effects} retain the matched quantities and contrasts.
+
+On the baseline grid, the surface maximum rises from 2697 to 3507~$^\circ$C for LL to HL and from 2756 to 3721~$^\circ$C for LH to HH. Its sampling is defined in Section~\ref{sec:geometry-passage}. Evaporation, liquid motion and surface deformation are omitted, so these rises characterize the prescribed conduction fields. Two-color measurements have distinguished surface profiles from parameter combinations giving similar 316L cross sections~\cite{myers2023}. Physically informed nickel-superalloy estimates provide other candidate high-temperature functions, with uncertainty in the liquid data used to construct them~\cite{mills2006}. The evidence route also matters: pulse heating of IN718 measures enthalpy and specific heat but derives conductivity from resistivity through the Wiedemann--Franz relation~\cite{pottlacher2001}. Here an independent thermal observation would be needed to select among the high-temperature descriptions, whose distinct temperatures accompany a persistent transverse geometry residual.
+
+\subsection{Spatial interval and passage time}
+At fixed applied power, the B-to-C comparison raises scan speed from 0.8 to 1.2~m/s while retaining LL and the source-power fraction. Figure~\ref{fig:trends} places surface phase regions beside rear separation and stationary-material passage time, separating the spatial response from the speed contribution to duration.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/ammt-research-condition-trends.pdf}
-\caption{Operating-condition response. (a) B-to-C percentage changes in width and depth at fixed power, comparing the model with NIST 100~\us{} metallographic class means; uncertainty is not propagated. (b) Model and measured class-mean aspect ratios. (c) Model rear liquidus-to-solidus separations. (d) Derived material passage times. Separation and time are transformations of the same steady centerline field. The text reports the corresponding interval-mean cooling rates over 1350--1290~$^\circ$C.}
+\includegraphics[width=\textwidth]{figures/r8-speed-passage.pdf}
+\caption{B-to-C speed comparison at fixed applied power on the baseline grid (4~\um{} near-source axial spacing). (a,b) Surface phase regions use common coordinates and linear extrapolation of both properties. (c,d) Rear solidus--liquidus separation $\ell_m$ and stationary-material passage time $\tau_m=\ell_m/v$ are displayed as distinct quantities. Passage time is derived from the calculated separation and prescribed speed. The matched refined-grid comparison, with 2~\um{} axial spacing, is reported in the text and Table~\ref{tab:axial-sensitivity}.}
 \label{fig:trends}
 \end{figure}
 
-The B--C pair consequently shows both contraction of the fusion envelope and faster passage through an almost unchanged rear freezing interval. The former response is assessed against metallographic dimensions; the latter characterizes stationary material crossing the calculated centerline field. It complements the rear-position comparison by distinguishing where cooling occurs from the distance and time over which the adopted freezing interval is traversed.
+The rear interval changes little, while passage becomes approximately one third shorter at the higher speed on both grids. On the baseline grid, B and C have separations of 80.26 and 80.79~\um{} and passage times of 100.33 and 67.33~\us, respectively. On the refined grid, the corresponding values are 78.80/79.62~\um{} and 98.50/66.35~\us. The mean cooling-rate magnitude over the phase interval rises by 48.46\% on the refined grid, expressing the same separation-and-speed relation through the common liquidus-to-solidus drop. These are related descriptors rather than independent assessments. Likewise, the property-induced pair displacement affects passage at fixed speed only through the smaller change in separation, so longer pool extent need not imply a longer phase-interval duration.
 
-\section{Discussion}
-\label{sec:discussion}
-The geometric comparisons establish which dimensions remain inconsistent after the source-power fit. The property comparisons then locate the response within the rear temperature field, where boundary position, solidus--liquidus separation and material passage time describe different aspects of solidification. Their relationship determines both the interpretation of the calculated sensitivities and the measurements needed to assess them physically.
+The near-equal intervals accompany a changed fusion shape. Modeled width and depth fall by 9.78\% and 29.16\%, compared with 14.17\% and 17.78\% for the metallographic class means. The modeled width-to-depth ratio rises from 4.60 to 5.85, whereas the ratio of measured means changes from 3.43 to 3.58. Model length decreases by 38.53~\um{}, while thermographic means differ by +11~\um. The zero-correlation quadrature of their published expanded scales is 38.89~\um{}, larger than the mean change. Unknown cross-condition covariance prevents interpreting that change as a resolved increase. Whole-pool geometry and the local rear interval therefore assess different responses to the speed change.
 
-\subsection{Constraints supplied by melt-pool geometry}
-Fitting the effective source-power fraction fixes the energy supplied by the adopted Gaussian to reproduce B's thermographic mean length. The resulting wide, shallow fusion envelope shows that this axial constraint leaves the transverse dimensions unresolved. Width and depth add information about the distribution of melting across the track; their discrepancies cannot be removed by interpreting the length fit as agreement of the entire fusion boundary. The fitted fraction is conditional on the Gaussian approximation, thermophysical functions, phase law and temperature-threshold length definition. Relating it to physical laser absorption requires an assessment of those choices and of the radiance-based length operator used by the experiment~\cite{lane2020}.
-
-The closest AMMT study illustrates why these choices matter. With the measured beam profile, its isotropic calculation reproduced length more closely than width and depth; calibrated directional conductivity subsequently improved the dimensions~\cite{kollmannsberger2019}. Its isotropic shape was narrower and deeper than the reported metallographic means, whereas the present calculation is wider and shallower. The two calculations also differ in beam representation, property data and phase law. The predecessor identified the limits of fitting three dimensions with a single absorptivity parameter. Here, the transverse residuals identify the shape left unresolved by the B-length fit. The opposite residual directions prevent assigning the present discrepancy to a mechanism inferred from the predecessor. Within the present four-case B comparison, retaining the same source and phase law instead gives the property-extrapolation differences a defined model-specific meaning.
-
-Geometric constraints can also leave thermal predictions unresolved even when more source parameters are fitted. Myers et al. obtained similar cross-sectional area and width-to-depth ratio agreement for several Fresnel/accommodation parameter combinations in bare 316L calculations, but two-color temperature profiles distinguished those combinations~\cite{myers2023}. Their study tests alternative fitted parameter sets. Here, the source fraction is retained after the baseline length fit, so the four IN625 cases measure the response to prescribed property functions. These are complementary designs: the former tests what geometric fitting leaves ambiguous, and the latter identifies how specified material assumptions change the fitted field.
-
-\subsection{Effects of property extrapolation on rear phase boundaries}
-Replacing linear extrapolation by constant endpoint values produces opposing responses of conductivity and sensible specific heat. Their combined length change is dominated by the conductivity contribution, whose rear solidus and liquidus displacements are almost equal. Resolving both positions shows that the longer pool principally reflects a downstream shift of the rear temperature profile. The much smaller change in their separation describes a different response: the spatial extent over which the adopted liquid fraction falls from one to zero. The persistence of the width excess and depth deficit across LL, HL, LH and HH further separates this axial response from correction of the transverse fusion shape.
-
-The relative sizes of the imposed changes help interpret the unequal responses. Conservative enthalpy separates sensible storage from the adopted latent contribution~\cite{vanelsen2007}. At 1320~$^\circ$C, constant endpoint extrapolation reduces conductivity by 22.48\% and sensible specific heat by 7.09\%. Because the phase law contributes 4666.67~\si{\joule\per\kilogram\per\kelvin} to effective specific heat in this interval, effective specific heat decreases by only 0.95\%. Integrating the modified specific-heat function from the cold reference also reduces enthalpy at this temperature by 0.66\%. The conductivity and storage cases therefore apply unequal perturbations to diffusive transport and total thermal storage. Their effect sizes characterize these particular functions and the retained phase law. The specific-heat intervention also begins below the solidus, changing pre-melting enthalpy and the temperature--enthalpy inverse along with sensible storage in the freezing interval.
-
-The conductivity response also involves the temperature gradients and the region over which conduction is evaluated. In the HL calculation, the median axial-face P\'eclet diagnostic increases and outward conductive power from the rear cells selected by $T\geq T_s$ and $\xi<0$ rises from 14.724 to 14.913~W. Lower conductivity thus accompanies greater integrated outward power over this solution-dependent region. Both its boundary and its gradients change, so that integral cannot isolate reduced heat escape as the cause of the longer pool. In addition, consistent extrapolation changes the conductivity primitive and the recovered surface temperature used to locate the crossings. Comparing conductive power over an identical spatial region would remove the contribution from changing region selection. Separately evaluating surface-temperature recovery would quantify its contribution to the boundary displacement. Together, these diagnostics would narrow the interpretation of the complete calculation's paired-boundary response.
-
-\subsection{Solidification interval in material coordinates}
-Rear-boundary displacement and separation acquire different time meanings in a steadily translating field. A common downstream displacement lengthens the pool without proportionally enlarging the interval between its rear liquidus and solidus. At a fixed speed, nearly unchanged separation consequently gives nearly unchanged passage time through the adopted freezing interval. Between B and C, the speed changes as well as the field: their separations differ by only 0.53~\um{}, but the faster C scan gives a 32.90\% shorter passage time. The 49.02\% increase in interval-mean cooling rate follows from the same separation-and-speed relation. These descriptors distinguish the location of solidification relative to the laser from its duration for stationary material traversing the calculated field.
-
-This distinction is consequential when comparing spatial thermography with a temperature history. Hooper measured centerline profiles and fixed-location histories that resolved heating pulses, cooling and turn events~\cite{hooper2018}. Lane et al. used a constant-speed position-to-time conversion for a below-solidus cooling interval~\cite{lane2020}. The AMMT analysis uses a temperature range and radiance operator that differ from the present liquidus-to-solidus calculation. A direct thermal comparison would therefore require a measured trajectory aligned with the adopted interval, scan position and observation response. The existing passage times describe each condition's own modeled field.
-
-Melt motion changes the trajectories relevant to a microstructure calculation. Fluid-tracer calculations for a Ni--20Cr dispersion-strengthened alloy produced narrower near-surface temperature peaks and hotter subsurface excursions than the corresponding conduction histories~\cite{Hou2024Dissolution}. Transient conduction calculations have also related solidification conditions to grain-structure trends in AlSi10Mg laser and IN718 electron-beam cases, with experimental grain-morphology comparison for the IN718 case~\cite{Plotkowski2017Rapid}. These studies establish the importance of the thermal path and interface motion used in a microstructure model. The present straight-track, quasi-steady mapping supplies a stationary-material centerline interval; applying it to liquid-parcel histories, overlapping scans or grain evolution would require the corresponding transport and transient descriptions.
-
-\subsection{Material data and thermal measurements for model assessment}
-The numerical extrapolations make the sensitivity explicit, while their physical selection remains a material-data question. The supplier tables stop below the adopted melting interval, and neither defines a measured liquid-state plateau~\cite{specialmetals625}. Composition-based nickel-superalloy estimates include IN625 conductivity and identify limited underlying liquid-state data~\cite{mills2006}. Such estimates or composition- and state-matched measurements provide candidates for replacing the two prescribed extrapolation rules with physically informed functions. Their comparison should retain an explicit phase law: the dynamic-source IN625 study, for example, uses a 1410~K eutectic endpoint and phase-dependent properties that differ from the present supplier-listed interval~\cite{dynamic2024}.
-
-Source deposition remains a separate candidate for the unresolved shape response. The dynamic volumetric model adjusts deposition depth and effective absorption with the calculated pool, and was calibrated on bare IN625 tracks across several beam diameters before application to a layer case~\cite{dynamic2024}. Recent conduction-model assessment also uses the absorption required to reproduce penetration as an attainability diagnostic under specified transport assumptions~\cite{hong2026}. Aligning source input, phase law, material functions and observation definitions is necessary before differences between these approaches can be assigned to source redistribution or transport. Combined thermography and metallography further show that geometry correlations can coexist with systematic errors outside stable conduction melting~\cite{soares2026}; the operating regime belongs in that comparison.
-
-The present extreme temperatures make this scope particularly consequential. LL, HL, LH and HH positive-$y$ surface-sample peaks reach approximately 2697, 3507, 2756 and 3721~$^\circ$C under a balance that omits evaporation, melt flow and surface deformation. These values expose sensitivity to the assumed heat balance and extrapolations; independent thermal measurements are needed to assess their physical credibility. The large 34--43~\um{} length responses exceed the inspected baseline axial sensitivity, whereas submicrometre interactions retain a need for branch-specific three-dimensional refinement. Analytical verification and residual closure support numerical execution within the inspected scope; physical assessment additionally depends on material data and the distinct experimental populations described in Materials and methods.
-
-The resulting assessment has specific observable targets. Transverse metallography tests the fusion shape beyond the fitted length. Rear thermal profiles test the locations and separation of the adopted phase boundaries. A co-registered temperature history spanning that interval tests the derived material time. Keeping these roles distinct connects the constitutive sensitivity to evidence that can strengthen the calibrated model, rather than treating every geometric or derived thermal descriptor as an interchangeable validation target.
+Assessment of the derived duration requires a record covering the same phase interval and material trajectory. Lane et al.'s constant-speed conversion supports position-to-time mapping, but their exemplar cooling estimate uses a below-solidus interval~\cite{lane2020}. Fixed-location histories resolve successive heating events~\cite{hooper2018}; comparisons with morphology require spatial and temporal registration~\cite{zhang2022registration}. Fluid-tracer histories follow moving parcels~\cite{Hou2024Dissolution}, rather than the stationary-material trajectory used here. The centerline interval also supplies only part of the thermal information used by grain calculations, which require local gradients, undercooling and interface speed and can respond to convection~\cite{yuan2024,xiong2022}. These window, trajectory and input requirements bound the present single-track descriptor.
 
 \section{Conclusions}
-High-temperature property extrapolation is a consequential assumption in length-calibrated IN625 heat-conduction modeling because the available tables stop below the adopted melting interval. The present comparison makes its consequences explicit for fusion geometry, rear phase-boundary position and the passage time through that interval. Fitting one effective source-power fraction to B thermographic length leaves the calculated fusion envelope wider and shallower than the NIST metallographic means. The other dimensions therefore remain necessary constraints on the spatial distribution of melting.
 
-At retained source power, constant endpoint extrapolation of conductivity lengthens the pool, while the corresponding specific-heat extrapolation shortens it; the combined increase is 34.28~\um{}. Almost equal rear solidus and liquidus displacements account for the dominant conductivity response. Total length primarily changes through movement of this boundary pair, with much less change in its separation and with the transverse discrepancy retained. This distinguishes sensitivity of the rear phase-boundary location from an enlarged solidification interval or an improved fusion shape.
+The prescribed extrapolations change melting extent and rear separation on different scales in the length-calibrated IN625 conduction field. At the retained fitted source power, replacing linear conductivity extrapolation by a constant endpoint value lengthens the pool chiefly through downstream displacement of the rear solidus and liquidus together. Changing sensible specific heat partly offsets that extension, while all four property schemes remain wider and shallower than the metallographic means. The much smaller change in rear separation depends on the partner function. Axial refinement preserves the large boundary displacement but leaves the continuum direction of the small HH--LH separation increase unresolved. A substantial increase in pool length therefore need not represent a comparable widening of the adopted freezing interval.
 
-The interval's time interpretation also requires scan speed. Nearly equal B/C rear separations at 0.8 and 1.2~m/s correspond to a roughly one-third shorter passage time and a 49.02\% higher interval-mean cooling rate in C. Together, the results separate the spatial extent of melting, the location and separation of the rear phase boundaries, and the duration of cooling through the adopted interval. Material-specific high-temperature properties and aligned thermal observations can assess these distinct outputs of the calibrated field. The present study supplies their model-based comparison with one retained calibrated source-power fraction and a fixed phase law.
+The fixed-power speed comparison further separates that spatial interval from its material-time meaning. Nearly equal rear separations produce a stationary-material passage through the adopted phase interval about one third shorter at the higher speed. Melting extent, freezing position, interval width and passage time consequently convey distinct information about the calibrated field. Geometry comparisons assess the fusion shape; physical assessment of the rear crossings and their time mapping requires thermal observations with corresponding temperature intervals and trajectories. These distinct assessment targets clarify the thermal information that must be evaluated when a geometry-calibrated conduction field supplies inputs to subsequent solidification calculations.
 
 \section*{Data and code availability}
-The LaTeX manuscript, vector figures, extracted tables and evidence inspection are available in the \href{https://github.com/1187124906zty-commits/research-workflow/tree/codex/researchflow-release/paper/ammt-study}{manuscript package}. The original case and numerical implementation are referenced through \href{https://github.com/1187124906zty-commits/simulation-agent-research}{SimAgent}. Experimental sources remain the cited NIST challenge and Lane study. Publisher full-text copies used for reading are not redistributed. The package README distinguishes extracted tables and figures from large retained fields and identifies the corresponding original case locators.
+Baseline numerical tables, vector figures and evidence-inspection records are available in the \href{https://github.com/1187124906zty-commits/research-workflow/tree/codex/researchflow-release/paper/ammt-study}{manuscript package}. The current manuscript revision, editable sources and compact supplementary axial comparisons accompany the local review package. The complete retained fields and originating solver environment remain in the original case archive; their public deposition remains to be arranged. Experimental sources are the cited NIST challenge and Lane study. Third-party full-text reading copies are supplied for local review and excluded from the public project. The package README specifies the available assets and the original case locators.
 
 \section*{Declaration of generative AI use in manuscript preparation}
 OpenAI Codex was used to assist literature and evidence organization, manuscript drafting and automated pre-review. Figures were generated from numerical results by deterministic plotting.
 
 \appendix
+\setcounter{equation}{0}
+\renewcommand{\theequation}{A.\arabic{equation}}
+\renewcommand{\theHequation}{A.\arabic{equation}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\renewcommand{\theHtable}{A.\arabic{table}}
 \section{Material data and numerical verification}
 \subsection{Material-property inputs}
 
 \begin{table}[htbp]
 \centering
-\caption{Thermophysical-property inputs from the general IN625 bulletin~\cite{specialmetals625}. The two temperature columns describe different tables. Conductivity and sensible specific heat are interpolated independently.}
+\caption{IN625 conductivity and sensible-specific-heat data from the Special Metals bulletin~\cite{specialmetals625}. The independent temperature columns describe the measured conductivity and calculated sensible-specific-heat data groups; each function is interpolated independently.}
 \label{tab:properties}
 \begin{tabular}{rrrr}
 \toprule
@@ -369,9 +323,56 @@ $-18$ & 9.2 & 204 & 456\\
 \end{table}
 
 
-% Proposed scientific appendix additions. Keep the existing property table,
-% constant-property verification integral and calibration/sensitivity table.
+The conductivity measurements were made at Battelle on material annealed at 2100~$^\circ$F for 1~h.
+
 The linear-extrapolation slopes from the final tabulated pairs are $0.0216216$~W\,m$^{-1}$\,K$^{-2}$ for conductivity and $0.225225$~J\,kg$^{-1}$\,K$^{-2}$ for sensible specific heat. The enthalpy integral is evaluated piecewise analytically and inverted using the corresponding property extrapolation.
+
+
+\subsection{Complete geometry and baseline property comparisons}
+The condition-level geometry comparisons in Fig.~\ref{fig:comparison} are listed below with their separately sourced uncertainty scales. The second table retains the original-mesh material responses; the refined quantities and matched effect drifts follow in Tables~\ref{tab:refined-properties} and~\ref{tab:paired-axial-effects}.
+
+\begin{table}[htbp]
+\centering
+\caption{Geometry comparison in \um{} at retained source power. Measurement columns use the thermographic length data and metallographic dimensions defined in Section~\ref{sec:benchmark-design}; $U$ denotes the separately sourced Lane expanded uncertainty scales ($k=2$). B length is fitted. $\delta/U$ describes differences relative to these scales, with the population and uncertainty distinctions specified in Methods.}
+\label{tab:geometry}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Condition & Quantity & Model & Measured mean & $U$ & $\delta/U$\\
+\midrule
+A & $L$ & 309.89 & 300 & 11.91 & +0.83\\
+  & $W$ & 153.36 & 147.9 & 6.42 & +0.85\\
+  & $D$ & 40.47 & 42.5 & 4.49 & $-0.45$\\
+B & $L$ (fitted) & 359.16 & 359 & 21.26 & +0.01\\
+  & $W$ & 143.04 & 123.5 & 6.30 & +3.10\\
+  & $D$ & 31.12 & 36 & 3.97 & $-1.23$\\
+C & $L$ & 320.63 & 370 & 32.57 & $-1.52$\\
+  & $W$ & 129.05 & 106 & 4.48 & +5.14\\
+  & $D$ & 22.04 & 29.6 & 3.26 & $-2.32$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline property responses at B in \um{}, for the schemes in Table~\ref{tab:comparison-design} and effects in Eq.~\eqref{eq:contrast}. The near-source mesh is $4\times3\times1$~\um. Tables~\ref{tab:refined-properties} and~\ref{tab:paired-axial-effects} give the matched axial-refinement comparisons.}
+\label{tab:factorial}
+\begin{tabular}{lrrr}
+\toprule
+Case or effect & $L$ & $W$ & $D$\\
+\midrule
+LL & 359.16 & 143.04 & 31.12\\
+HL & 402.37 & 143.15 & 30.09\\
+LH & 352.99 & 143.72 & 31.61\\
+HH & 393.44 & 143.79 & 30.80\\
+\midrule
+$\delta_k$ & +43.21 & +0.11 & $-1.03$\\
+$\delta_{c_p}$ & $-6.17$ & +0.68 & +0.49\\
+$I_{k,c_p}$ & $-2.76$ & $-0.04$ & +0.21\\
+$\Delta_{\rm joint}$ & +34.28 & +0.75 & $-0.32$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Spatial discretization and observation recovery}
 The domain is $\xi\in[-1,0.35]$~mm, $y\in[0,0.36]$~mm and $z\in[-0.30,0]$~mm. A graded orthogonal mesh contains 902664 cells. Near-source cell widths are $4\times3\times1$~\um\ within $\xi\in[-0.48,0.16]$~mm, $y\in[0,0.12]$~mm and $z\in[-0.06,0]$~mm. Outer widths increase by a factor of 1.22 up to 25~\um. The half-domain mesh has $199\times56\times81$ cells. The solved problem is steady; retained warm fields provide nonlinear initial guesses.
@@ -387,16 +388,16 @@ and the symmetry-plane value uses the even quadratic extension $T(0)=T(y_1)+[T(y
 The observation pitch is 0.5~\um; it samples the interpolated geometry rather than changing the heat-field resolution.
 
 \subsection{Scaled enthalpy diffusion and diagnostic definitions}
-The scaled unknown is $U=H/C_0$, with $C_0=\rho(402~\si{\joule\per\kilogram\per\kelvin})=3.39288\times10^6$~\si{\joule\per\cubic\metre\per\kelvin}. On an internal face,
+The scaled unknown is $U_H=H/C_0$, with $C_0=\rho(402~\si{\joule\per\kilogram\per\kelvin})=3.39288\times10^6$~\si{\joule\per\cubic\metre\per\kelvin}. On an internal face,
 \begin{equation}
- D_f=\frac{k_f}{C_0}\frac{\Delta T}{\Delta U},
+ \mathcal D_f=\frac{k_f}{C_0}\frac{\Delta T}{\Delta U_H},
  \label{eq:face}
 \end{equation}
-where $k_f$ is the harmonic face conductivity and $D_f$ has units of m$^2$\,s$^{-1}$. For $|\Delta U|\leq10^{-8}$~K, the derivative limit is $\Delta T/\Delta U=C_0/[\rho(c_p+\mathcal L f')]$ at the first adjacent cell. This coefficient recovers conductive flux in the conservative equation for scaled enthalpy $U$. Coordinate enthalpy transport uses an exponentially fitted finite-volume convection flux. Material coefficients and the diffusion--transport stencil are updated with each nonlinear iterate; Anderson acceleration solves the fixed-point residual and preconditioned GMRES solves the inner linear system. Software versions and iterative controls are given in the accompanying numerical reproduction notes.
+where $k_f$ is the harmonic face conductivity and $\mathcal D_f$ has units of m$^2$\,s$^{-1}$. For $|\Delta U_H|\leq10^{-8}$~K, the derivative limit is $\Delta T/\Delta U_H=C_0/[\rho(c_p+\mathcal L f')]$ at the first adjacent cell. This coefficient recovers conductive flux in the conservative equation for scaled enthalpy $U_H$. Coordinate enthalpy transport uses an exponentially fitted finite-volume convection flux. Material coefficients and the diffusion--transport stencil are updated with each nonlinear iterate; Anderson acceleration solves the fixed-point residual and preconditioned GMRES solves the inner linear system. FiPy assembles the finite-volume terms and SciPy provides the nonlinear and linear solution routines~\cite{fipy2009,scipy2020}. Software versions and iterative controls are given in the accompanying numerical reproduction notes.
 
 The retained face transport diagnostic is
 \begin{equation}
- |\mathrm{Pe}_f|=\frac{|\bm u\cdot\bm n_f|d_f}{D_f},
+ |\mathrm{Pe}_f|=\frac{|\bm u\cdot\bm n_f|d_f}{\mathcal D_f},
  \label{eq:pe}
 \end{equation}
 where $d_f$ is the adjacent cell-center separation. Unweighted medians are taken over internal axial faces adjacent to at least one cell with $T_s\leq T<T_l$. The diagnostic compares coordinate transport with diffusion in the discretized field; its selected face population can change between solved branches.
@@ -410,6 +411,8 @@ Nonlinear acceptance requires the sum of absolute assembled cell residuals, norm
 
 The six production solutions have finite temperatures, bounded phase fractions, nontruncated extracted geometry and the prescribed integrated source power. Normalized absolute residuals are $6.90\times10^{-8}$--$1.31\times10^{-7}$, signed global balance magnitudes are below $6.1\times10^{-11}$, and full-solve temperature corrections are below $2.7\times10^{-5}$~$^\circ$C.
 
+An earlier transient B comparison at a different calibration stage provides approximate local steady consistency. Fixed-field blackbody estimates put B-case top losses at 0.099--0.180\% of absorbed power; feedback from these losses is not solved. These checks have different roles from the constant-property verification and the calibrated-mesh comparisons.
+
 \subsection{Separate constant-property verification problem}
 The Gaussian verification uses $P=179.2$~W, $\eta=0.2$, $v=0.8$~m/s and $w=85$~\um, with $\rho=8440$~\si{\kilogram\per\cubic\metre}, constant $c_p=410.94444$~\si{\joule\per\kilogram\per\kelvin}, constant $k=9.870588$~\si{\watt\per\metre\per\kelvin} and no latent heat. Thus $a_0=k/(\rho c_p)=2.845886\times10^{-6}$~m$^2$/s. Its finite-domain mesh contains 178992 cells ($113\times33\times48$), with near-source spacings of $8\times6\times2$~\um. Domain extents follow the production geometry, but the adiabatic transverse and bottom boundaries truncate the semi-infinite analytical referent.
 
@@ -419,25 +422,71 @@ A constant-property moving-Gaussian reference is constructed from the semi-infin
  \int_0^\infty \frac{\exp\!\left[-\dfrac{(\xi+v\tau)^2+y^2}{w^2/2+4a_0\tau}-\dfrac{z^2}{4a_0\tau}\right]}
  {\sqrt{\tau}(w^2/2+4a_0\tau)}\,\mathrm d\tau.
 \end{equation}
-The archived implementation removes the surface singularity by $\tau=(w/v)s^2$ and uses adaptive quadrature. Solidus geometry is extracted at 1290~$^\circ$C, with uniform-core face-average source recovery for the numerical surface. Width/depth use the monotone constant-property maximum-temperature envelope; they do not replace the general production passage observer. The associated recipes and archived reports are identified in the numerical reproduction notes. The quoted differences combine discretization, reconstruction and finite-domain effects, and do not bound nonlinear phase-change or physical-model error.
+The implementation removes the surface singularity by $\tau=(w/v)s^2$ and uses adaptive quadrature. Solidus geometry is extracted at 1290~$^\circ$C, with uniform-core face-average source recovery for the numerical surface. Width/depth use the monotone constant-property maximum-temperature envelope; they do not replace the general production passage observer. The associated recipes and reports are identified in the numerical reproduction notes. The quoted differences combine discretization, reconstruction and finite-domain effects, and do not bound nonlinear phase-change or physical-model error.
 
 \subsection{Calibration record and retained sensitivities}
-The calibration bracket $\eta\in[0.2,0.4]$ has retained endpoint lengths of 234.57 and 511.68~\um. Subsequent retained trial pairs $(\eta,L/\mathrm{\mu m})$ are $(0.2898051,359.96)$ and $(0.2853148,354.22)$, followed by the final $(0.2890548519,359.16)$. They establish a sampled local bracket, not global identifiability. The local secant sensitivity is approximately 1276.79~\um{} per unit $\eta$. Dividing B's 21.26~\um{} expanded uncertainty by this slope gives a scale $\Delta\eta=0.01665$; it is not a posterior interval and is not propagated into the geometry comparisons.
+The calibration bracket $\eta\in[0.2,0.4]$ has retained endpoint lengths of 234.57 and 511.68~\um. Subsequent retained trial pairs $(\eta,L/\mathrm{\mu m})$ are $(0.2898051,359.96)$ and $(0.2853148,354.22)$, followed by the final $(0.2890548519,359.16)$. They establish a sampled local bracket, not global identifiability. The local secant sensitivity is approximately 1276.79~\um{} per unit $\eta$. Dividing B's 21.26~\um{} expanded uncertainty by this slope gives a scale $\Delta\eta=0.01665$; it is not a posterior interval and is not propagated into the geometry comparisons. Table~\ref{tab:axial-sensitivity} reports the retained axial-refinement responses at the calibrated source-power fraction.
 \begin{table}[htbp]
 \centering
-\caption{Retained calibrated axial sensitivities in \um, calculated as fine minus baseline. Only the near-source axial spacing changes from 4 to 2~\um; transverse and depth spacings remain 3 and 1~\um. These contrasts do not bound every discretization component.}
-\begin{tabular}{lrrr}
+\caption{Retained axial sensitivities at the calibrated source-power fraction, calculated as fine minus baseline. Spatial differences are in \um{} and passage-time differences in \us. Only the near-source axial spacing changes from 4 to 2~\um; transverse and depth spacings remain 3 and 1~\um. These contrasts measure inspected sensitivities rather than an asymptotic error bound.}
+\label{tab:axial-sensitivity}
+\begin{tabular}{lrrrrrrr}
 \toprule
-Condition & $\Delta L$ & $\Delta W$ & $\Delta D$\\
+Condition & $\Delta L$ & $\Delta W$ & $\Delta D$ & $\Delta\xi_s^-$ & $\Delta\xi_l^-$ & $\Delta\ell_m$ & $\Delta\tau_m$\\
 \midrule
-B & +0.361 & $-0.009$ & +0.041\\
-C & +0.199 & $-0.029$ & +0.045\\
+B & +0.361 & $-0.009$ & +0.041 & $-0.310$ & $-1.771$ & $-1.461$ & $-1.826$\\
+C & +0.199 & $-0.029$ & +0.045 & $-0.288$ & $-1.459$ & $-1.171$ & $-0.976$\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-For uncertainty-scale reporting, $\delta/U=(Q_{\rm model}-\overline Q_{\rm source})/U_{\rm Lane}$. The separate $U$ values are not specimen standard deviations. Imaging and microscopy have different operators and aggregation, so the geometry triplet is not fitted to a joint likelihood. All finite contrasts use full-precision outputs before rounding for display.
+\subsection{Matched property comparisons under axial refinement}
+To assess the property responses at their own spatial scales, the four B combinations were compared on the same refined mesh. The near-source axial spacing is 2~\um, giving $365\times56\times81=1655640$ cells; transverse/depth spacing, domain, source-power fraction and phase law retain their baseline values. The refined linear baseline (LL) and additional HL, LH and HH solutions use the same temperature recovery and geometric extraction as their baseline counterparts. Table~\ref{tab:refined-properties} reports their quantities, and Table~\ref{tab:paired-axial-effects} compares the finite property contrasts between the two axial meshes.
 
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{B property combinations on the refined $2\times3\times1$~\um{} near-source mesh, at the source-power fraction fitted on the baseline LL mesh. Spatial quantities are in \um{} and passage time in \us. The schemes are defined in Table~\ref{tab:comparison-design}. LL is the retained refined field; HL, LH and HH are additional matched solutions at identical source and phase inputs.}
+\label{tab:refined-properties}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Case & $L$ & $W$ & $D$ & $\xi_s^-$ & $\xi_l^-$ & $\ell_m$ & $\tau_m$ & $\overline{|\dot T|}$\\
+ & & & & & & & & (MK/s)\\
+\midrule
+LL & 359.518 & 143.032 & 31.161 & -307.072 & -228.269 & 78.803 & 98.504 & 0.609\\
+HL & 402.840 & 143.149 & 30.141 & -349.633 & -272.197 & 77.437 & 96.796 & 0.620\\
+LH & 353.646 & 143.705 & 31.651 & -301.128 & -221.272 & 79.856 & 99.820 & 0.601\\
+HH & 394.257 & 143.785 & 30.842 & -341.011 & -260.887 & 80.124 & 100.155 & 0.599\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Matched finite property contrasts at B. Subscripts 4 and 2 denote near-source axial spacing in \um. Length and rear-position changes use the refined mesh; separation changes are shown at both spacings. Axial drift is the refined contrast minus its baseline counterpart. All entries are in \um. Interaction uses HH--HL--LH+LL; a negative rear-position change denotes downstream movement. These two levels assess observed axial sensitivity.}
+\label{tab:paired-axial-effects}
+\begin{tabular}{lrrrrrr}
+\toprule
+Contrast & $\Delta L_{2}$ & $\Delta\xi_{s,2}^-$ & $\Delta\xi_{l,2}^-$ & $\Delta\ell_{m,4}$ & $\Delta\ell_{m,2}$ & Axial drift\\
+\midrule
+HL--LL & +43.321 & -42.561 & -43.928 & -1.013 & -1.367 & -0.353\\
+LH--LL & -5.872 & +5.944 & +6.997 & +0.307 & +1.053 & +0.746\\
+HH--LH & +40.611 & -39.883 & -39.615 & +0.599 & +0.268 & -0.331\\
+HH--HL & -8.583 & +8.623 & +11.310 & +1.919 & +2.687 & +0.768\\
+Interaction & -2.710 & +2.678 & +4.313 & +1.612 & +1.634 & +0.022\\
+HH--LL & +34.739 & -33.939 & -32.618 & +0.906 & +1.320 & +0.415\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For the three additional solutions, normalized absolute cell residuals are $5.03\times10^{-8}$--$1.08\times10^{-7}$, global balance magnitudes are below $9.17\times10^{-11}$, and further temperature corrections are below $2.18\times10^{-5}$~$^\circ$C. All three receive 25.8993~W in the half-domain. The observed contrast drift separates the effect of axial spacing from the much smaller final iterative corrections. The unchanged transverse/depth spacing leaves their discretization sensitivity for a separate assessment.
+
+The uncertainty-scale reporting and distinct observation populations are defined in Section~\ref{sec:benchmark-design}; $U$ is an expanded measurement scale, not a specimen standard deviation. All finite contrasts use full-precision outputs before rounding for display.
+
+\clearpage
 \bibliographystyle{elsarticle-num}
-\bibliography{literature/bibliography-r3}
+\bibliography{literature/bibliography-r8}
 \end{document}
