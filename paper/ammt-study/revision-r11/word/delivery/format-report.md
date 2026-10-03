@@ -24,6 +24,6 @@
 
 ## 可复用多 agent 规则
 
-MAF 新仓库已加入[通用文件交付指南](../../../../../../research-assistant-maf/skills/scientific-writing/references/document-delivery.md)：生产者从结构化原稿生成，独立审查者核对实际内容与全页渲染，协调者处理具体缺陷并交代差异。规则按编辑性、内容和版面分别验收，不包含本案例的物理对象或研究参数。
+MAF 新仓库已加入[通用文件交付指南](https://github.com/1187124906zty-commits/research-assistant-maf/blob/codex/maf-reconstruction/skills/scientific-writing/references/document-delivery.md)：生产者从结构化原稿生成，独立审查者核对实际内容与全页渲染，协调者处理具体缺陷并交代差异。规则按编辑性、内容和版面分别验收，不包含本案例的物理对象或研究参数。
 
 桌面生产与审查使用实际 MAF checkout 加载的角色指导。98 项软件测试、技能校验和两轮确定性 MAF 离线演示已通过，记录见[运行范围](guidance-tests.json)。这些软件检查不替代本次文档核对，也不代表原生远程 MAF 自动完成论文转换。资料仍供人工评阅，作者批准与外部投稿保持待确认。

@@ -1,0 +1,31 @@
+{
+  "scope": "Selected public documents and case assets in the Git index; no private originals required",
+  "checked_documents": [
+    "README.md",
+    "paper/ammt-study/README.md",
+    "paper/ammt-study/revision-r11/README.md",
+    "paper/ammt-study/revision-r11/journal/requirements.md",
+    "paper/ammt-study/revision-r11/integration/terminology-and-scope.md",
+    "paper/ammt-study/revision-r11/integration/source-diff.md",
+    "paper/ammt-study/revision-r11/review/review-response.md",
+    "paper/ammt-study/revision-r11/word/delivery/format-report.md"
+  ],
+  "checked_repository_relative_links": 81,
+  "source_archive_files": [
+    "manuscript.tex",
+    "bibliography.bib",
+    "highlights.txt",
+    "reproduction-notes.md",
+    "ammt-property-continuations.pdf",
+    "r8-geometry-validation.pdf",
+    "r8-property-boundaries.pdf",
+    "r8-speed-passage.pdf",
+    "README.txt"
+  ],
+  "source_archive_matches_staged_canonical": true,
+  "text_comparison": "CRLF/LF normalized; all other text bytes and vector-figure bytes compared",
+  "word_native_tables": 9,
+  "word_native_math_objects": 343,
+  "unresolved_publication_defects": [],
+  "limits": "Link targets are checked against tracked paths, not remote HTTP availability. Packaging does not verify physical claims or human approval."
+}

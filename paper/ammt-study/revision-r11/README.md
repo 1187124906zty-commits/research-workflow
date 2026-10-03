@@ -11,6 +11,7 @@ R11 是当前英文研究稿的编辑与交付记录。它保留接受的科学�
 - [实际源码差异](integration/source-diff.md)
 - [期刊要求与本稿适配](journal/requirements.md)
 - [源码包独立重建检查](delivery/package-rebuild-check.json)
+- [Git公开链接与文件边界检查](delivery/public-index-check.json)
 - [协调者审查处置](review/review-response.md)
 
 本稿采用 Methods 与 Results and Discussion 的章节安排，摘要和引言承担问题定位，方法定义观察量和比较条件，结果与讨论把每个定量响应放回相应证据单元。R11 的文字调整没有新增 PDE、实验或物性规律；匹配精化和补证的实际范围、支持/待证/否证边界均保留在交付记录中。

@@ -100,7 +100,8 @@ for path in documents:
             issues.append(f'Broken local link {path.name}: {target}')
 state=json.loads((ROOT/'.researchflow/research-state.json').read_text(encoding='utf-8'))
 supplement=state['tasks'].get('R6_SIMULATION_SUPPLEMENT',{})
-summary={'latex_pdf_pages':len(doc),'pdf_bytes':args.pdf.stat().st_size,
+summary={'scope':'Current manuscript and local-workspace documents; Git publication links are checked separately by check_public_release.py',
+         'latex_pdf_pages':len(doc),'pdf_bytes':args.pdf.stat().st_size,
          'checked_pdf_input':str(args.pdf.resolve().relative_to(ROOT)),
          'local_canonical_pdf_matches_checked':(ROOT/'manuscript.pdf').read_bytes()==args.pdf.read_bytes(),
          'resolved_cited_identities':len(cited),'bibliography_candidates':len(keys),
