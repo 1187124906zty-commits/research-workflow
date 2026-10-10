@@ -1,4 +1,6 @@
 interface:
-  display_name: "Simulation Project Orchestrator"
-  short_description: "Bound simulation effort to research questions and evidence"
-  default_prompt: "Use $simulation-project-orchestrator to answer my research question with bounded simulation work, evidence, and a justified next decision."
+  display_name: "Simulation Task Router"
+  short_description: "Route preparation, solver execution and validation"
+  default_prompt: "Use $simulation-project-orchestrator to execute my specified simulation cases and return experimental or theoretical comparisons."
+policy:
+  allow_implicit_invocation: true

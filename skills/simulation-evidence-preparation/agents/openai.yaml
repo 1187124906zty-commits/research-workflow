@@ -1,0 +1,6 @@
+interface:
+  display_name: "仿真证据与模型准备"
+  short_description: "从交付文献与数据提取指定仿真工况的参数、验证观测和模型路径"
+  default_prompt: "使用 $simulation-evidence-preparation，按给定 simulation-task.md 从已交付资源准备物理参数、验证数据和成熟模型路径，并向上游返回缺件请求。"
+policy:
+  allow_implicit_invocation: true

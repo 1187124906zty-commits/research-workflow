@@ -1,0 +1,6 @@
+interface:
+  display_name: "仿真结果验证"
+  short_description: "核验指定工况的仿真结果，与实验或理论数据对照并返回用途有效范围"
+  default_prompt: "使用 $simulation-result-validation 核验指定仿真工况的结果，与现有实验或理论数据比较，返回残差、不确定度、证据状态和用途有效范围。"
+policy:
+  allow_implicit_invocation: true
