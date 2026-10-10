@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import shutil
 import sys
 
@@ -57,6 +57,8 @@ def load_skill_migrations() -> dict[str, tuple[Path, ...]]:
         skill_path = Path(skill_name) if isinstance(skill_name, str) else Path(".")
         if (not isinstance(skill_name, str) or not skill_name
                 or skill_path.is_absolute() or len(skill_path.parts) != 1
+                or PureWindowsPath(skill_name).drive or PureWindowsPath(skill_name).anchor
+                or len(PureWindowsPath(skill_name).parts) != 1
                 or skill_name in (".", "..")):
             raise ValueError(f"Invalid skill name in {MIGRATIONS}: {skill_name!r}")
         if not isinstance(entries, list):
@@ -66,6 +68,8 @@ def load_skill_migrations() -> dict[str, tuple[Path, ...]]:
             relative = Path(entry) if isinstance(entry, str) else Path(".")
             if (not isinstance(entry, str) or not entry or relative.is_absolute()
                     or relative.drive or relative.anchor
+                    or PureWindowsPath(entry).drive or PureWindowsPath(entry).anchor
+                    or ".." in PureWindowsPath(entry).parts
                     or ".." in relative.parts or relative == Path(".")):
                 raise ValueError(f"Invalid migration path for {skill_name}: {entry!r}")
             paths.append(relative)

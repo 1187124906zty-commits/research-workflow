@@ -140,7 +140,8 @@ class InstallTests(unittest.TestCase):
             self.assertFalse((home / "AGENTS.md").exists())
 
     def test_invalid_migration_path_is_rejected_before_any_change(self):
-        for invalid in ("../outside.md", str(Path.cwd().anchor + "outside.md"), "C:outside.md"):
+        for invalid in ("../outside.md", str(Path.cwd().anchor + "outside.md"),
+                        "C:outside.md", r"C:\outside.md", r"..\outside.md"):
             with self.subTest(invalid=invalid), tempfile.TemporaryDirectory() as td:
                 root = Path(td)
                 repo = self.make_repo(root, {
