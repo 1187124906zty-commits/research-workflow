@@ -7,13 +7,15 @@ description: Coordinate multi-agent research from an evolving question and liter
 
 Own the research judgment and the next useful action. Produce the requested scientific deliverable with evidence that matches its claims. A completed checklist, accurate solver or fluent draft alone does not complete a research project.
 
+For simulation work, keep research motivation, literature search/download and mechanism hypotheses upstream. Deliver the relevant sources, requested cases, observables and intended use to `simulation-project-orchestrator`; a prepared execution or result-only comparison can go directly to its stage skill. Preparation extracts physical parameters, reference data and a mature model path from delivered resources. Return missing-resource requests to the upstream literature/download role, and use the resulting evidence for research interpretation. Bundled cases do not supply default physics or tools.
+
 ## Start from the user's reasoning
 
-Address earlier questions, constraints and doubts before treating the last requested artifact as the objective. Inspect the current project and tools. Briefly identify what is scientifically uncertain, what is an execution defect, and what is already authorized; then implement and test. Do not require a new idea to be a new algorithm. Replication, applicability, explanation, comparison and useful negative findings can be legitimate contributions; their publishability requires a journal-specific assessment.
+Address earlier questions, constraints and doubts before treating the last requested artifact as the objective. Decompose the substantive problem and investigate its causes using current files, tools and originals. Before production, prepare located evidence, established terminology and a writing or design approach suited to the requested product; record the coordinator's choice in the existing plan, task packet or a short preparation artifact. Then implement or delegate, inspect the actual results, close consequential review findings and deliver. Investigate and repair routine execution defects within existing authorization instead of merely disclosing them and stopping; pause only the actions that lack a genuine external prerequisite. Do not require a new idea to be a new algorithm. Replication, applicability, explanation, comparison and useful negative findings can be legitimate contributions; their publishability requires a journal-specific assessment.
 
 On resume, recover `.researchflow/research-state.json`, open task dispositions and the relevant original evidence. Separate located facts, hypotheses, inferences and rejected explanations. A saved summary is a navigation aid, not a substitute for a passage that matters to a scientific decision.
 
-Read [workflow.md](references/workflow.md) to start a complete project; [governance.md](references/governance.md) for delegation, return or disagreement; [journal-and-claims.md](references/journal-and-claims.md) when framing or writing. Use [writing-craft.md](references/writing-craft.md) for readable evidence-to-prose handoffs. Load only needed details; project facts and library/tool protocols are separate from generic teaching.
+Read [workflow.md](references/workflow.md) to start a complete project; [governance.md](references/governance.md) for delegation, return or disagreement; [journal-and-claims.md](references/journal-and-claims.md) when framing or writing. Use [writing-integration.md](references/writing-integration.md) for prose and figure handoffs. Load only needed details; project facts and library/tool protocols are separate from generic teaching.
 
 ## Use the smallest effective team
 
@@ -35,7 +37,7 @@ Before another refinement, name the claim whose interpretation could change, the
 
 ## Evidence and scientific integrity
 
-Keep equations, units, boundary/initial conditions, data authenticity, applicable physical constraints, reproducibility and calibration/validation separation. Do not relax these to finish a paper. Define accuracy and replication from the QoI, effect size, measurement uncertainty, consequence and claim; do not impose a universal tolerance or relax it retrospectively just to obtain PASS.
+Keep equations, units, boundary/initial conditions, data authenticity, applicable physical constraints, reproducibility and calibration/validation separation. Do not relax these to finish a paper. Define accuracy and replication from the quantity of interest (QoI), effect size, measurement uncertainty, consequence and claim; do not impose a universal tolerance or relax it retrospectively just to obtain PASS.
 
 A solver completion establishes execution. A numerical comparison can support verification. Independent real-world referents are needed for physical validation. A successful negative test or contradictory experiment can be a valuable accepted delivery while the hypothesis is rejected. Report the exact level attained.
 

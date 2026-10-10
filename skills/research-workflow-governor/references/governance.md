@@ -18,6 +18,8 @@ Make the question narrow enough to have a useful return. For example, “Determi
 
 Contract acceptance includes a scientific rationale: which QoI, which alternatives, what would falsify the proposed explanation, and how error/uncertainty affects the decision. Budget describes a default return point, not proof of adequacy. For an ordinary diagnostic use two meaningful attempts before reassessment; adjust for task cost and stage. All output paths belong to a named worker; workers do not edit the shared state.
 
+Production follows the coordinator's preparation decision. Bind a writing or figure assignment to the reader's question, adjacent argument, located evidence, terminology and the selected approach; a specialist may first receive a bounded question to supply missing preparation. Keep routine implementation repair within existing authorization. For consequential delivery, distinguish production from independent final review and inspect the repaired source or rendered artifact before closing the return. Use existing plans and task artifacts rather than adding a form for every sentence.
+
 Requester disposition answers: What is known now? Did this result change the paper argument? What stays uncertain? Is another run more informative than writing, literature extraction or a simpler control? Accepting a result file does not accept the hypothesis. Follow-up must identify new information or a different test rather than repeat an unchanged command.
 
 ## When rigor becomes local optimization

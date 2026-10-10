@@ -1,64 +1,30 @@
 ---
 name: simulation-project-orchestrator
-description: Execute and assess physics or engineering simulations for a stated research question, with bounded numerical work and claim-specific evidence. Use for FEM, CFD, PDE, multiphysics, parameter studies, inverse problems, method development, and simulation audits.
+description: Route an upstream simulation request through source-based preparation, solver-tool execution and experimental or theoretical comparison. Use for an end-to-end simulation job or coordination of these stages; use the stage skill directly for a prepared execution or validation task.
 ---
 
-# Simulation Project Orchestrator
+# 仿真任务入口
 
-Produce evidence that helps the research coordinator decide what to investigate, explain, or write next. A solver run is a means to that decision. Return scientifically useful negative findings as well as successful results; neither completion nor agreement alone validates a model.
+接收上游研究目标或具体模拟命令，交付指定工况的实际计算、验证对比与可复用结果。研究动机、文献检索/下载、机制假设和额外探索由上游负责；本入口协调仿真工作，不重新开展研究项目。
 
-## Start with one bounded question
+## 接单与路由
 
-Read the project's current research state and task contract. If absent, record a compact contract containing: research question, stage, proposed claim and Context of Use (COU), quantities of interest (QoIs), available evidence, expected effect or decision scale, relevant checks, time/compute budget, required outputs, and return condition. Inspect available files and software before asking for information.
+先读上游材料和当前结果索引。把目标、工况、可观测量、已有文献/数据、软件约束、所需输出和预算写入或接续一份 `simulation-task.md`；简单任务几段即可。信息不足时先查已交付资料，向上游提出会改变本次计算的具体资源请求；实验数据缺失只影响相关验证，物理闭合缺失影响相应工况。
 
-Select the physical system, constitutive assumptions, parameters, observables and comparisons from that contract and its original sources. Registered applications supply case-specific inputs only when selected for the task; they do not define a default scientific topic or model for this skill.
+| 当前工作 | 交给谁 | 返回后做什么 |
+|---|---|---|
+| 从已交付文献/数据提取参数、验证数据并确定模型路径 | [simulation-evidence-preparation](../simulation-evidence-preparation/SKILL.md) | 接收可执行工况、模型/观测定义和缺件请求；必要文献请求交上游资源角色 |
+| 已有条件/模型或具体命令，需要选工具并计算 | [simulation-tool-execution](../simulation-tool-execution/SKILL.md) | 检查实际运行与原始输出，再交验证角色；已完成任务不重新准备 |
+| 已有结果，需要实验/理论对照或偏差诊断 | [simulation-result-validation](../simulation-result-validation/SKILL.md) | 接收结论适用范围、工况比较、未决项和具名修复请求 |
 
-Choose exploration, paper_formation, or submission. Read [references/research-efficiency.md](references/research-efficiency.md) for the stage policy, numerical-adequacy decision, and return protocol. Match fidelity to the current question; do not inherit a universal residual, mesh size, relative-error target, or another paper's exact numerics. State why further refinement could change the research judgment before doing it.
+职责 Skill 不会自行启动。需要独立分工时，主代理用宿主的子代理工具派发，**每个子代理只给其职责 Skill 路径、相关原件、任务/输出路径和返回条件**，不让每人读取入口、全套参考或研究历史。小任务可以合并职责；重要结果的验证交独立执行者。模型使用上游允许池，不以模型名或多数意见决定事实。
 
-## Preserve scientific hard lines
+MCP 和成熟求解工具承担计算；可用性由执行角色实测。工具不足时允许授权的 CLI、Python 或 WSL 途径，并如实记录；数值实现深挖只在会影响本次结果可信度时开展。工况/参数探索按上游命令执行，新的物理模型、校准或研究问题交回上游。
 
-- Close equations, units, physical parameters, and essential initial/boundary/interface conditions before running that model. A declared hypothetical model may use labeled assumptions; it cannot impersonate a real experiment.
-- Distinguish USER_CONFIRMED, SOURCE_BACKED, SOFTWARE_DEFAULT, CALIBRATED, AGENT_PROPOSED, DERIVED, and UNKNOWN inputs. Never silently promote an assumption to a fact.
-- Preserve source authenticity, equation-to-code fidelity, applicable physical bounds and balances, raw outputs, data roles, uncertainty, and contrary evidence. A plausible contour, low residual, another agent's agreement, or a zero exit code cannot substitute for these.
-- Keep calibration and independent validation separate. Viewed or tuned holdout observations cannot later be called untouched validation data.
-- A failed check stays failed for its affected claim. Budget exhaustion cannot grant PASS; scope reduction retires the broader claim and retains its failure history.
+## 接收反馈并完成
 
-## Prepare only what this run needs
+异常由发现者先核对本职，再把定位、已查事项、待回答问题和受影响工况发给负责角色。请求方评价答复、实施可行修复、复测原异常；部分答复保留未决项。两次有界尝试未改变症状或判断时，协调者重新选择下一步并说明理由，不直接判通过或弃置。只重做失效部分。
 
-Record the simulation specification, Physics Contract, and evidence dependencies, using [references/project-objects.md](references/project-objects.md) when structure is needed. These can be sections of one small run plan; schemas and a directory per object are optional unless the selected adapter requires them.
+任务交接、缺件与恢复读 [handoff.md](references/handoff.md)；只有重要争议需要持久对话账本时读 [dialogue.md](references/dialogue.md)。已有 ResearchFlow 时复用其任务状态；无该包用当前任务记录，不另建多套状态系统。
 
-Freeze a revision **for this reproducible run**, not the whole evolving research idea. User-authorized reversible exploratory modeling choices can be selected and documented without repeated approval. New information creates a new revision and makes only dependent results/claims stale. Ask for a human decision when an indispensable scientific choice is outside delegated scope, evidence is inaccessible, or consequences exceed the authorized use.
-
-For application work, consult [references/application-strategy.md](references/application-strategy.md) and, when domain knowledge is missing, [references/domain-research-mode.md](references/domain-research-mode.md). Prefer a supported framework when it expresses the chosen physics. A custom method is appropriate for requested method research or a demonstrated framework limitation. Novelty assessment belongs to the coordinator unless requested here.
-
-For a paper reproduction or experimental-validation claim, read [references/literature-validation.md](references/literature-validation.md) and [references/pre-solver-preflight.md](references/pre-solver-preflight.md). A paper used only for motivation does not trigger full experimental reconstruction. Missing comparison data blocks that comparison, while an independently closed exploratory model may still answer a narrower question.
-
-For mechanisms, read [references/mechanism-result-analysis.md](references/mechanism-result-analysis.md). Before an exploratory run, define the physical question and the minimum outputs that could distinguish or inform it. A complete mechanism map is unnecessary at idea exploration. A formal mechanism claim later needs falsifiable alternatives, adequate diagnostics, independent review, and explicit counterevidence.
-
-## Execute, assess, return
-
-1. Map the intended physics to the actual framework/input. Derive a new discrete form when developing the method or when documentation cannot establish the mapping; otherwise use the documented formulation.
-2. Check relevant units, signs, limits, physical closure, output configuration, and the cheap baseline/benchmark that could expose a consequential mistake. For method combinations use [references/method-review.md](references/method-review.md).
-3. Run the frozen candidate. Bind evidence to its version, inputs, environment, and solver. Use content digests when concurrent edits, binary provenance, reproducible caching, or an adapter require them; do not hash ordinary text repeatedly instead of verifying behavior.
-4. Evaluate only checks needed for the present claims, with reasons for nonapplicability. Use [references/gates.md](references/gates.md) to distinguish execution, numerical adequacy, experimental validation, and mechanism interpretation. Compare error and uncertainty with the effect/decision scale.
-5. Return evidence paths, QoIs and uncertainty, supported/unsupported claims, remaining ambiguity, cost spent, and a recommendation for the next research decision. The requesting coordinator or analyst evaluates the scientific meaning; the executor cannot self-declare a mechanism supported.
-
-## Bound repair and collaboration
-
-Classify a failure before repair: input/specification, physics/formulation, implementation, environment, solver/numerical, validation, or provenance. Repair the responsible artifact and rerun only invalidated checks. Reuse reviews when their dependencies are unchanged.
-
-After **two consecutive repair/refinement rounds that do not change the research judgment**, return to the main coordinator with the failed attempts, evidence, cost, and alternatives: a cheaper discriminating test, another explanation, a narrowed claim, or another task. Return earlier when the task budget is reached. The coordinator can authorize another bounded cycle with a stated information gain; this is not automatic acceptance or abandonment.
-
-When authorized collaboration is available, read [references/multi-agent-governance.md](references/multi-agent-governance.md). Assign bounded producer, mechanism/data, and reviewer responsibilities as needed; roles may combine for low-risk exploration. Use independent first-pass review for consequential manuscript claims and disclose unavailable independence. Routine work does not require a new agent, model-adequacy benchmark, extensive routing record, or full governance bundle.
-
-When an anomaly needs another role's knowledge, first check your relevant local obligations, then ask a located, bounded question. Use [references/scientific-dialogue.md](references/scientific-dialogue.md) for consequential requests and the locked append/audit helpers for shared ledgers. A request or supported dissent blocks its named claims and dependents. A ledger-level warning is not a reason to halt unrelated work. Neither majority vote nor model rank settles scientific truth.
-
-## Adapter and delivery boundaries
-
-For simulation-agent-mvp, read [references/local-mvp.md](references/local-mvp.md). Its legacy all-PASS governance rule remains an executable limitation: these instructions do not patch its code or bypass its promotion cap. Preserve its actual status and, if needed, choose a separate explicitly scoped workflow rather than fabricate an accepted prototype record.
-
-For openPASO/MCP/subprocess execution, read [references/openpaso-backend.md](references/openpaso-backend.md) and [references/runtime-execution-contract.md](references/runtime-execution-contract.md). Probe the selected backend/runtime before expensive work; a handshake is only a capability fact.
-
-Package the evidence appropriate to the stage using [references/result-package.md](references/result-package.md). Center a research report on the physical question, comparisons, mechanism, counterevidence, and bounded conclusions. Put repetitive numerical/governance detail in reproducibility files. Label results exploratory, executed, numerically adequate for a stated QoI/use, validated for a stated domain/use, or not accepted, with actual limitations.
-
-During skill development/workflow debugging, record orchestration defects separately from scientific failures in workflow-defects.md: artifact, reproducing request, false/missed block or lost handoff, repair, and verification result.
+完成意味着：上游要求的可执行工况已处理，实际输出与比较可定位，未完成工况和验证范围已说明，重要反馈已有请求方处置。返回一份结果索引、验证报告及必要资源/修复请求。程序完成、理论核验、实验对比和限定用途的验证分别陈述；研究机制解释交由上游使用这些结果。

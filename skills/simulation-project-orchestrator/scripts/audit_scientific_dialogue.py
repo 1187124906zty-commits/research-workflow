@@ -29,7 +29,7 @@ ALLOWED_PREDECESSOR_TYPES = {
     "RUN_REQUEST": {"RESPONSE", "RUN_RESPONSE"},
     "RESPONSE": {"QUESTION", "COUNTER_QUESTION"},
     "RUN_RESPONSE": {"RUN_REQUEST"},
-    "COUNTER_QUESTION": {"RESPONSE", "RUN_RESPONSE"},
+    "COUNTER_QUESTION": {"RESPONSE", "RUN_RESPONSE", "CLOSURE"},
     "CLOSURE": {"RESPONSE", "RUN_RESPONSE"},
 }
 NONBLOCKING_CLOSURES = {
@@ -38,6 +38,12 @@ NONBLOCKING_CLOSURES = {
     "ANSWERED_BY_DISCRIMINATING_RUN",
     "CORRECTED_CANDIDATE",
     "SCOPED_LIMITATION",
+}
+SUCCESS_CLOSURES = {
+    "ANSWERED_BY_SOURCE",
+    "ANSWERED_BY_REANALYSIS",
+    "ANSWERED_BY_DISCRIMINATING_RUN",
+    "CORRECTED_CANDIDATE",
 }
 
 
@@ -117,6 +123,23 @@ def audit(messages: list[dict], schema: dict) -> dict:
                 f"illegal transition {predecessor.get('message_type')} -> "
                 f"{message.get('message_type')} at {message.get('message_id')}"
             )
+        is_reopen = (
+            message.get("message_type") == "COUNTER_QUESTION"
+            and predecessor.get("message_type") == "CLOSURE"
+        )
+        if is_reopen:
+            if message.get("reopens_closure_id") != predecessor_id:
+                errors.append(
+                    f"{message.get('message_id')} must set reopens_closure_id to {predecessor_id}"
+                )
+            if message.get("sender_role") != predecessor.get("sender_role"):
+                errors.append(
+                    f"{message.get('message_id')} reopen sender is not the original requester"
+                )
+        elif message.get("reopens_closure_id") is not None:
+            errors.append(
+                f"{message.get('message_id')} sets reopens_closure_id outside CLOSURE -> COUNTER_QUESTION"
+            )
         for field in ("thread_id", "project_id", "candidate_revision"):
             if message.get(field) != predecessor.get(field):
                 errors.append(
@@ -132,7 +155,7 @@ def audit(messages: list[dict], schema: dict) -> dict:
         except (KeyError, TypeError, ValueError):
             pass
 
-        if message.get("message_type") in RESPONSE_TYPES | {"COUNTER_QUESTION", "CLOSURE"}:
+        if message.get("message_type") in RESPONSE_TYPES | {"COUNTER_QUESTION", "CLOSURE"} and not is_reopen:
             if message.get("sender_role") not in predecessor.get("receiver_roles", []):
                 errors.append(
                     f"{message.get('message_id')} sender was not a receiver of {predecessor_id}"
@@ -142,7 +165,31 @@ def audit(messages: list[dict], schema: dict) -> dict:
                     f"{message.get('message_id')} does not route back to {predecessor_id} sender"
                 )
 
+        if message.get("message_type") == "CLOSURE":
+            closure_kind = message.get("closure_kind")
+            predecessor_status = predecessor.get("status")
+            if closure_kind in SUCCESS_CLOSURES and predecessor_status != "ANSWERED":
+                errors.append(
+                    f"{message.get('message_id')} {closure_kind} cannot close "
+                    f"{predecessor_status} response {predecessor_id}"
+                )
+
+    # A thread obligation is rooted in the initial request.  All messages retain
+    # the complete set; narrowing is recorded by a SCOPED_LIMITATION closure and
+    # continued in a separate thread rather than silently deleting obligations.
+    for thread_id, items in threads.items():
+        roots = [item for item in items if item.get("predecessor_message_id") is None]
+        if len(roots) == 1:
+            root = roots[0]
+            for item in items:
+                for field in ("affected_claims", "affected_gates"):
+                    if set(item.get(field, [])) != set(root.get(field, [])):
+                        errors.append(
+                            f"{item.get('message_id')} changes root {field} in thread {thread_id}"
+                        )
+
     unanswered_requests: list[str] = []
+    missing_receiver_obligations: list[dict] = []
     missing_requester_dispositions: list[str] = []
     open_stop_lines: list[str] = []
     thread_summaries: list[dict] = []
@@ -153,10 +200,13 @@ def audit(messages: list[dict], schema: dict) -> dict:
             errors.append(f"thread {thread_id} has {len(roots)} roots; expected exactly one")
 
         closures = [item for item in items if item.get("message_type") == "CLOSURE"]
-        blocking_closure = not any(
-            item.get("closure_kind") in NONBLOCKING_CLOSURES for item in closures
+        terminal_closures = [
+            item for item in closures if not children.get(item.get("message_id"), [])
+        ]
+        presently_closed = bool(terminal_closures) and all(
+            item.get("closure_kind") in NONBLOCKING_CLOSURES for item in terminal_closures
         )
-        if any(item.get("stop_line") for item in items) and blocking_closure:
+        if any(item.get("stop_line") for item in items) and not presently_closed:
             open_stop_lines.append(thread_id)
 
         thread_unanswered: list[str] = []
@@ -165,12 +215,24 @@ def audit(messages: list[dict], schema: dict) -> dict:
             item_id = item.get("message_id")
             item_children = children.get(item_id, [])
             if item.get("message_type") in REQUEST_TYPES:
-                has_response = any(
-                    child.get("message_type") in RESPONSE_TYPES for child in item_children
-                )
-                if not has_response:
+                responding_roles = {
+                    child.get("sender_role")
+                    for child in item_children
+                    if child.get("message_type") in RESPONSE_TYPES
+                }
+                missing_roles = sorted(set(item.get("receiver_roles", [])) - responding_roles)
+                if missing_roles:
                     unanswered_requests.append(item_id)
                     thread_unanswered.append(item_id)
+                    missing_receiver_obligations.append(
+                        {
+                            "request_id": item_id,
+                            "thread_id": thread_id,
+                            "missing_receiver_roles": missing_roles,
+                            "affected_claims": item.get("affected_claims", []),
+                            "affected_gates": item.get("affected_gates", []),
+                        }
+                    )
             if item.get("message_type") in RESPONSE_TYPES:
                 requester = identifiers.get(item.get("predecessor_message_id"), {}).get(
                     "sender_role"
@@ -183,6 +245,16 @@ def audit(messages: list[dict], schema: dict) -> dict:
                 if not has_requester_disposition:
                     missing_requester_dispositions.append(item_id)
                     thread_missing_disposition.append(item_id)
+                requester_dispositions = [
+                    child for child in item_children
+                    if child.get("sender_role") == requester
+                    and child.get("message_type") in FOLLOWUP_TYPES
+                ]
+                if len(requester_dispositions) > 1:
+                    errors.append(
+                        f"{item_id} has multiple requester dispositions: "
+                        + ", ".join(child.get("message_id", "<missing>") for child in requester_dispositions)
+                    )
 
         thread_summaries.append(
             {
@@ -198,6 +270,12 @@ def audit(messages: list[dict], schema: dict) -> dict:
 
     if unanswered_requests:
         warnings.append(f"unanswered requests: {', '.join(unanswered_requests)}")
+        warnings.extend(
+            f"request {item['request_id']} missing accountable receiver(s) "
+            f"{', '.join(item['missing_receiver_roles'])} for claims "
+            f"{', '.join(item['affected_claims'])}"
+            for item in missing_receiver_obligations
+        )
     if missing_requester_dispositions:
         warnings.append(
             "responses awaiting requester disposition: "
@@ -218,6 +296,7 @@ def audit(messages: list[dict], schema: dict) -> dict:
         "errors": errors,
         "warnings": warnings,
         "unanswered_request_ids": unanswered_requests,
+        "missing_receiver_obligations": missing_receiver_obligations,
         "response_ids_missing_requester_disposition": missing_requester_dispositions,
         "open_stop_line_threads": open_stop_lines,
         "threads": sorted(thread_summaries, key=lambda item: item["thread_id"]),

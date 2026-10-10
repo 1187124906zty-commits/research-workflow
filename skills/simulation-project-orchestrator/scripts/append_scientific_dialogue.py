@@ -14,7 +14,6 @@ import os
 import sys
 import time
 from contextlib import suppress
-from datetime import datetime
 from pathlib import Path
 
 try:
@@ -23,14 +22,7 @@ except ImportError as exc:  # pragma: no cover - environment-dependent failure p
     raise SystemExit("jsonschema is required to validate dialogue messages") from exc
 
 
-ALLOWED_PREDECESSOR_TYPES = {
-    "QUESTION": set(),
-    "RUN_REQUEST": {"RESPONSE", "RUN_RESPONSE"},
-    "RESPONSE": {"QUESTION", "COUNTER_QUESTION"},
-    "RUN_RESPONSE": {"RUN_REQUEST"},
-    "COUNTER_QUESTION": {"RESPONSE", "RUN_RESPONSE"},
-    "CLOSURE": {"RESPONSE", "RUN_RESPONSE"},
-}
+from audit_scientific_dialogue import audit
 
 
 def parse_args() -> argparse.Namespace:
@@ -85,46 +77,11 @@ def main() -> int:
         os.write(lock_fd, f"pid={os.getpid()}\n".encode())
         os.fsync(lock_fd)
         existing = load_ledger(args.ledger)
-        for prior in existing:
-            validator.validate(prior)
-        identifiers = [item.get("message_id") for item in existing]
-        if len(identifiers) != len(set(identifiers)):
-            raise ValueError("Existing ledger already contains duplicate message_id values")
-        if message["message_id"] in set(identifiers):
-            raise ValueError(f"Duplicate message_id: {message['message_id']}")
-        predecessor = message.get("predecessor_message_id")
-        if predecessor is not None and predecessor not in set(identifiers):
-            raise ValueError(f"Unknown predecessor_message_id: {predecessor}")
-        if predecessor is None and message["message_type"] not in {"QUESTION", "RUN_REQUEST"}:
-            raise ValueError("Only QUESTION or RUN_REQUEST may start a dialogue thread")
-        if predecessor is not None:
-            prior = next(item for item in existing if item["message_id"] == predecessor)
-            if prior["message_type"] not in ALLOWED_PREDECESSOR_TYPES[message["message_type"]]:
-                raise ValueError(
-                    f"Illegal dialogue transition: {prior['message_type']} -> "
-                    f"{message['message_type']}"
-                )
-            if prior["thread_id"] != message["thread_id"]:
-                raise ValueError("Predecessor belongs to a different thread_id")
-            if prior["project_id"] != message["project_id"]:
-                raise ValueError("Predecessor belongs to a different project_id")
-            if prior["candidate_revision"] != message["candidate_revision"]:
-                raise ValueError("Predecessor belongs to a different candidate_revision")
-            prior_time = datetime.fromisoformat(prior["timestamp"].replace("Z", "+00:00"))
-            message_time = datetime.fromisoformat(message["timestamp"].replace("Z", "+00:00"))
-            if message_time < prior_time:
-                raise ValueError("Message timestamp precedes its predecessor")
-            if message["message_type"] in {
-                "RESPONSE", "RUN_RESPONSE", "COUNTER_QUESTION", "CLOSURE"
-            }:
-                if message["sender_role"] not in prior["receiver_roles"]:
-                    raise ValueError(
-                        "Response sender_role was not an accountable receiver of the predecessor"
-                    )
-                if prior["sender_role"] not in message["receiver_roles"]:
-                    raise ValueError(
-                        "Response must route back to the predecessor sender_role"
-                    )
+        proposed = [dict(item, _ledger_line=index) for index, item in enumerate(existing, 1)]
+        proposed.append(dict(message, _ledger_line=len(proposed) + 1))
+        report = audit(proposed, schema)
+        if report["structural_status"] != "PASS":
+            raise ValueError("Dialogue validation failed: " + "; ".join(report["errors"]))
 
         encoded = json.dumps(message, ensure_ascii=False, separators=(",", ":")) + "\n"
         with args.ledger.open("a", encoding="utf-8", newline="\n") as stream:

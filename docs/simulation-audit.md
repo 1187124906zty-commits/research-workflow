@@ -1,5 +1,7 @@
 # 模拟执行组件的效率与证据边界审查
 
+> 历史记录：本文描述拆分前的单体审计，不作为当前加载路由。现行四 Skill 结构与职责见 [仿真 Skills](simulation-skills.md)。
+
 审查对象是用户已有的 `simulation-project-orchestrator`。本次将原 skill 完整复制到仓库的 `skills/simulation-project-orchestrator` 后修改；未直接改动安装目录，也未修改其外部 `simulation-agent-mvp` 程序。原有脚本、schemas 和示例保留。
 
 原组件已经具备很好的方程、来源、数据角色与论断追溯意识，问题主要是不同任务规模的规则混在入口：一个探索性计算容易继承正式复现、最终机制证明与严格运行时治理的全部要求。效率改进要改变任务与证据的适用范围，而不是把失败改成成功。

@@ -14,6 +14,7 @@
     "message_id": {"type": "string", "minLength": 1},
     "thread_id": {"type": "string", "minLength": 1},
     "predecessor_message_id": {"type": ["string", "null"]},
+    "reopens_closure_id": {"type": ["string", "null"]},
     "message_type": {"type": "string", "enum": ["QUESTION", "RESPONSE", "COUNTER_QUESTION", "RUN_REQUEST", "RUN_RESPONSE", "CLOSURE"]},
     "timestamp": {"type": "string", "format": "date-time"},
     "sender_role": {"type": "string", "minLength": 1},
@@ -47,6 +48,7 @@
         "required": ["message_type"]
       },
       "then": {
+        "required": ["competing_explanations", "requested_evidence_or_action", "response_condition"],
         "properties": {
           "competing_explanations": {"minItems": 2},
           "requested_evidence_or_action": {"type": "string", "minLength": 1},
@@ -63,6 +65,7 @@
         "required": ["message_type"]
       },
       "then": {
+        "required": ["predecessor_message_id"],
         "properties": {
           "predecessor_message_id": {"type": "string", "minLength": 1},
           "status": {"enum": ["PARTIAL", "ANSWERED", "UNRESOLVED"]}
@@ -75,9 +78,14 @@
         "required": ["message_type"]
       },
       "then": {
+        "required": ["predecessor_message_id"],
         "properties": {
           "predecessor_message_id": {"type": "string", "minLength": 1}
-        }
+        },
+        "allOf": [{
+          "if": {"required": ["reopens_closure_id"]},
+          "then": {"properties": {"reopens_closure_id": {"type": "string", "minLength": 1}}}
+        }]
       }
     },
     {
@@ -86,6 +94,7 @@
         "required": ["message_type"]
       },
       "then": {
+        "required": ["predecessor_message_id", "closure_kind"],
         "properties": {
           "predecessor_message_id": {"type": "string", "minLength": 1},
           "status": {"const": "CLOSED"},

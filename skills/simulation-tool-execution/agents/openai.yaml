@@ -1,0 +1,6 @@
+interface:
+  display_name: "Simulation Tool Execution"
+  short_description: "Execute specified simulation cases with traceable native outputs"
+  default_prompt: "Use $simulation-tool-execution to run the supplied simulation cases and return traceable native outputs and run status."
+policy:
+  allow_implicit_invocation: true

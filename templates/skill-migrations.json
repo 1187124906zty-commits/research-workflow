@@ -1,0 +1,33 @@
+{
+  "research-workflow-governor": [
+    "references/scientific-story-handoffs.md"
+  ],
+  "simulation-project-orchestrator": [
+    "examples/scientific-closed-loop.jsonl",
+    "references/agent-assignment.schema.json",
+    "references/agent-opinion.schema.json",
+    "references/application-strategy.md",
+    "references/collaboration-bundle.schema.json",
+    "references/dissent-record.schema.json",
+    "references/domain-research-mode.md",
+    "references/gate-result.schema.json",
+    "references/gates.md",
+    "references/general-task-start.md",
+    "references/literature-validation.md",
+    "references/local-mvp.md",
+    "references/mechanism-analysis-plan.schema.json",
+    "references/mechanism-result-analysis.md",
+    "references/method-review.md",
+    "references/multi-agent-governance.md",
+    "references/openpaso-backend.md",
+    "references/physics-contract.schema.json",
+    "references/pre-solver-preflight.md",
+    "references/project-objects.md",
+    "references/research-efficiency.md",
+    "references/result-package.md",
+    "references/runtime-execution-contract.md",
+    "references/scientific-dialogue.md",
+    "references/simulation-spec.schema.json",
+    "references/validation-contract.schema.json"
+  ]
+}
