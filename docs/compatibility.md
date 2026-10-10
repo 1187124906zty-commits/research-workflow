@@ -113,3 +113,11 @@ FEM、CFD、DEM、PINN 等属于 skill 的方法范围，不是已逐软件测�
 - [PaperSpine 上游项目](https://github.com/WUBING2023/PaperSpine)
 
 兼容性结论应同时写明软件版本、宿主能力、实际执行路径与尚未核验的边界，避免从一个入口可读或文件可解析推断完整科研流程已经支持。
+
+## 8. 写作技能接口（2026-10-10）
+
+[写作衔接](../skills/research-workflow-governor/references/writing-integration.md)区分PaperSpine只读规划、指定文件写作与产品流程。通用research-writing-skill是可选能力，不增加运行时依赖；缺失时仍可使用本包写作方法。当前协调者负责科学状态，写作任务返回原协调者；已选PaperSpine产品保留真实入口、有效配置与交付要求。MAF既有任务不迁入第二套调度器。
+
+本增量只调整governor及写作角色的接口说明，没有修改PaperSpine管理文件、模型设置、Python状态协议或用户研究。技能结构、标准回归、实际CLI交接及有界独立试用分别验证；未将文件交接检查表述为运行过所有外部产品。
+
+本分支实际通过42项标准测试、skill-creator入口校验和CLI写作交接演示（最终`protocol_ok: true`）。独立试用交付了一段设计稿并返回原协调者，未修改共享科学状态或编造验证结果。该证据支持有界文件写作接口，不构成PaperSpine产品或跨模型写作质量的完整验证。
