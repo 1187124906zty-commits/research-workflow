@@ -20,7 +20,7 @@ Missing evidence comes back as the affected claim, needed information and a feas
 
 ## Other optional writing skills
 
-The general writing skill coordinates structured drafting, literature-grounded early framing and expression. `concrete-structured-writing` calibrates material quantities and transport relations. `academic-writing-guide` can supply one relevant teaching card; `academic-paper-writing` can supply formal notation or response-letter guidance. `good-story` and available humanizers answer bounded story or prose questions. Do not load their full instruction stacks into every writer request.
+The general writing skill connects the scientific problem, method's research role and resulting understanding through structured prose. Its interdisciplinary guide helps bridge different fields without juxtaposing their histories. `concrete-structured-writing` develops this argument in material-science language. Reuse confirmed models and terms; verify affected technical details when a real ambiguity or contradiction appears. `academic-writing-guide` can supply one relevant teaching card; `academic-paper-writing` can supply formal notation or response-letter guidance. `good-story` and available humanizers answer bounded story or prose questions. Do not load their full instruction stacks into every writer request.
 
 ARS aliases and ML/CV/NLP writing workflows have their own entry and presentation contracts. Preserve an explicit user choice; do not silently use those workflows as the default for material-science writing. MAF already has its own coordinator and explicit writing-selection metadata: its active tasks stay there rather than being recreated in ResearchFlow.
 
@@ -28,6 +28,6 @@ The optional [Scientific Writing Library](https://github.com/1187124906zty-commi
 
 ## Judge the actual return
 
-Check scientific terms, quantities, conditions, evidence roles and adjacent information flow. A Methods subsection introduces its scientific purpose before equations; Results uses comparisons to establish findings; a caption defines necessary information without duplicating its legend. Stronger prose cannot create parameter identifiability, physical validation or generalization outside the tested conditions.
+First read the research argument: can readers follow the domain problem, why the chosen method matters and what the evidence changes? Examine sentence continuity and domain-appropriate expression while preserving confirmed facts. A Methods subsection introduces its scientific purpose before equations; Results uses comparisons to establish findings; a caption defines necessary information without duplicating its legend. Investigate specific scientific ambiguities when they affect the passage rather than replacing writing with a technical checklist. Stronger prose cannot create parameter identifiability, physical validation or generalization outside the tested conditions.
 
 Accept, partially accept or return specific consequential findings with reasons. A successful writing handoff does not promote a scientific claim or certify journal readiness. Stop when the contracted question is answered; do not add another complete review simply because another writing skill is installed.
